@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://neexee.github.io/about/</loc>
+    <lastmod>2019-07-10T11:19:36+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://neexee.github.io/</loc>
+    <lastmod>2019-07-10T11:12:50+07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://neexee.github.io/posts/</loc>
     <lastmod>2019-07-10T11:12:50+07:00</lastmod>
     <priority>0</priority>
@@ -10,12 +20,6 @@
   
   <url>
     <loc>https://neexee.github.io/tags/</loc>
-    <lastmod>2019-07-10T11:12:50+07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://neexee.github.io/</loc>
     <lastmod>2019-07-10T11:12:50+07:00</lastmod>
     <priority>0</priority>
   </url>
