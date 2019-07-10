@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on Top picks</title>
+    <link>https://neexee.github.io/tags/python/</link>
+    <description>Recent content in python on Top picks</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 Jul 2019 11:12:50 +0700</lastBuildDate>
+    
+	<atom:link href="https://neexee.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Typed Python</title>
+      <link>https://neexee.github.io/posts/python-typehints/</link>
+      <pubDate>Wed, 10 Jul 2019 11:12:50 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/posts/python-typehints/</guid>
+      <description>Here&amp;rsquo;s an example of typed Python.
+import itertools from typing import Callable, Iterable, List, Tuple, TypeVar A = TypeVar(&amp;#39;A&amp;#39;) B = TypeVar(&amp;#39;B&amp;#39;) def groupby_eager(iterable: Iterable[A], key: Callable[[A], B]) -&amp;gt; List[Tuple[B, List[A]]]: groups = itertools.groupby(sorted(iterable, key=key), key=key) return [ (group_name, list(group)) for group_name, group in groups ]</description>
+    </item>
+    
+  </channel>
+</rss>

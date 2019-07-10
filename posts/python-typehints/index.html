@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://neexee.github.io/css/bootstrap.min.css">
   
   
-  <title>Tags | Top picks</title>
+  <title>Typed Python | Top picks</title>
   <style>
 .container {
   max-width: 700px;
@@ -121,13 +121,11 @@ audio {
       
       
       
-       
-        
         
       
     
     
-    <a class="nav-link nav-link-active" href="/tags/"><i data-feather="tag"></i> Tags</a>
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
   
     
     
@@ -147,30 +145,23 @@ audio {
       <main id="main">
         
 
-<h1>Tags</h1>
+<h1>Typed Python</h1>
+<p>Here&rsquo;s an example of typed Python.</p>
+<div class="highlight"><pre style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#008000;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">itertools</span>
+<span style="color:#008000;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">typing</span> <span style="color:#008000;font-weight:bold">import</span> Callable, Iterable, List, Tuple, TypeVar
 
 
+A <span style="color:#666">=</span> TypeVar(<span style="color:#ba2121">&#39;A&#39;</span>)
+B <span style="color:#666">=</span> TypeVar(<span style="color:#ba2121">&#39;B&#39;</span>)
 
-  
-  
-  
-  <p>
-    <a class="btn btn-outline-dark font-125" href="https://neexee.github.io/tags/python/">
-      <span class="badge badge-dark">1</span> python
-    </a>
-  </p>
-  
 
-  
-  
-  
-  <p>
-    <a class="btn btn-outline-dark font-125" href="https://neexee.github.io/tags/teaching/">
-      <span class="badge badge-dark">1</span> teaching
-    </a>
-  </p>
-  
-
+<span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">groupby_eager</span>(iterable: Iterable[A],
+                  key: Callable[[A], B]) <span style="color:#666">-&gt;</span> List[Tuple[B, List[A]]]:
+    groups <span style="color:#666">=</span> itertools<span style="color:#666">.</span>groupby(<span style="color:#008000">sorted</span>(iterable, key<span style="color:#666">=</span>key), key<span style="color:#666">=</span>key)
+    <span style="color:#008000;font-weight:bold">return</span> [
+        (group_name, <span style="color:#008000">list</span>(group))
+        <span style="color:#008000;font-weight:bold">for</span> group_name, group <span style="color:#a2f;font-weight:bold">in</span> groups
+    ]</code></pre></div>
 
 
       </main>
