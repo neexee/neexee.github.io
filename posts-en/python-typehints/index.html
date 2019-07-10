@@ -1,0 +1,187 @@
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="Hugo 0.55.6" />
+  <link rel="stylesheet" href="https://neexee.github.io/css/bootstrap.min.css">
+  
+  
+  <title>Typed Python | Top picks</title>
+  <style>
+.container {
+  max-width: 700px;
+}
+#nav a {
+  font-weight: bold;
+  color: inherit;
+}
+#nav a.nav-link-active {
+  background-color: #212529;
+  color: #fff;
+}
+#nav-border {
+  border-bottom: 1px solid #212529;
+}
+#main {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+#home-jumbotron {
+  background-color: inherit;
+}
+#footer .container {
+  padding: 1em 0;
+}
+#footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+.font-125 {
+  font-size: 125%;
+}
+.tag-btn {
+  margin-bottom: 0.3em;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit; 
+  background-color: transparent;
+  border-radius: 0;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+img,
+iframe,
+embed,
+video,
+audio {
+  max-width: 100%;
+}
+</style>
+</head>
+  <body class="d-flex flex-column h-100">
+    <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+  
+  
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/posts-en/"><i data-feather="edit"></i> Blog (En)</a>
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/posts-ru/"><i data-feather="edit"></i> Blog (Ru)</a>
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/about/"><i data-feather="at-sign"></i> About</a>
+  
+  </nav>
+</div>
+    <div class="container">
+      <main id="main">
+        
+
+<h1>Typed Python</h1>
+<p>Here&rsquo;s an example of typed Python.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> <span style="color:#111">itertools</span>
+<span style="color:#f92672">from</span> <span style="color:#111">typing</span> <span style="color:#f92672">import</span> <span style="color:#111">Callable</span><span style="color:#111">,</span> <span style="color:#111">Iterable</span><span style="color:#111">,</span> <span style="color:#111">List</span><span style="color:#111">,</span> <span style="color:#111">Tuple</span><span style="color:#111">,</span> <span style="color:#111">TypeVar</span>
+
+
+<span style="color:#111">A</span> <span style="color:#f92672">=</span> <span style="color:#111">TypeVar</span><span style="color:#111">(</span><span style="color:#d88200">&#39;A&#39;</span><span style="color:#111">)</span>
+<span style="color:#111">B</span> <span style="color:#f92672">=</span> <span style="color:#111">TypeVar</span><span style="color:#111">(</span><span style="color:#d88200">&#39;B&#39;</span><span style="color:#111">)</span>
+
+
+<span style="color:#00a8c8">def</span> <span style="color:#75af00">groupby_eager</span><span style="color:#111">(</span><span style="color:#111">iterable</span><span style="color:#111">:</span> <span style="color:#111">Iterable</span><span style="color:#111">[</span><span style="color:#111">A</span><span style="color:#111">],</span>
+                  <span style="color:#111">key</span><span style="color:#111">:</span> <span style="color:#111">Callable</span><span style="color:#111">[[</span><span style="color:#111">A</span><span style="color:#111">],</span> <span style="color:#111">B</span><span style="color:#111">])</span> <span style="color:#f92672">-&gt;</span> <span style="color:#111">List</span><span style="color:#111">[</span><span style="color:#111">Tuple</span><span style="color:#111">[</span><span style="color:#111">B</span><span style="color:#111">,</span> <span style="color:#111">List</span><span style="color:#111">[</span><span style="color:#111">A</span><span style="color:#111">]]]:</span>
+    <span style="color:#111">groups</span> <span style="color:#f92672">=</span> <span style="color:#111">itertools</span><span style="color:#f92672">.</span><span style="color:#111">groupby</span><span style="color:#111">(</span><span style="color:#111">sorted</span><span style="color:#111">(</span><span style="color:#111">iterable</span><span style="color:#111">,</span> <span style="color:#111">key</span><span style="color:#f92672">=</span><span style="color:#111">key</span><span style="color:#111">),</span> <span style="color:#111">key</span><span style="color:#f92672">=</span><span style="color:#111">key</span><span style="color:#111">)</span>
+    <span style="color:#00a8c8">return</span> <span style="color:#111">[</span>
+        <span style="color:#111">(</span><span style="color:#111">group_name</span><span style="color:#111">,</span> <span style="color:#111">list</span><span style="color:#111">(</span><span style="color:#111">group</span><span style="color:#111">))</span>
+        <span style="color:#00a8c8">for</span> <span style="color:#111">group_name</span><span style="color:#111">,</span> <span style="color:#111">group</span> <span style="color:#f92672">in</span> <span style="color:#111">groups</span>
+    <span style="color:#111">]</span></code></pre></div>
+
+
+      </main>
+    </div>
+    
+    <script src="https://neexee.github.io/js/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+
+    
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'UA-123456789-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  </body>
+</html>

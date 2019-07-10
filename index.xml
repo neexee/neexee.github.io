@@ -22,10 +22,10 @@
     
     <item>
       <title>Typed Python</title>
-      <link>https://neexee.github.io/posts/python-typehints/</link>
+      <link>https://neexee.github.io/posts-en/python-typehints/</link>
       <pubDate>Wed, 10 Jul 2019 11:12:50 +0700</pubDate>
       
-      <guid>https://neexee.github.io/posts/python-typehints/</guid>
+      <guid>https://neexee.github.io/posts-en/python-typehints/</guid>
       <description>Here&amp;rsquo;s an example of typed Python.
 import itertools from typing import Callable, Iterable, List, Tuple, TypeVar A = TypeVar(&amp;#39;A&amp;#39;) B = TypeVar(&amp;#39;B&amp;#39;) def groupby_eager(iterable: Iterable[A], key: Callable[[A], B]) -&amp;gt; List[Tuple[B, List[A]]]: groups = itertools.groupby(sorted(iterable, key=key), key=key) return [ (group_name, list(group)) for group_name, group in groups ]</description>
     </item>
@@ -36,8 +36,8 @@ import itertools from typing import Callable, Iterable, List, Tuple, TypeVar A =
       <pubDate>Sat, 22 Dec 2018 11:23:41 +0700</pubDate>
       
       <guid>https://neexee.github.io/posts-ru/informatics-interesting/</guid>
-      <description>Что можно поделать интересного? Читать материалы курса Темы в табличку я вставлял не для того, чтобы морочить тебе голову. Любая ссылка оттуда очень интересная и полезная (если разбираться в теме не для галочки или в поисках копипасты для слайдов). В моём рассказе с первой пары тоже целая куча ссылок на качественные и интересные ресурсы.
-Разобраться, как делать слайды Лучше не брать пример с людей, которые провели ощутимый кусок жизни в доцифровой эпохе.</description>
+      <description>Читать материалы курса Темы в табличку я вставлял не для того, чтобы морочить тебе голову. Любая ссылка оттуда очень интересная и полезная (если разбираться в теме не для галочки или в поисках копипасты для слайдов). В моём рассказе с первой пары тоже целая куча ссылок на качественные и интересные ресурсы.
+Разобраться, как делать слайды Лучше не брать пример с людей, которые провели ощутимый кусок жизни в доцифровой эпохе. Пока не поздно, почитай советы по созданию слайдов.</description>
     </item>
     
   </channel>

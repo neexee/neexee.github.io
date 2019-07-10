@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts-rus on Top picks</title>
+    <title>Top picks</title>
     <link>https://neexee.github.io/posts-ru/</link>
-    <description>Recent content in Posts-rus on Top picks</description>
+    <description>Recent content on Top picks</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 22 Dec 2018 11:23:41 +0700</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jul 2019 11:12:50 +0700</lastBuildDate>
     
 	<atom:link href="https://neexee.github.io/posts-ru/index.xml" rel="self" type="application/rss+xml" />
     
@@ -17,8 +17,8 @@
       <pubDate>Sat, 22 Dec 2018 11:23:41 +0700</pubDate>
       
       <guid>https://neexee.github.io/posts-ru/informatics-interesting/</guid>
-      <description>Что можно поделать интересного? Читать материалы курса Темы в табличку я вставлял не для того, чтобы морочить тебе голову. Любая ссылка оттуда очень интересная и полезная (если разбираться в теме не для галочки или в поисках копипасты для слайдов). В моём рассказе с первой пары тоже целая куча ссылок на качественные и интересные ресурсы.
-Разобраться, как делать слайды Лучше не брать пример с людей, которые провели ощутимый кусок жизни в доцифровой эпохе.</description>
+      <description>Читать материалы курса Темы в табличку я вставлял не для того, чтобы морочить тебе голову. Любая ссылка оттуда очень интересная и полезная (если разбираться в теме не для галочки или в поисках копипасты для слайдов). В моём рассказе с первой пары тоже целая куча ссылок на качественные и интересные ресурсы.
+Разобраться, как делать слайды Лучше не брать пример с людей, которые провели ощутимый кусок жизни в доцифровой эпохе. Пока не поздно, почитай советы по созданию слайдов.</description>
     </item>
     
   </channel>

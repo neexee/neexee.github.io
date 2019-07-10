@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>python on Top picks</title>
-    <link>https://neexee.github.io/tags/python/</link>
-    <description>Recent content in python on Top picks</description>
+    <title>Top picks</title>
+    <link>https://neexee.github.io/posts-en/</link>
+    <description>Recent content on Top picks</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 10 Jul 2019 11:12:50 +0700</lastBuildDate>
     
-	<atom:link href="https://neexee.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://neexee.github.io/posts-en/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
