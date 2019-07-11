@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>concurrency on Picky speaker</title>
+    <link>https://neexee.github.io/tags/concurrency/</link>
+    <description>Recent content in concurrency on Picky speaker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 23 Sep 2018 10:40:02 +0700</lastBuildDate>
+    
+	<atom:link href="https://neexee.github.io/tags/concurrency/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Вопросы о параллельном программировании</title>
+      <link>https://neexee.github.io/posts-ru/operating-systems-multithreading/</link>
+      <pubDate>Sun, 23 Sep 2018 10:40:02 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/posts-ru/operating-systems-multithreading/</guid>
+      <description>Что это В 2018 году я вёл практикум «Многопоточное программирование» в НГУ. Это шпаргалка с темами для разговора со студентами. Список задач
+Лабораторные 1-4  Что такое поток, как он выглядит в памяти? Чем отличаются процесс и поток? Чем отличаются fork() и pthread_create()? Как ОС выделяет процессорное время для потоков и процессов? Планировщик по-разному относится к потокам и процессам? Можно ли сделать свой собственный планировщик потоков (в обход ОС)? Это где-нибудь применяется?</description>
+    </item>
+    
+  </channel>
+</rss>

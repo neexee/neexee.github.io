@@ -46,6 +46,17 @@
   </url>
   
   <url>
+    <loc>https://neexee.github.io/tags/teaching/</loc>
+    <lastmod>2019-02-08T10:48:58+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://neexee.github.io/posts-ru/operating-systems-nsu/</loc>
+    <lastmod>2019-02-08T10:48:58+07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://neexee.github.io/posts-ru/english/</loc>
     <lastmod>2019-02-05T11:23:41+07:00</lastmod>
   </url>
@@ -57,14 +68,19 @@
   </url>
   
   <url>
-    <loc>https://neexee.github.io/tags/teaching/</loc>
-    <lastmod>2019-02-05T11:23:41+07:00</lastmod>
+    <loc>https://neexee.github.io/posts-ru/informatics-interesting/</loc>
+    <lastmod>2018-12-22T11:23:41+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://neexee.github.io/tags/concurrency/</loc>
+    <lastmod>2018-09-23T10:40:02+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://neexee.github.io/posts-ru/informatics-interesting/</loc>
-    <lastmod>2018-12-22T11:23:41+07:00</lastmod>
+    <loc>https://neexee.github.io/posts-ru/operating-systems-multithreading/</loc>
+    <lastmod>2018-09-23T10:40:02+07:00</lastmod>
   </url>
   
 </urlset>

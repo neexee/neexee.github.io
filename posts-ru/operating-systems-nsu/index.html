@@ -1,0 +1,241 @@
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="Hugo 0.55.6" />
+  <link rel="stylesheet" href="https://neexee.github.io/css/bootstrap.min.css">
+  
+  
+  <title>Системные вызовы UNIX | Picky speaker</title>
+  <style>
+.container {
+  max-width: 700px;
+}
+#nav a {
+  font-weight: bold;
+  color: inherit;
+}
+#nav a.nav-link-active {
+  background-color: #212529;
+  color: #fff;
+}
+#nav-border {
+  border-bottom: 1px solid #212529;
+}
+#main {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+#home-jumbotron {
+  background-color: inherit;
+}
+#footer .container {
+  padding: 1em 0;
+}
+#footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+.font-125 {
+  font-size: 125%;
+}
+.tag-btn {
+  margin-bottom: 0.3em;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit; 
+  background-color: transparent;
+  border-radius: 0;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+img,
+iframe,
+embed,
+video,
+audio {
+  max-width: 100%;
+}
+</style>
+</head>
+  <body class="d-flex flex-column h-100">
+    <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+  
+  
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/posts-en/"><i data-feather="edit"></i> Blog (En)</a>
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/posts-ru/"><i data-feather="edit"></i> Blog (Ru)</a>
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/about/"><i data-feather="at-sign"></i> About</a>
+  
+  </nav>
+</div>
+    <div class="container">
+      <main id="main">
+        
+
+<h1>Системные вызовы UNIX</h1>
+
+
+<h2 id="что-это">Что это</h2>
+
+<p>В 2019 году я вёл курс ОС в НГУ. Это шпаргалка с примерными темами для разговора со студентами. <a href="http://ccfit.nsu.ru/~deviv/courses/unix/tasks.html">Задачки здесь</a>.</p>
+
+<p>К сожалению, у меня не было времени написать шпаргалку для всех лаб, но примерно до десятой добралось мало студентов. И к тому времени они уже представляли, что я могу от них захотеть.</p>
+
+<p>Правила</p>
+
+<ul>
+<li>Cпрашиваю рандомные вопросы, поэтому лучше знать все ответы знать заранее.</li>
+<li>Жирным выделено то, что я гарантированно спрошу у каждого.</li>
+<li>Список вопросов не полный. Как минимум, я могу  попросить рассказать про любую функцию, переменную или тип в программе.</li>
+</ul>
+
+<h2 id="задачи-1-4">Задачи 1-4</h2>
+
+<ul>
+<li>В заголовке заданий написано &ldquo;SVR4&rdquo;. Что это такое? Кто и когда это сделал? Почему это настолько знаменитая аббревиатура, что мы её изучаем в этом курсе?</li>
+<li><em>Что такое процесс?</em> Более специфичный вопрос: если бы мне нужно было реализовать процессы, какая структура данных мне понадобилась бы? Какие у нее поля? <em>Что такое контекст процесса?</em> Рекомендую прочитать <a href="https://manybutfinite.com/post/anatomy-of-a-program-in-memory/">Anatomy of a Program in Memory</a>.</li>
+<li><em>Что такое системный вызов?</em></li>
+<li>Что такое системный и пользовательский режим процессора? <em>Как происходит переключение между ними?</em> Более специфичный вопрос: что лежит на стеке и в регистрах в момент переключения между режимами?</li>
+<li>Где на файловой системе лежат исходники (Solaris или Linux), в которых перечислены все номера системных вызовов? Как можно вызвать системный вызов, если он реализован в ядре, а в библиотеке C обёртки его (ещё) нет?</li>
+<li><em>Что такое прерывание?</em> Какие прерывания бывают? Зачем нужны приоритеты прерываний?</li>
+<li>Что такое errno, <em>откуда берется её значение?</em></li>
+<li>Что такое реальный и эффективный идентификатор пользователя и группы? Зачем они нужны? Где они хранятся в памяти?</li>
+<li>Зачем процессу становиться лидером группы?</li>
+<li>Какие PID&rsquo;ы бывают (какой смысл и значения у pid_t)? Зачем они нужны?</li>
+<li>Зачем нужно понятие &ldquo;рабочей директории&rdquo;?</li>
+<li>Какие лимиты в ulimit есть? Как их посмотреть в консоли? Как их поменять? И зачем их менять?</li>
+<li>Почему core-файл называется core? Что в нём? Почему он небольшой, ведь по логике он должен быть размером со всю виртуальную память? Как его использовать для отладки?</li>
+<li>Где в памяти лежат переменные среды? Откуда они берутся?</li>
+<li>Какая точность у time и localtime? Откуда ОС узнает о таймзонах? Где файлы с таймзонами на файловой системе? Кто их обновляет?</li>
+<li>Как работает sticky bit? Зачем он нужен? Какие ошибки бывают у setuid и как их вызвать? Как реализована программа chmod?</li>
+<li><em>Что такое виртуальная память?</em> Как сделан malloc? Откуда берутся страницы для стека? Как сделан free? Что такое TLB? В кэшах процессора хранятся виртуальные или физические адреса? <em>Что такое size_t?</em></li>
+<li>gets можно использовать?</li>
+</ul>
+
+<h2 id="задачи-5-7">Задачи 5-7</h2>
+
+<ul>
+<li><em>Что такое файл?</em> Что такое каталог?</li>
+<li>Какие атрибуты есть у файлов? Как файл хранится на диске? <em>Что такое inode?</em></li>
+<li>Как примерно выглядит структура, описывающая файл в ядре? Что такое vnode?</li>
+<li>Что значит off_t?</li>
+<li>Что делает open()? Зачем нужен O_APPEND?</li>
+<li>Как примерно реализованы внутри read(), write()? Там внутри буферы какие-то, можно их отключить или настроить их размер? Зачем они нужны?</li>
+<li>Что делает close()? Меня интересуют шаги, которые эта функция делает. Что происходит, если мы не вызываем close(), а программа завершается?</li>
+<li>Как реализовать задачу №5 на бесконечном файле? Такие файлы вообще бывают?</li>
+<li><em>Можно ли реализовать read() и write() через mmap()? Зачем нужны анонимные маппинги?</em> Какие флаги есть у mmap, что они все значат?</li>
+</ul>
+
+<h2 id="задача-8">Задача 8</h2>
+
+<ul>
+<li>В чём разница между допустимым и обязательным захватыванием?</li>
+<li>В чём разница между flock, lockf и fcntl для блокировки файлов?</li>
+<li>Придумайте пример, зачем в реальной жизни нужны блокировки файлов. Как насчёт того, чтобы не писать в своей программе код с flock(), а просто использовать уже готовую программу flock (man -s 1 flock)?</li>
+</ul>
+
+<h2 id="задачи-9-11">Задачи 9-11</h2>
+
+<ul>
+<li>Какие шаги делает fork()? <em>Какие данные у родителя и потомка общие, а какие свои?</em> Как можно избежать полного копирования всей виртуальной памяти родителя при fork()?</li>
+<li>Какие шаги внутри делает exec()?</li>
+<li>Зачем нужен wait? В каком состоянии может быть процесс в любой момент своей жизни? Какую информацию может получить родитель о завершившемся потомке?</li>
+<li><em>Как процесс-потомок может передать код своего завершения родителю? Зачем нужны разные коды завершения?</em></li>
+</ul>
+
+
+
+      </main>
+    </div>
+    
+    <script src="https://neexee.github.io/js/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+
+    
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'UA-123456789-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  </body>
+</html>
