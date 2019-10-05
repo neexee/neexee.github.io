@@ -12,6 +12,17 @@
     
     
     <item>
+      <title>PocketBook Quote Export</title>
+      <link>https://neexee.github.io/posts-en/pocketbook-quotes/pocketbook-quotes/</link>
+      <pubDate>Sat, 05 Oct 2019 20:23:53 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/posts-en/pocketbook-quotes/pocketbook-quotes/</guid>
+      <description>It&amp;rsquo;s painful to take out quotes from PocketBook using PocketBook itself. The interface is slow and the default reader app (the best one in my opinion) has no option for bulk imports of quotes.
+So I wrote a simple script to extract &amp;amp; transform quotes from the internal PocketBook DB.
+The PocketBook database schema   The quote extractor You may want to change the default path of the DB, filter_quote, transform_quote and print_results.</description>
+    </item>
+    
+    <item>
       <title>Antifragile</title>
       <link>https://neexee.github.io/posts-en/antifragile/</link>
       <pubDate>Sun, 08 Sep 2019 14:26:47 +0700</pubDate>

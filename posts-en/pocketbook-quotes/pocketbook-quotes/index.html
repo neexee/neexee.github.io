@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://neexee.github.io/css/blockquote.css">
   
   
-  <title> | Picky speaker</title>
+  <title>PocketBook Quote Export | Picky speaker</title>
   <style>
 .container {
   max-width: 800px;
@@ -98,13 +98,11 @@ audio {
       
       
       
-       
-        
         
       
     
     
-    <a class="nav-link nav-link-active" href="/posts-en/"><i data-feather="edit"></i> Blog (En)</a>
+    <a class="nav-link " href="/posts-en/"><i data-feather="edit"></i> Blog (En)</a>
   
     
     
@@ -148,51 +146,25 @@ audio {
       <main id="main">
         
 
-<h1></h1>
+<h1>PocketBook Quote Export</h1>
 
 
-<p>
-  <a class="font-125" href="https://neexee.github.io/posts-en/pocketbook-quotes/pocketbook-quotes/">PocketBook Quote Export</a>
-  <br>
-  
+<p>It&rsquo;s painful to take out quotes from PocketBook using PocketBook itself.
+The interface is slow and the default reader app (the best one in my opinion) has no option for bulk imports of quotes.</p>
 
-<i data-feather="calendar"></i> <time datetime="2019-10-05">Oct 5, 2019</time>
+<p>So I wrote a simple script to extract &amp; transform quotes from the internal PocketBook DB.</p>
 
-</p>
+<h2 id="the-pocketbook-database-schema">The PocketBook database schema</h2>
 
-<p>
-  <a class="font-125" href="https://neexee.github.io/posts-en/antifragile/">Antifragile</a>
-  <br>
-  
+<figure>
+    <img src="../schema.png"/> 
+</figure>
 
-<i data-feather="calendar"></i> <time datetime="2019-09-08">Sep 8, 2019</time>
 
-  <br>
-  <i data-feather="tag"></i>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://neexee.github.io/tags/books">books</a>
-  
+<h2 id="the-quote-extractor">The quote extractor</h2>
 
-</p>
-
-<p>
-  <a class="font-125" href="https://neexee.github.io/posts-en/python-typehints/">The beauty of typed Python</a>
-  <br>
-  
-
-<i data-feather="calendar"></i> <time datetime="2019-07-10">Jul 10, 2019</time>
-
-  <br>
-  <i data-feather="tag"></i>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://neexee.github.io/tags/python">python</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://neexee.github.io/tags/programming">programming</a>
-  
-
+<p>You may want to change the default path of the DB, <code>filter_quote</code>, <code>transform_quote</code> and <code>print_results</code>.
+<script type="application/javascript" src="https://gist.github.com/neexee/4be38854188621cb5f12cad950ff8d9d.js"></script>
 </p>
 
 
