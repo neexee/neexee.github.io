@@ -6,10 +6,21 @@
     <description>Recent content in python on Picky speaker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 10 Jul 2019 11:12:50 +0700</lastBuildDate>
+    <lastBuildDate>Sat, 05 Oct 2019 20:23:53 +0700</lastBuildDate>
     
 	<atom:link href="https://neexee.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>PocketBook Quote Export</title>
+      <link>https://neexee.github.io/posts-en/pocketbook-quotes/pocketbook-quotes/</link>
+      <pubDate>Sat, 05 Oct 2019 20:23:53 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/posts-en/pocketbook-quotes/pocketbook-quotes/</guid>
+      <description>It&amp;rsquo;s painful to take out quotes from PocketBook using PocketBook itself. The interface is slow and the default reader app (the best one in my opinion) has no option for bulk imports of quotes.
+So I wrote a simple script to extract &amp;amp; transform quotes from the internal PocketBook DB.
+The PocketBook database schema   The quote extractor You may want to change the default path of the DB, filter_quote, transform_quote and print_results.</description>
+    </item>
     
     <item>
       <title>The beauty of typed Python</title>

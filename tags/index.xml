@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Picky speaker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 08 Sep 2019 14:26:47 +0700</lastBuildDate>
+    <lastBuildDate>Sat, 05 Oct 2019 20:23:53 +0700</lastBuildDate>
     
 	<atom:link href="https://neexee.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>books</title>
       <link>https://neexee.github.io/tags/books/</link>
-      <pubDate>Sun, 08 Sep 2019 14:26:47 +0700</pubDate>
+      <pubDate>Sat, 05 Oct 2019 20:23:53 +0700</pubDate>
       
       <guid>https://neexee.github.io/tags/books/</guid>
       <description></description>
@@ -23,18 +23,45 @@
     <item>
       <title>programming</title>
       <link>https://neexee.github.io/tags/programming/</link>
-      <pubDate>Wed, 10 Jul 2019 11:12:50 +0700</pubDate>
+      <pubDate>Sat, 05 Oct 2019 20:23:53 +0700</pubDate>
       
       <guid>https://neexee.github.io/tags/programming/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>projects</title>
+      <link>https://neexee.github.io/tags/projects/</link>
+      <pubDate>Sat, 05 Oct 2019 20:23:53 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/tags/projects/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>python</title>
       <link>https://neexee.github.io/tags/python/</link>
-      <pubDate>Wed, 10 Jul 2019 11:12:50 +0700</pubDate>
+      <pubDate>Sat, 05 Oct 2019 20:23:53 +0700</pubDate>
       
       <guid>https://neexee.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>non-fiction</title>
+      <link>https://neexee.github.io/tags/non-fiction/</link>
+      <pubDate>Sun, 08 Sep 2019 14:26:47 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/tags/non-fiction/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>quotes</title>
+      <link>https://neexee.github.io/tags/quotes/</link>
+      <pubDate>Sun, 08 Sep 2019 14:26:47 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/tags/quotes/</guid>
       <description></description>
     </item>
     
