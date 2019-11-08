@@ -20,5 +20,15 @@
       <description>Awesome book, joy to read. It&amp;rsquo;s dense, but written in a cheerful tone. The author knows a lot about web security. It&amp;rsquo;s not bound to a narrow set of technologies, frameworks, OSes or browsers. It touches a little bit of everything. But it doesn&amp;rsquo;t make it shallow. I wasn&amp;rsquo;t aware about 90% of information presented in this book. It has no cumbersome and useless terms security charlatans like. It&amp;rsquo;s very practical and full of advice.</description>
     </item>
     
+    <item>
+      <title>Release it! Second edition</title>
+      <link>https://neexee.github.io/posts-en/release-it/</link>
+      <pubDate>Tue, 09 Oct 2018 14:26:47 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/posts-en/release-it/</guid>
+      <description>Faults and cracks:
+ Fault. A condition that creates an incorrect internal state in your software. A fault may be due to a latent bug that gets triggered, or it may be due to an unchecked condition at a boundary or external interface. Error. Visibly incorrect behavior. When your trading system suddenly buys ten billion dollars of Pokemon futures, that is an error. Failure. An unresponsive system. When a system doesn’t respond, we say it has failed.</description>
+    </item>
+    
   </channel>
 </rss>

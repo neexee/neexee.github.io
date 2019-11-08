@@ -43,5 +43,15 @@ Future anxiety. Before I read it I thought I would miss something new if I&amp;r
 Health anxiety. Health is complex. Doctors don&amp;rsquo;t know much about it and almost always create problems on the long run.</description>
     </item>
     
+    <item>
+      <title>Release it! Second edition</title>
+      <link>https://neexee.github.io/posts-en/release-it/</link>
+      <pubDate>Tue, 09 Oct 2018 14:26:47 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/posts-en/release-it/</guid>
+      <description>Faults and cracks:
+ Fault. A condition that creates an incorrect internal state in your software. A fault may be due to a latent bug that gets triggered, or it may be due to an unchecked condition at a boundary or external interface. Error. Visibly incorrect behavior. When your trading system suddenly buys ten billion dollars of Pokemon futures, that is an error. Failure. An unresponsive system. When a system doesn’t respond, we say it has failed.</description>
+    </item>
+    
   </channel>
 </rss>
