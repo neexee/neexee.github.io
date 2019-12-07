@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>deploy on Picky speaker</title>
+    <link>https://neexee.github.io/tags/deploy/</link>
+    <description>Recent content in deploy on Picky speaker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 07 Dec 2019 13:41:10 +0700</lastBuildDate>
+    
+	<atom:link href="https://neexee.github.io/tags/deploy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Working with secrets in Ansible</title>
+      <link>https://neexee.github.io/posts-en/ansible-secrets/</link>
+      <pubDate>Sat, 07 Dec 2019 13:41:10 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/posts-en/ansible-secrets/</guid>
+      <description>Secrets in your yaml-files should be encrypted. The default Ansible method encrypts an entire file, but it&amp;rsquo;s inconvenient in practice. It&amp;rsquo;s much better to encrypt specific variables. It makes Ansible code easier to analyze as you can see encrypted variable name. And it&amp;rsquo;s nice to run your playbook without vault key if the secret variable is unused during play.
+Ansible documentation mentions variable-level encryption but offers no oneliner solution.
+Visual Studio Code has a nice plugin, ansible-vault-inline.</description>
+    </item>
+    
+  </channel>
+</rss>

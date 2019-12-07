@@ -3,6 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://neexee.github.io/tags/deploy/</loc>
+    <lastmod>2019-12-07T13:41:10+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://neexee.github.io/tags/programming/</loc>
+    <lastmod>2019-12-07T13:41:10+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://neexee.github.io/tags/</loc>
+    <lastmod>2019-12-07T13:41:10+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://neexee.github.io/posts-en/ansible-secrets/</loc>
+    <lastmod>2019-12-07T13:41:10+07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://neexee.github.io/tags/books/</loc>
     <lastmod>2019-12-01T12:54:48+07:00</lastmod>
   </url>
@@ -13,17 +33,7 @@
   </url>
   
   <url>
-    <loc>https://neexee.github.io/tags/programming/</loc>
-    <lastmod>2019-12-01T12:54:48+07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://neexee.github.io/tags/quotes/</loc>
-    <lastmod>2019-12-01T12:54:48+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://neexee.github.io/tags/</loc>
     <lastmod>2019-12-01T12:54:48+07:00</lastmod>
   </url>
   

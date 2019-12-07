@@ -12,6 +12,17 @@
     
     
     <item>
+      <title>Working with secrets in Ansible</title>
+      <link>https://neexee.github.io/posts-en/ansible-secrets/</link>
+      <pubDate>Sat, 07 Dec 2019 13:41:10 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/posts-en/ansible-secrets/</guid>
+      <description>Secrets in your yaml-files should be encrypted. The default Ansible method encrypts an entire file, but it&amp;rsquo;s inconvenient in practice. It&amp;rsquo;s much better to encrypt specific variables. It makes Ansible code easier to analyze as you can see encrypted variable name. And it&amp;rsquo;s nice to run your playbook without vault key if the secret variable is unused during play.
+Ansible documentation mentions variable-level encryption but offers no oneliner solution.
+Visual Studio Code has a nice plugin, ansible-vault-inline.</description>
+    </item>
+    
+    <item>
       <title>Developer Hegemony: The Future of Labor</title>
       <link>https://neexee.github.io/posts-en/developer-hegemony/</link>
       <pubDate>Sun, 01 Dec 2019 12:54:48 +0700</pubDate>
