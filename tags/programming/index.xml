@@ -74,6 +74,16 @@ import itertools from typing import Callable, Iterable, List, Tuple, TypeVar A =
     </item>
     
     <item>
+      <title>Release it! Second edition</title>
+      <link>https://neexee.github.io/posts-en/release-it/</link>
+      <pubDate>Tue, 09 Oct 2018 14:26:47 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/posts-en/release-it/</guid>
+      <description>Faults and cracks:
+ Fault. A condition that creates an incorrect internal state in your software. A fault may be due to a latent bug that gets triggered, or it may be due to an unchecked condition at a boundary or external interface. Error. Visibly incorrect behavior. When your trading system suddenly buys ten billion dollars of Pokemon futures, that is an error. Failure. An unresponsive system. When a system doesn’t respond, we say it has failed.</description>
+    </item>
+    
+    <item>
       <title>Вопросы о параллельном программировании</title>
       <link>https://neexee.github.io/posts-ru/operating-systems-multithreading/</link>
       <pubDate>Sun, 23 Sep 2018 10:40:02 +0700</pubDate>
