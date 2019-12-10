@@ -189,8 +189,8 @@ encrypt_secret <span style="color:#f92672">()</span> <span style="color:#f92672"
     <span style="color:#00a8c8">fi</span>
     <span style="color:#111">echo</span> -n <span style="color:#d88200">&#34;</span><span style="color:#111">$1</span><span style="color:#d88200">&#34;</span> <span style="color:#111">|</span> ansible-vault encrypt_string --vault-password-file <span style="color:#d88200">&#34;</span><span style="color:#111">$VAULT_PASS_FILE</span><span style="color:#d88200">&#34;</span> <span style="color:#111">;</span><span style="color:#f92672">}</span></code></pre></div>
 <p>Usage:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">decrypt_secret &lt;var_file_name&gt; &lt;var_name&gt; &lt;vault_key_file_name&gt;
-encrypt_secret &lt;secret_string&gt; &lt;vault_key_file_name&gt;</code></pre></div>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    decrypt_secret &lt;var_file_name&gt; &lt;var_name&gt; &lt;vault_key_file_name&gt;
+    encrypt_secret &lt;secret_string&gt; &lt;vault_key_file_name&gt;</code></pre></div>
 
 
       </main>
