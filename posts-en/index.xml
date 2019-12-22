@@ -95,6 +95,16 @@ import itertools from typing import Callable, Iterable, List, Tuple, TypeVar A =
     </item>
     
     <item>
+      <title>The Visual Display of Quantitative Information</title>
+      <link>https://neexee.github.io/posts-en/the-visual-display/</link>
+      <pubDate>Sun, 11 Nov 2018 11:20:08 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/posts-en/the-visual-display/</guid>
+      <description>I decided to read it because at the time of reading I had to draw a lot statistical graphs at my work and I had no idea how to do it in a best possible way. I&amp;rsquo;ve read it and convinced myself even more about facts I already knew:
+ Piecharts are worthless and misleading. You need to note everything on your graph, especially axes. Your graphs shouldn&amp;rsquo;t be too smart.</description>
+    </item>
+    
+    <item>
       <title>Release it! Second edition</title>
       <link>https://neexee.github.io/posts-en/release-it/</link>
       <pubDate>Tue, 09 Oct 2018 14:26:47 +0700</pubDate>
