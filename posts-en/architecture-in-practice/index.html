@@ -1,0 +1,6599 @@
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <meta name="author" content="Sergey Machulskis" />
+  <meta name="generator" content="Hugo 0.59.0-DEV" />
+  <link rel="stylesheet" href="https://neexee.github.io/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://neexee.github.io/css/blockquote.css">
+  <link rel="stylesheet" href="https://neexee.github.io/css/images.css">
+  
+  
+  <title>Software Architecture in Practice | Picky speaker</title>
+  <style>
+.container {
+  max-width: 800px;
+}
+#nav a {
+  font-weight: bold;
+  color: inherit;
+}
+#nav a.nav-link-active {
+  background-color: #212529;
+  color: #fff;
+}
+#nav-border {
+  border-bottom: 1px solid #212529;
+}
+#main {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+
+#main .taglist {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#home-jumbotron {
+  background-color: inherit;
+}
+#footer .container {
+  padding: 1em 0;
+}
+#footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+.font-125 {
+  font-size: 125%;
+}
+.tag-btn {
+  margin-bottom: 0.3em;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit; 
+  background-color: transparent;
+  border-radius: 0;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+img,
+iframe,
+embed,
+video,
+audio {
+  max-width: 100%;
+}
+</style>
+</head>
+  <body class="d-flex flex-column h-100">
+    <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+  
+  
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/posts-en/"><i data-feather="edit"></i> Blog (En)</a>
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/posts-ru/"><i data-feather="edit"></i> Blog (Ru)</a>
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
+  
+  </nav>
+</div>
+    <div class="container">
+      <main id="main">
+        
+
+<h1>Software Architecture in Practice</h1>
+
+
+  <div class="taglist">
+    <i data-feather="tag"></i>
+    
+      
+      <a class="btn btn-sm btn-outline-dark tag-btn" href="https://neexee.github.io/tags/books">books</a>
+    
+      
+      <a class="btn btn-sm btn-outline-dark tag-btn" href="https://neexee.github.io/tags/programming">programming</a>
+    
+      
+      <a class="btn btn-sm btn-outline-dark tag-btn" href="https://neexee.github.io/tags/quotes">quotes</a>
+    
+      
+      <a class="btn btn-sm btn-outline-dark tag-btn" href="https://neexee.github.io/tags/%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%86">★★★★☆</a>
+    
+  </div>
+
+
+<p>The book is very complex. The topic is not easy and writing style of the authors makes it worse.</p>
+
+<p>Some ideas are good but explanations are overly long. It could be much shorter, maybe a medium-sized blog post. I had a feeling that authors tried to cram into it everything they find useful about architecture. Links to aerospace standards (who needs them in a book like this?), clumsy discussion of product lines (an entire chapter is useless) and many more.
+Authors use &ldquo;Source of stimulus - Stimulus - Environment - Artifact - Response - Response measure&rdquo; framework to discuss quality attributes like modifiability, performance and so on. It&rsquo;s pretty interesting attempt but it&rsquo;s worthless, in my humble opinion.</p>
+
+<p>Some chapters are very useful. One explains how to deal with architecture documentation. It even has an advice on how to structure architecture presentation. Another chapter explains why architecture and implementation part ways sometimes. Using this book you can find new ways to improve a particular quality attribute.</p>
+
+<p>I loved a section with questions at the end of each chapter. Most of them are open-ended and very deep.</p>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>The software architecture of a system is the set of structures needed to
+reason about the system, which comprise software elements, relations
+among them, and properties of both.</p>
+
+<p>This definition stands in contrast to other definitions that talk about the system’s “early” or “major” design decisions. While it is true that many architectural
+decisions are made early, not all are—especially in Agile or spiral development
+projects. It’s also true that very many decisions are made early that are not architectural. Also, it’s hard to look at a decision and tell whether or not it’s “major.”</p>
+
+<p>Sometimes only time will tell. And since writing down an architecture is one of
+the architect’s most important obligations, we need to know now which decisions
+an architecture comprises.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">There are three categories of architectural structures, which will play an important role in the design, documentation, and analysis of architectures:</p>
+
+<ol>
+<li>First, some structures partition systems into implementation units, which
+in this book we call modules. Modules are assigned specific computational
+responsibilities, and are the basis of work assignments for programming
+teams (Team A works on the database, Team B works on the business rules,
+Team C works on the user interface, etc.). In large projects, these elements
+(modules) are subdivided for assignment to subteams. For example, the database for a large enterprise resource planning (ERP) implementation might
+be so complex that its implementation is split into many parts. The structure
+that captures that decomposition is a kind of module structure, the module
+decomposition structure in fact. Another kind of module structure emerges
+as an output of object-oriented analysis and design—class diagrams. If you
+aggregate your modules into layers, you’ve created another (and very useful) module structure. Module structures are static structures, in that they
+focus on the way the system’s functionality is divided up and assigned to
+implementation teams.</li>
+<li>Other structures are dynamic, meaning that they focus on the way the elements interact with each other at runtime to carry out the system’s functions.
+Suppose the system is to be built as a set of services. The services,
+the infrastructure they interact with, and the synchronization and interaction
+relations among them form another kind of structure often used to describe
+a system. These services are made up of (compiled from) the programs in
+the various implementation units that we just described. In this book we
+will call runtime structures component-and-connector (C&amp;C) structures.
+The term component is overloaded in software engineering. In our use, a
+component is always a runtime entity.</li>
+<li>A third kind of structure describes the mapping from software structures
+to the system’s organizational, developmental, installation, and execution
+environments. For example, modules are assigned to teams to develop, and
+assigned to places in a file structure for implementation, integration, and
+testing. Components are deployed onto hardware in order to execute. These
+mappings are called allocation structures.</li>
+</ol></div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>Two disciplines related to software architecture are system architecture
+and enterprise architecture. Both of these disciplines have broader concerns
+than software and affect software architecture through the establishment of constraints within which a software system must live.
+In both cases, the software architect for a system should be on the team that provides input into the decisions made about the system or the enterprise.</p>
+
+<h4 id="system-architecture">System architecture</h4>
+
+<p>A system’s architecture is a representation of a system in which there
+is a mapping of functionality onto hardware and software components,
+a mapping of the software architecture onto the hardware architecture,
+and a concern for the human interaction with these components. That is,
+system architecture is concerned with a total system, including hardware,
+software, and humans.</p>
+
+<p>A system architecture will determine, for example, the functionality that
+is assigned to different processors and the type of network that connects
+those processors. The software architecture on each of those processors
+will determine how this functionality is implemented and how the various
+processors interact through the exchange of messages on the network.
+A description of the software architecture, as it is mapped to hardware
+and networking components, allows reasoning about qualities such as performance and reliability.
+A description of the system architecture will allow
+reasoning about additional qualities such as power consumption, weight,
+and physical footprint.</p>
+
+<p>When a particular system is designed, there is frequently negotiation between the system architect
+and the software architect as to the distribution
+of functionality and, consequently, the constraints placed on the software architecture.</p>
+
+<h4 id="enterprise-architecture">Enterprise architecture</h4>
+
+<p>Enterprise architecture is a description of the structure and behavior of an
+organization’s processes, information flow, personnel, and organizational
+subunits, aligned with the organization’s core goals and strategic direction.
+An enterprise architecture need not include information systems—clearly
+organizations had architectures that fit the preceding definition prior to the
+advent of computers—but these days, enterprise architectures for all but the
+smallest businesses are unthinkable without information system support.</p>
+
+<p>Thus, a modern enterprise architecture is concerned with how an enterprise’s software systems support the business processes and goals of the
+enterprise. Typically included in this set of concerns is a process for deciding
+which systems with which functionality should be supported by an enterprise.</p>
+
+<p>An enterprise architecture will specify the data model that various systems use to interact, for example.
+It will specify rules for how the enterprise’s systems interact with external systems.
+Software is only one concern of enterprise architecture. Two other common concerns addressed by enterprise architecture are how the software
+is used by humans to perform business processes, and the standards that
+determine the computational environment.</p>
+
+<p>Sometimes the software infrastructure that supports communication
+among systems and with the external world is considered a portion of the
+enterprise architecture; other times, this infrastructure is considered one
+of the systems within an enterprise. (In either case, the architecture of that
+infrastructure is a software architecture!) These two views will result in different management structures and spheres of influence for the individuals
+concerned with the infrastructure.</p>
+
+<p>The system and the enterprise provide environments for, and constraints
+on, the software architecture. The software architecture must live within
+the system and enterprise, and increasingly it is the focus for achieving the
+organization’s business goals. But all three forms of architecture share important commonalities: They are concerned with major elements taken as
+abstractions, the relationships among the elements, and how the elements
+together meet the behavioral and quality goals of the thing being built.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>A view is a representation of a coherent set of architectural elements, as
+written by and read by system stakeholders. It consists of a representation
+of a set of elements and the relations among them.</p>
+
+<p>A structure is the set of elements itself, as they exist in software or
+hardware.</p>
+
+<p>In short, a view is a representation of a structure. For example, a module
+structure is the set of the system’s modules and their organization. A module view
+is the representation of that structure, documented according to a template in a
+chosen notation, and used by some system stakeholders.</p>
+
+<p>So: Architects design structures. They document views of those structures.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">Okay, it’s not completely true to say that they had no architecture documentation. They did produce a single page diagram, with a few boxes and
+lines. Some of those boxes were, however, clouds. Yes, they actually used
+a cloud as one of their icons. When I pressed them on the meaning of this
+icon—Was it a process? A class? A thread?—they waffled. This was not, in
+fact, architecture documentation. It was, at best, “marketecture.”</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+    
+      
+    
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+    
+      
+    
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+    
+      
+    
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">Software architecture is the set of design
+decisions which, if made incorrectly, may
+cause your project to be cancelled.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eoin Woods</strong>
+      
+        
+          
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">&hellip; why architecture matters from a technical perspective. We will examine a baker’s dozen of the most important reasons.</p>
+
+<ol>
+<li>An architecture will inhibit or enable a system’s driving quality attributes.</li>
+<li>The decisions made in an architecture allow you to reason about and manage change as the system evolves.</li>
+<li>The analysis of an architecture enables early prediction of a system’s
+qualities.</li>
+<li>A documented architecture enhances communication among stakeholders.</li>
+<li>The architecture is a carrier of the earliest and hence most fundamental,
+hardest to change design decisions.</li>
+<li>An architecture defines a set of constraints on subsequent implementation.</li>
+<li>The architecture dictates the structure of an organization, or vice versa.</li>
+<li>An architecture can provide the basis for evolutionary prototyping.</li>
+<li>An architecture is the key artifact that allows the architect and project manager to reason about cost and schedule.</li>
+<li>An architecture can be created as a transferable, reusable model that forms
+the heart of a product line.</li>
+<li>Architecture-based development focuses attention on the assembly of components, rather than simply on their creation.</li>
+<li>By restricting design alternatives, architecture channels the creativity of
+developers, reducing design and system complexity.</li>
+<li>An architecture can be the foundation for training a new team member.</li>
+</ol></div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">It is possible to make quality
+predictions about a system based solely on an evaluation of its architecture. If we
+know that certain kinds of architectural decisions lead to certain quality attributes
+in a system, then we can make those decisions and rightly expect to be rewarded
+with the associated quality attributes.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">Each stakeholder of a software system—customer, user, project manager,
+coder, tester, and so on—is concerned with different characteristics of the system
+that are affected by its architecture. For example:</p>
+
+<ul>
+<li>The user is concerned that the system is fast, reliable, and available when
+needed.</li>
+<li>The customer is concerned that the architecture can be implemented on
+schedule and according to budget.</li>
+<li>The manager is worried (in addition to concerns about cost and schedule)
+that the architecture will allow teams to work largely independently,
+interacting in disciplined and controlled ways.</li>
+<li>The architect is worried about strategies to achieve all of those goals.</li>
+</ul></div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>“Well, I was just wondering,” said the users’ delegate. “Because I see
+from your chart that the display console is sending signal traffic to the
+target location module.” “What should happen?” asked another member of the audience,
+addressing the first questioner. “Do you really want the user to get mode
+data during its reconfiguring?” And for the next 45 minutes, the architect
+watched as the audience consumed his time slot by debating what the correct behavior of the system was supposed to be in various esoteric states.</p>
+
+<p>The debate was not architectural, but the architecture (and the graphical
+rendition of it) had sparked debate. It is natural to think of architecture as
+the basis for communication among some of the stakeholders besides the
+architects and developers: Managers, for example, use the architecture to
+create teams and allocate resources among them. But users? The architecture is invisible to users, after all;
+why should they latch on to it as a tool for understanding the system.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>Architectures exist in four different contexts.</p>
+
+<ol>
+<li>Technical. The technical context includes the achievement of quality
+attribute requirements. We spend Part II discussing how to do this. The
+technical context also includes the current technology. The cloud (discussed
+in Chapter 26) and mobile computing (discussed in Chapter 27) are
+important current technologies.</li>
+<li>Project life cycle. Regardless of the software development methodology
+you use, you must make a business case for the system, understand the
+architecturally significant requirements, create or select the architecture,
+document and communicate the architecture, analyze or evaluate the architecture, implement and test the system based on the architecture, and ensure
+that the implementation conforms to the architecture.</li>
+<li>Business. The system created from the architecture must satisfy the business goals of a wide variety of stakeholders, each of whom has different
+expectations for the system. The architecture is also influenced by and influences the structure of the development organization.</li>
+<li>Professional. You must have certain skills and knowledge to be an architect,
+and there are certain duties that you must perform as an architect. These
+are influenced not only by coursework and reading but also by your
+experiences.</li>
+</ol>
+
+<p>An architecture has some influences that lead to its creation, and its existence has an impact on the architect, the organization,
+and, potentially, the industry. We call this cycle the Architecture Influence Cycle.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>No matter the source, all requirements encompass the following categories:</p>
+
+<ol>
+<li>Functional requirements. These requirements state what the system must
+do, and how it must behave or react to runtime stimuli.</li>
+<li>Quality attribute requirements. These requirements are qualifications of
+the functional requirements or of the overall product. A qualification of a
+functional requirement is an item such as how fast the function must be
+performed, or how resilient it must be to erroneous input. A qualification
+of the overall product is an item such as the time to deploy the product or a
+limitation on operational costs.</li>
+<li>Constraints. A constraint is a design decision with zero degrees of freedom.
+That is, it’s a design decision that’s already been made. Examples include
+the requirement to use a certain programming language or to reuse a certain
+existing module, or a management fiat to make your system service oriented.
+These choices are arguably in the purview of the architect, but external factors
+(such as not being able to train the staff in a new language, or
+having a business agreement with a software supplier, or pushing business
+goals of service interoperability) have led those in power to dictate these
+design outcomes.</li>
+</ol>
+
+<p>What is the “response” of architecture to each of these kinds of requirements?</p>
+
+<ol>
+<li>Functional requirements are satisfied by assigning an appropriate sequence
+of responsibilities throughout the design. As we will see later in this chapter, assigning responsibilities to architectural elements is a fundamental
+architectural design decision.</li>
+<li>Quality attribute requirements are satisfied by the various structures designed into the architecture,
+and the behaviors and interactions of the elements that populate those structures.</li>
+<li>Constraints are satisfied by accepting the design decision and reconciling it
+with other affected design decisions.</li>
+</ol>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><figure>
+    <img src="scenarios.png#center"/> 
+</figure></div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">The seven categories of design decisions are</p>
+
+<ol>
+<li>Allocation of responsibilities</li>
+<li>Coordination model</li>
+<li>Data model</li>
+<li>Management of resources</li>
+<li>Mapping among architectural elements</li>
+<li>Binding time decisions</li>
+<li>Choice of technology.</li>
+</ol></div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><h4 id="allocation-of-responsibilities">Allocation of responsibilities</h4>
+
+<p>Decisions involving allocation of responsibilities include the following:
+* Identifying the important responsibilities, including basic system functions,
+architectural infrastructure, and satisfaction of quality attributes.
+* Determining how these responsibilities are allocated to non-runtime and
+runtime elements (namely, modules, components, and connectors).</p>
+
+<p>Strategies for making these decisions include functional decomposition,
+modeling real-world objects, grouping based on the major modes of system operation, or grouping based on similar quality requirements: processing frame rate,
+security level, or expected changes.
+In Chapters 5–11, where we apply these design decision categories to a
+number of important quality attributes, the checklists we provide for the allocation of responsibilities category is derived systematically from understanding the
+stimuli and responses listed in the general scenario for that QA.</p>
+
+<h4 id="coordination-model">Coordination Model</h4>
+
+<p>Software works by having elements interact with each other through designed
+mechanisms. These mechanisms are collectively referred to as a coordination
+model. Decisions about the coordination model include these:
+* Identifying the elements of the system that must coordinate, or are prohibited from coordinating.
+* Determining the properties of the coordination, such as timeliness, currency, completeness, correctness, and consistency.
+* Choosing the communication mechanisms (between systems, between our system and external entities, between elements of our system) that realize
+those properties. Important properties of the communication mechanisms
+include stateful versus stateless, synchronous versus asynchronous, guaranteed versus non-guaranteed delivery, and performance-related properties
+such as throughput and latency.</p>
+
+<h4 id="data-model">Data Model</h4>
+
+<p>Every system must represent artifacts of system-wide interest—data—in some
+internal fashion. The collection of those representations and how to interpret
+them is referred to as the data model. Decisions about the data model include the
+following:</p>
+
+<ul>
+<li>Choosing the major data abstractions, their operations, and their properties.
+This includes determining how the data items are created, initialized, accessed, persisted, manipulated, translated, and destroyed.</li>
+<li>Compiling metadata needed for consistent interpretation of the data.</li>
+<li>Organizing the data. This includes determining whether the data is going
+to be kept in a relational database, a collection of objects, or both. If both,
+then the mapping between the two different locations of the data must be
+determined.
+Management of resources
+An architect may need to arbitrate the use of shared resources in the architecture. These include hard resources (e.g., CPU, memory, battery, hardware buffers,
+system clock, I/O ports) and soft resources (e.g., system locks, software buffers,
+thread pools, and non-threadsafe code).
+Decisions for management of resources include the following:</li>
+<li>Identifying the resources that must be managed and determining the limits
+for each.</li>
+<li>Determining which system element(s) manage each resource.</li>
+<li>Determining how resources are shared and the arbitration strategies employed when there is contention.</li>
+<li>Determining the impact of saturation on different resources. For example,
+as a CPU becomes more heavily loaded, performance usually just degrades
+fairly steadily. On the other hand, when you start to run out of memory,
+some point you start paging/swapping intensively and your performance
+suddenly crashes to a halt.</li>
+</ul>
+
+<h4 id="mapping-among-architectural-elements">Mapping among architectural elements</h4>
+
+<p>An architecture must provide two types of mappings. First, there is mapping
+between elements in different types of architecture structures—for example,
+mapping from units of development (modules) to units of execution (threads or
+processes). Next, there is mapping between software elements and environment
+elements—for example, mapping from processes to the specific CPUs where
+these processes will execute.</p>
+
+<p>Useful mappings include these:</p>
+
+<ul>
+<li>The mapping of modules and runtime elements to each other—that is, the
+runtime elements that are created from each module; the modules that contain the code for each runtime element.</li>
+<li>The assignment of runtime elements to processors.</li>
+<li>The assignment of items in the data model to data stores.</li>
+<li>The mapping of modules and runtime elements to units of delivery.</li>
+</ul>
+
+<h4 id="binding-time-decisions">Binding time decisions</h4>
+
+<p>Binding time decisions introduce allowable ranges of variation. This variation
+can be bound at different times in the software life cycle by different entities—
+from design time by a developer to runtime by an end user. A binding time decision establishes the scope, the point in the life cycle, and the mechanism for
+achieving the variation.</p>
+
+<p>The decisions in the other six categories have an associated binding time
+decision. Examples of such binding time decisions include the following:</p>
+
+<ul>
+<li>For allocation of responsibilities, you can have buildtime selection of modules via a parameterized makefile.</li>
+<li>For choice of coordination model, you can design runtime negotiation of
+protocols.</li>
+<li>For resource management, you can design a system to accept new peripheral devices plugged in at runtime, after which the system recognizes them
+and downloads and installs the right drivers automatically.</li>
+<li>For choice of technology, you can build an app store for a smartphone that
+automatically downloads the version of the app appropriate for the phone of
+the customer buying the app.</li>
+</ul>
+
+<p>When making binding time decisions, you should consider the costs to implement the decision and the costs
+to make a modification after you have implemented the decision. For example, if you are considering changing platforms
+at some time after code time, you can insulate yourself from the effects caused
+by porting your system to another platform at some cost. Making this decision
+depends on the costs incurred by having to modify an early binding compared to
+the costs incurred by implementing the mechanisms involved in the late binding.
+choice of technology</p>
+
+<p>Every architecture decision must eventually be realized using a specific technology. Sometimes the technology selection is made by others, before the intentional architecture design process begins. In this case, the chosen technology
+becomes a constraint on decisions in each of our seven categories. In other cases,
+the architect must choose a suitable technology to realize a decision in every one
+of the categories.</p>
+
+<h4 id="choice-of-technology">Choice of technology</h4>
+
+<p>Those decisions involve the following:</p>
+
+<ul>
+<li>Deciding which technologies are available to realize the decisions made in
+the other categories.</li>
+<li>Determining whether the available tools to support this technology choice
+(IDEs, simulators, testing tools, etc.) are adequate for development to
+proceed.</li>
+<li>Determining the extent of internal familiarity as well as the degree of external support available for the technology (such as courses, tutorials, examples, and availability of contractors who can provide expertise in a crunch)
+and deciding whether this is adequate to proceed.</li>
+<li>Determining the side effects of choosing a technology, such as a required
+coordination model or constrained resource management opportunities.</li>
+<li>Determining whether a new technology is compatible with the existing
+technology stack. For example, can the new technology run on top of or
+alongside the existing technology stack? Can it communicate with the existing technology stack? Can the new technology be monitored and managed.</li>
+</ul>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">Requirements for a system come in three categories:</p>
+
+<ol>
+<li>Functional. These requirements are satisfied by including an appropriate set
+of responsibilities within the design.</li>
+<li>Quality attribute. These requirements are satisfied by the structures and
+behaviors of the architecture.</li>
+<li>Constraints. A constraint is a design decision that’s already been made
+To express a quality attribute requirement, we use a quality attribute scenario. The parts of the scenario are these:</li>
+<li>Source of stimulus</li>
+<li>Stimulus</li>
+<li>Environment</li>
+<li>Artifact</li>
+<li>Response</li>
+<li>Response measure.</li>
+</ol></div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><h4 id="hazard-analysis">Hazard analysis</h4>
+
+<p>Hazard analysis is a technique that attempts to catalog the hazards that
+can occur during the operation of a system. It categorizes each hazard
+according to its severity. For example, the DO178B standard used in the
+aeronautics industry defines these failure condition levels in terms of their
+effects on the aircraft, crew, and passengers:</p>
+
+<ul>
+<li>Catastrophic. This kind of failure may cause a crash. This failure represents
+the loss of critical function required to safely fly and land aircraft. * Hazardous. This kind of failure has a large negative impact on safety or
+performance, or reduces the ability of the crew to operate the aircraft due
+to physical distress or a higher workload, or causes serious or fatal injuries
+among the passengers. * Major. This kind of failure is significant, but has a lesser impact than a</li>
+<li>Hazardous failure (for example, leads to passenger discomfort rather than
+injuries) or significantly increases crew workload to the point where safety
+is affected.</li>
+<li>Minor. This kind of failure is noticeable, but has a lesser impact than a Major failure (for example, causing passenger inconvenience or a routine flight
+plan change).</li>
+<li>No effect. This kind of failure has no impact on safety, aircraft operation, or
+crew workload.</li>
+</ul>
+
+<p>Other domains have their own categories and definitions. Hazard analysis also assesses the probability of each hazard occurring. Hazards for
+which the product of cost and probability exceed some threshold are then
+made the subject of mitigation activities.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><h4 id="fault-tree-analysis">Fault tree analysis</h4>
+
+<p>Fault tree analysis is an analytical technique that specifies a state of the
+system that negatively impacts safety or reliability, and then analyzes the
+system’s context and operation to find all the ways that the undesired state
+could occur. The technique uses a graphic construct (the fault tree) that
+helps identify all sequential and parallel sequences of contributing faults
+that will result in the occurrence of the undesired state, which is listed at
+the top of the tree (the “top event”). The contributing faults might be hardware failures, human errors, software errors, or any other pertinent events
+that can lead to the undesired state.</p>
+
+<p>A fault tree lends itself to static analysis in various ways. For example, a
+“minimal cut set” is the smallest combination of events along the bottom of
+the tree that together can cause the top event. The set of minimal cut sets
+shows all the ways the bottom events can combine to cause the overarching failure. Any singleton minimal cut set reveals a single point of failure,
+which should be carefully scrutinized. Also, the probabilities of various contributing failures can be combined to come up with a probability of the top
+event occurring. Dynamic analysis occurs when the order of contributing
+failures matters. In this case, techniques such as Markov analysis can be
+used to calculate probability of failure over different failure sequences.
+Fault trees aid in system design, but they can also be used to diagnose
+failures at runtime. If the top event has occurred, then (assuming the fault
+tree model is complete) one or more of the contributing failures has occurred, and the fault tree can be used to track it down and initiate repairs.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>Escalating restart is a reintroduction tactic that allows the system to recover from faults by varying the granularity of the component(s) restarted and
+minimizing the level of service affected. For example, consider a system
+that supports four levels of restart, as follows. The lowest level of restart
+(call it Level 0), and hence having the least impact on services, employs
+passive redundancy (warm spare), where all child threads of the faulty
+component are killed and recreated. In this way, only data associated with
+the child threads is freed and reinitialized. The next level of restart (Level
+1) frees and reinitializes all unprotected memory (protected memory would
+remain untouched). The next level of restart (Level 2) frees and reinitializes
+all memory, both protected and unprotected, forcing all applications to reload and reinitialize. And the final level of restart (Level 3) would involve
+completely reloading and reinitializing the executable image and associated
+data segments. Support for the escalating restart tactic is particularly useful
+for the concept of graceful degradation, where a system is able to degrade
+the services it provides while maintaining support for mission-critical or
+safety-critical applications.</p>
+
+<p>Nonstop forwarding (NSF) is a concept that originated in router design. In
+this design functionality is split into two parts: supervisory, or control plane
+(which manages connectivity and routing information), and data plane
+(which does the actual work of routing packets from sender to receiver). If
+a router experiences the failure of an active supervisor, it can continue forwarding packets along known routes—with neighboring routers—while the
+routing protocol information is recovered and validated. When the control
+plane is restarted, it implements what is sometimes called “graceful restart,”
+incrementally rebuilding its routing protocol database even as the data
+plane continues to operate.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>Systems (or components within systems) often have or embody expectations about the behaviors of its “information exchange” partners.
+The assumption of everything interacting with the errant component in the
+preceding example was that its accuracy did not degrade over time. The
+result was a system of parts that did not work together correctly to solve
+the problem they were supposed to.</p>
+
+<p>The second concept we need to stress is what we mean by “interface.”
+Once again, we mean something beyond the simple case—a syntactic
+description of a component’s programs and the type and number of their
+parameters, most commonly realized as an API. That’s necessary for
+interoperability—heck, it’s necessary if you want your software to compile
+successfully—but it’s not sufficient. To illustrate this concept, we’ll use another “conversation” analogy. Has your partner or spouse ever come home,
+slammed the door, and when you ask what’s wrong, replied “Nothing!”?
+If so, then you should be able to appreciate the keen difference between
+syntax and semantics and the role of expectations in understanding how an
+entity behaves.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>Here are some of the challenges that organizations face related
+to standards and interoperability:</p>
+
+<ol>
+<li>Ideally, every implementation of a standard should be identical
+and thus completely interoperable with any other implementation.
+However, this is far from reality. Standards, when incorporated into
+products, tools, and services, undergo customizations and extensions because every vendor wants to create a unique selling point as
+a competitive advantage.</li>
+<li>Standards are often deliberately open-ended and provide extension points. The actual implementation of these extension points
+is left to the discretion of implementers, leading to proprietary
+implementations.</li>
+<li>Standards, like any technology, have a life cycle of their own and
+evolve over time in compatible and non-compatible ways. Deciding
+when to adopt a new or revised standard is a critical decision for organizations. Committing to a new standard that is not ready or eventually not adopted by the community is a big risk for organizations. On the other hand, waiting too long may also become a problem,
+which can lead to unsupported products, incompatibilities, and workarounds, because everyone else is using the standard.</li>
+<li>Within the software community, there are as many bad standards as
+there are engineers with opinions. Bad standards include underspecified, overspecified, inconsistently specified, unstable, or irrelevant
+standards.</li>
+<li>It is quite common for standards to be championed by competing
+organizations, resulting in conflicting standards due to overlap or mutual exclusion.</li>
+<li>For new and rapidly emerging domains, the argument often made is
+that standardization will be destructive because it will hinder flexibility: premature standardization will force the use of an inadequate approach and lead to abandoning other presumably better approaches.</li>
+</ol>
+
+<p>So what do organizations do in the meantime?
+What these challenges illustrate is that because of the way in which
+standards are usually created and evolved, we cannot let standards drive
+our architectures. We need to architect systems first and then decide which
+standards can support desired system requirements and qualities. This approach allows standards to change and evolve without affecting the overall
+architecture of the system.</p>
+
+<p>I once heard someone in a keynote address say that “The nice thing
+about standards is that there are so many to choose from.”.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">Modules have responsibilities. When a change causes a module to be modified, its responsibilities are changed in some way. Generally, a change that affects
+one module is easier and less expensive than if it changes more than one module. However, if two modules’ responsibilities overlap in some way, then a single
+change may well affect them both. We can measure this overlap by measuring the
+probability that a modification to one module will propagate to the other. This is
+called coupling, and high coupling is an enemy of modifiability.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>Modifiability deals with change and the cost in time or money of making a
+change, including the extent to which this modification affects other functions or
+quality attributes.</p>
+
+<p>Changes can be made by developers, installers, or end users, and these
+changes need to be prepared for. There is a cost of preparing for change as well
+as a cost of making a change. The modifiability tactics are designed to prepare for
+subsequent changes.</p>
+
+<p>Tactics to reduce the cost of making a change include making modules
+smaller, increasing cohesion, and reducing coupling. Deferring binding will also
+reduce the cost of making a change.</p>
+
+<p>Reducing coupling is a standard category of tactics that includes encapsulating, using an intermediary, restricting dependencies, colocating related responsibilities, refactoring, and abstracting common services.</p>
+
+<p>Increasing cohesion is another standard tactic that involves separating responsibilities that do not serve the same purpose.
+Defer binding is a category of tactics that affect build time, load time, initialization time, or runtime.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><h4 id="attacks">Attacks</h4>
+
+<ul>
+<li>Source of stimulus. The source of the attack may be either a human or
+another system. It may have been previously identified (either correctly or
+incorrectly) or may be currently unknown. A human attacker may be from
+outside the organization or from inside the organization.</li>
+<li>Stimulus. The stimulus is an attack. We characterize this as an unauthorized
+attempt to display data, change or delete data, access system services,
+change the system’s behavior, or reduce availability.</li>
+<li>Artifact. The target of the attack can be either the services of the system,
+the data within it, or the data produced or consumed by the system. Some
+attacks are made on particular components of the system known to be
+vulnerable.</li>
+<li>Environment. The attack can come when the system is either online or
+offline, either connected to or disconnected from a network, either behind a
+firewall or open to a network, fully operational, partially operational, or not
+operational.</li>
+<li>Response. The system should ensure that transactions are carried out in a
+fashion such that data or services are protected from unauthorized access;
+data or services are not being manipulated without authorization; parties
+to a transaction are identified with assurance; the parties to the transaction
+cannot repudiate their involvements; and the data, resources, and system
+services will be available for legitimate use.
+The system should also track activities within it by recording access
+or modification; attempts to access data, resources, or services; and notifying appropriate entities (people or systems) when an apparent attack is
+occurring.</li>
+<li>Response measure. Measures of a system’s response include how much
+of a system is compromised when a particular component or data value is
+compromised, how much time passed before an attack was detected, how
+many attacks were resisted, how long it took to recover from a successful
+attack, and how much data was vulnerable to a particular attack.</li>
+</ul></div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">One structural metric that
+has been shown empirically to correlate to testability is called the response
+of a class. The response of class C is a count of the number of methods
+of C plus the number of methods of other classes that are invoked by the
+methods of C. Keeping this metric low can increase testability.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">Over the years, a focus on
+usability has shown itself to be one of the cheapest and easiest ways to improve a
+system’s quality (or more precisely, the user’s perception of quality).</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><h4 id="software-safety">Software safety</h4>
+
+<p>To gain an appreciation for the importance of software safety, we suggest
+reading some of the disaster stories that arise when software fails. A venerable source is the ACM Risks Forum newsgroup, known as comp.risks in the
+USENET community, available at www.risks.org. This list has been moderated
+by Peter Neumann since 1985 and is still going strong.</p>
+
+<p>Nancy Leveson is an undisputed thought leader in the area of software and
+safety. If you’re working in safety-critical systems, you should become familiar
+with her work. You can start small with a paper like [Leveson 04],
+ which discusses a number of software-related factors that have contributed to spacecraft
+accidents. Or you can start at the top with [Leveson 11], a book that treats safety
+in the context of today’s complex, sociotechnical, software-intensive systems.</p>
+
+<p>The Federal Aviation Administration is the U.S. government agency charged
+with oversight of the U.S. airspace system, and the agency is extremely concerned
+about safety. Their 2000 System Safety Handbook is a good practical overview of
+the topic [FAA 00].</p>
+
+<p>IEEE STD12281994 (“Software Safety Plans”) defines best practices for
+conducting software safety hazard analyses, to help ensure that requirements and
+attributes are specified for safety-critical software [IEEE 94]. The aeronautical
+standard DO178B (due to be replaced by DO178C as this book goes to publication) covers software safety requirements for aerospace applications.
+A discussion of safety tactics can be found in the work of Wu and Kelly [Wu 06].</p>
+
+<p>In particular, interlocks are an important tactic for safety. They enforce some
+safe sequence of events, or ensure that a safe condition exists before an action is
+taken. Your microwave oven shuts off when you open the door because of a hardware interlock.
+Interlocks can be implemented in software also. For an interesting case study of this, see [Wozniak]</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><h4 id="some-finer-points-of-layers">Some Finer Points of Layers</h4>
+
+<p>A layered architecture is one of the few places where connections among
+components can be shown by adjacency, and where “above” and “below”
+matter. If you turn Figure 13.1 upside-down so that C is on top, this would
+represent a completely different design. Diagrams that use arrows among
+the boxes to denote relations retain their semantic meaning no matter the
+orientation.</p>
+
+<p>The layered pattern is one of the most commonly used patterns in all of
+software engineering, but I’m often surprised by how many people still get
+it wrong.</p>
+
+<p>First, it is impossible to look at a stack of boxes and tell whether layer
+bridging is allowed or not. That is, can a layer use any lower layer, or just
+the next lower one? It is the easiest thing in the world to resolve this; all the
+architect has to do is include the answer in the key to the diagram’s notation (something we recommend for all diagrams). For example, consider the
+layered pattern presented in Figure 13.2 on the next page.
+FIXME</p>
+
+<p>But I’m still surprised at how few architects actually bother to do this.
+And if they don’t, their layer diagrams are ambiguous.
+Second, any old set of boxes stacked on top of each other does not
+constitute a layered architecture. For instance, look at the design shown
+in Figure 13.3, which uses arrows instead of adjacency to indicate the
+relationships among the boxes. Here, everything is allowed to use everything.
+This is decidedly not a layered architecture. The reason is that if
+Layer A is replaced by a different version, Layer C (which uses it in this figure)
+might well have to change. We don’t want our virtual machine layer to
+change every time our application layer changes. But I’m still surprised at
+how many people call a stack of boxes lined up with each other “layers” (or
+think that layers are the same as tiers in a multi-tier architecture).</p>
+
+<p>Third, many architectures that purport to be layered look something
+like Figure 13.4. This diagram probably means that modules in A, B, or C
+can use modules in D, but without a key to tell us for sure, it could mean
+anything. “Sidecars” like this often contain common utilities (sometimes
+imported), such as error handlers, communication protocols, or database
+access mechanisms. This kind of diagram makes sense only in the case
+where no layer bridging is allowed in the main stack. Otherwise, D could
+simply be made the bottommost layer in the main stack, and the “sidecar”
+geometry would be unnecessary. But I’m still surprised at how often I see
+this layout go unexplained.</p>
+
+<p>Sometimes layers are divided into segments denoting a finer-grained
+decomposition of the modules. Sometimes this occurs when a preexisting
+set of units, such as imported modules, share the same allowed-to-use
+relation. When this happens, you have to specify what usage rules are in
+effect among the segments. Many usage rules are possible, but they must
+be made explicit. In Figure 13.5, the top and the bottom layers are
+segmented. Segments of the top layer are not allowed to use each other,
+but segments of the bottom layer are. If you draw the same diagram without the arrows,
+it will be harder to differentiate the different usage rules
+within segmented layers. Layered diagrams are often a source of hidden
+ambiguity because the diagram does not make explicit the allowed-to-use
+relations.</p>
+
+<p>Finally, the most important point about layering is that a layer isn’t
+allowed to use any layer above it. A module “uses” another module when it
+depends on the answer it gets back. But a layer is allowed to make upward
+calls, as long as it isn’t expecting an answer from them. This is how the
+common error handling scheme of callbacks works. A program in layer A
+calls a program in a lower layer B, and the parameters include a pointer to
+an error handling program in A that the lower layer should call in case of
+error. The software in B makes the call to the program in A, but cares not in
+the least what it does. By not depending in any way on the contents of A, B
+is insulated from changes in A.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">Typical examples of systems that employ the publish-subscribe pattern are
+the following:</p>
+
+<ul>
+<li>Graphical user interfaces, in which a user’s low-level input actions are
+treated as events that are routed to appropriate input handlers</li>
+<li>MVC-based applications, in which view components are notified when the
+state of a model object changes</li>
+<li>Enterprise resource planning (ERP) systems, which integrate many components,
+each of which is only interested in a subset of system events</li>
+<li>Extensible programming environments, in which tools are coordinated
+through events</li>
+<li>Mailing lists, where a set of subscribers can register interest in specific
+topics.</li>
+</ul></div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">Tactics are the “building blocks” of design from which architectural patterns are created.
+Tactics are atoms and patterns are molecules.
+Most patterns consist of (are constructed from) several
+different tactics, and although these tactics might all serve a common purpose—
+such as promoting modifiability, for example—they are often chosen to promote
+different quality attributes. For example, a tactic might be chosen that makes an
+availability pattern more secure, or that mitigates the performance impact of a
+modifiability pattern.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>An architectural pattern</p>
+
+<ul>
+<li>is a package of design decisions that is found repeatedly in practice,</li>
+<li>has known properties that permit reuse, and</li>
+<li>describes a class of architectures.</li>
+</ul>
+
+<p>Because patterns are (by definition) found repeatedly in practice, one does
+not invent them; one discovers them.</p>
+
+<p>Tactics are simpler than patterns. Tactics typically use just a single structure
+or computational mechanism, and they are meant to address a single architectural
+force. For this reason they give more precise control to an architect when
+making design decisions than patterns, which typically combine multiple design
+decisions into a package. Tactics are the “building blocks” of design from which
+architectural patterns are created. Tactics are atoms and patterns are molecules.</p>
+
+<p>An architectural pattern establishes a relationship between:</p>
+
+<ul>
+<li>A context. A recurring, common situation in the world that gives rise to a problem.</li>
+<li>A problem. The problem, appropriately generalized, that arises in the given context.</li>
+<li>A solution. A successful architectural resolution to the problem, appropriately abstracted.</li>
+</ul>
+
+<p>Complex systems exhibit multiple patterns at once.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">More sophisticated models of availability exist, based on probability. In
+these models, we can express a probability of failure during a period of time.
+Given a particular MTBF and a time duration T, the probability of failure is calculated using a formula.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><h4 id="search-of-a-grand-unified-theory-for-quality-attributes">Search of a Grand Unified Theory for Quality Attributes</h4>
+
+<p>How do we create analytic models for those quality attribute aspects for
+which none currently exist? I do not know the answer to this question, but
+if we had a basis set for quality attributes, we would be in a better position
+to create and validate quality attribute models. By basis set I mean a set
+of orthogonal concepts that allow one to define the existing set of quality
+attributes. Currently there is much overlap among quality attributes; a
+basis set would enable discussion of tradeoffs in terms of a common set
+of fundamental and possibly quantifiable concepts. Once we have a basis
+set, we could develop analytic models for each of the elements of the set,
+and then an analytic model for a particular quality attribute becomes a
+composition of the models of the portions of the basis set that make up
+that quality attribute.</p>
+
+<p>What are some of the elements of this basis set? Here are some of my
+candidates:</p>
+
+<ul>
+<li>Time. Time is the basis for performance, some aspects of availability,
+and some aspects of usability. Time will surely be one of the
+fundamental concepts for defining quality attributes.</li>
+<li>Dependencies among structural elements. Modifiability, security, availability,
+and performance depend in some form or another on the strength
+of connections among various structural elements. Coupling is a form
+of dependency. Attacks depend on being able to move from one compromised
+element to a currently uncompromised element through some
+dependency. Fault propagation depends on dependencies. And one of
+the key elements of performance analysis is the dependency of one
+computation on another. Enumeration of the fundamental forms of dependency and their properties will enable better understanding of many
+quality attributes and their interaction.</li>
+<li>Access. How does a system promote or deny access through various
+mechanisms? Usability is concerned with allowing smooth access for
+humans; security is concerned with allowing smooth access for some set
+of requests but denying access to another set of requests.
+Interoperability is concerned with establishing connections and accessing information.
+Race conditions, which undermine availability, come about through unmediated access to critical computations.</li>
+</ul>
+
+<p>These are some of my candidates. I am sure there are others. The
+general problem is to define a set of candidates for the basis set and then
+show how current definitions of various quality attributes can be recast in
+terms of the elements of the basis set. I am convinced that this is a problem
+that needs to be solved prior to making substantial progress in the quest for
+a rich enough set of analytic models to enable prediction of system behavior across the quality attributes important for a system.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>For each possible problem with respect to a quality attribute requirement,
+the following questions consist of things like these:</p>
+
+<ul>
+<li>Are there mechanisms to detect that problem?</li>
+<li>Are there mechanisms to prevent or avoid that problem?</li>
+<li>Are there mechanisms to repair or recover from that problem if it occurs?</li>
+<li>Is this a problem we are willing to live with?</li>
+</ul>
+
+<p>The problems hypothesized are scrutinized in terms of a cost/benefit analysis. That is, what is the cost of preventing this problem compared to the benefits
+that accrue if the problem does not occur?
+As you might have gathered, if the architects are being thorough and if the
+problems are significant (that is, they present a large risk for the system), then
+these discussions can continue for a long time. The discussions are a normal portion of design and analysis and will naturally occur, even if only in the mind of a
+single designer. On the other hand, the time spent performing a particular thought
+experiment should be bounded. This sounds obvious, but every greyhaired architect can tell you war stories about being stuck in endless meetings, trapped in the
+purgatory of “analysis paralysis.”</p>
+
+<p>Analysis paralysis can be avoided with several techniques:</p>
+
+<ul>
+<li>“Time boxing”: setting a deadline on the length of a discussion.</li>
+<li>Estimating the cost if the problem occurs and not spending more than that
+cost in the analysis. In other words, do not spend an inordinate amount of
+time in discussing minor or unlikely potential problems.</li>
+</ul>
+
+<p>Prioritizing the requirements will help both with the cost estimation and
+with the time estimation.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>There have been many papers and books published describing how to build and
+analyze architectural models for quality attributes. Here are just a few examples.</p>
+
+<h4 id="availability">Availability</h4>
+
+<p>Many availability models have been proposed that operate at the architecture
+level of analysis. Just a few of these are [Gokhale 05] and [Yacoub 02].</p>
+
+<p>A discussion and comparison of different black-box and white-box models
+for determining software reliability can be found in [Chandran 10].</p>
+
+<p>A book relating availability to disaster recovery and business recovery is
+[Schmidt 10].</p>
+
+<h4 id="interoperability">Interoperability</h4>
+
+<p>An overview of interoperability activities can be found in [Brownsword 04].</p>
+
+<h4 id="modifiability">Modifiability</h4>
+
+<p>Modifiability is typically measured through complexity metrics. The classic work
+on this topic is [Chidamber 94].
+More recently, analyses based on design structure matrices have begun to
+appear [MacCormack 06].</p>
+
+<h4 id="performance">Performance</h4>
+
+<p>Two of the classic works on software performance evaluation are [Smith 01] and
+[Klein 93].</p>
+
+<p>A broad survey of architecture-centric performance evaluation approaches
+can be found in [Koziolek 10].</p>
+
+<h4 id="security">Security</h4>
+
+<p>Checklists for security have been generated by a variety of groups for different
+domains. See for example:</p>
+
+<ul>
+<li>Credit cards, generated by the Payment Card Industry: www.pcisecurity-standards.org/security_standards/</li>
+<li>Information security, generated by the National Institute of Standards and Technology (NIST): [NIST 09].</li>
+<li>Electric grid, generated by Advanced Security Acceleration Project for the Smart Grid: www.smartgridipedia.org/index.php/ASAP-SG</li>
+<li>Common Criteria. An international standard (ISO/IEC 15408) for computer
+security certification: www.commoncriteriaportal.org</li>
+</ul>
+
+<h4 id="testability">Testability</h4>
+
+<p>Work in measuring testability from an architectural perspective includes measuring
+testability as the measured complexity of a class dependency graph derived
+from UML class diagrams, and identifying class diagrams that can lead to code
+that is difficult to test [Baudry 05]; and measuring controllability and observability
+ as a function of data flow [Le Traon 97].</p>
+
+<h4 id="usability">Usability</h4>
+
+<p>A checklist for usability can be found at www.stcsig.org/usability/topics/articles/he-checklist.html</p>
+
+<h4 id="safety">Safety</h4>
+
+<p>A checklist for safety is called the Safety Integrity Level: en.wikipedia.org/wiki/
+Safety_Integrity_Level</p>
+
+<h4 id="applications-of-modeling-and-analysis">Applications of Modeling and Analysis</h4>
+
+<p>For a detailed discussion of a case where quality attribute modeling and analysis
+played a large role in determining the architecture as it evolved through a number
+of releases, see [Graham 07].</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>The authors of the Manifesto go on to describe the twelve principles that underlie
+their reasoning:</p>
+
+<ol>
+<li>Our highest priority is to satisfy the customer through early and continuous
+delivery of valuable software.</li>
+<li>Welcome changing requirements, even late in development. Agile processes
+harness change for the customer’s competitive advantage.</li>
+<li>Deliver working software frequently, from a couple of weeks to a couple of
+months, with a preference to the shorter timescale.</li>
+<li>Business people and developers must work together daily throughout the
+project.</li>
+<li>Build projects around motivated individuals. Give them the environment
+and support they need, and trust them to get the job done.</li>
+<li>The most efficient and effective method of conveying information to and
+within a development team is face-to-face conversation.</li>
+<li>Working software is the primary measure of progress.</li>
+<li>Agile processes promote sustainable development. The sponsors, developers,
+and users should be able to maintain a constant pace indefinitely.</li>
+<li>Continuous attention to technical excellence and good design enhances
+agility.</li>
+<li>Simplicity—the art of maximizing the amount of work not done—is
+essential.</li>
+<li>The best architectures, requirements, and designs emerge from self-organizing teams.</li>
+<li>At regular intervals, the team reflects on how to become more effective,
+then tunes and adjusts its behavior accordingly.</li>
+</ol>
+
+<p>Principle 11 says that, for best results, teams
+should be self-organizing. But self-organization is a social process that is much
+more cumbersome if those teams are not physically colocated. In this case we
+believe that the creators of the twelve Agile principles got it wrong. The best
+teams may be self-organizing, but the best architectures still require much more
+than this—technical skill, deep experience, and deep knowledge.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><figure>
+    <img src="effort.png#center"/> 
+</figure></div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>There is one line representing each of these three projects, starting
+near the Y axis and descending, at different rates, to the X axis at the 50
+mark. This shows that adding time for upfront work reduces later rework.
+No surprise: that is exactly the point of doing more upfront work. However,
+when you sum each of those downward-trending lines (for the 10, 100, and
+1,000 KSLOC projects) with the upward sloping line for the upfront (initial
+architecture and risk resolution) work, you get the second set of three lines,
+which start at the Y axis and meet the upward sloping line at the 50 mark
+on the X axis.</p>
+
+<p>These lines show that there is a sweet spot for each project. For the 10
+KSLOC project, the sweet spot is at the far left. This says that devoting
+much, if any, time to upfront work is a waste for a small project (assuming
+that the inherent domain complexity is the same for all three sets of lines).
+For the 100 KSLOC project, the sweet spot is at around 20 percent of the
+project schedule. And for the 1,000 KSLOC project, the sweet spot is at
+around 40 percent of the project schedule. These results are fairly intuitive.
+A project with a million lines of code is enormously complex, and it is
+difficult to imagine how Agile principles alone can cope with this complexity
+if there is no architecture to guide and organize the effort.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">Early Design Decisions and Requirements That Can Affect Them.</p>
+
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Design Decision Category</th>
+<th>Look for Requirements Addressing&hellip;</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Allocation of Responsibilities</td>
+<td>Planned evolution of responsibilities, user roles, system modes, major processing steps, commercial packages</td>
+</tr>
+
+<tr>
+<td>Coordination Model</td>
+<td>Properties of the coordination (timeliness, currency,completeness, correctness, and consistency) <br> Names of external elements, protocols, sensors or actuators (devices , middleware, network configurations (including their security properties) <br> Evolution requirements on the list above</td>
+</tr>
+
+<tr>
+<td>Data Model</td>
+<td>Processing steps, information flows, major domain entities, access rights, persistence, evolution requirements</td>
+</tr>
+
+<tr>
+<td>Management of Resources</td>
+<td>Time, concurrency, memory footprint, scheduling, multiple users, multiple activities, devices, energy usage, soft resources (buffers, queues, etc.) <br> Scalability requirements on the list above</td>
+</tr>
+
+<tr>
+<td>Mapping among Architectural Elements</td>
+<td>Plans for teaming, processors, families of processors, evolution of processors, network configurations</td>
+</tr>
+
+<tr>
+<td>Binding Time Decisions</td>
+<td>Extension of or flexibility of functionality, regional distinctions, language distinctions, portability, calibrations, configurations</td>
+</tr>
+
+<tr>
+<td>Choice of Technology</td>
+<td>Named technologies, changes to technologies (planned and unplanned)</td>
+</tr>
+</tbody>
+</table></div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>Architectures are driven by architecturally significant requirements: requirements
+that will have profound effects on the architecture. Architecturally significant
+requirements may be captured from requirements documents, by interviewing
+stakeholders, or by conducting a Quality Attribute Workshop.</p>
+
+<p>In gathering these requirements, we should be mindful of the business goals
+of the organization. Business goals can be expressed in a common, structured
+form and represented as scenarios. Business goals may be elicited and documented using a structured facilitation method called PALM.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">PALM can also be used to discover and carry along additional information about existing requirements.
+For example, a business goal might be to produce a product that outcompetes a rival’s market entry. This might precipitate
+a performance requirement for, say, half-second turnaround when the rival features one-second turnaround. But if the competitor releases a new product with
+half-second turnaround, then what does our requirement become? A conventional
+requirements document will continue to carry the half-second requirement, but
+the goal-savvy architect will know that the real requirement is to beat the competitor, which may mean even faster performance is needed.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">A number of authors have compared five different industrial architecture design methods. You can find this comparison at [Hofmeister 07]
+“A General Model of Software Architecture Design Derived from Five Industrial Approaches,” Journal of Stems and Software, Vol. 80, No. 1 (January 2007), pp. 106-126.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">Informal notations. Views are depicted (often graphically) using general-purpose
+ diagramming and editing tools and visual conventions chosen
+for the system at hand. The semantics of the description are characterized in
+natural language, and they cannot be formally analyzed. In our experience,
+the most common tool for informal notations is PowerPoint.</p>
+
+<ul>
+<li>Semiformal notations. Views are expressed in a standardized notation that
+prescribes graphical elements and rules of construction, but it does not
+provide a complete semantic treatment of the meaning of those elements.
+Rudimentary analysis can be applied to determine if a description satisfies
+syntactic properties. UML is a semiformal notation in this sense.</li>
+<li>Formal notations. Views are described in a notation that has a precise (usually mathematically based) semantics. Formal analysis of both syntax and
+semantics is possible. There are a variety of formal notations for software
+architecture available. Generally referred to as architecture description languages (ADLs), they typically provide both a graphical vocabulary and an
+underlying semantics for architecture representation. In some cases these
+notations are specialized to particular architectural views. In others they allow
+many views, or even provide the ability to formally define new views. The
+usefulness of ADLs lies in their ability to support automation through associated tools: automation to provide useful analysis of the architecture or assist
+in code generation. In practice, the use of such notations is rare.</li>
+</ul></div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">Documenting an architecture is a matter of documenting the relevant
+views and then adding documentation that applies to more than one view.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">Properties of modules that help to guide implementation or are input to analysis
+ should be recorded as part of the supporting documentation for a module
+view. The list of properties may vary but is likely to include the following:</p>
+
+<ul>
+<li>Name. A module’s name is, of course, the primary means to refer to it. A
+module’s name often suggests something about its role in the system. In addition,
+a module’s name may reflect its position in a decomposition hierarchy; the name A.B.C,
+for example, refers to a module C that is a submodule
+of a module B, itself a submodule of A.</li>
+<li>Responsibilities. The responsibility property for a module is a way
+to identify its role in the overall system and establishes an identity for it beyond
+the name. Whereas a module’s name may suggest its role, a statement of
+responsibility establishes it with much more certainty. Responsibilities
+should be described in sufficient detail to make clear to the reader what
+each module does.</li>
+<li>Visibility of interface(s). When a module has submodules, some interfaces
+of the submodules are public and some may be private; that is, the interfaces are used only by the submodules within the enclosing parent module.
+These private interfaces are not visible outside that context.</li>
+<li>Implementation information. Modules are units of implementation. It is
+therefore useful to record information related to their implementation from
+the point of view of managing their development and building the system
+that contains them. This might include the following:</li>
+<li>Mapping to source code units. This identifies the files that constitute the
+implementation of a module. For example, a module Account, if implemented in Java,
+might have several files that constitute its implementation: IAccount.java (an interface), AccountImpl.java (the implementation
+of Account functionality), AccountBean.java (a class to hold the state of
+an account in memory), AccountOrmMapping.xml (a file that defines the
+mapping between AccountBean and a database table—object-relational
+mapping), and perhaps even a unit test AccountTest.java.</li>
+<li>Test information. The module’s test plan, test cases, test scaffolding, and
+test data are important to document. This information may simply be a
+pointer to the location of these artifacts.</li>
+<li>Management information. A manager may need information about the
+module’s predicted schedule and budget. This information may simply be
+a pointer to the location of these artifacts.</li>
+<li>Implementation constraints. In many cases, the architect will have an
+implementation strategy in mind for a module or may know of constraints
+that the implementation must follow.</li>
+<li>Revision history. Knowing the history of a module including authors and
+particular changes may help when you perform maintenance activities.</li>
+</ul></div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">Software elements and environmental elements have properties in allocation
+views. The usual goal of an allocation view is to compare the properties required
+by the software element with the properties provided by the environmental elements
+to determine whether the allocation will be successful or not. For example,
+to ensure a component’s required response time, it has to execute on (be allocated
+to) a processor that provides sufficiently fast processing power. For another example,
+a computing platform might not allow a task to use more than 10 kilobytes of virtual memory.
+An execution model of the software element in question
+can be used to determine the required virtual memory usage. Similarly, if you are
+migrating a module from one team to another, you might want to ensure that the
+new team has the appropriate skills and background knowledge.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">Another kind of view, which we call a quality view, can be tailored for
+specific stakeholders or to address specific concerns. These quality views are formed
+by extracting the relevant pieces of structural views and packaging them together.
+Here are five examples:</p>
+
+<ul>
+<li>A security view can show all of the architectural measures taken to provide
+security. It would show the components that have some security role or
+responsibility, how those components communicate, any data repositories
+for security information, and repositories that are of security interest. The
+view’s context information would show other security measures (such as
+physical security) in the system’s environment. The behavior part of a
+security view would show the operation of security protocols and where and
+how humans interact with the security elements. It would also capture how
+the system would respond to specific threats and vulnerabilities.</li>
+<li>A communications view might be especially helpful for systems that are
+globally dispersed and heterogeneous. This view would show all of the
+component-to-component channels, the various network channels,
+quality-of-service parameter values, and areas of concurrency. This view can be
+used to analyze certain kinds of performance and reliability
+(such as deadlock or race condition detection). The behavior part of this view could show
+(for example) how network bandwidth is dynamically allocated.</li>
+<li>An exception or error-handling view could help illuminate and
+draw attention to error reporting and resolution mechanisms. Such a view would show
+how components detect, report, and resolve faults or errors. It would help
+identify the sources of errors and appropriate corrective actions for each.
+Root-cause analysis in those cases could be facilitated by such a view.</li>
+<li>A reliability view would be one in which reliability mechanisms such as
+replication and switchover are modeled. It would also depict timing issues
+and transaction integrity.</li>
+<li>A performance view would include those aspects of the architecture useful
+for inferring the system’s performance. Such a view might show network
+traffic models, maximum latencies for operations, and so forth.</li>
+</ul></div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>You can determine which views are required, when to create them, and how
+much detail to include if you know the following:</p>
+
+<ul>
+<li>What people, and with what skills, are available</li>
+<li>Which standards you have to comply with</li>
+<li>What budget is on hand</li>
+<li>What the schedule is</li>
+<li>What the information needs of the important stakeholders are</li>
+<li>What the driving quality attribute requirements are</li>
+<li>What the size of the system is</li>
+</ul>
+
+<p>At a minimum, expect to have at least one module view, at least one C&amp;C
+view, and for larger systems, at least one allocation view in your architecture document. Beyond that basic rule of thumb, however, there is a three-step method for
+choosing the views:</p>
+
+<ul>
+<li>Step 1: Build a stakeholder/view table. Enumerate the stakeholders for
+your project’s software architecture documentation down the rows. Be as
+comprehensive as you can. For the columns, enumerate the views that apply to your system. (Use the structures discussed in Chapter 1, the views
+discussed in this chapter, and the views that your design work in ADD has
+suggested as a starting list of candidates.) Some views (such as decomposition, uses, and work assignment) apply to every system, while others
+(various C&amp;C views, the layered view) only apply to some systems. For the
+columns, make sure to include the views or view sketches you already have
+as a result of your design work so far.
+Once you have the rows and columns defined, fill in each cell to describe
+how much information the stakeholder requires from the view: none, overview
+only, moderate detail, or high detail. The candidate view list going into step 2
+now consists of those views for which some stakeholder has a vested interest.</li>
+<li>Step 2: Combine views. The candidate view list from step 1 is likely to
+yield an impractically large number of views. This step will winnow the list
+to manageable size. Look for marginal views in the table: those that require
+only an overview, or that serve very few stakeholders. Combine each marginal view with another view that has a stronger constituency.</li>
+<li>Step 3: Prioritize and stage. After step 2 you should have the minimum
+set of views needed to serve your stakeholder community. At this point you
+need to decide what to do first. What you do first depends on your project,
+but here are some things to consider:</li>
+</ul>
+
+<p>The decomposition view (one of the module views) is a particularly
+helpful view to release early. High-level (that is, broad and shallow)
+decompositions are often easy to design, and with this information the
+project manager can start to staff development teams, put training in
+place, determine which parts to outsource, and start producing budgets
+and schedules.</p>
+
+<p>Be aware that you don’t have to satisfy all the information needs of all the
+stakeholders to the fullest extent. Providing 80 percent of the information
+goes a long way, and this might be good enough so that the stakeholders
+can do their job. Check with the stakeholder to see if a subset of information would be sufficient. They typically prefer a product that is delivered
+on time and within budget over getting the perfect documentation.</p>
+
+<p>You don’t have to complete one view before starting another. People can
+make progress with overview-level information, so a breadth-first approach is often the best.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">View template
+<figure>
+    <img src="view_template.png#center"/>
+</figure></div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>No matter what the view, the documentation for a view can be placed into a
+standard organization consisting of these parts:</p>
+
+<h4 id="section-1-the-primary-presentation">Section 1: The Primary Presentation</h4>
+
+<p>The primary presentation shows
+the elements and relations of the view. The primary presentation should
+contain the information you wish to convey about the system—in the vocabulary of that view. It should certainly include the primary elements and
+relations but under some circumstances might not include all of them. For
+example, you may wish to show the elements and relations that come into
+play during normal operation but relegate error handling or exception processing to the supporting documentation.
+The primary presentation is most often graphical. It might be a diagram
+you’ve drawn in an informal notation using a simple drawing tool, or it
+might be a diagram in a semiformal or formal notation imported from a
+design or modeling tool that you’re using. If your primary presentation is
+graphical, make sure to include a key that explains the notation. Lack of
+a key is the most common mistake that we see in documentation in practice.
+Occasionally the primary presentation will be textual, such as a table or
+a list. If that text is presented according to certain stylistic rules, these rules
+should be stated or incorporated by reference, as the analog to the graphical notation key. Regardless of whether the primary presentation is textual
+instead of graphical, its role is to present a terse summary of the most important information in the view.</p>
+
+<h4 id="section-2-the-element-catalog">Section 2: The Element Catalog</h4>
+
+<p>The element catalog details at least those
+elements depicted in the primary presentation. For instance, if a diagram
+shows elements A, B, and C, then the element catalog needs to explain what
+A, B, and C are. In addition, if elements or relations relevant to this view
+were omitted from the primary presentation, they should be introduced and
+explained in the catalog. Specific parts of the catalog include the following:</p>
+
+<ul>
+<li>Elements and their properties. This section names each element in the
+view and lists the properties of that element. Each view introduced in
+Chapter 1 listed a set of suggested properties associated with that view.
+For example, elements in a decomposition view might have the property
+of “responsibility”—an explanation of each module’s role in the system—and
+elements in a communicating-processes view might have timing parameters,
+among other things, as properties. Whether the properties
+are generic to the view chosen or the architect has introduced new ones,
+this is where they are documented and given values.</li>
+<li>Relations and their properties. Each view has specific relation types that
+it depicts among the elements in that view. Mostly, these relations are
+shown in the primary presentation. However, if the primary presentation
+does not show all the relations or if there are exceptions to what is depicted
+in the primary presentation, this is the place to record that information.</li>
+<li>Element interfaces. This section documents element interfaces.</li>
+<li>Element behavior. This section documents element behavior that is not
+obvious from the primary presentation.</li>
+</ul>
+
+<h4 id="section-3-context-diagram">Section 3: Context Diagram</h4>
+
+<p>A context diagram shows how the system or
+portion of the system depicted in this view relates to its environment. The
+purpose of a context diagram is to depict the scope of a view. Here “context”
+ means an environment with which the part of the system interacts.
+Entities in the environment may be humans, other computer systems, or
+physical objects, such as sensors or controlled devices.</p>
+
+<h4 id="section-4-variability-guide">Section 4: Variability Guide.</h4>
+
+<p>A variability guide shows how to exercise
+any variation points that are a part of the architecture shown in this view.</p>
+
+<h4 id="section-5-rationale">Section 5: Rationale</h4>
+
+<p>Rationale explains why the design reflected in the view
+came to be. The goal of this section is to explain why the design is as it is and
+to provide a convincing argument that it is sound. The choice of a pattern in
+this view should be justified here by describing the architectural problem that
+the chosen pattern solves and the rationale for choosing it over another.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">If architecture is largely about the achievement of quality attributes and if one of
+the main uses of architecture documentation is to serve as a basis for analysis (to
+make sure the architecture will achieve its required quality attributes), where do
+quality attributes show up in the documentation? Short of a full-fledged quality
+view (see page 340), there are five major ways:</p>
+
+<ol>
+<li>Any major design approach (such as an architecture pattern) will have
+quality attribute properties associated with it. Client-server is good for
+scalability, layering is good for portability, an information-hiding-based
+decomposition is good for modifiability, services are good for interoperability,
+and so forth. Explaining the choice of approach is likely to include
+a discussion about the satisfaction of quality attribute requirements and
+tradeoffs incurred. Look for the place in the documentation where such an
+explanation occurs. In our approach, we call that rationale.</li>
+<li>Individual architectural elements that provide a service often have quality attribute bounds assigned to them. Consumers of the services need to
+know how fast, secure, or reliable those services are. These quality attribute bounds are defined in the interface documentation for the elements,
+sometimes in the form of a service level agreement. Or they may simply be
+recorded as properties that the elements exhibit.</li>
+<li>Quality attributes often impart a “language” of things that you would look
+for. Security involves security levels, authenticated users, audit trails,
+firewalls, and the like. Performance brings to mind buffer capacities, deadlines, periods, event rates and distributions, clocks and timers, and so on.
+Availability conjures up mean time between failure, failover mechanisms,
+primary and secondary functionality, critical and noncritical processes, and
+redundant elements. Someone fluent in the “language” of a quality attribute
+can search for the kinds of architectural elements (and properties of those
+elements) that were put in place precisely to satisfy that quality attribute
+requirement.</li>
+<li>Architecture documentation often contains a mapping to requirements that
+shows how requirements (including quality attribute requirements) are satisfied. If your requirements document establishes a requirement for availability, for instance, then you should be able to look it up by name or reference in your architecture document to see the places where that requirement
+is satisfied.</li>
+<li>Every quality attribute requirement will have a constituency of stakeholders
+who want to know that it is going to be satisfied. For these stakeholders, the
+architect should provide a special place in the documentation’s introduction
+that either provides what the stakeholder is looking for, or tells the stakeholder where in the document to find it. It would say something like this:
+“If you are a performance analyst, you should pay attention to the processes
+and threads and their properties (defined [here]), and their deployment on
+the underlying hardware platform (defined [here]).” In our documentation
+approach, we put this information in a section called the documentation roadmap.</li>
+</ol></div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">Here’s what you can do if you’re an architect in a highly dynamic environment:</p>
+
+<ul>
+<li>Document what is true about all versions of your system. Your web browser doesn’t go out and grab just any piece of software when it needs a new
+plugin; a plugin must have specific properties and a specific interface.
+And it doesn’t just plug in anywhere, but in a predetermined location in
+the architecture. Record those invariants as you would for any architecture.
+This may make your documented architecture more a description of constraints or guidelines that any compliant version of the system must follow.
+That’s fine.</li>
+<li>Document the ways the architecture is allowed to change. In the previous
+examples, this will usually mean adding new components and replacing
+components with new implementations. In the Views and Beyond approach,
+the place to do this is called the variability guide (captured in Section 4 of
+our view template.</li>
+</ul></div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">one of the valuable properties
+of architecture: you could build many different systems from one. And that’s
+what an abstraction is: a one-to-many mapping.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>One of the most vexing realities about architecture-based software development is the gulf
+between architectural and implementation ontologies, the set of concepts and terms inherent in an area. Ask an architect
+what concepts they work with all day, and you’re likely to hear things like
+modules, components, connectors, stakeholders, evaluation, analysis,
+documentation, views, modeling, quality attributes, business goals, and
+technology roadmaps.</p>
+
+<p>Ask an implementer the same question, and you likely won’t hear any of
+those words. Instead you’ll hear about objects, methods, algorithms, data
+structures, variables, debugging, statements, code comments, compilers,
+generics, operator overloading, pointers, and build scripts.</p>
+
+<p>This is a gap in language that reflects a gap in concepts. This gap is, in
+turn, reflected in the languages of the tools that each community uses. UML
+started out as a way to model object-oriented designs that could be quickly
+converted to code—that is, UML is conceptually “close” to code. Today it is
+a de facto architecture description language, and likely the most popular
+one. But it has no builtin concept for the most ubiquitous of architectural
+concepts, the layer. If you want to represent layers in UML, you have to adopt
+some convention to do it. Packages stereotyped as <code>&lt;&lt;layer&gt;&gt;</code>, associated
+with stereotyped <code>&lt;&lt;allowed to use&gt;&gt;</code> dependencies do the trick. But it is a
+trick, a workaround for a language deficiency. UML has “connectors,” two of
+them in fact. But they are a far cry from what architects think of as connectors.
+Architectural connectors can and do have rich functionality. For instance,
+an enterprise service bus (ESB) in a service-oriented architecture handles
+routing, data and format transformation, technology adaptation, and a host of
+other work. It is most natural to depict the ESB as a connector tying together
+services that interact with each other through it. But UML connectors are
+impoverished things, little more than bookkeeping mechanisms that have no
+functionality whatsoever. The delegation connector in UML exists merely to
+associate the ports of a parent component with ports of its nested children,
+to send inputs from the outside into a child’s input port, and outputs from a
+child to the output port of the parent. And the assembly connector simply ties
+together one component’s “requires” interface with another’s “provides” interface. These are no more than bits of string to tie two components together. To
+represent a true architectural connector in UML, you have to adopt a convention—another workaround—such as using simple associations tagged with
+explanatory annotations, or abandon the architectural concept completely
+and capture the functionality in another component.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">In addition to designing for testability, the architect can also do these other
+things to help the test effort:</p>
+
+<ul>
+<li>Insure that testers have access to the source code, design documents, and
+the change records.</li>
+<li>Give testers the ability to control and reset the entire dataset that a program
+stores in a persistent database. Reverting the database to a known state is
+essential for reproducing bugs or running regression tests. Similarly, loading a test bed into the database is helpful.
+Even products that don’t use databases can benefit from routines to automatically preload a set of test data.
+One way to achieve this is to design a “persistence layer” so that the whole
+program is database independent. In this way, the entire database can be
+swapped out for testing, even using an inmemory database if desired.</li>
+<li>Give testers the ability to install multiple versions of a software product on
+a single machine. This helps testers compare versions, isolating when a bug
+was introduced. In distributed applications, this aids testing deployment
+configurations and product scalability. This capability could require configurable communication ports and provisions for avoiding collisions over
+resources such as the registry.</li>
+</ul></div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>Architecture Presentation (Approximately 20 slides; 60 Minutes)</p>
+
+<p>Driving architectural requirements, the measurable quantities you
+associate with these requirements, and any existing standards/models/
+approaches for meeting these (2–3 slides)</p>
+
+<p>Important architectural information (4–8 slides):</p>
+
+<ul>
+<li>Context diagram—the system within the context in which it will exist.
+Humans or other systems with which the system will interact.</li>
+<li>Module or layer view—the modules (which may be subsystems or
+layers) that describe the system’s decomposition of functionality, along
+with the objects, procedures, functions that populate these, and the
+relations among them (e.g., procedure call, method invocation, callback,
+containment).</li>
+<li>Component-and-connector view—processes, threads along with the
+synchronization, data flow, and events that connect them.</li>
+<li>Deployment view—CPUs, storage, external devices/sensors along with
+the networks and communication devices that connect them. Also shown
+are the processes that execute on the various processors.</li>
+</ul>
+
+<p>Architectural approaches, patterns, or tactics employed, including what
+quality attributes they address and a description of how the approaches
+address those attributes (3–6 slides):
+* Use of commercial off-the-shelf (COTS) products and how they are chosen/integrated (1–2 slides).
+* Trace of 1 to 3 of the most important use case scenarios. If possible,
+include the runtime resources consumed for each scenario (1–3 slides).
+* Trace of 1 to 3 of the most important change scenarios. If possible,
+describe the change impact (estimated size/difficulty of the change) in
+terms of the changed modules or interfaces (1–3 slides).
+* Architectural issues/risks with respect to meeting the driving
+architectural requirements.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">A Typical Agenda for Lightweight Architecture Evaluation.
+<figure>
+    <img src="agenda.png#center"/>
+</figure></div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">Division of Responsibilities between Project Manager and Architect.
+(See table in the book)</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>The plan for a project is initially developed as a top-down schedule with
+an acknowledgement that it is only an estimate. Once the decomposition of the
+system has been done, a bottom-up schedule can be developed. The two must be
+reconciled, and this becomes the basis for the software development plan.</p>
+
+<p>Teams are created based on the software development plan. The software
+architect and the project manager must coordinate to oversee the implementation.
+Global development creates a need for an explicit coordination strategy that is
+based on more formal methods than needed for co-located development.</p>
+
+<p>The implementation itself causes tradeoffs between schedule, function, and
+cost. Releases are done in an incremental fashion and progress is tracked by both
+formal metrics and informal communication.</p>
+
+<p>Larger systems require formal governance mechanisms. The issue of who
+has control over a particular portion of the system may prevent some business
+goals from being realized.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>To build the utility-response curve, we first determine the quality attribute levels
+for the best-case and worst-case situations. The best-case quality attribute level is
+that above which the stakeholders foresee no further utility. For example, a system response to the user of 0.1 second is perceived as instantaneous, so improving it further so that it responds in 0.03 second has no additional utility. Similarly, the worst-case quality attribute level is a minimum threshold above which a
+system must perform; otherwise it is of no use to the stakeholders. These levels—
+best-case and worst-case—are assigned utility values of 100 and 0, respectively.</p>
+
+<p>We then determine the current and desired utility levels for the scenario. The respective utility values (between 0 and 100) for various alternative strategies are
+elicited from the stakeholders, using the best-case and worst-case values as reference points. For example, our current design provides utility about half as good
+as we would like, but an alternative strategy being considered would give us 90
+percent of the maximum utility. Hence, the current utility level is set to 50 and the
+desired utility level is set to 90.
+In this manner the utility curves are generated for all of the scenarios.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">One method of weighting the scenarios is to prioritize them and use their priority ranking as the weight. So for N scenarios, the highest priority one is given a
+weight of 1, the next highest is given a weight of (N–1)/N, and so on. This turns
+the problem of weighting the scenarios into one of assigning priorities.
+The stakeholders can determine the priorities through a variety of voting
+schemes. One simple method is to have each stakeholder prioritize the scenarios
+(from 1 to N) and the total priority of the scenario is the sum of the priorities it
+receives from all of the stakeholders.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">If you want to improve your individual architectural competence, you should do the following:</p>
+
+<ol>
+<li>Gain experience carrying out the duties. Apprenticeship is a productive
+path to achieving experience. Education alone is not enough, because education without on-the-job application merely enhances knowledge.</li>
+<li>Improve your nontechnical skills. This dimension of improvement involves
+taking professional development courses, for example, in leadership or time
+management. Some people will never become truly great leaders or communicators, but we can all improve on these skills.</li>
+<li>Master the body of knowledge. One of the most important things a competent architect must do is master the body of knowledge and remain up to
+date on it. To emphasize the importance of remaining up to date, consider
+the advances in knowledge required for architects that have emerged in
+just the last few years. For example, the cloud and edge computing that we
+discuss in Chapters 26 and 27 were not important topics several years ago.
+Taking courses, becoming certified, reading books and journals, visiting
+websites and portals, reading blogs, attending architecture-oriented conferences, joining professional societies, and meeting with other architects are
+all useful ways to improve knowledge.</li>
+</ol></div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>The Technical Duties of a Software Architect.</p>
+
+<p>The Nontechnical Duties of a Software Architect.</p>
+
+<p>The Nontechnical Skills of a Software Architect.</p>
+
+<p>The Knowledge Areas of a Software Architect.</p>
+
+<p>(See tables in the book)</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><h4 id="duty-creating-an-architecture">Duty: creating an architecture</h4>
+
+<ul>
+<li>How do you create an architecture?</li>
+<li>How do you ensure that the architecture is aligned with the business goals?</li>
+<li>What is the input into the architecture creation process? What inputs are
+provided to the architect?</li>
+<li>How does the architect validate the information provided? What does the
+architect do in case the input is insufficient or inadequate?</li>
+</ul>
+
+<h4 id="duty-architecture-evaluation-and-analysis">Duty: architecture Evaluation and analysis</h4>
+
+<ul>
+<li>How do you evaluate and analyze an architecture?</li>
+<li>Are evaluations part of the normal software development life cycle or are
+they done when problems are encountered?</li>
+<li>Is the evaluation incremental or “big bang”? How is the timing determined?</li>
+<li>Does the evaluation include an explicit activity relating architecture to business goals?</li>
+<li>What are the inputs to the evaluation? How are they validated?</li>
+<li>What are the outputs from an evaluation? How are the outputs of the evaluation utilized? Are the outputs differentiated according to impact or importance? How are the outputs validated? Who is communicated what outputs?</li>
+</ul>
+
+<h4 id="knowledge-architecture-concepts">Knowledge: architecture concepts</h4>
+
+<ul>
+<li>How does your organization ensure that its architects have adequate
+architectural knowledge?</li>
+<li>How are architects trained in general knowledge of architecture?</li>
+<li>How do architects learn about architectural frameworks, patterns, tactics,
+standards, documentation notations, and architecture description languages?24.2 Competence of a Software Architecture Organization 473</li>
+<li>How do architects learn about new or emerging architectural technologies
+(e.g., multicore processors)?</li>
+<li>How do architects learn about analysis and evaluation techniques and
+methods?</li>
+<li>How do architects learn quality attributespecific knowledge, such as techniques for analyzing and managing availability, performance, modifiability,
+and security?</li>
+<li>How are architects tested to ensure that their level of knowledge is adequate, and remains adequate, for the tasks that they face?</li>
+</ul>
+
+<h4 id="questions-based-on-the-organizational-coordination-model">Questions based on the Organizational coordination Model.</h4>
+
+<p>Questions based on the Organizational Coordination model focus on how the organization establishes its teams and what support it provides for those teams to coordinate effectively. Here are a couple of example questions:</p>
+
+<ul>
+<li>How is the architecture designed with distribution of work to teams in mind?</li>
+<li>How available or broadly shared is the architecture to various teams?</li>
+<li>How do you manage the evolution of architecture during development?</li>
+<li>Is the work assigned to the teams before or after the architecture is defined,
+and with due consideration of the architectural structure?</li>
+<li>Are the aspects of the architecture that will require a lot of inter-team coordination supported by the organization’s coordination/communication
+infrastructure?</li>
+<li>Do you colocate teams with high coordination? Or at least put them in the same time zone?</li>
+<li>Must all coordination among teams go through the architecture team?</li>
+</ul>
+
+<h4 id="questions-based-on-the-human-performance-technology-model">Questions based on the Human Performance technology Model.</h4>
+
+<p>The Human Performance Technology questions deal with the value and cost of
+the organization’s architectural activities. Here are examples of questions based
+on the Human Performance Technology model:</p>
+
+<ul>
+<li>Do you track how much the architecture effort costs, and how it impacts overall project cost and schedule?</li>
+<li>How do you track the end of architecture activities?</li>
+<li>How do you track the impact of architecture activities?</li>
+<li>Do you track the value or benefits of the architecture?</li>
+<li>How do you measure stakeholder satisfaction?</li>
+<li>How do you measure quality?</li>
+</ul>
+
+<h4 id="questions-based-on-the-organizational-learning-model">Questions based on the Organizational learning Model.</h4>
+
+<p>Finally, a set of example questions, based on the Organizational Learning model, which
+deal with how the organization systematically internalizes knowledge to its
+advantage:</p>
+
+<ul>
+<li>How do you capture and share experiences, lessons learned, technological decisions, techniques and methods, and knowledge about available tooling?</li>
+<li>Do you use any knowledge management tools?</li>
+<li>Is capture and use of architectural knowledge embedded in your processes?</li>
+<li>Where is the information about “who knows what” captured and how is this
+information maintained?</li>
+<li>How complete and up to date is your architecture documentation? How
+widely disseminated is it.</li>
+</ul>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">The potential for reuse is broad and far-ranging, including the following:</p>
+
+<ul>
+<li>Requirements. Most of the requirements are common with those of earlier
+systems and so can be reused. In fact, many organizations simply maintain
+a single set of requirements that apply across the entire family as a core
+asset; the requirements for a particular system are then written as “delta”
+documents off the full set. In any case, most of the effort consumed by requirements analysis is saved from system to system.</li>
+<li>Architectural design. An architecture for a software system represents a
+large investment of time from the organization’s most talented engineers.
+As we have seen, the quality goals for a system—performance, reliability,
+modifiability, and so forth—are largely promoted or inhibited once the
+architecture is in place. If the architecture is wrong, the system cannot be
+saved. For a new product, however, this most important design step is already done and need not be repeated.</li>
+<li>Software elements. Software elements are applicable across individual
+products. Element reuse includes the (often difficult) initial design work.
+Design successes are captured and reused; design dead ends are avoided,
+not repeated. This includes design of each element’s interface, its documentation,
+its test plans and procedures, and any models (such as performance models) used to predict or measure its behavior. One reusable set of
+elements is the system’s user interface, which represents an enormous and
+vital set of design decisions. And as a result of this interface reuse, products
+in a product line usually enjoy the same look and feel as each other, an advantage in the marketplace.</li>
+<li>Modeling and analysis. Performance models, schedulability analysis, distributed system issues (such as proving the absence of deadlock), allocation
+of processes to processors, fault tolerance schemes, and network load policies all carry over from product to product. Companies that build realtime
+distributed systems report that one of the major headaches associated with
+production has all but vanished. When they field a new product in their
+product line, they have high confidence that the timing problems have been
+worked out and that the bugs associated with distributed computing—
+synchronization, network loading, and absence of deadlock—have been
+eliminated.</li>
+<li>Testing. Test plans, test processes, test cases, test data, test harnesses, and
+the communication paths required to report and fix problems are already in
+place.</li>
+<li>Project planning artifacts. Budgeting and scheduling are more predictable
+because experience is a high-fidelity indicator of future performance. Work
+breakdown structures need not be invented each time. Teams, team size,
+and team composition are all easily determined.</li>
+</ul></div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>Software product lines rely on reuse, but reuse has a long but less than
+stellar history in software engineering, with the promise almost always
+exceeding the payoff. One reason for this failure is that until now reuse
+has been predicated on the idea of “If you build it, they will come.” A reuse
+library is stocked with snippets from previous projects, and developers are
+expected to check it first before coding new elements. Almost everything
+conspires against this model. If the library is too sparse, the developer will
+not find anything of use and will stop looking. If the library is too rich, it will
+be hard to understand and search. If the elements are too small, it is easier to rewrite
+them than to find them and carry out whatever modifications
+they might need. If the elements are too large, it is difficult to determine
+exactly what they do in detail, which in any case is not likely to be exactly
+right for the new application. In most reuse libraries, pedigree is hazy at
+best. The developer cannot be sure exactly what the element does, how
+reliable it is, or under what conditions it was tested. And there is almost
+never a match between the quality attributes needed for the new application and those provided by the elements in the library.</p>
+
+<p>In any case, it is common that the elements were written for a different
+architectural model than the one the developer of the new system is using.
+Even if you find something that does the right thing with the right quality
+attributes, it is doubtful that it will be the right kind of architectural element
+(if you need an object, you might find a process), that it will have the right
+interaction protocol, that it will comply with the new application’s error-handling or failover policies, and so on.</p>
+
+<p>This has led to so many reuse failures that many project managers have
+given up on the idea. “Bah!” they exclaim. “We tried reuse before, and it
+doesn’t work!”</p>
+
+<p>Software product lines make reuse work by establishing a strict context for
+it. The architecture is defined; the functionality is set; the quality attributes are
+known. Nothing is placed in the reuse library—or “core asset base” in product
+line terms—that was not built to be reused in that product line. Product lines
+work by relying on strategic or planned, not opportunistic, reuse.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><h4 id="getting-architecture-reviews-into-an-organization-through-the-back-door">Getting Architecture Reviews into an Organization through  the Back Door</h4>
+
+<p>If you search the web for “code review computer science,” you’ll turn up
+millions of hits that describe code reviews and the steps that are taken to
+perform them. If you search for “design review computer science,” you’ll
+turn up little that is useful.</p>
+
+<p>Other disciplines routinely practice and teach design critiques. Search
+for “design critique” and you will find many hits together with instructions. A
+design is a set of decisions of whatever type that attempts to solve a particular problem, whether an art problem, a user interface design problem,
+or a software problem. Solutions to important design problems should be
+subject to peer review, just as code should be subject to peer review.</p>
+
+<p>There is a wealth of data that points out that the earlier in the life cycle a
+problem is discovered and fixed, the less the cost of finding and fixing the
+problem. Design precedes code and so having appropriate design reviews
+seems both intuitively and empirically justified. In addition, the documents
+around the review, both the original design document and also the critiques,
+are valuable learning tools for new developers. In many organizations developers switch systems frequently, and so they are constantly
+learning.</p>
+
+<p>This view is not universally shared. A software engineer working in a
+major software house tells me that even though the organization aspires to
+writing and reviewing design documents, it rarely happens. Senior developers tend to
+limit their review to a cursory glance. Code reviews, on the other
+hand, are taken quite seriously by the senior developers.
+My software engineer friend offers two possible explanations for this
+state of affairs:</p>
+
+<ol>
+<li>The code review is the last opportunity to affect what is built:
+“review this or live with it.” This explanation assumes that senior
+developers do not believe that the output of design reviews are
+actionable and thus wait to engage until later in the process.</li>
+<li>The code is more concrete than the design, and is therefore
+easier to assess. This explanation assumes that senior developers
+are incapable of understanding designs.</li>
+</ol>
+
+<p>I do not find either of these explanations compelling, but I am unable to
+come up with a better one.</p>
+
+<p>What to do?</p>
+
+<p>What this software engineer did is to look for a surrogate process where
+a design review could be surreptitiously performed. This individual noticed
+that when the organization did code reviews, questions such as “Why did
+you do that?” were frequently asked. The result of such questions was a
+discussion of rationale. So the individual would code up a solution to a
+problem, submit it to a code review, and wait for the question that would
+lead to the rationale discussion.</p>
+
+<p>A design review is a review where design decisions are presented
+together with their rationale. Frequently, design alternatives are explored.
+Whether this is done under the name of code review or design review is not
+nearly as important as getting it done.</p>
+
+<p>Of course, my friend’s surreptitious approach has drawbacks.
+It is inefficient to code a solution that may have to be thrown away. Also, embedding
+design reviews into code reviews means that the designs and reviews end
+up being embedded in the code review tool, making it difficult to search this
+tool for design and design rationale. But these inefficiencies are dwarfed by
+the inefficiency of pursuing an incorrect solution to a particular problem.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Len Bass, Paul Clements, Rick Kazman</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice" title="https://www.goodreads.com/book/show/19005733-software-architecture-in-practice">Software Architecture in Practice</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+      </main>
+    </div>
+    
+    <script src="https://neexee.github.io/js/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+
+    
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'UA-143695654-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  </body>
+</html>

@@ -6,10 +6,20 @@
     <description>Recent content in ★★★★☆ on Picky speaker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 24 Nov 2019 11:20:08 +0700</lastBuildDate>
+    <lastBuildDate>Wed, 25 Dec 2019 20:42:31 +0700</lastBuildDate>
     
 	<atom:link href="https://neexee.github.io/tags/%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%86/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Software Architecture in Practice</title>
+      <link>https://neexee.github.io/posts-en/architecture-in-practice/</link>
+      <pubDate>Wed, 25 Dec 2019 20:42:31 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/posts-en/architecture-in-practice/</guid>
+      <description>The book is very complex. The topic is not easy and writing style of the authors makes it worse.
+Some ideas are good but explanations are overly long. It could be much shorter, maybe a medium-sized blog post. I had a feeling that authors tried to cram into it everything they find useful about architecture. Links to aerospace standards (who needs them in a book like this?), clumsy discussion of product lines (an entire chapter is useless) and many more.</description>
+    </item>
     
     <item>
       <title>Basic Economics: A Citizen&#39;s Guide to the Economy</title>

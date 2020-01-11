@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>Software Architecture in Practice</title>
+      <link>https://neexee.github.io/posts-en/architecture-in-practice/</link>
+      <pubDate>Wed, 25 Dec 2019 20:42:31 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/posts-en/architecture-in-practice/</guid>
+      <description>The book is very complex. The topic is not easy and writing style of the authors makes it worse.
+Some ideas are good but explanations are overly long. It could be much shorter, maybe a medium-sized blog post. I had a feeling that authors tried to cram into it everything they find useful about architecture. Links to aerospace standards (who needs them in a book like this?), clumsy discussion of product lines (an entire chapter is useless) and many more.</description>
+    </item>
+    
+    <item>
       <title>Working with secrets in Ansible</title>
       <link>https://neexee.github.io/posts-en/ansible-secrets/</link>
       <pubDate>Sat, 07 Dec 2019 13:41:10 +0700</pubDate>
@@ -112,6 +122,15 @@ import itertools from typing import Callable, Iterable, List, Tuple, TypeVar A =
       <guid>https://neexee.github.io/posts-en/release-it/</guid>
       <description>Faults and cracks:
  Fault. A condition that creates an incorrect internal state in your software. A fault may be due to a latent bug that gets triggered, or it may be due to an unchecked condition at a boundary or external interface. Error. Visibly incorrect behavior. When your trading system suddenly buys ten billion dollars of Pokemon futures, that is an error. Failure. An unresponsive system. When a system doesn’t respond, we say it has failed.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://neexee.github.io/posts-en/architecture-in-practice-questions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://neexee.github.io/posts-en/architecture-in-practice-questions/</guid>
+      <description>Find a commonly accepted definition of system architecture and discuss what it has in common with software architecture. Do the same for enterprise architecture.  discussion Questions 1. Enumerate six different software systems used by your organization. For each of these systems: a. What are the contextual influences? b. Who are the stakeholders? c. How do these systems reflect or impact the organizational structure? 2. What kinds of business goals have driven the construction of the following: a.</description>
     </item>
     
   </channel>

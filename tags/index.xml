@@ -6,10 +6,46 @@
     <description>Recent content in Tags on Picky speaker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Dec 2019 13:41:10 +0700</lastBuildDate>
+    <lastBuildDate>Wed, 25 Dec 2019 20:42:31 +0700</lastBuildDate>
     
 	<atom:link href="https://neexee.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>books</title>
+      <link>https://neexee.github.io/tags/books/</link>
+      <pubDate>Wed, 25 Dec 2019 20:42:31 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/tags/books/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>https://neexee.github.io/tags/programming/</link>
+      <pubDate>Wed, 25 Dec 2019 20:42:31 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>quotes</title>
+      <link>https://neexee.github.io/tags/quotes/</link>
+      <pubDate>Wed, 25 Dec 2019 20:42:31 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/tags/quotes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>★★★★☆</title>
+      <link>https://neexee.github.io/tags/%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%86/</link>
+      <pubDate>Wed, 25 Dec 2019 20:42:31 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/tags/%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%86/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>deploy</title>
@@ -17,33 +53,6 @@
       <pubDate>Sat, 07 Dec 2019 13:41:10 +0700</pubDate>
       
       <guid>https://neexee.github.io/tags/deploy/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>programming</title>
-      <link>https://neexee.github.io/tags/programming/</link>
-      <pubDate>Sat, 07 Dec 2019 13:41:10 +0700</pubDate>
-      
-      <guid>https://neexee.github.io/tags/programming/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>books</title>
-      <link>https://neexee.github.io/tags/books/</link>
-      <pubDate>Sun, 01 Dec 2019 12:54:48 +0700</pubDate>
-      
-      <guid>https://neexee.github.io/tags/books/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>quotes</title>
-      <link>https://neexee.github.io/tags/quotes/</link>
-      <pubDate>Sun, 01 Dec 2019 12:54:48 +0700</pubDate>
-      
-      <guid>https://neexee.github.io/tags/quotes/</guid>
       <description></description>
     </item>
     
@@ -62,15 +71,6 @@
       <pubDate>Sun, 24 Nov 2019 11:20:08 +0700</pubDate>
       
       <guid>https://neexee.github.io/tags/non-fiction/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>★★★★☆</title>
-      <link>https://neexee.github.io/tags/%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%86/</link>
-      <pubDate>Sun, 24 Nov 2019 11:20:08 +0700</pubDate>
-      
-      <guid>https://neexee.github.io/tags/%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%86/</guid>
       <description></description>
     </item>
     
