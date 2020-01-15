@@ -188,14 +188,5 @@ What matters Does matter:
 Лабораторные 1-4  Что такое поток, как он выглядит в памяти? Чем отличаются процесс и поток? Чем отличаются fork() и pthread_create()? Как ОС выделяет процессорное время для потоков и процессов? Планировщик по-разному относится к потокам и процессам? Можно ли сделать свой собственный планировщик потоков (в обход ОС)? Это где-нибудь применяется?</description>
     </item>
     
-    <item>
-      <title></title>
-      <link>https://neexee.github.io/posts-en/architecture-in-practice-questions/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://neexee.github.io/posts-en/architecture-in-practice-questions/</guid>
-      <description>Find a commonly accepted definition of system architecture and discuss what it has in common with software architecture. Do the same for enterprise architecture.  discussion Questions 1. Enumerate six different software systems used by your organization. For each of these systems: a. What are the contextual influences? b. Who are the stakeholders? c. How do these systems reflect or impact the organizational structure? 2. What kinds of business goals have driven the construction of the following: a.</description>
-    </item>
-    
   </channel>
 </rss>
