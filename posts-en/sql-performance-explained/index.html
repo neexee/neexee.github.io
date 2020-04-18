@@ -181,12 +181,12 @@ audio {
 <p>Rules:</p>
 
 <ol>
-<li><strong>Index for equality first—then for ranges</strong>. The actual performance difference depends on the data and search criteria. The difference can be negligible if the filter on range is very selective on its own. The bigger the date range becomes, the bigger the performance difference will be.</li>
+<li><strong>Index for equality first—then for ranges</strong>. The actual performance difference depends on the data and search criteria. The difference can be negligible if the filter on the range is very selective on its own. The bigger the date range becomes, the bigger the performance difference will be.</li>
 <li><strong>Index could be useless for LIKE queries</strong>. Only the part before the first wild card serves as an access predicate. The remaining characters do not narrow the scanned index range—non-matching entries are just left out of the result. <br>
 For the PostgreSQL database, the problem is different because PostgreSQL assumes there is a leading wild card when using bind parameters for a LIKE expression. PostgreSQL just does not use an index in that case. The only way to get an index access for a LIKE expression is to make the actual search term visible to the optimizer. If you do not use a bind parameter but put the search term directly into the SQL statement, you must take other precautions against SQL injection attacks!</li>
 <li><strong>Maintain your index-only scans.</strong> Add comments that remind you about an index-only scan and refer to that page so anyone can read about it.</li>
-<li><strong>Optimize access to tables with singular index</strong>. Tables with one index only are best implemented as clustered indexes or index-organized tables. <br>
-Tables with more indexes can often benefit from heap tables. You can still use index-only scans to avoid the table access. This gives you the select performance of a clustered index without slowing down other indexes.</li>
+<li><strong>Optimize access to tables with a singular index</strong>. Tables with one index only are best implemented as clustered indexes or index-organized tables. <br>
+Tables with more indexes can often benefit from heap tables. You can still use index-only scans to avoid table access. This gives you the select performance of a clustered index without slowing down other indexes.</li>
 </ol>
 
 <p><a href="https://use-the-index-luke.com/sql/myth-directory">Myths</a>:</p>
