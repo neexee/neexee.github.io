@@ -6,10 +6,22 @@
     <description>Recent content in ★★★★★ on Picky speaker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 Jan 2020 16:51:07 +0700</lastBuildDate>
+    <lastBuildDate>Sat, 11 Apr 2020 12:51:04 +0700</lastBuildDate>
     
 	<atom:link href="https://neexee.github.io/tags/%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SQL Performance Explained</title>
+      <link>https://neexee.github.io/posts-en/sql-performance-explained/</link>
+      <pubDate>Sat, 11 Apr 2020 12:51:04 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/posts-en/sql-performance-explained/</guid>
+      <description>It&amp;rsquo;s short and very well-written. It&amp;rsquo;s the most valuable read on SQL I&amp;rsquo;ve ever seen. The book is available online.
+The most important thing for backend developers is &amp;ldquo;Do NOT use OFFSET for pagination&amp;rdquo;.
+Powers of indexing:
+ The B-Tree traversal. It could be traversed in any direction as leaf nodes are organized in a double linked list. Clustering. Similar data is close, especially if it&amp;rsquo;s an index-only scan.</description>
+    </item>
     
     <item>
       <title>The Essential Alan Watts</title>
