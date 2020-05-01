@@ -6,10 +6,46 @@
     <description>Recent content in Tags on Picky speaker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 18 Apr 2020 11:22:39 +0700</lastBuildDate>
+    <lastBuildDate>Fri, 01 May 2020 12:07:33 +0700</lastBuildDate>
     
 	<atom:link href="https://neexee.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>concurrency</title>
+      <link>https://neexee.github.io/tags/concurrency/</link>
+      <pubDate>Fri, 01 May 2020 12:07:33 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/tags/concurrency/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go</title>
+      <link>https://neexee.github.io/tags/go/</link>
+      <pubDate>Fri, 01 May 2020 12:07:33 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>postgresql</title>
+      <link>https://neexee.github.io/tags/postgresql/</link>
+      <pubDate>Fri, 01 May 2020 12:07:33 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/tags/postgresql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>https://neexee.github.io/tags/programming/</link>
+      <pubDate>Fri, 01 May 2020 12:07:33 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/tags/programming/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>books</title>
@@ -44,15 +80,6 @@
       <pubDate>Sat, 18 Apr 2020 11:22:39 +0700</pubDate>
       
       <guid>https://neexee.github.io/tags/%E2%98%85%E2%98%85%E2%98%85%E2%98%86%E2%98%86/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>programming</title>
-      <link>https://neexee.github.io/tags/programming/</link>
-      <pubDate>Sat, 11 Apr 2020 12:51:04 +0700</pubDate>
-      
-      <guid>https://neexee.github.io/tags/programming/</guid>
       <description></description>
     </item>
     
@@ -125,15 +152,6 @@
       <pubDate>Tue, 05 Feb 2019 11:23:41 +0700</pubDate>
       
       <guid>https://neexee.github.io/tags/english/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>concurrency</title>
-      <link>https://neexee.github.io/tags/concurrency/</link>
-      <pubDate>Sun, 23 Sep 2018 10:40:02 +0700</pubDate>
-      
-      <guid>https://neexee.github.io/tags/concurrency/</guid>
       <description></description>
     </item>
     
