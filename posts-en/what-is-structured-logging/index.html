@@ -1,0 +1,201 @@
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <meta name="author" content="Sergey Machulskis" />
+  <meta name="generator" content="Hugo 0.59.0-DEV" />
+  <link rel="stylesheet" href="https://neexee.github.io/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://neexee.github.io/css/blockquote.css">
+  <link rel="stylesheet" href="https://neexee.github.io/css/images.css">
+  
+  
+  <title>What is Structured Logging | Picky speaker</title>
+  <style>
+.container {
+  max-width: 800px;
+}
+#nav a {
+  font-weight: bold;
+  color: inherit;
+}
+#nav a.nav-link-active {
+  background-color: #212529;
+  color: #fff;
+}
+#nav-border {
+  border-bottom: 1px solid #212529;
+}
+#main {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+
+#main .taglist {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#home-jumbotron {
+  background-color: inherit;
+}
+#footer .container {
+  padding: 1em 0;
+}
+#footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+.font-125 {
+  font-size: 125%;
+}
+.tag-btn {
+  margin-bottom: 0.3em;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit; 
+  background-color: transparent;
+  border-radius: 0;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+img,
+iframe,
+embed,
+video,
+audio {
+  max-width: 100%;
+}
+</style>
+</head>
+  <body class="d-flex flex-column h-100">
+    <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+  
+  
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/posts-en/"><i data-feather="edit"></i> Blog (En)</a>
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/posts-ru/"><i data-feather="edit"></i> Blog (Ru)</a>
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
+  
+  </nav>
+</div>
+    <div class="container">
+      <main id="main">
+        
+
+<h1>What is Structured Logging</h1>
+
+
+  <div class="taglist">
+    <i data-feather="tag"></i>
+    
+      
+      <a class="btn btn-sm btn-outline-dark tag-btn" href="https://neexee.github.io/tags/programming">programming</a>
+    
+  </div>
+
+
+<p>Regular logs are hard to get right. Usually, people just want do debug issues using them. Debugging is messy so logs become a mess.</p>
+
+<p>Structured logging allows to clean up the mess a little bit. It even allows draw a graph of an event type from logs in Kibana and similar instruments with ease.</p>
+
+<p>Structured logging is even harder to get right than regular logs. But if you look at ways you can perceive a log, it becomes clear how a good log should look like.</p>
+
+<ul>
+<li>A log is a WAL of a database. Statements of the log are INSERT queries to several different tables. For example, there could be a table with operation timings, a table with a status of related services, a table with the results of tasks.</li>
+<li>A log is a code. The principles of YAGNI and DRY apply to it.</li>
+<li>A log is a stream of events. This means that ideally there should be only two types of entries in the log:
+
+<ul>
+<li>The emergence of a new entity (preferably with an identifier).</li>
+<li>А departure of the entity from the scope (it was successfully saved, successfully returned to the client, not processed due to an error).</li>
+</ul></li>
+<li>A log is a history. Same story as the history of commits in Git. The commit message should say <em>what</em> happened and <em>why</em>. To see <em>how</em> it was done you need to look in a diff.   Application logs should also say <em>what</em> happened <em>and why</em>. Good commit message format <a href="https://chris.beams.io/posts/git-commit/#seven-rules">is described in detail</a> a long ago.</li>
+<li>A log is NOT a story. There should be no plot twists. Records should not have ambiguous interpretations. There should be no meaning embedded in punctuation.</li>
+</ul>
+
+<p>Check out <a href="/posts-en/how-to-structured-logging-in-go/">Guide to structured logging in Go</a> for practical application of those insights.</p>
+
+
+
+      </main>
+    </div>
+    
+    <script src="https://neexee.github.io/js/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+
+    
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'UA-143695654-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  </body>
+</html>

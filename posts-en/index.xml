@@ -24,6 +24,28 @@ package main import ( &amp;#34;context&amp;#34; &amp;#34;database/sql&amp;#34; &
     </item>
     
     <item>
+      <title>Guide to Structured Logging in Go</title>
+      <link>https://neexee.github.io/posts-en/how-to-structured-logging-in-go/</link>
+      <pubDate>Wed, 22 Apr 2020 12:27:15 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/posts-en/how-to-structured-logging-in-go/</guid>
+      <description>There&amp;rsquo;s a lot of structured logging libraries for Go but there&amp;rsquo;s no good guideline on how to use them. This article explains how to get the most of your logs using those libraries.
+If you&amp;rsquo;re interested in underlying assumptions for this guideline, check out the previous article What is Structured Logging.
+How to populate a context Every logging library has a notion of context. Context groups log entries about a single task.</description>
+    </item>
+    
+    <item>
+      <title>What is Structured Logging</title>
+      <link>https://neexee.github.io/posts-en/what-is-structured-logging/</link>
+      <pubDate>Tue, 21 Apr 2020 12:26:46 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/posts-en/what-is-structured-logging/</guid>
+      <description>Regular logs are hard to get right. Usually, people just want do debug issues using them. Debugging is messy so logs become a mess.
+Structured logging allows to clean up the mess a little bit. It even allows draw a graph of an event type from logs in Kibana and similar instruments with ease.
+Structured logging is even harder to get right than regular logs. But if you look at ways you can perceive a log, it becomes clear how a good log should look like.</description>
+    </item>
+    
+    <item>
       <title>How to Take Smart Notes: One Simple Technique to Boost Writing, Learning and Thinking – for Students, Academics and Nonfiction Book Writers</title>
       <link>https://neexee.github.io/posts-en/smart-notes/</link>
       <pubDate>Sat, 18 Apr 2020 11:22:39 +0700</pubDate>
