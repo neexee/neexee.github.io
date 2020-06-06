@@ -1,0 +1,4835 @@
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <meta name="author" content="Sergey Machulskis" />
+  <meta name="generator" content="Hugo 0.59.0-DEV" />
+  <link rel="stylesheet" href="https://neexee.github.io/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://neexee.github.io/css/blockquote.css">
+  <link rel="stylesheet" href="https://neexee.github.io/css/images.css">
+  
+  
+  <title>Domain-Driven Design: Tackling Complexity in the Heart of Software | Picky speaker</title>
+  <style>
+.container {
+  max-width: 800px;
+}
+#nav a {
+  font-weight: bold;
+  color: inherit;
+}
+#nav a.nav-link-active {
+  background-color: #212529;
+  color: #fff;
+}
+#nav-border {
+  border-bottom: 1px solid #212529;
+}
+#main {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+
+#main .taglist {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#home-jumbotron {
+  background-color: inherit;
+}
+#footer .container {
+  padding: 1em 0;
+}
+#footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+.font-125 {
+  font-size: 125%;
+}
+.tag-btn {
+  margin-bottom: 0.3em;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit; 
+  background-color: transparent;
+  border-radius: 0;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+img,
+iframe,
+embed,
+video,
+audio {
+  max-width: 100%;
+}
+</style>
+</head>
+  <body class="d-flex flex-column h-100">
+    <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+  
+  
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/posts-en/"><i data-feather="edit"></i> Blog (En)</a>
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/posts-ru/"><i data-feather="edit"></i> Blog (Ru)</a>
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
+  
+  </nav>
+</div>
+    <div class="container">
+      <main id="main">
+        
+
+<h1>Domain-Driven Design: Tackling Complexity in the Heart of Software</h1>
+
+
+  <div class="taglist">
+    <i data-feather="tag"></i>
+    
+      
+      <a class="btn btn-sm btn-outline-dark tag-btn" href="https://neexee.github.io/tags/books">books</a>
+    
+      
+      <a class="btn btn-sm btn-outline-dark tag-btn" href="https://neexee.github.io/tags/programming">programming</a>
+    
+      
+      <a class="btn btn-sm btn-outline-dark tag-btn" href="https://neexee.github.io/tags/quotes">quotes</a>
+    
+      
+      <a class="btn btn-sm btn-outline-dark tag-btn" href="https://neexee.github.io/tags/%E2%98%85%E2%98%85%E2%98%85%E2%98%86%E2%98%86">★★★☆☆</a>
+    
+  </div>
+
+
+<p>The book presents a very interesting approach to modeling complex domains, especially with established terms.</p>
+
+<p>The code should look as a sentence said by a domain expert. That’s the core idea. The rest is a lengthy guide to listening to domain experts and mapping their sayings to the code.</p>
+
+<p>Pros:</p>
+
+<ul>
+<li>Brilliant idea, totally worth knowing</li>
+<li>I could finally understand most of the content on Fowler’s blog</li>
+</ul>
+
+<p>Cons:</p>
+
+<ul>
+<li>It’s very hard to follow the author. If I haven’t seen DDD in practice, the book wouldn’t make sense to me at all.</li>
+<li>It has no warnings about the wrong application of this approach. See <a href="https://martinfowler.com/bliki/AnemicDomainModel.html">Anemic Domain Model</a> as an example.</li>
+</ul>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>In a TV talk show interview, comedian John Cleese told a story of an event during the filming of “Monty
+Python and the Holy Grail”. They had been shooting a particular scene over and over, but somehow it
+wasn’t funny. Finally, he took a break and consulted with fellow comedian Michael Palin (the other actor in
+the scene), and they came up with a slight variation. They shot one more take, and it turned out funny, so
+they called it a day.</p>
+
+<p>The next morning Mr. Cleese was looking at the rough cut the film editor had put together of the previous
+day’s work. Coming to the scene they had struggled with, he found that it wasn’t funny; one of the earlier
+takes had been used.</p>
+
+<p>He asked the film editor why he hadn’t used the last take, as directed.  “Couldn’t use it. Someone walked
+in-shot,” the editor replied. Mr. Cleese watched the scene again, and then again. Still he could see nothing
+wrong. Finally the editor stopped the film and pointed out a coat sleeve that was visible for a moment at the
+edge of the picture.</p>
+
+<p>The film editor was concerned that other film editors who saw the movie would judge his work based on its
+technical perfection. He was focused on the precise execution of his own specialty, and, in the process, the
+heart of the scene had been lost. [“The Late Late Show with Craig Kilborn”, CBS, September, 2001]
+Fortunately, the funny scene was restored by a director who understood comedy. In just the same way,
+leaders within a team who understand the centrality of the domain can put their software project back on
+course when enthusiastic developers get caught up in develop elaborate technical frameworks that do not
+serve, or actually get in the way of domain development, while development of a model that reflects deep
+understanding of the domain is lost in the shuffle.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>In the old waterfall method, the business experts talked to the analysts, analysts digested and abstracted and
+passed the result along to the programmers who coded the software. This failed because it completely lacks
+feedback. The analysts have full responsibility for creating the model based only on input from the business
+experts. They have no opportunity to learn from the programmers or gain experience with early versions.
+Knowledge trickles in one direction, but does not accumulate.</p>
+
+<p>Other projects have iteration, but don’t build up knowledge because they don’t abstract. They get the
+experts to describe a desired feature and they go build it. They show the experts the result and ask them
+what to do next. If the programmers practice refactoring they can keep the software clean enough to
+continue extending it, but if programmers are not interested in the domain, they only learn what the
+application should do, not the principles behind it. Useful software can be built that way, but the project
+will never gain the kind of leverage where powerful new features unfold as corollaries to older features.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>One of the projects that I’ll be drawing on for examples throughout the book was a container shipping
+system. Since the beginning of a shipment is booking cargo, we developed a model that allowed us to
+describe the cargo, its itinerary, and so on. This was all necessary and useful, yet the domain experts felt
+dissatisfied. There was a way they looked at their business that we were missing.</p>
+
+<p>Eventually, we realized that our focus on the handling of cargo, the physical loading and unloading, the
+movements from place to place, was largely handled by subcontractors or by operational people in the
+company. The view of our customers was of a series of transfers of responsibility between parties. A
+process governed transfer of legal and practical responsibility from the shipper to some local carrier, from
+one carrier to another, and to the consignee. Often, the cargo would sit in a warehouse while important
+steps were being taken. At other times, the cargo would move through complex physical steps that were not
+relevant to shipping company’s business decisions. Rather than the logistical emphasis of the itinerary,
+what came to the fore was legal documents like the bill of lading, and processes leading to release of
+payments.</p>
+
+<p>This deeper view of the shipping business did not mean there was no itinerary object, but the model
+changed profoundly. Our view of shipping changed from moving containers from place to place, to
+transferring responsibility for cargo from entity to entity. Features for handling these transfers of
+responsibility were no longer awkwardly attached to loading operations, but were supported by a model
+that came out of an understanding of the significant relationship between those operations and those
+responsibilities.</p>
+
+<p>Knowledge crunching is an exploration, and you can’t know where you will end up.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>Use the model as the backbone of a language. Commit the team to using that language relentlessly in
+all communication within the team and in the code. Use the same language in diagrams, writing, and,
+especially speech.</p>
+
+<p>Iron out difficulties by experimenting with alternative expressions, which reflect alternative models.
+Then refactor the code, renaming classes, methods and modules to conform to the new model.
+Resolve confusion over terms in conversation, in just the way we converge on agreed meaning of
+ordinary words. Domain experts object to terms or structures that are awkward or inadequate to
+convey domain understanding, while developers watch for ambiguity or inconsistency that will trip
+up design.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>Although it has never reached the mass usage that object-oriented languages have, the Prolog language is a
+natural fit for MODEL-DRIVEN DESIGN. In this case, the paradigm is logic, and the model is a set of logical
+rules and facts they operate on.</p>
+
+<p>MODEL-DRIVEN DESIGN has limited applicability using languages like C because there is no modeling
+paradigm that corresponds to a purely procedural language. Those languages are “procedural”, in the sense
+that the programmer tells the computer a series of steps to follow. While the programmer may be thinking
+about the concepts of the domain, the program itself is a series of technical manipulations of data. The
+result may be useful, but the program doesn’t capture much of the meaning. Procedural languages often
+support complex data types that begin to correspond to more natural conceptions of the domain, but these
+complex types are only organized data, and don’t capture the active aspects of the domain. The result is that
+software is written as complicated functions linked together based on anticipated paths of execution, rather
+than by conceptual connections in the domain model.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">If the people who write the code
+do not feel responsible for the model, or don’t understand how to make the model work for an
+application, then the model has nothing to do with the software. If developers don’t realize that
+changing code changes the model, then their refactoring will weaken the model rather than
+strengthen it.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">Navigation Map of the Language of MODEL-DRIVEN DESIGN.
+<figure>
+    <img src="navigation-map-ddd.png#center"/>
+</figure></div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>Some objects are not defined primarily by their attributes. They represent a thread of identity that
+runs through time and often across distinct representations. Sometimes such an object must be
+matched with another object even though attributes differ. An object must be distinguished from
+other objects even though they might have the same attributes. Mistaken identity can lead to data
+corruption.</p>
+
+<p>An object defined primarily by its identity is called an ENTITY.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">When an object is distinguished by its identity, rather than its attributes, make this primary to its
+definition in the model. Keep the class definition simple and focused on lifecycle continuity and
+identity. Define a means of distinguishing each object regardless of its form or history. Be alert to
+requirements to match by attributes. Define an operation that is guaranteed to produce a unique
+result for each object, possibly by attaching a symbol that is guaranteed unique. This means of
+identification may come from the outside, or may be an arbitrary identifier created by and for the
+system, but it must correspond to the identity distinctions in the model. The model must define what
+it means to be the same thing.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>An application for booking seats in a stadium might treat seats and attendees as ENTITIES. In the case of
+assigned seating, in which each ticket has a seat-number on it, the seat is an ENTITY. Its identifier is the seat
+number, which is unique within the stadium. The seat may have many other attributes, such as its location,
+whether the view is obstructed, and the price, but only the seat number, or a unique row and position, is
+used to identify and distinguish seats.</p>
+
+<p>On the other hand, if the event is “general admission”, meaning ticket-holders sit wherever they find an
+empty seat, there is no need to distinguish individual seats. Only the total number of seats is important.
+Although the seat numbers are still engraved on the physical seats, there is no need for the software to track
+them, and, in fact, it would be an error in the model to associate specific seat numbers with tickets, since
+there is no such constraint at the event. Then seats are not ENTITIES, and no identifier is needed.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">ENTITIES are defined by their identities. Attributes are attached and change. Therefore, strip the ENTITY
+object’s definition down to the most intrinsic characteristics, particularly those that identify it, or are
+commonly used to find or match it. Separate other characteristics into other objects associated with the core
+ENTITY.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>Many objects have no conceptual identity. These objects describe some characteristic of a thing.</p>
+
+<p>If a child is drawing, he cares about the color of the marker he chooses. He may care about the sharpness of
+the tip. But if there are two markers of the same color and shape, he won’t care which he uses. If a marker
+is lost and replaced by another of the same color from a new pack, he can resume his work unconcerned
+about the switch.</p>
+
+<p>An object that represents a descriptive aspect of the domain that has no conceptual identity is called a
+VALUE OBJECT. VALUE OBJECTS are instantiated to represent elements of the design that we care about only
+for what they are, not who they are.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">When you care only about the attributes of an element of the model, classify it as a VALUE OBJECT.
+Making it express the meaning of attributes it conveys and give it related functionality. Treat the
+VALUE OBJECT as immutable. Don’t give it any identity and avoid the design complexities necessary
+to maintain ENTITIES.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>Some concepts from the domain aren’t natural to model as objects. Forcing then required domain
+functionality to be assigned as a responsibility of an ENTITY or VALUE either distorts the definition of
+a model based object or adds meaningless artificial objects.</p>
+
+<p>A SERVICE is an operation offered as an interface that stands alone in the model, without encapsulating state
+as ENTITIES and VALUE OBJECTS do. SERVICES are a common pattern in technical frameworks, but they can
+also apply in the domain layer.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">A good SERVICE has three characteristics:</p>
+
+<ul>
+<li>The operation relates to a domain concept that is not a natural part of an ENTITY or VALUE OBJECT.</li>
+<li>The interface is defined in terms of other elements of the domain model.</li>
+<li>The operation is stateless.</li>
+</ul></div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>When choosing MODULES, focus on conceptual cohesion and telling the story of the system. If this
+results in tight coupling between MODULES, look to see if an overlooked concept would bring the
+elements together in a coherent MODULE, or if a change in model concepts would disentangle them.
+Seek low coupling in the sense of concepts that can be understood and reasoned about independently
+of each other.</p>
+
+<p>The MODULE should reflect insight into the domain. Refine the model until the concepts partition
+according to high-level domain concepts and the corresponding code is decoupled as well. Give the
+MODULES names that become part of the UBIQUITOUS LANGUAGE.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">Say you were deleting a “person” object from a database. Along with the person go a name, birth date, and
+job description. But what about the address? Couldn’t there be other people at the same address? If you
+delete the address anyway, those person objects will have references to a deleted object. Should that be
+allowed? If you leave it, you accumulate junk addresses in the database. Automatic garbage collection
+could eliminate the junk addresses, but that technical fix, even if it were available in most database
+systems, ignores a basic modeling issue.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">Every object has a lifecycle. It is born, it may go through various states, it eventually dies and is either
+archived or deleted. Of course there are simple, transient objects that are created by an easy call to their
+constructor, used in some computation, and then abandoned to the garbage collector. There is no need to
+complicate these. But we tend to spend most of our time on more complicated objects that have longer
+lives, not all of which are spent in active memory. Managing these persistent objects presents challenges
+that can easily derail an attempt at MODEL-DRIVEN DESIGN.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>The problems fall into two categories:</p>
+
+<ul>
+<li>Maintaining integrity throughout the lifecycle</li>
+<li>Preventing the model from getting swamped by the complexity of managing the lifecycle.</li>
+</ul>
+
+<p>Three patterns will address these issues. First, AGGREGATES tighten up the model itself by defining clear
+ownership and boundaries, avoiding a chaotic tangled web of objects. This is crucial to maintaining
+integrity in all phases of the lifecycle.</p>
+
+<p>Then, we focus on the beginning of the lifecycle, using FACTORIES to create and reconstitute complex
+objects and AGGREGATES, keeping their internal structure encapsulated. Finally, REPOSITORIES address the
+middle and end of the lifecycle, providing the means of finding and retrieving persistent objects while
+encapsulating the immense infrastructure involved.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>To address this, schemes have been developed for defining ownership relationships in the model along with
+a set of rules for implementing transactions that modify the objects and their owners. David Siegel
+developed the following simple but rigorous system, distilled from those concepts, in the mid 1990s</p>
+
+<p>First we need an abstraction for encapsulating references within the model. An AGGREGATE is a cluster of
+associated objects that we treat as a unit for the purpose of data changes. Each AGGREGATE has a root and a
+boundary.  The boundary defines what is inside the AGGREGATE. The root is a single specific ENTITY
+contained in the AGGREGATE. The root is the only member of the AGGREGATE that outside objects are
+allowed to hold references to, although objects within the boundary may hold references to each other.
+ENTITIES other than the root have local identity, but it only needs to be unique within the aggregate, since
+no outside object can ever see it out of the context of the root ENTITY.</p>
+
+<p>A model of a car might be used in software for an auto repair shop. The car is an ENTITY with global
+identity – we want to distinguish that car from all other cars in the world, even very similar ones. We can
+use the Vehicle Identification Number for this, a unique identifier assigned to each new car. We might want
+to track the rotation history of the tires through the four wheel positions. We might want to know mileage
+and tread wear of each tire. To know which tire is which, the tires must be identified ENTITIES also. But it is
+very unlikely that we care about the identity of those tires outside of the context of that particular car. If we
+replace the tires and send the old ones to a recycling plant, either our software will no longer track them at
+all, or they will become anonymous members of a heap of tires. No one will care about their rotation
+histories. More to the point, even while they are attached to the car, no one will try to query the system to
+find a particular tire and then see which car it is on. They will query the database to find a car and then ask
+it for a transient reference to the tires. Therefore, the car is the root ENTITY of the AGGREGATE whose
+boundary encloses the tires also.  On the other hand, engine blocks have serial numbers engraved on them
+and are sometimes tracked independently of the car.  In some applications, the engine might be the root of
+its own AGGREGATE.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">Local vs. Global Identity and Object References.
+<figure>
+    <img src="local-vs-global.png#center"/>
+</figure></div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>Cluster the ENTITIES and VALUE OBJECTS into “AGGREGATES” and define boundaries around each.</p>
+
+<p>Choose one ENTITY to be the “root” of each AGGREGATE, and control all access to the objects inside
+the boundary through the root.  Only allow references to the root to be held by external objects.
+Transient references to internal members can be passed out for use within a single operation only.
+Because the root controls access it cannot be blind-sided by changes to the internals. This makes it
+practical to enforce all invariants for objects in the AGGREGATE and for the AGGREGATE as a whole
+in any state-change.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">Since cars are never assembled and driven at the same time, there is no value in combining
+both of these functions into the same mechanism. Likewise, assembling a complex compound object is a
+job that is best separated from whatever job that object will have to do when it is finished.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>But shifting responsibility to the other interested party, the client, may lead to even worse problems. The
+client knows what job needs to be done and relies on the domain objects to carrying out the necessary
+computations. It should not reflect any understanding of how the task is done or the internal nature of the
+object doing it. If the client is expected to assemble the domain objects it needs, it must know something
+about the internal structure of the object. In order to enforce all the invariants that apply to the relationship
+of parts in the domain object it must know some of the object’s rules. Even calling constructors couples the
+client to the concrete classes of the objects it is building. No change to the implementation of the domain
+objects can be made without changing the client, making refactoring harder.</p>
+
+<p>A client taking on object creation becomes unnecessarily complicated and blurs its responsibility. It
+breaches the encapsulation of the domain objects and AGGREGATES being created. Even worse, if the client
+is part of the application layer, then responsibilities have leaked out of the domain layer altogether. This
+tight coupling of the application to the specifics of the implementation, strips away most of the benefits of
+abstraction in the domain layer, and makes continuing changes ever more expensive.</p>
+
+<p>Creation of an object can be a major operation in itself, but complex assembly operations do not fit
+the responsibility of the created objects. Combining these responsibilities can produce ungainly
+designs that are hard to understand. Shifting the responsibility of directing construction to the client
+muddies the design of the client, breaches encapsulation of the assembled object or AGGREGATE and
+overly couples the client to the implementation of the created object.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">One other case that drives people to combine FACTORY and REPOSITORY is the desire for “find or create”
+functionality, where a client can describe an object it wants and, if no such object is found, will be given a
+newly created one. This function should be avoided. It is a minor convenience at best. A lot of cases where
+it seems useful go away when ENTITIES and VALUE OBJECTS are distinguished. A client that wants a VALUE
+OBJECT can go straight to a FACTORY and ask for a new one. Usually, the distinction between a new object
+and an existing object is important in the domain, and a framework that transparently combines them will
+actually muddle the situation.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">Suddenly we could run through every scenario we had ever encountered relatively
+effortlessly, much more simply than ever before. And our model diagrams made perfect
+sense to the business experts, who had often indicated that they were “too technical” for
+them. I have since come to consider such disclaimers a warning that the model isn’t right
+or isn’t well expressed. Even sketching on the whiteboard we could see that some of our
+most persistent rounding problems would be pulled out by the roots, allowing us to scrap
+some of the complicated rounding code.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">Create explicit predicate-like VALUE OBJECTS for specialized purposes. A SPECIFICATION is a
+predicate that determines if an object does or does not satisfy some criteria.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>Much of the value of SPECIFICATION is that it unifies application functionality that may seem quite
+different. We need to specify the state of an object for three reasons:</p>
+
+<ul>
+<li>validation of an object to see if it fulfills some need or is ready for some purpose</li>
+<li>selection of an object from a collection (as in the case of the overdue invoices)</li>
+<li>specifying the creation of a new object to fit some need.</li>
+</ul>
+
+<p>These three uses: validation, selection, and building-to-order, are the same on a conceptual level. Without a
+pattern like SPECIFICATION, the same rule may show up in different guises, and possibly contradictory
+forms. The conceptual unity can be lost. Applying the SPECIFICATION pattern allows a consistent model to
+be used, even when the implementation may have to diverge.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">State post-conditions of operations and invariants of classes and AGGREGATES. If ASSERTIONS cannot
+be coded directly in your programming language, write automated unit tests for them. Write them
+into documentation or diagrams where it fits the style of the project’s development process.
+Seek models with coherent sets of concepts, which lead a developer to infer the intended ASSERTIONS,
+accelerating the learning curve and reducing the risk of contradictory code.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">public</span> <span style="color:#75af00">abstract</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">AbstractSpecification</span> <span style="color:#00a8c8">implements</span> <span style="color:#75af00">Specification</span> <span style="color:#111">{</span> 
+   <span style="color:#00a8c8">public</span> <span style="color:#75af00">Specification</span> <span style="color:#111">and</span><span style="color:#111">(</span><span style="color:#111">Specification</span> <span style="color:#75af00">other</span><span style="color:#111">)</span> <span style="color:#111">{</span> 
+      <span style="color:#00a8c8">return</span> <span style="color:#00a8c8">new</span> <span style="color:#111">AndSpecification</span><span style="color:#111">(</span><span style="color:#00a8c8">this</span><span style="color:#111">,</span> <span style="color:#111">other</span><span style="color:#111">);</span> 
+   <span style="color:#111">}</span> 
+   <span style="color:#00a8c8">public</span> <span style="color:#75af00">Specification</span> <span style="color:#111">or</span><span style="color:#111">(</span><span style="color:#111">Specification</span> <span style="color:#75af00">other</span><span style="color:#111">)</span> <span style="color:#111">{</span> 
+      <span style="color:#00a8c8">return</span> <span style="color:#00a8c8">new</span> <span style="color:#111">OrSpecification</span><span style="color:#111">(</span><span style="color:#00a8c8">this</span><span style="color:#111">,</span> <span style="color:#111">other</span><span style="color:#111">);</span> 
+   <span style="color:#111">}</span> 
+   <span style="color:#00a8c8">public</span> <span style="color:#75af00">Specification</span> <span style="color:#111">not</span><span style="color:#111">()</span> <span style="color:#111">{</span> 
+      <span style="color:#00a8c8">return</span> <span style="color:#00a8c8">new</span> <span style="color:#111">NotSpecification</span><span style="color:#111">(</span><span style="color:#00a8c8">this</span><span style="color:#111">);</span> 
+   <span style="color:#111">}</span> 
+<span style="color:#111">}</span> 
+ 
+<span style="color:#00a8c8">public</span> <span style="color:#75af00">class</span> <span style="color:#111">AndSpecification</span> <span style="color:#75af00">extends</span> <span style="color:#111">AbstractSpecification</span> <span style="color:#111">{</span> 
+   <span style="color:#111">Specification</span> <span style="color:#75af00">one</span><span style="color:#111">;</span> 
+   <span style="color:#111">Specification</span> <span style="color:#75af00">other</span><span style="color:#111">;</span> 
+   <span style="color:#00a8c8">public</span> <span style="color:#75af00">AndSpecification</span><span style="color:#111">(</span><span style="color:#111">Specification</span> <span style="color:#75af00">x</span><span style="color:#111">,</span> <span style="color:#111">Specification</span> <span style="color:#75af00">y</span><span style="color:#111">)</span> <span style="color:#111">{</span> 
+      <span style="color:#111">one</span><span style="color:#f92672">=</span><span style="color:#111">x</span><span style="color:#111">;</span> 
+      <span style="color:#111">other</span><span style="color:#f92672">=</span><span style="color:#111">y</span><span style="color:#111">;</span> 
+   <span style="color:#111">}</span> 
+   <span style="color:#00a8c8">public</span> <span style="color:#75af00">boolean</span> <span style="color:#111">isSatisfiedBy</span><span style="color:#111">(</span><span style="color:#111">Object</span> <span style="color:#75af00">candidate</span><span style="color:#111">)</span> <span style="color:#111">{</span> 
+      <span style="color:#00a8c8">return</span> <span style="color:#111">one</span><span style="color:#111">.</span><span style="color:#75af00">isSatisfiedBy</span><span style="color:#111">(</span><span style="color:#111">candidate</span><span style="color:#111">)</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">other</span><span style="color:#111">.</span><span style="color:#75af00">isSatisfiedBy</span><span style="color:#111">(</span><span style="color:#111">candidate</span><span style="color:#111">);</span> 
+   <span style="color:#111">}</span> 
+<span style="color:#111">}</span>
+
+<span style="color:#00a8c8">public</span> <span style="color:#75af00">class</span> <span style="color:#111">OrSpecification</span> <span style="color:#75af00">extends</span> <span style="color:#111">AbstractSpecification</span> <span style="color:#111">{</span> 
+   <span style="color:#111">Specification</span> <span style="color:#75af00">one</span><span style="color:#111">;</span> 
+   <span style="color:#111">Specification</span> <span style="color:#75af00">other</span><span style="color:#111">;</span> 
+   <span style="color:#00a8c8">public</span> <span style="color:#75af00">OrSpecification</span><span style="color:#111">(</span><span style="color:#111">Specification</span> <span style="color:#75af00">x</span><span style="color:#111">,</span> <span style="color:#111">Specification</span> <span style="color:#75af00">y</span><span style="color:#111">)</span> <span style="color:#111">{</span> 
+      <span style="color:#111">one</span><span style="color:#f92672">=</span><span style="color:#111">x</span><span style="color:#111">;</span> 
+      <span style="color:#111">other</span><span style="color:#f92672">=</span><span style="color:#111">y</span><span style="color:#111">;</span> 
+   <span style="color:#111">}</span> 
+   <span style="color:#00a8c8">public</span> <span style="color:#75af00">boolean</span> <span style="color:#111">isSatisfiedBy</span><span style="color:#111">(</span><span style="color:#111">Object</span> <span style="color:#75af00">candidate</span><span style="color:#111">)</span> <span style="color:#111">{</span> 
+      <span style="color:#00a8c8">return</span> <span style="color:#111">one</span><span style="color:#111">.</span><span style="color:#75af00">isSatisfiedBy</span><span style="color:#111">(</span><span style="color:#111">candidate</span><span style="color:#111">)</span> <span style="color:#f92672">||</span> <span style="color:#111">other</span><span style="color:#111">.</span><span style="color:#75af00">isSatisfiedBy</span><span style="color:#111">(</span><span style="color:#111">candidate</span><span style="color:#111">);</span> 
+   <span style="color:#111">}</span> 
+<span style="color:#111">}</span> 
+ 
+<span style="color:#00a8c8">public</span> <span style="color:#75af00">class</span> <span style="color:#111">NotSpecification</span> <span style="color:#75af00">extends</span> <span style="color:#111">AbstractSpecification</span> <span style="color:#111">{</span> 
+   <span style="color:#111">Specification</span> <span style="color:#75af00">wrapped</span><span style="color:#111">;</span> 
+ 
+   <span style="color:#00a8c8">public</span> <span style="color:#75af00">NotSpecification</span><span style="color:#111">(</span><span style="color:#111">Specification</span> <span style="color:#75af00">x</span><span style="color:#111">)</span> <span style="color:#111">{</span> 
+      <span style="color:#111">wrapped</span><span style="color:#f92672">=</span><span style="color:#111">x</span><span style="color:#111">;</span> 
+   <span style="color:#111">}</span> 
+   <span style="color:#00a8c8">public</span> <span style="color:#75af00">boolean</span> <span style="color:#111">isSatisfiedBy</span><span style="color:#111">(</span><span style="color:#111">Object</span> <span style="color:#75af00">candidate</span><span style="color:#111">)</span> <span style="color:#111">{</span> 
+      <span style="color:#00a8c8">return</span> <span style="color:#f92672">!</span><span style="color:#111">wrapped</span><span style="color:#111">.</span><span style="color:#75af00">isSatisfiedBy</span><span style="color:#111">(</span><span style="color:#111">candidate</span><span style="color:#111">);</span> 
+   <span style="color:#111">}</span> 
+<span style="color:#111">}</span> </code></pre></div>
+<p>This code was written to be as simple as possible.  As I said, there may be situations in which this is
+inefficient. However, other implementation options are possible that would minimize object count or boost
+speed, or perhaps be compatible with idiosyncratic technologies present in some project. The important
+thing is a model that captures the key concepts of the domain, along with an implementation that is faithful
+to that model. That leaves a lot of room to solve performance problems.</p>
+
+<p>There are also cases where this full generality is not needed. In particular, &ldquo;and&rdquo; tends to be used a lot more
+than the others, and also tends to create less implementation complexity.  Don&rsquo;t be afraid to implement only
+&ldquo;and&rdquo;, if that is all you need.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">If you wait until you can make a complete justification for a change, you’ ve waited too long. Your project is
+already incurring heavy costs, and the change will probably be harder because it is more elaborated and
+embedded in other code.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">A good domain model captures an abstraction of the business in a form defined enough to be coded into
+software. Strategic design principles provide a guide to design decisions for the model that reduce
+interdependence of parts and improve clarity and ease of understanding and analysis without reducing their
+interoperability and synergy. It must also capture the conceptual core of the system, the &ldquo;vision&rdquo; of the
+system. And it must do all this without bogging the project down. The three broad themes explored in
+this section can help accomplish these goals: BOUNDED CONTEXTS, distillation, and large-scale structure.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>BOUNDED CONTEXT, the least obvious of the principles, is actually the most fundamental. A successful
+model, large or small, has to be logically consistent throughout, without any contradictory or overlapping
+definitions.  Enterprise systems sometimes integrate subsystems with varying origins or have applications
+so distinct that very little in the domain is viewed in the same light.  It may be asking too much to unify the
+models implicit in these disparate parts.  By explicitly defining a BOUNDED CONTEXT within which a model
+applies, and then, when necessary, defining its relationship with other contexts, the modeler can avoid
+bastardizing the model.</p>
+
+<p>DISTILLATION reduces the clutter and focuses the attention appropriately.  Often a great deal of effort is
+spent on peripheral issues in the domain. The overall domain model needs to make prominent the most
+value-adding and special aspects of your system and be structured to give that part as much power as
+possible. While some supporting components are critical, they must be put into their proper perspective.
+ This not only helps to direct efforts toward vital parts of the system, but it keeps the vision of the system
+from being lost. DISTILLATION can bring clarity to an overall model. And with a clearer view the design of
+the core can be made more useful.</p>
+
+<p>LARGE-SCALE STRUCTURE completes the picture. In a very complex model, you may not see the forest for
+the trees. Distillation helps, by focusing the attention on the core and presenting the other elements in their
+supporting roles, but the relationships can still be too confusing without some LARGE-SCALE STRUCTURE
+that allows system-wide design elements and patterns to be applied. I’ll overview a few approaches to large
+scale structure and then go into depth on one such pattern, RESPONSIBILITY LAYERS, in which a small set of
+fundamental responsibilities are identified that can be organized into layers with defined relationships
+between layers, such as modes of communication and allowed references. These are examples of LARGE
+SCALE STRUCTURES, not a comprehensive catalog. New ones should be invented when needed. Some such
+structure can bring a uniformity to the design that can accelerate the design process and improve
+integration.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>Total unification of the domain model for a large system will not be feasible or cost-effective.
+Sometimes people fight this. Most people see the price that multiple models exact by limiting integration
+and making communication cumbersome. On top of that, it somehow seems inelegant. This resistance to
+multiple models sometimes leads to very ambitious attempts to unify all the software in a large project
+under a single model. I know I’ve been guilty of this kind of overreaching. Consider the risks:</p>
+
+<ol>
+<li>Too many legacy replacements may be attempted at once.</li>
+<li>Large projects may bog down because the coordination overhead exceeds their abilities.</li>
+<li>Applications with specialized needs may have to use models that don’t fully satisfy their needs,
+forcing them to put behavior elsewhere.</li>
+<li>Conversely, attempting to satisfy everyone with a single model may lead to complex options that
+make the model difficult to use.</li>
+</ol>
+
+<p>What’s more, model divergences are as likely to come from political fragmentation and differing
+management priorities as from technical concerns. And the emergence of different models can be a result of
+team organization and development process. So even when no technical factor prevents full integration, the
+project may still face multiple models.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>A model applies in a context. This may be a certain part of the code, or the work of a particular team. For a
+model invented in a brainstorming session, the context could be limited to that particular conversation. The
+context of a model used in an example in this book is that particular example section and any discussion of
+it. The model context is whatever set of conditions must apply in order to be able to say that the terms in a
+model have a specific meaning.</p>
+
+<p>To begin to solve the problems of multiple models, we need to explicitly define the scope of a particular
+model as a bounded part of a software system within which a single model will apply and will be kept as
+unified as possible. This has to be reconciled with the team organization.</p>
+
+<p>Therefore,</p>
+
+<p>Explicitly define the context within which a model applies. Explicitly set boundaries in terms of team
+organization, usage within specific parts of the application, and physical manifestations such as code
+bases and database schemas. Keep the model strictly consistent within these bounds, but don’t be
+distracted or confused by issues outside.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>Combining elements of distinct models causes two categories of problems: duplicate concepts and false
+cognates. Duplication of concepts means that there are two model elements (and attendant
+implementations) that actually represent the same concept. Every time this information changes, it has to be
+updated in two places with conversions. Every time new knowledge leads to a change in one of the objects,
+the other has to be reanalyzed and changed too. Except the reanalysis doesn’t happen in reality, so the
+result is two versions of the same concept that follow different rules and even have different data. On top of
+that, the team members must learn not one but two ways of doing the same thing, along with all the ways
+they are being synchronized.</p>
+
+<p>False cognates may be slightly less common, but more insidiously harmful. This is the case when two
+people who are using the same term (or implemented object) think they are talking about the same thing,
+but really are not. The example in the introduction (two different business activities both called a “charge”)
+is typical, but conflicts can be even subtler when the two definitions are actually related to the same aspect
+in the domain, but have been conceptualized in slightly different ways. False cognates lead to development
+teams that step on each other’s code, databases that have weird contradictions, and confusion in
+communication within the team. The term “false cognate” is ordinarily applied to natural languages.
+English speakers learning Spanish often misuse the word “embarasada”. This word does not mean
+“embarrassed”; it means “pregnant”. Oops.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>People on other teams won’t be very aware of the context bounds, and unknowingly will make
+changes that blur the edges or complicate the interconnections. When connections must be made
+between different contexts, they tend to bleed into each other.</p>
+
+<p>Code reuse between BOUNDED CONTEXTS is a hazard to be avoided. Integration of functionality and data
+must go through a translation. You can reduce confusion by defining the relationship between the different
+contexts and creating a global view of all the model contexts on the project.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>Identify each model in play on the project and define its BOUNDED CONTEXT. This includes the
+implicit models of non-object-oriented subsystems. Name each BOUNDED CONTEXT, and make the
+names part of the UBIQUITOUS LANGUAGE.</p>
+
+<p>Describe the points of contact between the models, outlining explicit translation for any
+communication and highlighting any sharing.
+Map the existing terrain. Take up transformations later.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">In any case, working the CONTEXT MAP into discussions is essential if the names are to enter the
+UBIQUITOUS LANGUAGE. Don’t say, “George’s team’s stuff is changing so we’re going to have to change
+our stuff that talks to it.” Say instead, “The Transport Network model is changing so we’re going to have to
+change the translator for the Booking context.”.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>Establish a clear customer/supplier relationship between the two teams. In planning sessions, make
+the downstream team play the customer role to the upstream team. Negotiate and budget tasks for
+downstream requirements so that everyone understands the commitment and schedule.</p>
+
+<p>Jointly develop automated acceptance tests that will validate the interface they expect. Add these
+tests to the upstream team’s test suite to be run as part of their continuous integration. This will free
+the upstream team to make changes without fear of side effects downstream.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">When two teams with an upstream/downstream relationship are not effectively being directed from the
+same source, such a cooperative pattern as CUSTOMER/SUPPLIER TEAMS is not going to work. Naively trying
+to apply it will get the downstream team into trouble. This can be the case in a large company in which the
+two teams are far apart in the hierarchy or where the shared management level is indifferent to the
+relationship of the two teams. It can also arise when the two teams are in different companies where the
+downstream team’s company really is a customer to the upstream team’s company, but where that
+particular customer is not individually important to the supplier. This could be because the supplier has
+many small customers, or because they are changing market direction and no longer value the old
+customers, or just because they are poorly run, or even out of business. Whatever the reason, the reality is,
+the downstream is on its own.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">Although China might not have become so distinct a culture without the Great Wall, the Wall’s
+construction was immensely expensive and bankrupted at least one dynasty, probably contributing to its
+fall. The benefit of isolation strategies must be balanced against their cost. There is a time to be pragmatic
+and make measured revisions to the model to make a smoother fit to the foreign ones.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">At some point it was recognized that there
+were some features for which integration provided little added value. For example,
+adjusters needed access to some existing databases, and their current access was very
+inconvenient. But, although the users needed to have this data, none of the other features
+of the propos ed software system would use it.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">Translation overhead is too high. Duplication is too obvious. There are many motivations for merging
+BOUNDED CONTEXTS. This is hard to do. It’s not too late, but it takes some patience.
+Even if your eventual goal is to merge completely to a single CONTEXT with CONTINUOUS INTEGRATION,
+start by moving to a SHARED KERNEL.</p>
+
+<ol>
+<li>Evaluate the initial situation. Be sure that the two CONTEXTS are indeed internally unified before
+beginning to unify them with each other.</li>
+<li>Set up the process. You’ll need to decide how the code will be shared and what the module
+naming  conventions will be. There must be at least weekly integration of the SHARED KERNEL
+code. And it must have a test suite. Set this up before developing any shared code. (The test suite
+will be empty, so it should be easy to pass!)</li>
+<li>Choose some small subdomain to start with—something duplicated in both CONTEXTS, but not
+part of the CORE DOMAIN. This first merger is going to establish the process, so it is best to use
+something simple and relatively generic or non-critical.</li>
+</ol></div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">The harsh reality is that not all parts of the design are going to be
+equally refined. Priorities must be set. To make the domain model an asset, the critical core of that
+model has to be sleek and fully leveraged to create application functionality. But scarce, highly-skilled developers tend to gravitate to technical infrastructure or neatly definable domain problems that can be understood without specialized domain knowledge.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>With few exceptions, the most technically proficient members of projects seldom have much knowledge of
+the domain, which limits their usefulness and reinforces the tendency to put them onto supporting
+components, sustaining a vicious circle in which lack of knowledge keeps them away from the work that
+would build domain knowledge.</p>
+
+<p>It is essential to break this cycle by assembling a team matching up a set of strong developers who have a
+long-term commitment and an interest in becoming repositories of domain knowledge with one or more
+domain experts who know the business deeply. Domain design is interesting, technically challenging work
+when approached seriously, and developers can be found who see it this way.</p>
+
+<p>It is usually not practical to hire short-term outside design expertise to help in the nuts and bolts of creating
+the CORE DOMAIN because the team needs to accumulate domain knowledge, and a temporary member is a
+leak in the bucket. On the other hand, an expert in a teaching/mentoring role can be very valuable by
+helping the team build its domain design skills and facilitating the use of sophisticated principles that team
+members probably have not mastered.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>Identify cohesive subdomains that are not the motivation for your project. Factor them into general
+models of the GENERIC SUBDOMAINS that have no trace of your specialties, and place them in separate
+packages. Consider off-the-shelf solutions or published models for these subdomains.</p>
+
+<p>Once they have been separated, give their continuing development lower priority than the CORE
+DOMAIN, and avoid assigning your core developers to the tasks (since they will gain little domain
+knowledge.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">Some parts of the model add complexity without capturing or communicating specialized knowledge.
+Anything extraneous makes the CORE DOMAIN harder to discern and understand. The model clogs up
+with details of general principles everyone knows or that belong to specialties that are not your
+primary focus but play a supporting role. Yet, however generic, these other elements are essential to
+the functioning of the system and the full expression of the model.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>At the beginning of a project, the model usually doesn’t even exist, yet the need to focus its
+development is already there.  In later stages of development there is a need for an explanation of the
+value of the system that does not require an in-depth study of the model. Also, the critical aspects of
+the domain model may span multiple BOUNDED CONTEXTS, but, by definition, these distinct models
+can’t be structured to show their common focus.</p>
+
+<p>Many projects write “vision statements” for management.  The best of these documents lay out the specific
+value the application will bring to the organization.  Some of these describe the creation of the domain
+model as a strategic asset.  Usually the vision statement document is abandoned after the project gets
+funding, and is never used in the actual development process or even read by the technical staff.</p>
+
+<p>These documents, or closely related ones that emphasize the nature of the domain model, can be used
+directly by the management and technical staff during all phases of development to guide resource
+allocation, to guide modeling choices, and to educate team members. If the domain model serves many
+masters, you can use this document to show how their interests are balanced.</p>
+
+<p>Write a short (~1 page) description of the CORE DOMAIN and the value it will bring, the “value
+proposition”.  Ignore those aspects that do not distinguish this domain model from others. Show how
+the domain model serves and balances diverse interests. Keep it narrow.  Write this statement early
+and revise it as you gain new insight.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary"><p>When you encounter a large system that is poorly factored, where do you start? In the XP community, the
+answer tends to be either one of these:</p>
+
+<ol>
+<li>Just start anywhere, since it all has to be refactored.</li>
+<li>Wherever it is hurting. I’ll refactor what I need to in order to get my specific task done.
+I don’t hold with either of these. The first is impractical except in a few projects staffed entirely with top
+programmers. The second tends to pick around the edges, treating symptoms and ignoring root causes,
+shying away from the worst tangles. Eventually the code becomes harder and harder to refactor.</li>
+</ol>
+
+<p>So, if you can’t do it all, and you can’t be pain-driven, what do you do?</p>
+
+<ol>
+<li>In a pain-driven refactoring, you look to see if the root involves the CORE DOMAIN or the
+relationship of the CORE to a supporting element. If it is, you bite the bullet and fix that first.</li>
+<li>When you have the luxury of refactoring freely, you focus first on better factoring of the CORE
+DOMAIN, on improving the segregation of the CORE, and on purifying supporting subdomains to be
+GENERIC.</li>
+</ol>
+
+<p>This is how to get the most bang for your refactoring buck.</p>
+</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">In businesses based on exploiting large fixed capital assets, such as factories or cargo ships, logistical
+software can often be organized into a “Potential” layer (another name for the “Capability” layer in the
+example) and an “Operations” layer.</p>
+
+<ul>
+<li>Potential: What can be done? Never mind what we are planning to do. What could we do?  The
+resources of  the organization, including its people, and the way those resources are organized are the
+core of potential. Contracts with vendors also define potentials. This layer could be recognized in
+almost any business domain, but is a prominent part of the story in those, like transportation and
+manufacturing, that have a relatively large fixed capital investments that enable the business. Potential
+includes transient assets, as well, but a business primarily driven by transient assets might choose
+layers that emphasize this, as we’ll see later.</li>
+<li>Operation: What is being done? What have we managed to make of those potentials? Like Potential,
+this should reflect the reality of the situation, rather than what we want it to be. In this layer we are
+trying to see our own efforts and activities: What we are selling, rather than what enables us to sell. It
+is very typical of Operational objects to reference or even be composed of Potential objects, while a
+potential object shouldn’t reference the operations layer.</li>
+</ul></div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">In many, perhaps most, existing systems, these two layers cover everything, although there could be some
+entirely different and more revealing breakdown. They track the current situation and active operational
+plans and issue reports or documents about it. But tracking is not always enough. When projects seek to
+guide or assist users, or to automate decision making, there is an additional set of responsibilities that can
+be organized into another layer, above Operations.
+* Decision Support: What action should be taken or what policy should be set? This layer is for analysis
+and decision making.  It relies on some lower layers, such as Potential or Operations to base its
+analysis on. Decision Support software may actively seek opportunities for current and future
+operations using historical information.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">Conceptual Dependencies and Shearing Points in a Factory Automation System.
+<figure>
+    <img src="factory.png#center"/>
+</figure></div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">In an application in which the roles and relationships between ENTITIES varies in different situations,
+complexity can explode. Neither fully general models nor highly customized ones serves the user’s
+needs. Objects end up with references to other types to cover a variety of cases, or with attributes
+that are used in different ways in different situations. Or you may end up with many classes that
+have the same data and behavior, but just have different assembly rules.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">Create a distinct set of objects that can be used to describe and constrain the structure and behavior
+of the basic model. Keep these concerns distinct as two “levels”, one very concrete, the other
+reflecting rules and knowledge that a user or super-user is able to customize.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">The need for user control of the rules for associating objects drove the team to a model
+that had an implicit KNOWLEDGE LEVEL. KNOWLEDGE LEVEL was hinted at by the
+characteristic access restrictions and a thing-thing type relationship. Once it was in place,
+the clarity it afforded helped produce another insight that disentangled two important
+domain concepts.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+    
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">When you are tackling the strategic design for the first time on a project, where do you start? Strategically,
+the most important thing is to start from a clear assessment of the current situation.</p>
+
+<ol>
+<li>Draw a CONTEXT MAP. Can you draw a consistent one or are there ambiguous situations?</li>
+<li>Attend to the use of language on the project. Is there a UBIQUITOUS LANGUAGE? Is it rich enough
+to help development?</li>
+<li>Understand what is important. Is the CORE DOMAIN identified? Is there a DOMAIN VISION
+STATEMENT? Can you write one?</li>
+<li>Does the technology of the project work for or against a MODEL-DRIVEN DESIGN?</li>
+<li>Do the developers on the team have the necessary technical skills?</li>
+<li>Are the developers knowledgeable about the domain? Are they interested in the domain.</li>
+</ol></div>
+  
+    <footer class=blockquote-footer>
+      <strong>Eric Evans</strong>
+      
+        
+          <cite>
+            <a href="https://www.goodreads.com/book/show/179133.Domain_Driven_Design" title="https://www.goodreads.com/book/show/179133.Domain_Driven_Design">Domain-Driven Design</a> 
+          </cite>
+        
+      
+    </footer>
+  
+</blockquote>
+
+
+
+      </main>
+    </div>
+    
+    <script src="https://neexee.github.io/js/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+
+    
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'UA-143695654-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  </body>
+</html>

@@ -3,6 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://neexee.github.io/tags/books/</loc>
+    <lastmod>2020-06-06T14:49:37+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://neexee.github.io/posts-en/domain-driven-design/</loc>
+    <lastmod>2020-06-06T14:49:37+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://neexee.github.io/tags/programming/</loc>
+    <lastmod>2020-06-06T14:49:37+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://neexee.github.io/tags/quotes/</loc>
+    <lastmod>2020-06-06T14:49:37+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://neexee.github.io/tags/</loc>
+    <lastmod>2020-06-06T14:49:37+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://neexee.github.io/tags/%E2%98%85%E2%98%85%E2%98%85%E2%98%86%E2%98%86/</loc>
+    <lastmod>2020-06-06T14:49:37+07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://neexee.github.io/tags/concurrency/</loc>
     <lastmod>2020-05-01T12:07:33+07:00</lastmod>
   </url>
@@ -23,16 +53,6 @@
   </url>
   
   <url>
-    <loc>https://neexee.github.io/tags/programming/</loc>
-    <lastmod>2020-05-01T12:07:33+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://neexee.github.io/tags/</loc>
-    <lastmod>2020-05-01T12:07:33+07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://neexee.github.io/posts-en/how-to-structured-logging-in-go/</loc>
     <lastmod>2020-04-22T12:27:15+07:00</lastmod>
   </url>
@@ -43,27 +63,12 @@
   </url>
   
   <url>
-    <loc>https://neexee.github.io/tags/books/</loc>
-    <lastmod>2020-04-18T11:22:39+07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://neexee.github.io/posts-en/smart-notes/</loc>
     <lastmod>2020-04-18T11:22:39+07:00</lastmod>
   </url>
   
   <url>
     <loc>https://neexee.github.io/tags/non-fiction/</loc>
-    <lastmod>2020-04-18T11:22:39+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://neexee.github.io/tags/quotes/</loc>
-    <lastmod>2020-04-18T11:22:39+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://neexee.github.io/tags/%E2%98%85%E2%98%85%E2%98%85%E2%98%86%E2%98%86/</loc>
     <lastmod>2020-04-18T11:22:39+07:00</lastmod>
   </url>
   

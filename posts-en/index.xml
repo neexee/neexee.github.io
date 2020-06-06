@@ -12,6 +12,19 @@
     
     
     <item>
+      <title>Domain-Driven Design: Tackling Complexity in the Heart of Software</title>
+      <link>https://neexee.github.io/posts-en/domain-driven-design/</link>
+      <pubDate>Sat, 06 Jun 2020 14:49:37 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/posts-en/domain-driven-design/</guid>
+      <description>The book presents a very interesting approach to modeling complex domains, especially with established terms.
+The code should look as a sentence said by a domain expert. That’s the core idea. The rest is a lengthy guide to listening to domain experts and mapping their sayings to the code.
+Pros:
+ Brilliant idea, totally worth knowing I could finally understand most of the content on Fowler’s blog  Cons:
+ It’s very hard to follow the author.</description>
+    </item>
+    
+    <item>
       <title>Connection pool &#43; distributed lock = deadlock</title>
       <link>https://neexee.github.io/posts-en/distributed-deadlock/</link>
       <pubDate>Fri, 01 May 2020 12:07:33 +0700</pubDate>
