@@ -6,10 +6,19 @@
     <description>Recent content in programming on Picky speaker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 06 Jun 2020 14:49:37 +0700</lastBuildDate>
+    <lastBuildDate>Sun, 14 Jun 2020 16:47:10 +0700</lastBuildDate>
     
 	<atom:link href="https://neexee.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A Philosophy of Software Design</title>
+      <link>https://neexee.github.io/posts-en/philosophy-of-software-design/</link>
+      <pubDate>Sun, 14 Jun 2020 16:47:10 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/posts-en/philosophy-of-software-design/</guid>
+      <description>Nice little book. It could be an eye-opening read for a CS student as it has a lot of good advice on medium and low-level code structure. It&amp;rsquo;s a very easy read for a professional programmer, so it could be used for reading for pleasure. It has a couple of concepts with catchy names like &amp;ldquo;define errors out of existence&amp;rdquo; and &amp;ldquo;modules should be deep&amp;rdquo; which I like because they&amp;rsquo;re quite practical and rich.</description>
+    </item>
     
     <item>
       <title>Domain-Driven Design: Tackling Complexity in the Heart of Software</title>

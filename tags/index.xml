@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Picky speaker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 06 Jun 2020 14:49:37 +0700</lastBuildDate>
+    <lastBuildDate>Sun, 14 Jun 2020 16:47:10 +0700</lastBuildDate>
     
 	<atom:link href="https://neexee.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>books</title>
       <link>https://neexee.github.io/tags/books/</link>
-      <pubDate>Sat, 06 Jun 2020 14:49:37 +0700</pubDate>
+      <pubDate>Sun, 14 Jun 2020 16:47:10 +0700</pubDate>
       
       <guid>https://neexee.github.io/tags/books/</guid>
       <description></description>
@@ -23,7 +23,7 @@
     <item>
       <title>programming</title>
       <link>https://neexee.github.io/tags/programming/</link>
-      <pubDate>Sat, 06 Jun 2020 14:49:37 +0700</pubDate>
+      <pubDate>Sun, 14 Jun 2020 16:47:10 +0700</pubDate>
       
       <guid>https://neexee.github.io/tags/programming/</guid>
       <description></description>
@@ -32,9 +32,18 @@
     <item>
       <title>quotes</title>
       <link>https://neexee.github.io/tags/quotes/</link>
-      <pubDate>Sat, 06 Jun 2020 14:49:37 +0700</pubDate>
+      <pubDate>Sun, 14 Jun 2020 16:47:10 +0700</pubDate>
       
       <guid>https://neexee.github.io/tags/quotes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>★★★★☆</title>
+      <link>https://neexee.github.io/tags/%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%86/</link>
+      <pubDate>Sun, 14 Jun 2020 16:47:10 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/tags/%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%86/</guid>
       <description></description>
     </item>
     
@@ -98,15 +107,6 @@
       <pubDate>Sun, 26 Jan 2020 18:36:44 +0700</pubDate>
       
       <guid>https://neexee.github.io/tags/%E2%98%85%E2%98%85%E2%98%86%E2%98%86%E2%98%86/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>★★★★☆</title>
-      <link>https://neexee.github.io/tags/%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%86/</link>
-      <pubDate>Wed, 25 Dec 2019 20:42:31 +0700</pubDate>
-      
-      <guid>https://neexee.github.io/tags/%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%86/</guid>
       <description></description>
     </item>
     
