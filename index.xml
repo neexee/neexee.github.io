@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>Securing DevOps: Security in the Cloud</title>
+      <link>https://neexee.github.io/posts-en/securing-devops/</link>
+      <pubDate>Sun, 16 Aug 2020 15:12:10 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/posts-en/securing-devops/</guid>
+      <description>I cannot say anything bad about this book, only good. It&amp;rsquo;s full of quality content and it&amp;rsquo;s a joy to read. Title says for itself, it&amp;rsquo;s a book for DevOps engineer. But I would recommend it to anyone who&amp;rsquo;s just slightly interested in security, clouds or CI/CD. The author builds a CI/CD pipeline throughout first part of the book and explains useful security practices in the rest of the book. It has many real-life examples and many very good explanations.</description>
+    </item>
+    
+    <item>
       <title>A Philosophy of Software Design</title>
       <link>https://neexee.github.io/posts-en/philosophy-of-software-design/</link>
       <pubDate>Sun, 14 Jun 2020 16:47:10 +0700</pubDate>

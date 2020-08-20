@@ -3,27 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://neexee.github.io/posts-en/philosophy-of-software-design/</loc>
-    <lastmod>2020-06-14T16:47:10+07:00</lastmod>
+    <loc>https://neexee.github.io/tags/books/</loc>
+    <lastmod>2020-08-16T15:12:10+07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://neexee.github.io/tags/books/</loc>
-    <lastmod>2020-06-14T16:47:10+07:00</lastmod>
+    <loc>https://neexee.github.io/tags/devops/</loc>
+    <lastmod>2020-08-16T15:12:10+07:00</lastmod>
   </url>
   
   <url>
     <loc>https://neexee.github.io/tags/programming/</loc>
-    <lastmod>2020-06-14T16:47:10+07:00</lastmod>
+    <lastmod>2020-08-16T15:12:10+07:00</lastmod>
   </url>
   
   <url>
     <loc>https://neexee.github.io/tags/quotes/</loc>
-    <lastmod>2020-06-14T16:47:10+07:00</lastmod>
+    <lastmod>2020-08-16T15:12:10+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://neexee.github.io/posts-en/securing-devops/</loc>
+    <lastmod>2020-08-16T15:12:10+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://neexee.github.io/tags/security/</loc>
+    <lastmod>2020-08-16T15:12:10+07:00</lastmod>
   </url>
   
   <url>
     <loc>https://neexee.github.io/tags/</loc>
+    <lastmod>2020-08-16T15:12:10+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://neexee.github.io/tags/%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85/</loc>
+    <lastmod>2020-08-16T15:12:10+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://neexee.github.io/posts-en/philosophy-of-software-design/</loc>
     <lastmod>2020-06-14T16:47:10+07:00</lastmod>
   </url>
   
@@ -84,11 +104,6 @@
   
   <url>
     <loc>https://neexee.github.io/posts-en/sql-performance-explained/</loc>
-    <lastmod>2020-04-11T12:51:04+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://neexee.github.io/tags/%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85/</loc>
     <lastmod>2020-04-11T12:51:04+07:00</lastmod>
   </url>
   
