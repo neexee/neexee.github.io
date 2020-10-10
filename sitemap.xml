@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://neexee.github.io/posts-en/data-information-understanding/</loc>
+    <lastmod>2020-10-10T18:23:50+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://neexee.github.io/tags/security/</loc>
+    <lastmod>2020-10-10T18:23:50+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://neexee.github.io/tags/</loc>
+    <lastmod>2020-10-10T18:23:50+07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://neexee.github.io/tags/books/</loc>
     <lastmod>2020-08-16T15:12:10+07:00</lastmod>
   </url>
@@ -24,16 +39,6 @@
   
   <url>
     <loc>https://neexee.github.io/posts-en/securing-devops/</loc>
-    <lastmod>2020-08-16T15:12:10+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://neexee.github.io/tags/security/</loc>
-    <lastmod>2020-08-16T15:12:10+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://neexee.github.io/tags/</loc>
     <lastmod>2020-08-16T15:12:10+07:00</lastmod>
   </url>
   
