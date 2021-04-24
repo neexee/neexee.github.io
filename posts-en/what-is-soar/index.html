@@ -1,0 +1,320 @@
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <meta name="author" content="Sergey Machulskis" />
+  <meta name="generator" content="Hugo 0.59.0-DEV" />
+  <link rel="stylesheet" href="https://neexee.github.io/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://neexee.github.io/css/blockquote.css">
+  <link rel="stylesheet" href="https://neexee.github.io/css/images.css">
+  
+  
+  <title>What is SOAR 🛫 | Picky speaker</title>
+  <style>
+.container {
+  max-width: 800px;
+}
+#nav a {
+  font-weight: bold;
+  color: inherit;
+}
+#nav a.nav-link-active {
+  background-color: #212529;
+  color: #fff;
+}
+#nav-border {
+  border-bottom: 1px solid #212529;
+}
+#main {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+
+#main .taglist {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#home-jumbotron {
+  background-color: inherit;
+}
+#footer .container {
+  padding: 1em 0;
+}
+#footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+.font-125 {
+  font-size: 125%;
+}
+.tag-btn {
+  margin-bottom: 0.3em;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit; 
+  background-color: transparent;
+  border-radius: 0;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+img,
+iframe,
+embed,
+video,
+audio {
+  max-width: 100%;
+}
+</style>
+</head>
+  <body class="d-flex flex-column h-100">
+    <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+  
+  
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/posts-en/"><i data-feather="edit"></i> Blog (En)</a>
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/posts-ru/"><i data-feather="edit"></i> Blog (Ru)</a>
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
+  
+  </nav>
+</div>
+    <div class="container">
+      <main id="main">
+        
+
+<h1>What is SOAR 🛫</h1>
+
+
+  <div class="taglist">
+    <i data-feather="tag"></i>
+    
+      
+      <a class="btn btn-sm btn-outline-dark tag-btn" href="https://neexee.github.io/tags/programming">programming</a>
+    
+      
+      <a class="btn btn-sm btn-outline-dark tag-btn" href="https://neexee.github.io/tags/security">security</a>
+    
+      
+      <a class="btn btn-sm btn-outline-dark tag-btn" href="https://neexee.github.io/tags/work">work</a>
+    
+  </div>
+
+
+
+
+<h1 id="definition">Definition</h1>
+
+<p>In short, it&rsquo;s <strong>S</strong>ecurity <strong>O</strong>rchestration, <strong>A</strong>utomation And <strong>R</strong>esponse.</p>
+
+
+
+  
+  
+
+  
+
+  
+  
+  
+  
+    
+      
+    
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+    
+      
+    
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+    
+      
+    
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">SOAR refers to technologies that enable organizations to collect inputs monitored by the security operations team. For example, alerts from the SIEM system and other security technologies — where incident analysis and triage can be performed by leveraging a combination of human and machine power — help define, prioritize and drive standardized incident response activities. SOAR tools allow an organization to define incident analysis and response procedures in a digital workflow format.</div>
+  
+    <footer class=blockquote-footer>
+      <strong>Gartner&#39;s glossary</strong>
+      
+        
+          
+        
+      
+    </footer>
+  
+</blockquote>
+
+<h1 id="explanation">Explanation</h1>
+
+<p>On the surface, SOAR is yet another ticket tracking system. Imagine any ticket tracking system you were using in the past. It probably had ways to create, prioritize and filter tickets. It also could change assigned persons, keep attachments and so on.</p>
+
+<p>SOAR can do ticket management too.
+<figure>
+    <img src="task_list.png#center"/> 
+</figure>
+</p>
+
+<p>What makes SOAR unique is the addition of several ideas.</p>
+
+<p>The first idea is to rely on <strong>automation</strong> as much as possible. For example, the system can:</p>
+
+<ul>
+<li>automatically prioritize the ticket when it&rsquo;s created and assign it to a proper person</li>
+<li>unzip and analyze a file when somebody attaches it in ticket&rsquo;s comments</li>
+<li>create a ticket automatically when the system observes some change in external systems</li>
+<li>close a ticket automatically when it&rsquo;s clear there&rsquo;s nothing left to do</li>
+<li>call APIs of dozens of external systems when a ticket changes to a particular state. Also, notify interested people. This is called <strong>orchestration</strong>.</li>
+</ul>
+
+<p>This is typically implemented this using <em>rules</em> and <em>actions</em>. Rules use a special language.
+The language allows to describe a condition for any *event* happening in the system.
+When the condition is satisfied, rule starts a pre-programmed set of actions.
+For example, the condition can be &ldquo;new ticket is created&rdquo;, actions can be &ldquo;prioritize the ticket&rdquo; + &ldquo;assign it to a person&rdquo;.
+Rules and actions form <em>playbooks</em>, which can be replayed for each new event.</p>
+
+<p>Actions can be expressed in programming languages of can have a BPMN-like notation, like in example below.</p>
+
+<figure>
+    <img src="workflow.png#center"/> 
+</figure>
+
+
+<p>The second idea is to put the system in the <strong>security</strong> domain.</p>
+
+<p>That means tickets are actually <em>security incidents</em>. The system is aware of the existence of IPs, malware, threats, vulnerabilities, and other entities common in cybersecurity. The system can manipulate those entities to enrich information in the incident and correlate it with other incidents. For example, the system can check whois information for an IP mentioned in the incident and then mark this IP as untrusted.</p>
+
+<figure>
+    <img src="phishing_case.jpg#center"/> 
+</figure>
+
+
+<p>Security incidents require a <strong>response</strong>. During response, the system can change firewall rules, remove malicious files, and so on. A response can be very simple (if the incident was false positive) or very complex (if the system needs to orchestrate dozens of systems and several departments of the company).</p>
+
+<p>All of this is done to simplify life of people in security operation centers. And also life of people who pay for company&rsquo;s security.</p>
+
+<figure>
+    <img src="dashboards.jpg#center"/> 
+</figure>
+
+
+
+
+      </main>
+    </div>
+    
+    <script src="https://neexee.github.io/js/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+
+    
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'UA-143695654-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  </body>
+</html>

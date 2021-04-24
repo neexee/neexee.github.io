@@ -44,6 +44,16 @@ I left the company, but the experience put some everlasting questions in me. Wha
     </item>
     
     <item>
+      <title>What is SOAR 🛫</title>
+      <link>https://neexee.github.io/posts-en/what-is-soar/</link>
+      <pubDate>Sat, 10 Oct 2020 17:09:34 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/posts-en/what-is-soar/</guid>
+      <description>Definition In short, it&amp;rsquo;s Security Orchestration, Automation And Response.
+SOAR refers to technologies that enable organizations to collect inputs monitored by the security operations team. For example, alerts from the SIEM system and other security technologies — where incident analysis and triage can be performed by leveraging a combination of human and machine power — help define, prioritize and drive standardized incident response activities. SOAR tools allow an organization to define incident analysis and response procedures in a digital workflow format.</description>
+    </item>
+    
+    <item>
       <title>Securing DevOps: Security in the Cloud</title>
       <link>https://neexee.github.io/posts-en/securing-devops/</link>
       <pubDate>Sun, 16 Aug 2020 15:12:10 +0700</pubDate>
