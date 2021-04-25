@@ -331,5 +331,21 @@ What matters Does matter:
 Лабораторные 1-4  Что такое поток, как он выглядит в памяти? Чем отличаются процесс и поток? Чем отличаются fork() и pthread_create()? Как ОС выделяет процессорное время для потоков и процессов? Планировщик по-разному относится к потокам и процессам? Можно ли сделать свой собственный планировщик потоков (в обход ОС)? Это где-нибудь применяется?</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>https://neexee.github.io/resume/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://neexee.github.io/resume/</guid>
+      <description>Same, but in pretty PDF 💾🖨.
+Summary
+Builder and leader. Has broad knowledge of modern backend technologies and people. Has deep understanding of architecture, high performance and security.
+Experience
+ since 2020 - Huawei, Cloud business unit. Principal engineer.
+Working on security inside of the cloud. Team size: 7.
+ First engineer on a team. Interviewed 30+ candidates, chose the best.
+ Learned what Chinese colleagues have, which processes they follow, which tools they use.</description>
+    </item>
+    
   </channel>
 </rss>
