@@ -43,6 +43,16 @@ First of all, quality is always a top priority for good art. Quality makes softw
     </item>
     
     <item>
+      <title>DevOps and DevSecOps</title>
+      <link>https://neexee.github.io/posts-en/devops-devsecops/</link>
+      <pubDate>Mon, 22 Feb 2021 11:25:56 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/posts-en/devops-devsecops/</guid>
+      <description>Both movements are really helpful for explaining to people that they should automate everything. They also create discipline. For most situations, it&amp;rsquo;s okay to provision a server for several hours. But there&amp;rsquo;s a catch: if it takes over 10 minutes, you&amp;rsquo;ll be tempted to do some step manually. And you&amp;rsquo;ll do it manually. This is how slow-moving chaos begins in an organization. It generates huge losses over time.
+DevSecOps is welcome because it can resolve the conflict between DevOps and security.</description>
+    </item>
+    
+    <item>
       <title>How to deal with documentation</title>
       <link>https://neexee.github.io/posts-en/documentation-problems/</link>
       <pubDate>Sun, 10 Jan 2021 11:25:56 +0700</pubDate>
@@ -375,16 +385,6 @@ In other words, he&amp;rsquo;s productive at being a senior backend developer, a
 Experience
  since 2020 - Huawei, Cloud business unit. Principal engineer.
 Working on security inside the cloud. Team size: 7.</description>
-    </item>
-    
-    <item>
-      <title>DevOps and DevSecOps</title>
-      <link>https://neexee.github.io/posts-en/devops-devsecops/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://neexee.github.io/posts-en/devops-devsecops/</guid>
-      <description>Both movements are really helpful for explaining to people that they should automate everything. They also create discipline. For most situations, it&amp;rsquo;s okay to provision a server for several hours. But there&amp;rsquo;s a catch: if it takes over 10 minutes, you&amp;rsquo;ll be tempted to do some step manually. And you&amp;rsquo;ll do it manually. This is how slow-moving chaos begins in an organization. It generates huge losses over time.
-DevSecOps is welcome because it can resolve the conflict between DevOps and security.</description>
     </item>
     
   </channel>
