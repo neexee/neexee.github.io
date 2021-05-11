@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>leadership on Picky speaker</title>
+    <link>https://neexee.github.io/tags/leadership/</link>
+    <description>Recent content in leadership on Picky speaker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 15 Apr 2021 13:22:11 +0700</lastBuildDate>
+    
+	<atom:link href="https://neexee.github.io/tags/leadership/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Leadership in software</title>
+      <link>https://neexee.github.io/posts-en/software-leadership/</link>
+      <pubDate>Thu, 15 Apr 2021 13:22:11 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/posts-en/software-leadership/</guid>
+      <description>If in doubt, engineers should do as product managers say. This is because product managers have a wider context. For example, they&amp;rsquo;re aware of the market. They also know priorities on all levels of an organization.
+A person having a wider context is a leader by default. A leader can step back sometimes and let others lead. For example, he can ask subordinates to teach him. Subordinates should be careful because teaching the leader without invite may be considered rude and may lead to unpredictable results.</description>
+    </item>
+    
+  </channel>
+</rss>

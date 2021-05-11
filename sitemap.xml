@@ -3,6 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://neexee.github.io/tags/leadership/</loc>
+    <lastmod>2021-04-15T13:22:11+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://neexee.github.io/posts-en/software-leadership/</loc>
+    <lastmod>2021-04-15T13:22:11+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://neexee.github.io/tags/programming/</loc>
+    <lastmod>2021-04-15T13:22:11+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://neexee.github.io/tags/</loc>
+    <lastmod>2021-04-15T13:22:11+07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://neexee.github.io/tags/books/</loc>
     <lastmod>2021-04-10T11:24:59+07:00</lastmod>
   </url>
@@ -18,11 +38,6 @@
   </url>
   
   <url>
-    <loc>https://neexee.github.io/tags/</loc>
-    <lastmod>2021-04-10T11:24:59+07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://neexee.github.io/posts-en/beginning-of-infinity/</loc>
     <lastmod>2021-04-10T11:24:59+07:00</lastmod>
   </url>
@@ -33,17 +48,27 @@
   </url>
   
   <url>
+    <loc>https://neexee.github.io/posts-en/infinite-art/</loc>
+    <lastmod>2021-03-17T18:23:36+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://neexee.github.io/tags/documentation/</loc>
+    <lastmod>2021-01-10T11:25:56+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://neexee.github.io/posts-en/documentation-problems/</loc>
+    <lastmod>2021-01-10T11:25:56+07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://neexee.github.io/posts-en/37-things-one-architect-knows/</loc>
     <lastmod>2021-01-02T15:34:16+07:00</lastmod>
   </url>
   
   <url>
     <loc>https://neexee.github.io/tags/architecture/</loc>
-    <lastmod>2021-01-02T15:34:16+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://neexee.github.io/tags/programming/</loc>
     <lastmod>2021-01-02T15:34:16+07:00</lastmod>
   </url>
   
@@ -275,6 +300,10 @@
   <url>
     <loc>https://neexee.github.io/resume/</loc>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://neexee.github.io/posts-en/devops-devsecops/</loc>
   </url>
   
 </urlset>

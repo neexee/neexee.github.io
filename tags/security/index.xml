@@ -40,5 +40,15 @@ SOAR refers to technologies that enable organizations to collect inputs monitore
       <description>I cannot say anything bad about this book, only good. It&amp;rsquo;s full of quality content and it&amp;rsquo;s a joy to read. Title says for itself, it&amp;rsquo;s a book for DevOps engineer. But I would recommend it to anyone who&amp;rsquo;s just slightly interested in security, clouds or CI/CD. The author builds a CI/CD pipeline throughout first part of the book and explains useful security practices in the rest of the book. It has many real-life examples and many very good explanations.</description>
     </item>
     
+    <item>
+      <title>DevOps and DevSecOps</title>
+      <link>https://neexee.github.io/posts-en/devops-devsecops/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://neexee.github.io/posts-en/devops-devsecops/</guid>
+      <description>Both movements are really helpful for explaining to people that they should automate everything. They also create discipline. For most situations, it&amp;rsquo;s okay to provision a server for several hours. But there&amp;rsquo;s a catch: if it takes over 10 minutes, you&amp;rsquo;ll be tempted to do some step manually. And you&amp;rsquo;ll do it manually. This is how slow-moving chaos begins in an organization. It generates huge losses over time.
+DevSecOps is welcome because it can resolve the conflict between DevOps and security.</description>
+    </item>
+    
   </channel>
 </rss>

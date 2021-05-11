@@ -6,10 +6,28 @@
     <description>Recent content in Tags on Picky speaker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 10 Apr 2021 11:24:59 +0700</lastBuildDate>
+    <lastBuildDate>Thu, 15 Apr 2021 13:22:11 +0700</lastBuildDate>
     
 	<atom:link href="https://neexee.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>leadership</title>
+      <link>https://neexee.github.io/tags/leadership/</link>
+      <pubDate>Thu, 15 Apr 2021 13:22:11 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/tags/leadership/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>https://neexee.github.io/tags/programming/</link>
+      <pubDate>Thu, 15 Apr 2021 13:22:11 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/tags/programming/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>books</title>
@@ -48,20 +66,20 @@
     </item>
     
     <item>
+      <title>documentation</title>
+      <link>https://neexee.github.io/tags/documentation/</link>
+      <pubDate>Sun, 10 Jan 2021 11:25:56 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/tags/documentation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>architecture</title>
       <link>https://neexee.github.io/tags/architecture/</link>
       <pubDate>Sat, 02 Jan 2021 15:34:16 +0700</pubDate>
       
       <guid>https://neexee.github.io/tags/architecture/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>programming</title>
-      <link>https://neexee.github.io/tags/programming/</link>
-      <pubDate>Sat, 02 Jan 2021 15:34:16 +0700</pubDate>
-      
-      <guid>https://neexee.github.io/tags/programming/</guid>
       <description></description>
     </item>
     
