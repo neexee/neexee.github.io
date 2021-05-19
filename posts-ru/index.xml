@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>Что делать, если ты не основной заказчик?</title>
+      <link>https://neexee.github.io/posts-ru/second-customer/</link>
+      <pubDate>Wed, 19 May 2021 07:46:27 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/posts-ru/second-customer/</guid>
+      <description>В компании несколько команд, я работаю в одной из них. Я хочу, чтобы чужая команда реализовала фичу, нужную мне. Известно, что у команды есть основной заказчик и его запросы они всегда ставят в приоритет, а моя задача скорее всего влетит в бэклог на два месяца. Как ускорить прохождение моей задачи?
+По возможности лучше не попадать в подобные ситуации. Дело в том, что когда тебе что-то нужно от людей, ты по умолчанию приходишь со слабой позиции.</description>
+    </item>
+    
+    <item>
       <title>Системные вызовы UNIX</title>
       <link>https://neexee.github.io/posts-ru/operating-systems-nsu/</link>
       <pubDate>Fri, 08 Feb 2019 10:48:58 +0700</pubDate>
