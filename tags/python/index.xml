@@ -6,10 +6,24 @@
     <description>Recent content in python on Picky speaker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 05 Oct 2019 20:23:53 +0700</lastBuildDate>
+    <lastBuildDate>Mon, 05 Jul 2021 19:31:06 +0700</lastBuildDate>
     
 	<atom:link href="https://neexee.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Pragmatic Approach to Error Handling</title>
+      <link>https://neexee.github.io/posts-en/error-handling-manual/</link>
+      <pubDate>Mon, 05 Jul 2021 19:31:06 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/posts-en/error-handling-manual/</guid>
+      <description>Consider this classic question, raised in the context of Go and API compatibility:
+#golang friends, here&amp;#39;s a fun one
+v1: func Process() error { return ErrFoo }
+v2: func Process() error { return ErrBar }
+Did I break API compatibility? Do I need to bump the major version?
+&amp;mdash; ✕✕✕✕✕ (@peterbourgon) July 4, 2021  The responses split 50&amp;frasl;50, but I don&amp;rsquo;t think it should be like this if you are aware of one simple thing:</description>
+    </item>
     
     <item>
       <title>PocketBook Quote Export</title>
