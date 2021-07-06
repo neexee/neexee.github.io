@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>Wrapping Errors in Go</title>
+      <title>Error wrapping guideline for Go</title>
       <link>https://neexee.github.io/posts-en/wrapping-errors-in-go/</link>
       <pubDate>Mon, 05 Jul 2021 21:00:16 +0700</pubDate>
       
