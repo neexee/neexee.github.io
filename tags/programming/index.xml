@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>A Pragmatic Approach to Error Handling</title>
+      <title>Guideline: Error Handling</title>
       <link>https://neexee.github.io/posts-en/error-handling-manual/</link>
       <pubDate>Mon, 05 Jul 2021 19:31:06 +0700</pubDate>
       
@@ -26,7 +26,7 @@ Did I break API compatibility? Do I need to bump the major version?
     </item>
     
     <item>
-      <title>Error Wrapping Guideline for Go</title>
+      <title>Guideline: Error Wrapping in Go</title>
       <link>https://neexee.github.io/posts-en/wrapping-errors-in-go/</link>
       <pubDate>Fri, 02 Jul 2021 21:00:16 +0700</pubDate>
       
@@ -36,7 +36,7 @@ That&amp;rsquo;s what you probably come up with for client requests:</descriptio
     </item>
     
     <item>
-      <title>Leadership in software development</title>
+      <title>Leadership in Software Development</title>
       <link>https://neexee.github.io/posts-en/software-leadership/</link>
       <pubDate>Thu, 15 Apr 2021 13:22:11 +0700</pubDate>
       

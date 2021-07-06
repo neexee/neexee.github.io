@@ -3,17 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://neexee.github.io/posts-en/error-handling-manual/</loc>
-    <lastmod>2021-07-05T19:31:06+07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://neexee.github.io/tags/design/</loc>
     <lastmod>2021-07-05T19:31:06+07:00</lastmod>
   </url>
   
   <url>
     <loc>https://neexee.github.io/tags/go/</loc>
+    <lastmod>2021-07-05T19:31:06+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://neexee.github.io/posts-en/error-handling-manual/</loc>
     <lastmod>2021-07-05T19:31:06+07:00</lastmod>
   </url>
   
