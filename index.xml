@@ -76,6 +76,17 @@ DevSecOps is welcome because it can resolve the conflict between DevOps and secu
     </item>
     
     <item>
+      <title>How to Deal with Documentation</title>
+      <link>https://neexee.github.io/posts-en/documentation-problems/</link>
+      <pubDate>Mon, 10 May 2021 11:25:56 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/posts-en/documentation-problems/</guid>
+      <description>Any documentation is very advantageous to a spoken word because it scales, it’s searchable, and it can be edited and versioned.
+Here I list common problems and solutions for technical documentation:
+ It&amp;rsquo;s complicated. Avoid cliffs of understanding, build a ramp for your audience. Split documents into categories and try not to mix them (tutorial, reference, explanation, requirements and so on). Read &amp;ldquo;Elements of style&amp;rdquo; or &amp;ldquo;On writing well&amp;rdquo;. It&amp;rsquo;s big.</description>
+    </item>
+    
+    <item>
       <title>The Beginning of Infinity: Explanations That Transform the World</title>
       <link>https://neexee.github.io/posts-en/beginning-of-infinity/</link>
       <pubDate>Sat, 10 Apr 2021 11:24:59 +0700</pubDate>
@@ -84,17 +95,6 @@ DevSecOps is welcome because it can resolve the conflict between DevOps and secu
       <description>It&amp;rsquo;s a very wide mix of explanations about computation, biology, physics, creativity, politics, and philosophy. The explanations are pretty deep, so they explain an infinite number of phenomena. So they stand at the beginning of infinity.
 The book resolved many questions for me. For example:
  What is optimism? How much a human can understand? How far we can go exploring the Universe? How to make a successful meme? Why don&amp;rsquo;t we have AI yet?</description>
-    </item>
-    
-    <item>
-      <title>How to Deal with Documentation</title>
-      <link>https://neexee.github.io/posts-en/documentation-problems/</link>
-      <pubDate>Sun, 10 Jan 2021 11:25:56 +0700</pubDate>
-      
-      <guid>https://neexee.github.io/posts-en/documentation-problems/</guid>
-      <description>Any documentation is very advantageous to a spoken word because it scales, it’s searchable, and it can be edited and versioned.
-Here I list common problems and solutions for technical documentation:
- It&amp;rsquo;s complicated. Avoid cliffs of understanding, build a ramp for your audience. Split documents into categories and try not to mix them (tutorial, reference, explanation, requirements and so on). Read &amp;ldquo;Elements of style&amp;rdquo; or &amp;ldquo;On writing well&amp;rdquo;. It&amp;rsquo;s big.</description>
     </item>
     
     <item>
