@@ -1,0 +1,411 @@
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <meta name="author" content="Sergey Machulskis" />
+  <meta name="generator" content="Hugo 0.59.0-DEV" />
+  <link rel="stylesheet" href="https://neexee.github.io/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://neexee.github.io/css/blockquote.css">
+  <link rel="stylesheet" href="https://neexee.github.io/css/images.css">
+  
+  
+  <title>Wrapping Errors in Go | Picky speaker</title>
+  <style>
+.container {
+  max-width: 800px;
+}
+#nav a {
+  font-weight: bold;
+  color: inherit;
+}
+#nav a.nav-link-active {
+  background-color: #212529;
+  color: #fff;
+}
+#nav-border {
+  border-bottom: 1px solid #212529;
+}
+#main {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+
+#main .taglist {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#home-jumbotron {
+  background-color: inherit;
+}
+#footer .container {
+  padding: 1em 0;
+}
+#footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+.font-125 {
+  font-size: 125%;
+}
+.tag-btn {
+  margin-bottom: 0.3em;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit; 
+  background-color: transparent;
+  border-radius: 0;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+img,
+iframe,
+embed,
+video,
+audio {
+  max-width: 100%;
+}
+</style>
+</head>
+  <body class="d-flex flex-column h-100">
+    <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+  
+  
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/resume/"><i data-feather="user-check"></i> Resume</a>
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/posts-en/"><i data-feather="edit"></i> Blog (En)</a>
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/posts-ru/"><i data-feather="edit"></i> Blog (Ru)</a>
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
+  
+  </nav>
+</div>
+    <div class="container">
+      <main id="main">
+        
+
+<h1>Wrapping Errors in Go</h1>
+
+
+  <div class="taglist">
+    <i data-feather="tag"></i>
+    
+      
+      <a class="btn btn-sm btn-outline-dark tag-btn" href="https://neexee.github.io/tags/design">design</a>
+    
+      
+      <a class="btn btn-sm btn-outline-dark tag-btn" href="https://neexee.github.io/tags/go">go</a>
+    
+      
+      <a class="btn btn-sm btn-outline-dark tag-btn" href="https://neexee.github.io/tags/programming">programming</a>
+    
+      
+      <a class="btn btn-sm btn-outline-dark tag-btn" href="https://neexee.github.io/tags/research">research</a>
+    
+  </div>
+
+
+
+
+<p>Imagine a situation. You&rsquo;re having a backend serving music. It has an API level, some domain logic, and storage. You have different kinds of entities in the API (tracks, playlists, and so on) and you need some way to filter them. There&rsquo;s a lot of entities stored in the storage so you have to invent a paging strategy for them.</p>
+
+<p>That&rsquo;s what you probably come up with for client requests:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl <span style="color:#d88200">&#34;https://api.com/tracks?cursor=c93d3bf7&amp;limit=12&#34;</span></code></pre></div>
+<p>A client doesn&rsquo;t even attempt to interpret cursor value, it&rsquo;s returned in response headers by the backend. Opaque cursor value serves well because it&rsquo;s very useful for <a href="https://use-the-index-luke.com/no-offset">no-offset pagination</a>.</p>
+
+<p>The problem is, you cannot validate the cursor value on the API level. That&rsquo;s because track storage interprets it in one way and playlist storage interprets it in the other way. So you have to pass the cursor from API through domain logic to the storage. The storage then parses the cursor and chooses entities to return with the next page. The problem arises when you need to return the &ldquo;this is invalid cursor&rdquo; error.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#75af00">storage</span>
+
+<span style="color:#75715e">// Public error, to be used by upper levels
+</span><span style="color:#75715e"></span><span style="color:#00a8c8">var</span> <span style="color:#75af00">ErrInvalidCursor</span> <span style="color:#111">=</span> <span style="color:#75af00">errors</span><span style="color:#111">.</span><span style="color:#75af00">New</span><span style="color:#111">(</span><span style="color:#d88200">&#34;cursor has invalid value&#34;</span><span style="color:#111">)</span></code></pre></div>
+<h2 id="classic-go-way">Classic Go way</h2>
+
+<p>Just return errors as is, in a well-known idiom</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#75af00">domain</span>
+ 
+<span style="color:#75715e">// Call storage and provide cursor
+</span><span style="color:#75715e"></span><span style="color:#00a8c8">if</span> <span style="color:#75af00">err</span> <span style="color:#f92672">:=</span> <span style="color:#75af00">trackStorage</span><span style="color:#111">.</span><span style="color:#75af00">FilterTracks</span><span style="color:#111">(</span><span style="color:#f92672">...</span><span style="color:#111">,</span> <span style="color:#75af00">cursor</span><span style="color:#111">);</span> <span style="color:#75af00">err</span> <span style="color:#f92672">!=</span> <span style="color:#00a8c8">nil</span> <span style="color:#111">{</span>
+	<span style="color:#00a8c8">return</span> <span style="color:#75af00">err</span>
+<span style="color:#111">}</span></code></pre></div>
+<p>It doesn&rsquo;t scale well because most of the time you want more context. You want to trace the top-level error back to the source. That&rsquo;s why <a href="https://github.com/pkg/errors">https://github.com/pkg/errors</a> was born.</p>
+
+<p>On the API level you just do something like:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#75af00">api</span>
+
+<span style="color:#75af00">cursor</span> <span style="color:#f92672">:=</span> <span style="color:#75af00">GetCursorCtx</span><span style="color:#111">(</span><span style="color:#75af00">ctx</span><span style="color:#111">)</span> <span style="color:#75715e">// Extract cursor from query string
+</span><span style="color:#75715e"></span><span style="color:#75af00">err</span> <span style="color:#f92672">:=</span> <span style="color:#75af00">trackScenarios</span><span style="color:#111">.</span><span style="color:#75af00">FilterTracks</span><span style="color:#111">(</span><span style="color:#f92672">...</span><span style="color:#111">,</span> <span style="color:#75af00">cursor</span><span style="color:#111">)</span> <span style="color:#75715e">// Call domain level
+</span><span style="color:#75715e"></span><span style="color:#00a8c8">if</span> <span style="color:#75af00">err</span> <span style="color:#f92672">!=</span> <span style="color:#00a8c8">nil</span> <span style="color:#111">{</span>
+	<span style="color:#00a8c8">if</span> <span style="color:#75af00">err</span> <span style="color:#f92672">==</span> <span style="color:#75af00">storage</span><span style="color:#111">.</span><span style="color:#75af00">ErrInvalidCursor</span> <span style="color:#111">{</span>
+		<span style="color:#00a8c8">return</span> <span style="color:#75af00">renderErrorResponse</span><span style="color:#111">(</span><span style="color:#75af00">http</span><span style="color:#111">.</span><span style="color:#75af00">BadRequest</span><span style="color:#111">,</span> <span style="color:#75af00">errors</span><span style="color:#111">.</span><span style="color:#75af00">New</span><span style="color:#111">(</span><span style="color:#d88200">&#34;invalid cursor&#34;</span><span style="color:#111">))</span>
+	<span style="color:#111">}</span>
+	<span style="color:#00a8c8">return</span> <span style="color:#75af00">renderErrorResponse</span><span style="color:#111">(</span><span style="color:#75af00">http</span><span style="color:#111">.</span><span style="color:#75af00">InternalError</span><span style="color:#111">,</span> <span style="color:#75af00">err</span><span style="color:#111">)</span>
+<span style="color:#111">}</span></code></pre></div>
+<h2 id="nice-and-clean-pkg-errors-way">&ldquo;Nice and clean&rdquo; pkg/errors way</h2>
+
+<p><code>pkg/errors</code> allows you to attach context to an error. This improves traceability.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#75af00">domain</span>
+
+<span style="color:#00a8c8">if</span> <span style="color:#75af00">err</span> <span style="color:#f92672">:=</span> <span style="color:#75af00">storage</span><span style="color:#111">.</span><span style="color:#75af00">FilterTracks</span><span style="color:#111">(</span><span style="color:#f92672">...</span><span style="color:#111">,</span> <span style="color:#75af00">cursor</span><span style="color:#111">);</span> <span style="color:#75af00">err</span> <span style="color:#f92672">!=</span> <span style="color:#00a8c8">nil</span> <span style="color:#111">{</span>
+	<span style="color:#00a8c8">return</span> <span style="color:#75af00">errors</span><span style="color:#111">.</span><span style="color:#75af00">Wrap</span><span style="color:#111">(</span><span style="color:#75af00">err</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;cannot filter tracks&#34;</span><span style="color:#111">)</span>
+<span style="color:#111">}</span></code></pre></div>
+<p>Or, if you don&rsquo;t have anything to say and just want to attach the stack trace:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#75af00">domain</span>
+
+<span style="color:#00a8c8">if</span> <span style="color:#75af00">err</span> <span style="color:#f92672">:=</span> <span style="color:#75af00">storage</span><span style="color:#111">.</span><span style="color:#75af00">FilterTracks</span><span style="color:#111">(</span><span style="color:#f92672">...</span><span style="color:#111">,</span> <span style="color:#75af00">cursor</span><span style="color:#111">);</span> <span style="color:#75af00">err</span> <span style="color:#f92672">!=</span> <span style="color:#00a8c8">nil</span> <span style="color:#111">{</span>
+	<span style="color:#00a8c8">return</span> <span style="color:#75af00">errors</span><span style="color:#111">.</span><span style="color:#75af00">WithStack</span><span style="color:#111">(</span><span style="color:#75af00">err</span><span style="color:#111">)</span>
+<span style="color:#111">}</span></code></pre></div>
+<p>Looks nice. And it makes code so much easier to debug using logs!</p>
+
+<p>But you cannot compare the error on the API level as is, you have to unwrap it.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#75af00">api</span>
+
+<span style="color:#75af00">cursor</span> <span style="color:#f92672">:=</span> <span style="color:#75af00">GetCursorCtx</span><span style="color:#111">(</span><span style="color:#75af00">ctx</span><span style="color:#111">)</span>
+<span style="color:#75af00">err</span> <span style="color:#f92672">:=</span> <span style="color:#75af00">trackScenarios</span><span style="color:#111">.</span><span style="color:#75af00">FilterTracks</span><span style="color:#111">(</span><span style="color:#f92672">...</span><span style="color:#111">,</span> <span style="color:#75af00">cursor</span><span style="color:#111">)</span>
+<span style="color:#00a8c8">if</span> <span style="color:#75af00">err</span> <span style="color:#f92672">!=</span> <span style="color:#00a8c8">nil</span> <span style="color:#111">{</span>
+	<span style="color:#00a8c8">if</span> <span style="color:#75af00">errors</span><span style="color:#111">.</span><span style="color:#75af00">Cause</span><span style="color:#111">(</span><span style="color:#75af00">err</span><span style="color:#111">)</span> <span style="color:#f92672">==</span> <span style="color:#75af00">storage</span><span style="color:#111">.</span><span style="color:#75af00">ErrInvalidCursor</span> <span style="color:#111">{</span> <span style="color:#75715e">// &lt;- here we use the errors.Cause()
+</span><span style="color:#75715e"></span>		<span style="color:#00a8c8">return</span> <span style="color:#75af00">renderErrorResponse</span><span style="color:#111">(</span><span style="color:#75af00">http</span><span style="color:#111">.</span><span style="color:#75af00">BadRequest</span><span style="color:#111">,</span> <span style="color:#75af00">errors</span><span style="color:#111">.</span><span style="color:#75af00">New</span><span style="color:#111">(</span><span style="color:#d88200">&#34;invalid cursor&#34;</span><span style="color:#111">))</span>
+	<span style="color:#111">}</span>
+	<span style="color:#00a8c8">return</span> <span style="color:#75af00">renderErrorResponse</span><span style="color:#111">(</span><span style="color:#75af00">http</span><span style="color:#111">.</span><span style="color:#75af00">InternalError</span><span style="color:#111">,</span> <span style="color:#75af00">err</span><span style="color:#111">)</span>
+<span style="color:#111">}</span></code></pre></div>
+<p>This unwrapping is not a big deal, right? Wrong!</p>
+
+<h2 id="pkg-errors-is-broken">pkg/errors is broken</h2>
+
+<p>That&rsquo;s what you should do instead of wrapping of errors by default:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#75af00">domain</span>
+<span style="color:#00a8c8">if</span> <span style="color:#75af00">err</span> <span style="color:#f92672">:=</span> <span style="color:#75af00">storage</span><span style="color:#111">.</span><span style="color:#75af00">FilterTracks</span><span style="color:#111">(</span><span style="color:#f92672">...</span><span style="color:#111">,</span> <span style="color:#75af00">cursor</span><span style="color:#111">);</span> <span style="color:#75af00">err</span> <span style="color:#f92672">!=</span> <span style="color:#00a8c8">nil</span> <span style="color:#111">{</span>
+	<span style="color:#00a8c8">if</span> <span style="color:#75af00">err</span> <span style="color:#f92672">==</span> <span style="color:#75af00">storage</span><span style="color:#111">.</span><span style="color:#75af00">ErrInvalidCursor</span> <span style="color:#111">{</span>
+		<span style="color:#00a8c8">return</span> <span style="color:#75af00">err</span>
+	<span style="color:#111">}</span>
+	<span style="color:#00a8c8">return</span> <span style="color:#75af00">errors</span><span style="color:#111">.</span><span style="color:#75af00">WithStack</span><span style="color:#111">(</span><span style="color:#75af00">err</span><span style="color:#111">)</span>
+<span style="color:#111">}</span></code></pre></div>
+<p>This is subtle but important.</p>
+
+<p>Let&rsquo;s define terms. We call error <em>recognizable</em> if it was stated in the API contract.
+For example, <code>storage.FilterTracks(..., cursor)</code> states that it returns <code>ErrInvalidCursor</code> if the cursor is invalid.
+It states it in a comment because there&rsquo;s no other way in Go. All other errors are <em>unrecognizable</em>. They&rsquo;re truly unexpected. For example, storage is corrupted.</p>
+
+<p>The proposed guideline is this:</p>
+
+<h2 id="return-the-recognizable-error-as-is-and-wrap-unrecognizable-errors">Return the recognizable error <em>as is</em> and <em>wrap</em> unrecognizable errors</h2>
+
+<hr />
+
+<h3 id="the-rationale">The rationale</h3>
+
+<p><strong>Wrapping Pros</strong></p>
+
+<p>Strong arguments:</p>
+
+<ol>
+<li>You don&rsquo;t need to explicitly check recognizable errors. Less code.</li>
+<li>As a consequence of #1, it&rsquo;s much easier to add new types of errors down the stack. No need to change the glue code. Less work if you want to add a new error type.</li>
+<li>You don&rsquo;t need to remember the types of errors a particular interface should return. Less mental load.</li>
+</ol>
+
+<p>Weak arguments:</p>
+
+<ol>
+<li>Explicit checking doesn&rsquo;t work as expected in the example below. During debugging you cannot understand what was the source of the problem <code>foo()</code> or <code>bar()</code>. I.e. you lose stack traces. Weak because you need trackbacks only for unrecognizable errors (they&rsquo;re for humans) and panics (they&rsquo;re for programmers).</li>
+<li>It&rsquo;s cumbersome to document recognizable errors. You should mention every function returning them (i.e on the entire call stack). Weak because it can be solved by convention.</li>
+
+<li><p>You use recognizable errors only on levels that are important for them (generating and handling this error). Weak because a function doesn&rsquo;t know how client code is going to use it. Or how it&rsquo;s going to handle its errors.</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#00a8c8">func</span> <span style="color:#75af00">f</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+	<span style="color:#00a8c8">if</span> <span style="color:#75af00">err</span> <span style="color:#f92672">:=</span> <span style="color:#75af00">foo</span><span style="color:#111">();</span> <span style="color:#75af00">err</span> <span style="color:#f92672">!=</span> <span style="color:#00a8c8">nil</span> <span style="color:#111">{</span>
+		<span style="color:#00a8c8">if</span> <span style="color:#75af00">err</span> <span style="color:#f92672">==</span> <span style="color:#75af00">ErrInvalidCursor</span> <span style="color:#111">{</span>
+			<span style="color:#00a8c8">return</span> <span style="color:#75af00">err</span>
+		<span style="color:#111">}</span>
+		<span style="color:#00a8c8">return</span> <span style="color:#75af00">errors</span><span style="color:#111">.</span><span style="color:#75af00">Wrap</span><span style="color:#111">(</span><span style="color:#75af00">err</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;cannot do foo&#34;</span><span style="color:#111">)</span>
+	<span style="color:#111">}</span>
+
+	<span style="color:#00a8c8">if</span> <span style="color:#75af00">err</span> <span style="color:#f92672">:=</span> <span style="color:#75af00">bar</span><span style="color:#111">();</span> <span style="color:#75af00">err</span> <span style="color:#f92672">!=</span> <span style="color:#00a8c8">nil</span> <span style="color:#111">{</span>
+		<span style="color:#00a8c8">if</span> <span style="color:#75af00">err</span> <span style="color:#f92672">==</span> <span style="color:#75af00">ErrInvalidCursor</span> <span style="color:#111">{</span>
+			<span style="color:#00a8c8">return</span> <span style="color:#75af00">err</span>
+		<span style="color:#111">}</span>
+		<span style="color:#00a8c8">return</span> <span style="color:#75af00">errors</span><span style="color:#111">.</span><span style="color:#75af00">Wrap</span><span style="color:#111">(</span><span style="color:#75af00">err</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;cannot do bar&#34;</span><span style="color:#111">)</span>
+	<span style="color:#111">}</span>
+<span style="color:#111">}</span></code></pre></div></li>
+</ol>
+
+<p><strong>Wrapping Cons</strong></p>
+
+<p>Strong arguments:</p>
+
+<ol>
+<li>The code deteriorates fast because:
+
+<ul>
+<li>As an API client, you&rsquo;re not sure if this method could return a particular type of error. Underlying code leaves a feeling that implementer didn&rsquo;t care what he returns. Client code starts to look like <code>catch Throwable</code> in OOP languages.</li>
+<li>As an API designer, you don&rsquo;t care if the caller checks this particular type of error.</li>
+</ul></li>
+<li>If the ErrInvalidCursor is unexpected for some function, it shouldn&rsquo;t handle it explicitly. This is a nice way to say &ldquo;I don&rsquo;t even know how to handle that&rdquo;. Panic or return an unrecognizable error then.</li>
+<li>If the documentation says &ldquo;Returns ErrInvalidCursor if the cursor is invalid&rdquo; it must return it. Unwrapped.</li>
+<li>If API returns both wrapped and unwrapped errors, it&rsquo;s broken. Return all wrapped or all unwrapped. See <a href="https://github.com/pkg/errors/issues/210">this issue</a></li>
+<li><a href="https://blog.golang.org/go1.13-errors">The official blog</a> doesn&rsquo;t say anything about wrapping. That&rsquo;s what it says:
+
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">When adding additional context to an error, either with fmt.Errorf or by implementing a custom type, you need to decide whether the new error should wrap the original. There is no single answer to this question; it depends on the context in which the new error is created. Wrap an error to expose it to callers. Do not wrap an error when doing so would expose implementation details.</div>
+  
+</blockquote></li>
+</ol>
+
+<p>Weak arguments (mostly pkg/errors-related):</p>
+
+<ol>
+<li>Sometimes you need double unwrapping, first using pkg/errors Unwrap and then standard library Unwrap. And those libraries conflict by name.</li>
+<li>It&rsquo;s very hard to switch to stdlib&rsquo;s Is() and As() incrementally if you&rsquo;re using pkg/errors.</li>
+<li>Mix of pkg/errors and standard errors produces weird problems. <a href="https://github.com/pkg/errors/issues/219">Cause() is broken</a>.</li>
+</ol>
+
+<h3 id="trivia">Trivia</h3>
+
+<ol>
+<li>pkg/errors stack traces were created to allow not to write return errors.Wrap(err, &ldquo;&rdquo;). <a href="https://dave.cheney.net/2016/06/12/stack-traces-and-the-errors-package">Proof</a>.</li>
+<li>Use <a href="https://github.com/xdg-go/go-rewrap-errors">tools</a> to replace pkg/errors by fmt.Errorf safely. An <a href="(https://xdg.me/blog/rewriting-go-with-ast-transformation)">excellent article</a> explaining how it works.</li>
+<li>pkg/errros can into <a href="https://github.com/pkg/errors/commit/6d954f502eb89cd315e4baae5b0e0db516d6f787">their own Is and As</a>.</li>
+<li><a href="https://github.com/golang/go/wiki/ErrorValueFAQ">This is how you should use stderrors</a>.</li>
+<li><a href="(https://www.komu.engineer/blogs/golang-stacktrace/golang-stacktrace)">Good introduction</a> to the topic of stack traces in Go.</li>
+</ol>
+
+
+
+      </main>
+    </div>
+    
+    <script src="https://neexee.github.io/js/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+
+    
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'UA-143695654-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  </body>
+</html>

@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>Wrapping Errors in Go</title>
+      <link>https://neexee.github.io/posts-en/wrapping-errors-in-go/</link>
+      <pubDate>Mon, 05 Jul 2021 21:00:16 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/posts-en/wrapping-errors-in-go/</guid>
+      <description>Imagine a situation. You&amp;rsquo;re having a backend serving music. It has an API level, some domain logic, and storage. You have different kinds of entities in the API (tracks, playlists, and so on) and you need some way to filter them. There&amp;rsquo;s a lot of entities stored in the storage so you have to invent a paging strategy for them.
+That&amp;rsquo;s what you probably come up with for client requests:</description>
+    </item>
+    
+    <item>
       <title>Что делать, если ты не основной заказчик?</title>
       <link>https://neexee.github.io/posts-ru/second-customer/</link>
       <pubDate>Wed, 19 May 2021 07:46:27 +0700</pubDate>

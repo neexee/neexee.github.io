@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>design on Picky speaker</title>
+    <link>https://neexee.github.io/tags/design/</link>
+    <description>Recent content in design on Picky speaker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 05 Jul 2021 21:00:16 +0700</lastBuildDate>
+    
+	<atom:link href="https://neexee.github.io/tags/design/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Wrapping Errors in Go</title>
+      <link>https://neexee.github.io/posts-en/wrapping-errors-in-go/</link>
+      <pubDate>Mon, 05 Jul 2021 21:00:16 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/posts-en/wrapping-errors-in-go/</guid>
+      <description>Imagine a situation. You&amp;rsquo;re having a backend serving music. It has an API level, some domain logic, and storage. You have different kinds of entities in the API (tracks, playlists, and so on) and you need some way to filter them. There&amp;rsquo;s a lot of entities stored in the storage so you have to invent a paging strategy for them.
+That&amp;rsquo;s what you probably come up with for client requests:</description>
+    </item>
+    
+  </channel>
+</rss>

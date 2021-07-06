@@ -3,12 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://neexee.github.io/tags/management/</loc>
-    <lastmod>2021-05-19T07:46:27+07:00</lastmod>
+    <loc>https://neexee.github.io/tags/design/</loc>
+    <lastmod>2021-07-05T21:00:16+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://neexee.github.io/tags/go/</loc>
+    <lastmod>2021-07-05T21:00:16+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://neexee.github.io/tags/programming/</loc>
+    <lastmod>2021-07-05T21:00:16+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://neexee.github.io/tags/research/</loc>
+    <lastmod>2021-07-05T21:00:16+07:00</lastmod>
   </url>
   
   <url>
     <loc>https://neexee.github.io/tags/</loc>
+    <lastmod>2021-07-05T21:00:16+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://neexee.github.io/posts-en/wrapping-errors-in-go/</loc>
+    <lastmod>2021-07-05T21:00:16+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://neexee.github.io/tags/management/</loc>
     <lastmod>2021-05-19T07:46:27+07:00</lastmod>
   </url>
   
@@ -24,11 +49,6 @@
   
   <url>
     <loc>https://neexee.github.io/posts-en/software-leadership/</loc>
-    <lastmod>2021-04-15T13:22:11+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://neexee.github.io/tags/programming/</loc>
     <lastmod>2021-04-15T13:22:11+07:00</lastmod>
   </url>
   
@@ -144,11 +164,6 @@
   
   <url>
     <loc>https://neexee.github.io/posts-en/distributed-deadlock/</loc>
-    <lastmod>2020-05-01T12:07:33+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://neexee.github.io/tags/go/</loc>
     <lastmod>2020-05-01T12:07:33+07:00</lastmod>
   </url>
   
