@@ -6,7 +6,7 @@
     <description>Recent content in security on Picky speaker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 22 Feb 2021 11:25:56 +0700</lastBuildDate>
+    <lastBuildDate>Tue, 11 May 2021 11:25:56 +0700</lastBuildDate>
     
 	<atom:link href="https://neexee.github.io/tags/security/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>DevOps and DevSecOps</title>
       <link>https://neexee.github.io/posts-en/devops-devsecops/</link>
-      <pubDate>Mon, 22 Feb 2021 11:25:56 +0700</pubDate>
+      <pubDate>Tue, 11 May 2021 11:25:56 +0700</pubDate>
       
       <guid>https://neexee.github.io/posts-en/devops-devsecops/</guid>
       <description>Both movements are really helpful for explaining to people that they should automate everything. They also create discipline. For most situations, it&amp;rsquo;s okay to provision a server for several hours. But there&amp;rsquo;s a catch: if it takes over 10 minutes, you&amp;rsquo;ll be tempted to do some step manually. And you&amp;rsquo;ll do it manually. This is how slow-moving chaos begins in an organization. It generates huge losses over time.
