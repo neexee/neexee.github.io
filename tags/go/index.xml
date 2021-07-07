@@ -28,7 +28,7 @@ Did I break API compatibility? Do I need to bump the major version?
     <item>
       <title>Guideline: Error Wrapping in Go</title>
       <link>https://neexee.github.io/posts-en/wrapping-errors-in-go/</link>
-      <pubDate>Fri, 02 Jul 2021 21:00:16 +0700</pubDate>
+      <pubDate>Sat, 02 May 2020 21:00:16 +0700</pubDate>
       
       <guid>https://neexee.github.io/posts-en/wrapping-errors-in-go/</guid>
       <description>Imagine a situation. You&amp;rsquo;re having a backend serving music. It has an API level, some domain logic, and storage. You have different kinds of entities in the API (tracks, playlists, and so on) and you need some way to filter them. There&amp;rsquo;s a lot of entities stored in the storage so you have to invent a paging strategy for them.

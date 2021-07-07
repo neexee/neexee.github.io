@@ -26,16 +26,6 @@ Did I break API compatibility? Do I need to bump the major version?
     </item>
     
     <item>
-      <title>Guideline: Error Wrapping in Go</title>
-      <link>https://neexee.github.io/posts-en/wrapping-errors-in-go/</link>
-      <pubDate>Fri, 02 Jul 2021 21:00:16 +0700</pubDate>
-      
-      <guid>https://neexee.github.io/posts-en/wrapping-errors-in-go/</guid>
-      <description>Imagine a situation. You&amp;rsquo;re having a backend serving music. It has an API level, some domain logic, and storage. You have different kinds of entities in the API (tracks, playlists, and so on) and you need some way to filter them. There&amp;rsquo;s a lot of entities stored in the storage so you have to invent a paging strategy for them.
-That&amp;rsquo;s what you probably come up with for client requests:</description>
-    </item>
-    
-    <item>
       <title>Open Source is an Infinitely Scalable Art</title>
       <link>https://neexee.github.io/posts-en/infinite-art/</link>
       <pubDate>Thu, 13 May 2021 18:23:36 +0700</pubDate>
@@ -56,7 +46,7 @@ A person having a wider context is a leader by default. A leader can step back s
     </item>
     
     <item>
-      <title>How to Deal with Documentation</title>
+      <title>Classic Documentation Problems and Solutions</title>
       <link>https://neexee.github.io/posts-en/documentation-problems/</link>
       <pubDate>Mon, 10 May 2021 11:25:56 +0700</pubDate>
       
@@ -116,6 +106,16 @@ The code should look as a sentence said by a domain expert. That’s the core id
 Pros:
  Brilliant idea, totally worth knowing I could finally understand most of the content on Fowler’s blog  Cons:
  It’s very hard to follow the author.</description>
+    </item>
+    
+    <item>
+      <title>Guideline: Error Wrapping in Go</title>
+      <link>https://neexee.github.io/posts-en/wrapping-errors-in-go/</link>
+      <pubDate>Sat, 02 May 2020 21:00:16 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/posts-en/wrapping-errors-in-go/</guid>
+      <description>Imagine a situation. You&amp;rsquo;re having a backend serving music. It has an API level, some domain logic, and storage. You have different kinds of entities in the API (tracks, playlists, and so on) and you need some way to filter them. There&amp;rsquo;s a lot of entities stored in the storage so you have to invent a paging strategy for them.
+That&amp;rsquo;s what you probably come up with for client requests:</description>
     </item>
     
     <item>
