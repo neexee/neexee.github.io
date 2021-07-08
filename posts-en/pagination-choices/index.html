@@ -1,0 +1,434 @@
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <meta name="author" content="Sergey Machulskis" />
+  <meta name="generator" content="Hugo 0.59.0-DEV" />
+  <link rel="stylesheet" href="https://neexee.github.io/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://neexee.github.io/css/blockquote.css">
+  <link rel="stylesheet" href="https://neexee.github.io/css/images.css">
+  
+  
+  <title>Recommended Pagination for APIs | Picky speaker</title>
+  <style>
+.container {
+  max-width: 800px;
+}
+#nav a {
+  font-weight: bold;
+  color: inherit;
+}
+#nav a.nav-link-active {
+  background-color: #212529;
+  color: #fff;
+}
+#nav-border {
+  border-bottom: 1px solid #212529;
+}
+#main {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+
+#main .taglist {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#home-jumbotron {
+  background-color: inherit;
+}
+#footer .container {
+  padding: 1em 0;
+}
+#footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+.font-125 {
+  font-size: 125%;
+}
+.tag-btn {
+  margin-bottom: 0.3em;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit; 
+  background-color: transparent;
+  border-radius: 0;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+img,
+iframe,
+embed,
+video,
+audio {
+  max-width: 100%;
+}
+</style>
+</head>
+  <body class="d-flex flex-column h-100">
+    <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+  
+  
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/resume/"><i data-feather="user-check"></i> Resume</a>
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/posts-en/"><i data-feather="edit"></i> Blog (En)</a>
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/posts-ru/"><i data-feather="edit"></i> Blog (Ru)</a>
+  
+    
+    
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
+  
+  </nav>
+</div>
+    <div class="container">
+      <main id="main">
+        
+
+<h1>Recommended Pagination for APIs</h1>
+
+
+  <div class="taglist">
+    <i data-feather="tag"></i>
+    
+      
+      <a class="btn btn-sm btn-outline-dark tag-btn" href="https://neexee.github.io/tags/design">design</a>
+    
+      
+      <a class="btn btn-sm btn-outline-dark tag-btn" href="https://neexee.github.io/tags/programming">programming</a>
+    
+      
+      <a class="btn btn-sm btn-outline-dark tag-btn" href="https://neexee.github.io/tags/recommended">recommended</a>
+    
+  </div>
+
+
+
+
+<h2 id="the-problem">The problem</h2>
+
+<p>Your API needs to return a list of entities. The list can be quite big, even if you designed useful filters.</p>
+
+<p>Most of the time a client doesn&rsquo;t need the entire list because:</p>
+
+<ul>
+<li>UX will suffer. If you have a frontend application, users don&rsquo;t need to scroll thousands of entities at once.</li>
+<li>Performance will suffer. This happens both on a client and backend. The client needs to parse and render all retrieved entities,
+backend needs to read them all from a database.</li>
+</ul>
+
+<p>The solution is to introduce pagination to your API.</p>
+
+<p>The article clarifies choices you have regarding API design and backend implementation.</p>
+
+<h2 id="offset-pagination">Offset Pagination</h2>
+
+<p>Popular and simple. It is popular because SQL has <code>LIMIT</code> and <code>OFFSET</code> out of the box. It is simple because you don&rsquo;t need a lot of business logic to wrap it.</p>
+
+<h3 id="typical-usage">Typical usage</h3>
+
+<ol>
+<li>A client makes a request for the first page: <code>GET /entities?limit=30</code></li>
+<li>To retrieve the next page, the client makes a second request <code>GET /entities?limit=30&amp;offset=20</code></li>
+</ol>
+
+<p>The second request translates to this SQL:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#00a8c8">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">entities</span>
+<span style="color:#00a8c8">ORDER</span> <span style="color:#00a8c8">BY</span> <span style="color:#111">id</span>
+<span style="color:#00a8c8">LIMIT</span> <span style="color:#ae81ff">30</span>
+<span style="color:#00a8c8">OFFSET</span> <span style="color:#ae81ff">20</span><span style="color:#111">;</span></code></pre></div>
+<h3 id="pros">Pros</h3>
+
+<ul>
+<li>Easy to implement. Many frameworks support it out of the box.</li>
+<li>Supports page transition in random access mode. A client can go from page 1 straight to page 10, then to page 5. It&rsquo;s rarely needed, though.</li>
+</ul>
+
+<h3 id="cons">Cons</h3>
+
+<ul>
+<li>Kills database on large offsets.</li>
+<li>Pages drift.</li>
+</ul>
+
+<hr />
+
+<p>SQL&rsquo;s <code>OFFSET</code> allows to skip the first N results of a query. However, the database <strong>must</strong> read and sort first N rows before it can return the rest. This is not an implementation problem, it’s the way offset is designed:</p>
+
+
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+  
+  
+  
+  
+    
+      
+    
+  
+
+
+
+
+
+  
+
+
+<blockquote class="wp-block-quote">
+  <div class="text-secondary">…the rows are first sorted according to the &lt;order by clause&gt; and then limited by dropping the number of rows specified in the &lt;result offset clause&gt; from the beginning…</div>
+  
+    <footer class=blockquote-footer>
+      <strong></strong>
+      
+        
+          
+            <cite>
+              SQL:2016, Part 2, §4.15.3 Derived tables</a>
+            </cite>
+          
+        
+      
+    </footer>
+  
+</blockquote>
+
+<p>That means, big offsets impose a lot of work on the database.</p>
+
+<hr />
+
+<p>Sometimes performance is not a big problem. Then page drift is a problem.</p>
+
+<p>Imagine we have 8 entities registered in the system. Pages are of size 3. Entities are sorted by created_at. User goes to page 2 using offset pagination. To him, all entity pages look like this (page boundaries are brackets):</p>
+
+<p style="text-align: center;">
+[0, 1, 2] [3, <b>4</b>, <b>5</b> (user here)], [6, 7]. Next offset is 6.
+</p>
+
+<p>While the user is staring at the entities, two new entities X and Y get registered in the system (by another user or a system). User clicks to see the next page, and what he sees?</p>
+
+<p style="text-align: center;">
+[X, Y, 0] [1, 2, 3], [<b>4</b>, <b>5</b>], 6 (user here)], [7].
+</p>
+
+<p>He sees entities <strong>4</strong> and <strong>5</strong> again even though he went to the next page. This is not a big problem for UIs if you don&rsquo;t care if your users are confused seeing the same. Or if you don&rsquo;t care if your users don&rsquo;t see something, because offset pagination also can shift pages so entities get lost. But it&rsquo;s a huge pain if you want to automate this API. The client is always not sure if he saw those entities or not. Client deduplication kills adequate usage patterns of offset pagination.</p>
+
+<hr />
+
+<p>That means, API using offset pagination is unreliable and not scalable. It can be used only for a small number of entities. What&rsquo;s the point of introducing pagination, if you don&rsquo;t have many entities in the first place? I don&rsquo;t think it should be really used in modern APIs.</p>
+
+<h2 id="simple-keyset-pagination">Simple keyset pagination</h2>
+
+<p>Keyset pagination uses information about the current page to fetch the next page.</p>
+
+<h3 id="typical-usage-1">Typical usage</h3>
+
+<ol>
+<li>A client makes a request for the first page: <code>GET /entities?limit=20</code></li>
+<li>To retrieve the next page, the client makes a second request <code>GET /entities?limit=20&amp;created_after=2021-07-07T14:32:01</code>. The client gets the <code>created_after</code> parameter from the <code>created_at</code> field of last entity of the current page.</li>
+</ol>
+
+<p>The second request translates to:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#00a8c8">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">entities</span>
+<span style="color:#00a8c8">WHERE</span>
+  <span style="color:#111">created_at</span> <span style="color:#f92672">&gt;=</span> <span style="color:#d88200">&#39;2021-07-07T14:32:01&#39;</span>
+<span style="color:#00a8c8">ORDER</span> <span style="color:#00a8c8">BY</span> <span style="color:#111">id</span>
+<span style="color:#00a8c8">LIMIT</span> <span style="color:#ae81ff">20</span></code></pre></div>
+<h3 id="pros-1">Pros</h3>
+
+<ul>
+<li>Works with existing filters of the API. You only need to add the limit parameter.</li>
+<li>No page drift (almost).</li>
+<li>Consistent performance, especially if you use database indexes.</li>
+</ul>
+
+<h3 id="cons-1">Cons</h3>
+
+<ul>
+<li>Tight coupling of pagination and sorting. Forces API users to add filters even if no filters are intended.</li>
+<li>Does not work when fields are often duplicated. Even with timestamps pages may drift, the ordering will be random for fields like enum values.</li>
+<li>Complicated for clients when they want to combine sorting and pagination on the same field.</li>
+</ul>
+
+<hr />
+
+<p>Simple keyset pagination works very well for data with keys such as timestamp with high resolution.</p>
+
+<h2 id="keyset-pagination-on-natural-keys">Keyset pagination on natural keys</h2>
+
+<p>This one extends simple approach by introducing separate <code>cursor</code> API parameter. The parameter is based on unique identifiers presented in database rows.</p>
+
+<h3 id="typical-usage-2">Typical usage</h3>
+
+<ol>
+<li>A client makes a request for the first page: <code>GET /entities?limit=30</code></li>
+<li>The client makes a second request <code>GET /entities?limit=20&amp;cursor=33</code>. The client gets the <code>cursor</code> parameter from the <code>id</code> field of last entity of the current page.</li>
+</ol>
+
+<p>The second request translates to:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#00a8c8">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">entities</span>
+<span style="color:#00a8c8">WHERE</span>
+  <span style="color:#111">id</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">33</span>
+<span style="color:#00a8c8">ORDER</span> <span style="color:#00a8c8">BY</span> <span style="color:#111">id</span>
+<span style="color:#00a8c8">LIMIT</span> <span style="color:#ae81ff">20</span></code></pre></div>
+<p>In real life, it is usually more complex.</p>
+
+<p>First, we still need to support sorting by different fields. For example, if we need to sort entities by name, it looks like this:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#00a8c8">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">entities</span>
+<span style="color:#00a8c8">WHERE</span>
+  <span style="color:#111">id</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">33</span>
+<span style="color:#00a8c8">ORDER</span> <span style="color:#00a8c8">BY</span> <span style="color:#111">name</span><span style="color:#111">,</span> <span style="color:#111">id</span>
+<span style="color:#00a8c8">LIMIT</span> <span style="color:#ae81ff">20</span></code></pre></div>
+<p>The backend needs to carefully combine <code>cursor</code> parameter with filters and sorting.</p>
+
+<p>Second, sometimes it&rsquo;s not easy to choose which natural key to use. This is especially true for complex cross-table queries. Every situation is unique.</p>
+
+<h3 id="pros-2">Pros</h3>
+
+<ul>
+<li>No coupling of pagination logic to filter logic.</li>
+<li>No page drift.</li>
+<li>Consistent performance.</li>
+</ul>
+
+<h3 id="cons-2">Cons</h3>
+
+<ul>
+<li>No out of the box support in tools. Here&rsquo;s examples for <a href="https://github.com/nitely/django-infinite-scroll-pagination">Django</a> and <a href="https://www.jooq.org/doc/3.9/manual/sql-building/sql-statements/select-statement/seek-clause/">jOOQ</a>.</li>
+<li>More complex for backend to implement.</li>
+<li>Cursors can break if entities are deleted from the database.</li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>I would recommend to use some form of keyset pagination for all new APIs. This is good for performance and frees clients from temptation to do offset calculation logic.</p>
+
+<p>Designed carefully, it can also bring great flexibility in implementation. Backend can encode cursor, so cliend won&rsquo;t even try to interpret and modify it.
+For example, use base64 for single field cursors, or using base64 of JSONs with multifield cursors (JWT-like approach). You can even start by base64-ing JSONs like <code>{&quot;offset&quot;: 10}</code>, implement API level, and then carefully refactor the database level later, when you hit offset&rsquo;s problems.</p>
+
+
+
+      </main>
+    </div>
+    
+    <script src="https://neexee.github.io/js/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+
+    
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'UA-143695654-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  </body>
+</html>

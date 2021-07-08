@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Picky speaker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 05 Jul 2021 19:31:06 +0700</lastBuildDate>
+    <lastBuildDate>Thu, 08 Jul 2021 18:19:09 +0700</lastBuildDate>
     
 	<atom:link href="https://neexee.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,27 @@
     <item>
       <title>design</title>
       <link>https://neexee.github.io/tags/design/</link>
-      <pubDate>Mon, 05 Jul 2021 19:31:06 +0700</pubDate>
+      <pubDate>Thu, 08 Jul 2021 18:19:09 +0700</pubDate>
       
       <guid>https://neexee.github.io/tags/design/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>https://neexee.github.io/tags/programming/</link>
+      <pubDate>Thu, 08 Jul 2021 18:19:09 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>recommended</title>
+      <link>https://neexee.github.io/tags/recommended/</link>
+      <pubDate>Thu, 08 Jul 2021 18:19:09 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/tags/recommended/</guid>
       <description></description>
     </item>
     
@@ -26,15 +44,6 @@
       <pubDate>Mon, 05 Jul 2021 19:31:06 +0700</pubDate>
       
       <guid>https://neexee.github.io/tags/go/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>programming</title>
-      <link>https://neexee.github.io/tags/programming/</link>
-      <pubDate>Mon, 05 Jul 2021 19:31:06 +0700</pubDate>
-      
-      <guid>https://neexee.github.io/tags/programming/</guid>
       <description></description>
     </item>
     
