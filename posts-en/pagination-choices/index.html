@@ -402,6 +402,15 @@ backend needs to read them all from a database.</li>
 <li>Cursors can break if entities are deleted from the database.</li>
 </ul>
 
+<hr />
+
+<p>Of couse, it&rsquo;s not good to force client to figure out cursor value based on clues in entities. For this reason, it&rsquo; recommended to return responses like this:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#111">{</span>
+    <span style="color:#f92672">&#34;items&#34;</span><span style="color:#111">:</span> <span style="color:#111">[],</span>
+    <span style="color:#f92672">&#34;page&#34;</span><span style="color:#111">:</span> <span style="color:#111">{</span>
+        <span style="color:#f92672">&#34;next&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;encoded cursor value&#34;</span>
+    <span style="color:#111">}</span>
+<span style="color:#111">}</span></code></pre></div>
 <h2 id="conclusion">Conclusion</h2>
 
 <p>I would recommend to use some form of keyset pagination for all new APIs. This is good for performance and frees clients from temptation to do offset calculation logic.</p>
