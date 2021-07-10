@@ -6,7 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
   <meta name="author" content="Sergey Machulskis" />
-  <meta name="generator" content="Hugo 0.59.0-DEV" />
+  <meta name="generator" content="Hugo 0.86.0-DEV" />
+  
+  <meta name="description" content="Sometimes you need strong consistency guarantees and transactions can not provide them. Sure, it’s not a good smell, but in this situation you usually don’t have a lot of choices.
+The easy choice is PostgreSQL advisory lock. But it should be used carefully, especially if you use database connection pools.
+Imagine a type LockStorage allowing to create, wait, and release advisory locks.
+package main import ( &#34;context&#34; &#34;database/sql&#34; &#34;fmt&#34; ) const pgLockKey = 13 type LockStorage struct { db *sql.">
   <link rel="stylesheet" href="https://neexee.github.io/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://neexee.github.io/css/blockquote.css">
   <link rel="stylesheet" href="https://neexee.github.io/css/images.css">
@@ -81,6 +86,11 @@ video,
 audio {
   max-width: 100%;
 }
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
 </style>
 </head>
   <body class="d-flex flex-column h-100">
@@ -91,6 +101,7 @@ audio {
   
     
     
+      
       
       
       
@@ -107,6 +118,7 @@ audio {
       
       
       
+      
         
       
     
@@ -115,6 +127,7 @@ audio {
   
     
     
+      
       
       
       
@@ -131,6 +144,7 @@ audio {
       
       
       
+      
         
       
     
@@ -143,6 +157,7 @@ audio {
       
       
       
+      
         
       
     
@@ -151,6 +166,7 @@ audio {
   
   </nav>
 </div>
+
     <div class="container">
       <main id="main">
         
@@ -178,9 +194,7 @@ audio {
 
 <p>Sometimes you need strong consistency guarantees and transactions can not provide them.
 Sure, it&rsquo;s not a good smell, but in this situation you usually don&rsquo;t have a lot of choices.</p>
-
 <p>The easy choice is PostgreSQL advisory lock. But it should be used carefully, especially if you use database connection pools.</p>
-
 <p>Imagine a type <code>LockStorage</code> allowing to create, wait, and release advisory locks.</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#75af00">main</span>
 
@@ -231,12 +245,11 @@ Sure, it&rsquo;s not a good smell, but in this situation you usually don&rsquo;t
 </span><span style="color:#75715e"></span>	<span style="color:#75af00">_</span><span style="color:#111">,</span> <span style="color:#75af00">err</span> <span style="color:#f92672">:=</span> <span style="color:#75af00">l</span><span style="color:#111">.</span><span style="color:#75af00">conn</span><span style="color:#111">.</span><span style="color:#75af00">ExecContext</span><span style="color:#111">(</span>
 		<span style="color:#75af00">ctx</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;SELECT pg_advisory_unlock($1, $2)&#34;</span><span style="color:#111">,</span> <span style="color:#75af00">pgLockKey</span><span style="color:#111">,</span> <span style="color:#75af00">l</span><span style="color:#111">.</span><span style="color:#75af00">lockID</span><span style="color:#111">)</span>
 	<span style="color:#00a8c8">return</span> <span style="color:#75af00">err</span>
-<span style="color:#111">}</span></code></pre></div>
-<p><code>SELECT pg_advisory_lock()</code> waits until lock is free. Waiting goroutine holds a database connection.
+<span style="color:#111">}</span>
+</code></pre></div><p><code>SELECT pg_advisory_lock()</code> waits until lock is free. Waiting goroutine holds a database connection.
 The pool of connections is usually limited, so several calls to <code>Lock()</code> can exhaust it.
 All <strong>callers will hang in a deadlock</strong> if the goroutine holding the advisory lock tries to get one more connection from the pool.
 Actually, it won&rsquo;t deadlock as PostgreSQL has timeouts (minutes). But it will break the code trying to preserve consistency.</p>
-
 <p>The fix is to use a mutex before obtaining a connection from the pool:</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#00a8c8">type</span> <span style="color:#75af00">LockStorage</span> <span style="color:#00a8c8">struct</span> <span style="color:#111">{</span>
 	<span style="color:#75af00">db</span> <span style="color:#f92672">*</span><span style="color:#75af00">sql</span><span style="color:#111">.</span><span style="color:#75af00">DB</span>
@@ -258,8 +271,8 @@ Actually, it won&rsquo;t deadlock as PostgreSQL has timeouts (minutes). But it w
 		<span style="color:#00a8c8">return</span> <span style="color:#00a8c8">nil</span><span style="color:#111">,</span> <span style="color:#75af00">fmt</span><span style="color:#111">.</span><span style="color:#75af00">Errorf</span><span style="color:#111">(</span><span style="color:#d88200">&#34;cannot obtain advisory lock: %w&#34;</span><span style="color:#111">,</span> <span style="color:#75af00">err</span><span style="color:#111">)</span>
 	<span style="color:#111">}</span>
 	<span style="color:#00a8c8">return</span> <span style="color:#f92672">&amp;</span><span style="color:#75af00">lock</span><span style="color:#111">{</span><span style="color:#75af00">conn</span><span style="color:#111">:</span> <span style="color:#75af00">conn</span><span style="color:#111">,</span> <span style="color:#75af00">lockID</span><span style="color:#111">:</span> <span style="color:#75af00">lockID</span><span style="color:#111">},</span> <span style="color:#00a8c8">nil</span>
-<span style="color:#111">}</span></code></pre></div>
-<p>Usually we use mutexes to protect a resource from concurrent access. The connection pool is thread-safe so it looks like we&rsquo;re using a local mutex to protect a distributed mutex. This is wrong, the distributed mutex doesn&rsquo;t need that for sure. Here we use the mutex just to limit the number of threads running in parallel in this particular process. The advisory lock limits the number of threads running in parallel across all processes. It&rsquo;s nice to see how they work together, isn&rsquo;t it?</p>
+<span style="color:#111">}</span>
+</code></pre></div><p>Usually we use mutexes to protect a resource from concurrent access. The connection pool is thread-safe so it looks like we&rsquo;re using a local mutex to protect a distributed mutex. This is wrong, the distributed mutex doesn&rsquo;t need that for sure. Here we use the mutex just to limit the number of threads running in parallel in this particular process. The advisory lock limits the number of threads running in parallel across all processes. It&rsquo;s nice to see how they work together, isn&rsquo;t it?</p>
 
 
 
@@ -270,6 +283,10 @@ Actually, it won&rsquo;t deadlock as PostgreSQL has timeouts (minutes). But it w
 <script>
   feather.replace()
 </script>
+
+
+    
+
 
 
     

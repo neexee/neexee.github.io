@@ -6,7 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
   <meta name="author" content="Sergey Machulskis" />
-  <meta name="generator" content="Hugo 0.59.0-DEV" />
+  <meta name="generator" content="Hugo 0.86.0-DEV" />
+  
+  <meta name="description" content="Consider this classic question, raised in the context of Go and API compatibility:
+#golang friends, here&#39;s a fun one
+v1: func Process() error { return ErrFoo }
+v2: func Process() error { return ErrBar }
+Did I break API compatibility? Do I need to bump the major version?
+— ✕✕✕✕✕ (@peterbourgon) July 4, 2021  The responses split 50/50, but I don’t think it should be like this if you are aware of one simple thing:">
   <link rel="stylesheet" href="https://neexee.github.io/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://neexee.github.io/css/blockquote.css">
   <link rel="stylesheet" href="https://neexee.github.io/css/images.css">
@@ -81,6 +88,11 @@ video,
 audio {
   max-width: 100%;
 }
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
 </style>
 </head>
   <body class="d-flex flex-column h-100">
@@ -91,6 +103,7 @@ audio {
   
     
     
+      
       
       
       
@@ -107,6 +120,7 @@ audio {
       
       
       
+      
         
       
     
@@ -115,6 +129,7 @@ audio {
   
     
     
+      
       
       
       
@@ -131,6 +146,7 @@ audio {
       
       
       
+      
         
       
     
@@ -143,6 +159,7 @@ audio {
       
       
       
+      
         
       
     
@@ -151,6 +168,7 @@ audio {
   
   </nav>
 </div>
+
     <div class="container">
       <main id="main">
         
@@ -179,30 +197,19 @@ audio {
   </div>
 
 
-
-
 <p>Consider this classic question, raised in the context of Go and API compatibility:</p>
-
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/golang?src=hash&amp;ref_src=twsrc%5Etfw">#golang</a> friends, here&#39;s a fun one<br><br>v1: func Process() error { return ErrFoo }<br>v2: func Process() error { return ErrBar }<br><br>Did I break API compatibility? Do I need to bump the major version?</p>&mdash; ✕✕✕✕✕ (@peterbourgon) <a href="https://twitter.com/peterbourgon/status/1411757699470139394?ref_src=twsrc%5Etfw">July 4, 2021</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-
-<p>The responses split <sup>50</sup>&frasl;<sub>50</sub>, but I don&rsquo;t think it should be like this if you are aware of one simple thing:</p>
-
-<h2 id="p-style-text-align-center-errors-are-the-part-of-your-api-contract-p"><p style="text-align: center;">Errors are the part of your API contract.</p></h2>
-
+<p>The responses split 50/50, but I don&rsquo;t think it should be like this if you are aware of one simple thing:</p>
+<h2 id="p-styletext-align-centererrors-are-the-part-of-your-api-contractp"><!-- raw HTML omitted -->Errors are the part of your API contract.<!-- raw HTML omitted --></h2>
 <p>API contract is the most important part of software design. Every serious developer should be scrupulous about them.
 This is because API is by definition are just a layered stack of agreements between pieces of software.
 For example, see <a href="https://lkml.org/lkml/2012/12/23/75">Linus Torvalds reaction</a> on a broken Linux kernel contract.</p>
-
 <p>The case of the tweet is obvious. <code>ErrFoo</code> is a public error, and callers are probably using it. You can&rsquo;t rename it because it would break the contract.</p>
-
 <p>The question is, how to make sure you don&rsquo;t break the contract. Software changes, and it&rsquo;s sometimes hard to predict how.</p>
-
-<h2 id="tactics-0-minimize-the-possibility-of-an-error">Tactics 0. Minimize the possibility of an error</h2>
-
+<h2 id="tactic-0-minimize-the-possibility-of-an-error">Tactic 0. Minimize the possibility of an error</h2>
 <p>The best thing you can do to handle an error is to remove the possibility of error.</p>
-
 <p>Compare this:</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> <span style="color:#111">http.client</span>
 
@@ -210,68 +217,55 @@ For example, see <a href="https://lkml.org/lkml/2012/12/23/75">Linus Torvalds re
 <span style="color:#111">conn</span><span style="color:#f92672">.</span><span style="color:#111">request</span><span style="color:#111">(</span><span style="color:#d88200">&#34;GET&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;/&#34;</span><span style="color:#111">)</span>
 <span style="color:#111">res</span> <span style="color:#f92672">=</span> <span style="color:#111">conn</span><span style="color:#f92672">.</span><span style="color:#111">getresponse</span><span style="color:#111">()</span>
 
-<span style="color:#00a8c8">print</span><span style="color:#111">(</span><span style="color:#111">res</span><span style="color:#f92672">.</span><span style="color:#111">status</span><span style="color:#111">,</span> <span style="color:#111">res</span><span style="color:#f92672">.</span><span style="color:#111">reason</span><span style="color:#111">)</span></code></pre></div>
-<p>And this:</p>
+<span style="color:#111">print</span><span style="color:#111">(</span><span style="color:#111">res</span><span style="color:#f92672">.</span><span style="color:#111">status</span><span style="color:#111">,</span> <span style="color:#111">res</span><span style="color:#f92672">.</span><span style="color:#111">reason</span><span style="color:#111">)</span>
+</code></pre></div><p>And this:</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> <span style="color:#111">requests</span>
 
 <span style="color:#111">res</span> <span style="color:#f92672">=</span> <span style="color:#111">requests</span><span style="color:#f92672">.</span><span style="color:#111">get</span><span style="color:#111">(</span><span style="color:#d88200">&#34;https://www.python.org/&#34;</span><span style="color:#111">)</span>
 
-<span style="color:#00a8c8">print</span><span style="color:#111">(</span><span style="color:#111">res</span><span style="color:#f92672">.</span><span style="color:#111">status</span><span style="color:#111">,</span> <span style="color:#111">res</span><span style="color:#f92672">.</span><span style="color:#111">reason</span><span style="color:#111">)</span></code></pre></div>
-<p>They do the same, but it&rsquo;s much easier to make a mistake in the first example.
+<span style="color:#111">print</span><span style="color:#111">(</span><span style="color:#111">res</span><span style="color:#f92672">.</span><span style="color:#111">status</span><span style="color:#111">,</span> <span style="color:#111">res</span><span style="color:#f92672">.</span><span style="color:#111">reason</span><span style="color:#111">)</span>
+</code></pre></div><p>They do the same, but it&rsquo;s much easier to make a mistake in the first example.
 A programmer can type <code>conn.request(&quot;CET&quot;, &quot;/&quot;)</code> and then wonder why the response is so strange.</p>
-
 <p>This is the reason why modern languages have literals to express durations and other units.</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#111">change_speed</span><span style="color:#111">(</span><span style="color:#111">Speed</span> <span style="color:#111">s</span><span style="color:#111">);</span>
 
 <span style="color:#111">change_speed</span><span style="color:#111">(</span><span style="color:#ae81ff">2.3</span><span style="color:#111">);</span> <span style="color:#75715e">// doesn&#39;t compile, no unit
 </span><span style="color:#75715e"></span><span style="color:#111">change_speed</span><span style="color:#111">(</span><span style="color:#ae81ff">23</span><span style="color:#111">m</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">10</span><span style="color:#111">s</span><span style="color:#111">);</span> <span style="color:#75715e">// meters per second
-</span></code></pre></div>
-<p><a href="https://neexee.github.io/posts-en/philosophy-of-software-design/">&ldquo;A Philosophy of Software Design&rdquo; by John Ousterhout</a> calls this tactic &ldquo;Define errors out of existence&rdquo;.
+</span><span style="color:#75715e"></span>
+</code></pre></div><p><a href="https://neexee.github.io/posts-en/philosophy-of-software-design/">&ldquo;A Philosophy of Software Design&rdquo; by John Ousterhout</a> calls this tactic &ldquo;Define errors out of existence&rdquo;.
 <a href="https://www.aristeia.com/Papers/IEEE_Software_JulAug_2004_revised.htm">&ldquo;Effective C++&rdquo; by Scott Meyers</a> calls this &ldquo;Make interfaces easy to use correctly and hard to use incorrectly&rdquo;.</p>
-
-<h2 id="tactics-1-repair-what-you-can-but-when-you-must-fail-fail-noisily-and-as-soon-as-possible">Tactics 1. Repair what you can — but when you must fail, fail noisily and as soon as possible</h2>
-
+<h2 id="tactic-1-repair-what-you-can--but-when-you-must-fail-fail-noisily-and-as-soon-as-possible">Tactic 1. Repair what you can — but when you must fail, fail noisily and as soon as possible</h2>
 <p>This one comes from the basics of the <a href="http://www.catb.org/~esr/writings/taoup/html/ch01s06.html#id2878538">Unix philosophy</a>.
 Let&rsquo;s break it into parts:</p>
-
 <h4 id="repair-what-you-can">Repair what you can</h4>
-
 <p>Rely on the API contract you use. For example, if you use <a href="https://man7.org/linux/man-pages/man2/rename.2.html">rename()</a> and get <code>ENOENT</code>, it may be totally fine, and you can silently handle this.</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#00a8c8">try</span><span style="color:#111">:</span>
     <span style="color:#111">shutil</span><span style="color:#f92672">.</span><span style="color:#111">move</span><span style="color:#111">(</span><span style="color:#111">old_path</span><span style="color:#111">,</span> <span style="color:#111">new_path</span><span style="color:#111">)</span>
 <span style="color:#00a8c8">except</span> <span style="color:#75af00">IOError</span> <span style="color:#00a8c8">as</span> <span style="color:#111">e</span><span style="color:#111">:</span>
     <span style="color:#00a8c8">if</span> <span style="color:#111">e</span><span style="color:#f92672">.</span><span style="color:#111">errno</span> <span style="color:#f92672">!=</span> <span style="color:#111">errno</span><span style="color:#f92672">.</span><span style="color:#111">ENOENT</span><span style="color:#111">:</span>
         <span style="color:#00a8c8">raise</span> <span style="color:#111">e</span>
-    <span style="color:#75715e"># Silently skip ENOENT</span></code></pre></div>
-<p>You can make <code>IOError</code> a part of your API contract if you think that callers can do something meaningful to handle it.</p>
-
+    <span style="color:#75715e"># Silently skip ENOENT</span>
+</code></pre></div><p>You can make <code>IOError</code> a part of your API contract if you think that callers can do something meaningful to handle it.</p>
 <p><strong>If callers cannot do anything meaningful with the error you return, don&rsquo;t make it a part of the contract.</strong></p>
-
 <h4 id="fail-noisily">Fail noisily</h4>
-
 <p>Fail noisily doesn&rsquo;t mean that you should log an error, and then throw it. It&rsquo;s a bad decision, and can be improved.</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#00a8c8">try</span><span style="color:#111">:</span>
    <span style="color:#111">f</span><span style="color:#111">()</span>
 <span style="color:#00a8c8">except</span> <span style="color:#75af00">Exception</span> <span style="color:#00a8c8">as</span> <span style="color:#111">e</span><span style="color:#111">:</span>
     <span style="color:#111">logging</span><span style="color:#f92672">.</span><span style="color:#111">error</span><span style="color:#111">(</span><span style="color:#111">str</span><span style="color:#111">(</span><span style="color:#111">e</span><span style="color:#111">))</span>
-    <span style="color:#00a8c8">raise</span> <span style="color:#111">MyExcepition</span><span style="color:#111">(</span><span style="color:#111">e</span><span style="color:#111">)</span> <span style="color:#75715e"># propagate the exception</span></code></pre></div>
-<p>This looks bad in logs, and doesn&rsquo;t help to debug the issue later.</p>
+    <span style="color:#00a8c8">raise</span> <span style="color:#111">MyExcepition</span><span style="color:#111">(</span><span style="color:#111">e</span><span style="color:#111">)</span> <span style="color:#75715e"># propagate the exception</span>
 
+</code></pre></div><p>This looks bad in logs, and doesn&rsquo;t help to debug the issue later.</p>
 <p>It muddles the error stack trace because language machinery will complain that exception was thrown <em>during</em> exception handling. In case of Python, <code>raise from</code> must be used to chain exceptions.</p>
-
 <p>Use your language tools to add context to errors, if they&rsquo;re expected. If they&rsquo;re unexpected, don&rsquo;t handle errors at all. Let the caller handle them.</p>
-
-<h2 id="tactics-2-wrap-errors-properly">Tactics 2. Wrap errors properly</h2>
-
+<h2 id="tactic-2-wrap-errors-properly">Tactic 2. Wrap errors properly</h2>
 <p>If you&rsquo;re wrapping an error like this:</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#00a8c8">try</span><span style="color:#111">:</span>
    <span style="color:#111">f</span><span style="color:#111">()</span>
 <span style="color:#00a8c8">except</span> <span style="color:#111">SomeException</span> <span style="color:#00a8c8">as</span> <span style="color:#111">e</span><span style="color:#111">:</span>
-    <span style="color:#00a8c8">raise</span> <span style="color:#111">MyExcepition</span><span style="color:#111">(</span><span style="color:#111">e</span><span style="color:#111">)</span> <span style="color:#f92672">from</span> <span style="color:#111">e</span></code></pre></div>
-<p>and <code>MyException</code> is <em>not</em> a part of your contract, you&rsquo;re wasting your caller&rsquo;s time. You&rsquo;re wasting your time too because there&rsquo;s no need in supporting <code>MyException</code>.</p>
-
+    <span style="color:#00a8c8">raise</span> <span style="color:#111">MyExcepition</span><span style="color:#111">(</span><span style="color:#111">e</span><span style="color:#111">)</span> <span style="color:#f92672">from</span> <span style="color:#111">e</span>
+</code></pre></div><p>and <code>MyException</code> is <em>not</em> a part of your contract, you&rsquo;re wasting your caller&rsquo;s time. You&rsquo;re wasting your time too because there&rsquo;s no need in supporting <code>MyException</code>.</p>
 <p>It rarely happens in languages with exceptions, but it&rsquo;s a big problem in Go. In fact, it&rsquo;s so big, language designers had to introduce <a href="https://blog.golang.org/go1.13-errors">crutches</a> to work with it. See a <a href="https://neexee.github.io/posts-en/wrapping-errors-in-go/">separate article for more details</a>.</p>
-
 <p>Don&rsquo;t wrap errors just because you can.</p>
 
 
@@ -283,6 +277,10 @@ Let&rsquo;s break it into parts:</p>
 <script>
   feather.replace()
 </script>
+
+
+    
+
 
 
     

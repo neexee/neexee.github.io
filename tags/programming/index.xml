@@ -6,11 +6,7 @@
     <description>Recent content in programming on Picky speaker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 08 Jul 2021 18:19:09 +0700</lastBuildDate>
-    
-	<atom:link href="https://neexee.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 08 Jul 2021 18:19:09 +0700</lastBuildDate><atom:link href="https://neexee.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Recommended Pagination for APIs</title>
       <link>https://neexee.github.io/posts-en/pagination-choices/</link>
@@ -33,7 +29,7 @@ Most of the time a client doesn&amp;rsquo;t need the entire list because:
 v1: func Process() error { return ErrFoo }
 v2: func Process() error { return ErrBar }
 Did I break API compatibility? Do I need to bump the major version?
-&amp;mdash; ✕✕✕✕✕ (@peterbourgon) July 4, 2021  The responses split 50&amp;frasl;50, but I don&amp;rsquo;t think it should be like this if you are aware of one simple thing:</description>
+&amp;mdash; ✕✕✕✕✕ (@peterbourgon) July 4, 2021  The responses split 50/50, but I don&amp;rsquo;t think it should be like this if you are aware of one simple thing:</description>
     </item>
     
     <item>
@@ -172,7 +168,7 @@ Structured logging is even harder to get right than regular logs. But if you loo
       <description>It&amp;rsquo;s short and very well-written. It&amp;rsquo;s the most valuable read on SQL I&amp;rsquo;ve ever seen. The book is available online.
 The most important thing for backend developers is &amp;ldquo;Do NOT use OFFSET for pagination&amp;rdquo;.
 Powers of indexing:
- The B-Tree traversal. It could be traversed in any direction as leaf nodes are organized in a double linked list. Clustering. Similar data is close, especially if it&amp;rsquo;s an index-only scan.</description>
+ The B-Tree traversal. It could be traversed in any direction as leaf nodes are organized in a double linked list. Clustering. Similar data is close, especially if it&amp;rsquo;s an index-only scan. Pipelined order by.</description>
     </item>
     
     <item>
@@ -223,7 +219,7 @@ This book is an in-depth version of Don&amp;rsquo;t Call Yourself A Programmer a
       <guid>https://neexee.github.io/posts-en/pocketbook-quotes/</guid>
       <description>It&amp;rsquo;s painful to take out quotes from PocketBook using PocketBook itself. The interface is slow and the default reader app (the best one in my opinion) has no option for bulk imports of quotes.
 So I wrote a simple script to extract &amp;amp; transform quotes from the internal PocketBook DB.
-The PocketBook database schema   The quote extractor You may want to change the default path of the DB, filter_quote, transform_quote and print_results.</description>
+The PocketBook database schema  The quote extractor You may want to change the default path of the DB, filter_quote, transform_quote and print_results.</description>
     </item>
     
     <item>
@@ -233,7 +229,7 @@ The PocketBook database schema   The quote extractor You may want to change the 
       
       <guid>https://neexee.github.io/posts-en/python-typehints/</guid>
       <description>Here&amp;rsquo;s an example of typed Python.
-import itertools from typing import Callable, Iterable, List, Tuple, TypeVar A = TypeVar(&amp;#39;A&amp;#39;) B = TypeVar(&amp;#39;B&amp;#39;) def groupby_eager(iterable: Iterable[A], key: Callable[[A], B]) -&amp;gt; List[Tuple[B, List[A]]]: groups = itertools.groupby(sorted(iterable, key=key), key=key) return [ (group_name, list(group)) for group_name, group in groups ]</description>
+import itertools from typing import Callable, Iterable, List, Tuple, TypeVar A = TypeVar(&amp;#39;A&amp;#39;) B = TypeVar(&amp;#39;B&amp;#39;) def groupby_eager(iterable: Iterable[A], key: Callable[[A], B]) -&amp;gt; List[Tuple[B, List[A]]]: groups = itertools.groupby(sorted(iterable, key=key), key=key) return [ (group_name, list(group)) for group_name, group in groups ] </description>
     </item>
     
     <item>

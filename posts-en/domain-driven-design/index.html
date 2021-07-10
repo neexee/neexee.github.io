@@ -6,7 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
   <meta name="author" content="Sergey Machulskis" />
-  <meta name="generator" content="Hugo 0.59.0-DEV" />
+  <meta name="generator" content="Hugo 0.86.0-DEV" />
+  
+  <meta name="description" content="The book presents a very interesting approach to modeling complex domains, especially with established terms.
+The code should look as a sentence said by a domain expert. That’s the core idea. The rest is a lengthy guide to listening to domain experts and mapping their sayings to the code.
+Pros:
+ Brilliant idea, totally worth knowing I could finally understand most of the content on Fowler’s blog  Cons:
+ It’s very hard to follow the author.">
   <link rel="stylesheet" href="https://neexee.github.io/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://neexee.github.io/css/blockquote.css">
   <link rel="stylesheet" href="https://neexee.github.io/css/images.css">
@@ -81,6 +87,11 @@ video,
 audio {
   max-width: 100%;
 }
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
 </style>
 </head>
   <body class="d-flex flex-column h-100">
@@ -91,6 +102,7 @@ audio {
   
     
     
+      
       
       
       
@@ -107,6 +119,7 @@ audio {
       
       
       
+      
         
       
     
@@ -115,6 +128,7 @@ audio {
   
     
     
+      
       
       
       
@@ -131,6 +145,7 @@ audio {
       
       
       
+      
         
       
     
@@ -143,6 +158,7 @@ audio {
       
       
       
+      
         
       
     
@@ -151,6 +167,7 @@ audio {
   
   </nav>
 </div>
+
     <div class="container">
       <main id="main">
         
@@ -177,23 +194,17 @@ audio {
 
 
 <p>The book presents a very interesting approach to modeling complex domains, especially with established terms.</p>
-
 <p>The code should look as a sentence said by a domain expert. That’s the core idea. The rest is a lengthy guide to listening to domain experts and mapping their sayings to the code.</p>
-
 <p>Pros:</p>
-
 <ul>
 <li>Brilliant idea, totally worth knowing</li>
 <li>I could finally understand most of the content on Fowler’s blog</li>
 </ul>
-
 <p>Cons:</p>
-
 <ul>
 <li>It’s very hard to follow the author. If I haven’t seen DDD in practice, the book wouldn’t make sense to me at all.</li>
 <li>It has no warnings about the wrong application of this approach. See <a href="https://martinfowler.com/bliki/AnemicDomainModel.html">Anemic Domain Model</a> as an example.</li>
 </ul>
-
 
 
   
@@ -255,16 +266,13 @@ Python and the Holy Grail”. They had been shooting a particular scene over and
 wasn’t funny. Finally, he took a break and consulted with fellow comedian Michael Palin (the other actor in
 the scene), and they came up with a slight variation. They shot one more take, and it turned out funny, so
 they called it a day.</p>
-
 <p>The next morning Mr. Cleese was looking at the rough cut the film editor had put together of the previous
 day’s work. Coming to the scene they had struggled with, he found that it wasn’t funny; one of the earlier
 takes had been used.</p>
-
 <p>He asked the film editor why he hadn’t used the last take, as directed.  “Couldn’t use it. Someone walked
 in-shot,” the editor replied. Mr. Cleese watched the scene again, and then again. Still he could see nothing
 wrong. Finally the editor stopped the film and pointed out a coat sleeve that was visible for a moment at the
 edge of the picture.</p>
-
 <p>The film editor was concerned that other film editors who saw the movie would judge his work based on its
 technical perfection. He was focused on the precise execution of his own specialty, and, in the process, the
 heart of the scene had been lost. [“The Late Late Show with Craig Kilborn”, CBS, September, 2001]
@@ -287,7 +295,6 @@ understanding of the domain is lost in the shuffle.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -349,7 +356,6 @@ passed the result along to the programmers who coded the software. This failed b
 feedback. The analysts have full responsibility for creating the model based only on input from the business
 experts. They have no opportunity to learn from the programmers or gain experience with early versions.
 Knowledge trickles in one direction, but does not accumulate.</p>
-
 <p>Other projects have iteration, but don’t build up knowledge because they don’t abstract. They get the
 experts to describe a desired feature and they go build it. They show the experts the result and ask them
 what to do next. If the programmers practice refactoring they can keep the software clean enough to
@@ -370,7 +376,6 @@ will never gain the kind of leverage where powerful new features unfold as corol
     </footer>
   
 </blockquote>
-
 
 
   
@@ -431,7 +436,6 @@ will never gain the kind of leverage where powerful new features unfold as corol
 system. Since the beginning of a shipment is booking cargo, we developed a model that allowed us to
 describe the cargo, its itinerary, and so on. This was all necessary and useful, yet the domain experts felt
 dissatisfied. There was a way they looked at their business that we were missing.</p>
-
 <p>Eventually, we realized that our focus on the handling of cargo, the physical loading and unloading, the
 movements from place to place, was largely handled by subcontractors or by operational people in the
 company. The view of our customers was of a series of transfers of responsibility between parties. A
@@ -441,14 +445,12 @@ steps were being taken. At other times, the cargo would move through complex phy
 relevant to shipping company’s business decisions. Rather than the logistical emphasis of the itinerary,
 what came to the fore was legal documents like the bill of lading, and processes leading to release of
 payments.</p>
-
 <p>This deeper view of the shipping business did not mean there was no itinerary object, but the model
 changed profoundly. Our view of shipping changed from moving containers from place to place, to
 transferring responsibility for cargo from entity to entity. Features for handling these transfers of
 responsibility were no longer awkwardly attached to loading operations, but were supported by a model
 that came out of an understanding of the significant relationship between those operations and those
 responsibilities.</p>
-
 <p>Knowledge crunching is an exploration, and you can’t know where you will end up.</p>
 </div>
   
@@ -464,7 +466,6 @@ responsibilities.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -524,7 +525,6 @@ responsibilities.</p>
   <div class="text-secondary"><p>Use the model as the backbone of a language. Commit the team to using that language relentlessly in
 all communication within the team and in the code. Use the same language in diagrams, writing, and,
 especially speech.</p>
-
 <p>Iron out difficulties by experimenting with alternative expressions, which reflect alternative models.
 Then refactor the code, renaming classes, methods and modules to conform to the new model.
 Resolve confusion over terms in conversation, in just the way we converge on agreed meaning of
@@ -545,7 +545,6 @@ up design.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -605,7 +604,6 @@ up design.</p>
   <div class="text-secondary"><p>Although it has never reached the mass usage that object-oriented languages have, the Prolog language is a
 natural fit for MODEL-DRIVEN DESIGN. In this case, the paradigm is logic, and the model is a set of logical
 rules and facts they operate on.</p>
-
 <p>MODEL-DRIVEN DESIGN has limited applicability using languages like C because there is no modeling
 paradigm that corresponds to a purely procedural language. Those languages are “procedural”, in the sense
 that the programmer tells the computer a series of steps to follow. While the programmer may be thinking
@@ -629,7 +627,6 @@ than by conceptual connections in the domain model.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -706,7 +703,6 @@ strengthen it.</div>
 </blockquote>
 
 
-
   
   
 
@@ -761,10 +757,8 @@ strengthen it.</div>
 
 
 <blockquote class="wp-block-quote">
-  <div class="text-secondary">Navigation Map of the Language of MODEL-DRIVEN DESIGN.
-<figure>
-    <img src="navigation-map-ddd.png#center"/>
-</figure></div>
+  <div class="text-secondary">Navigation Map of the Language of MODEL-DRIVEN DESIGN.</p>
+<!-- raw HTML omitted --></div>
   
     <footer class=blockquote-footer>
       <strong>Eric Evans</strong>
@@ -778,7 +772,6 @@ strengthen it.</div>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -840,7 +833,6 @@ runs through time and often across distinct representations. Sometimes such an o
 matched with another object even though attributes differ. An object must be distinguished from
 other objects even though they might have the same attributes. Mistaken identity can lead to data
 corruption.</p>
-
 <p>An object defined primarily by its identity is called an ENTITY.</p>
 </div>
   
@@ -856,7 +848,6 @@ corruption.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -936,7 +927,6 @@ it means to be the same thing.</div>
 </blockquote>
 
 
-
   
   
 
@@ -996,7 +986,6 @@ assigned seating, in which each ticket has a seat-number on it, the seat is an E
 number, which is unique within the stadium. The seat may have many other attributes, such as its location,
 whether the view is obstructed, and the price, but only the seat number, or a unique row and position, is
 used to identify and distinguish seats.</p>
-
 <p>On the other hand, if the event is “general admission”, meaning ticket-holders sit wherever they find an
 empty seat, there is no need to distinguish individual seats. Only the total number of seats is important.
 Although the seat numbers are still engraved on the physical seats, there is no need for the software to track
@@ -1016,7 +1005,6 @@ there is no such constraint at the event. Then seats are not ENTITIES, and no id
     </footer>
   
 </blockquote>
-
 
 
   
@@ -1092,7 +1080,6 @@ ENTITY.</div>
 </blockquote>
 
 
-
   
   
 
@@ -1148,12 +1135,10 @@ ENTITY.</div>
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><p>Many objects have no conceptual identity. These objects describe some characteristic of a thing.</p>
-
 <p>If a child is drawing, he cares about the color of the marker he chooses. He may care about the sharpness of
 the tip. But if there are two markers of the same color and shape, he won’t care which he uses. If a marker
 is lost and replaced by another of the same color from a new pack, he can resume his work unconcerned
 about the switch.</p>
-
 <p>An object that represents a descriptive aspect of the domain that has no conceptual identity is called a
 VALUE OBJECT. VALUE OBJECTS are instantiated to represent elements of the design that we care about only
 for what they are, not who they are.</p>
@@ -1171,7 +1156,6 @@ for what they are, not who they are.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -1247,7 +1231,6 @@ to maintain ENTITIES.</div>
 </blockquote>
 
 
-
   
   
 
@@ -1305,7 +1288,6 @@ to maintain ENTITIES.</div>
   <div class="text-secondary"><p>Some concepts from the domain aren’t natural to model as objects. Forcing then required domain
 functionality to be assigned as a responsibility of an ENTITY or VALUE either distorts the definition of
 a model based object or adds meaningless artificial objects.</p>
-
 <p>A SERVICE is an operation offered as an interface that stands alone in the model, without encapsulating state
 as ENTITIES and VALUE OBJECTS do. SERVICES are a common pattern in technical frameworks, but they can
 also apply in the domain layer.</p>
@@ -1323,7 +1305,6 @@ also apply in the domain layer.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -1380,13 +1361,13 @@ also apply in the domain layer.</p>
 
 
 <blockquote class="wp-block-quote">
-  <div class="text-secondary">A good SERVICE has three characteristics:</p>
-
+  <div class="text-secondary"><p>A good SERVICE has three characteristics:</p>
 <ul>
 <li>The operation relates to a domain concept that is not a natural part of an ENTITY or VALUE OBJECT.</li>
 <li>The interface is defined in terms of other elements of the domain model.</li>
 <li>The operation is stateless.</li>
-</ul></div>
+</ul>
+</div>
   
     <footer class=blockquote-footer>
       <strong>Eric Evans</strong>
@@ -1400,7 +1381,6 @@ also apply in the domain layer.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -1462,7 +1442,6 @@ results in tight coupling between MODULES, look to see if an overlooked concept 
 elements together in a coherent MODULE, or if a change in model concepts would disentangle them.
 Seek low coupling in the sense of concepts that can be understood and reasoned about independently
 of each other.</p>
-
 <p>The MODULE should reflect insight into the domain. Refine the model until the concepts partition
 according to high-level domain concepts and the corresponding code is decoupled as well. Give the
 MODULES names that become part of the UBIQUITOUS LANGUAGE.</p>
@@ -1480,7 +1459,6 @@ MODULES names that become part of the UBIQUITOUS LANGUAGE.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -1558,7 +1536,6 @@ systems, ignores a basic modeling issue.</div>
 </blockquote>
 
 
-
   
   
 
@@ -1634,7 +1611,6 @@ that can easily derail an attempt at MODEL-DRIVEN DESIGN.</div>
 </blockquote>
 
 
-
   
   
 
@@ -1690,16 +1666,13 @@ that can easily derail an attempt at MODEL-DRIVEN DESIGN.</div>
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><p>The problems fall into two categories:</p>
-
 <ul>
 <li>Maintaining integrity throughout the lifecycle</li>
 <li>Preventing the model from getting swamped by the complexity of managing the lifecycle.</li>
 </ul>
-
 <p>Three patterns will address these issues. First, AGGREGATES tighten up the model itself by defining clear
 ownership and boundaries, avoiding a chaotic tangled web of objects. This is crucial to maintaining
 integrity in all phases of the lifecycle.</p>
-
 <p>Then, we focus on the beginning of the lifecycle, using FACTORIES to create and reconstitute complex
 objects and AGGREGATES, keeping their internal structure encapsulated. Finally, REPOSITORIES address the
 middle and end of the lifecycle, providing the means of finding and retrieving persistent objects while
@@ -1718,7 +1691,6 @@ encapsulating the immense infrastructure involved.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -1778,7 +1750,6 @@ encapsulating the immense infrastructure involved.</p>
   <div class="text-secondary"><p>To address this, schemes have been developed for defining ownership relationships in the model along with
 a set of rules for implementing transactions that modify the objects and their owners. David Siegel
 developed the following simple but rigorous system, distilled from those concepts, in the mid 1990s</p>
-
 <p>First we need an abstraction for encapsulating references within the model. An AGGREGATE is a cluster of
 associated objects that we treat as a unit for the purpose of data changes. Each AGGREGATE has a root and a
 boundary.  The boundary defines what is inside the AGGREGATE. The root is a single specific ENTITY
@@ -1786,7 +1757,6 @@ contained in the AGGREGATE. The root is the only member of the AGGREGATE that ou
 allowed to hold references to, although objects within the boundary may hold references to each other.
 ENTITIES other than the root have local identity, but it only needs to be unique within the aggregate, since
 no outside object can ever see it out of the context of the root ENTITY.</p>
-
 <p>A model of a car might be used in software for an auto repair shop. The car is an ENTITY with global
 identity – we want to distinguish that car from all other cars in the world, even very similar ones. We can
 use the Vehicle Identification Number for this, a unique identifier assigned to each new car. We might want
@@ -1815,7 +1785,6 @@ its own AGGREGATE.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -1872,10 +1841,8 @@ its own AGGREGATE.</p>
 
 
 <blockquote class="wp-block-quote">
-  <div class="text-secondary">Local vs. Global Identity and Object References.
-<figure>
-    <img src="local-vs-global.png#center"/>
-</figure></div>
+  <div class="text-secondary">Local vs. Global Identity and Object References.</p>
+<!-- raw HTML omitted --></div>
   
     <footer class=blockquote-footer>
       <strong>Eric Evans</strong>
@@ -1889,7 +1856,6 @@ its own AGGREGATE.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -1947,7 +1913,6 @@ its own AGGREGATE.</p>
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><p>Cluster the ENTITIES and VALUE OBJECTS into “AGGREGATES” and define boundaries around each.</p>
-
 <p>Choose one ENTITY to be the “root” of each AGGREGATE, and control all access to the objects inside
 the boundary through the root.  Only allow references to the root to be held by external objects.
 Transient references to internal members can be passed out for use within a single operation only.
@@ -1968,7 +1933,6 @@ in any state-change.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -2043,7 +2007,6 @@ job that is best separated from whatever job that object will have to do when it
 </blockquote>
 
 
-
   
   
 
@@ -2106,13 +2069,11 @@ about the internal structure of the object. In order to enforce all the invarian
 of parts in the domain object it must know some of the object’s rules. Even calling constructors couples the
 client to the concrete classes of the objects it is building. No change to the implementation of the domain
 objects can be made without changing the client, making refactoring harder.</p>
-
 <p>A client taking on object creation becomes unnecessarily complicated and blurs its responsibility. It
 breaches the encapsulation of the domain objects and AGGREGATES being created. Even worse, if the client
 is part of the application layer, then responsibilities have leaked out of the domain layer altogether. This
 tight coupling of the application to the specifics of the implementation, strips away most of the benefits of
 abstraction in the domain layer, and makes continuing changes ever more expensive.</p>
-
 <p>Creation of an object can be a major operation in itself, but complex assembly operations do not fit
 the responsibility of the created objects. Combining these responsibilities can produce ungainly
 designs that are hard to understand. Shifting the responsibility of directing construction to the client
@@ -2132,7 +2093,6 @@ overly couples the client to the implementation of the created object.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -2211,7 +2171,6 @@ actually muddle the situation.</div>
 </blockquote>
 
 
-
   
   
 
@@ -2288,7 +2247,6 @@ some of the complicated rounding code.</div>
 </blockquote>
 
 
-
   
   
 
@@ -2360,7 +2318,6 @@ predicate that determines if an object does or does not satisfy some criteria.</
 </blockquote>
 
 
-
   
   
 
@@ -2417,13 +2374,11 @@ predicate that determines if an object does or does not satisfy some criteria.</
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><p>Much of the value of SPECIFICATION is that it unifies application functionality that may seem quite
 different. We need to specify the state of an object for three reasons:</p>
-
 <ul>
 <li>validation of an object to see if it fulfills some need or is ready for some purpose</li>
 <li>selection of an object from a collection (as in the case of the overdue invoices)</li>
 <li>specifying the creation of a new object to fit some need.</li>
 </ul>
-
 <p>These three uses: validation, selection, and building-to-order, are the same on a conceptual level. Without a
 pattern like SPECIFICATION, the same rule may show up in different guises, and possibly contradictory
 forms. The conceptual unity can be lost. Applying the SPECIFICATION pattern allows a consistent model to
@@ -2442,7 +2397,6 @@ be used, even when the implementation may have to diverge.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -2519,7 +2473,6 @@ accelerating the learning curve and reducing the risk of contradictory code.</di
 </blockquote>
 
 
-
   
   
 
@@ -2574,58 +2527,57 @@ accelerating the learning curve and reducing the risk of contradictory code.</di
 
 
 <blockquote class="wp-block-quote">
-  <div class="text-secondary"><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">public</span> <span style="color:#75af00">abstract</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">AbstractSpecification</span> <span style="color:#00a8c8">implements</span> <span style="color:#75af00">Specification</span> <span style="color:#111">{</span> 
-   <span style="color:#00a8c8">public</span> <span style="color:#75af00">Specification</span> <span style="color:#111">and</span><span style="color:#111">(</span><span style="color:#111">Specification</span> <span style="color:#75af00">other</span><span style="color:#111">)</span> <span style="color:#111">{</span> 
-      <span style="color:#00a8c8">return</span> <span style="color:#00a8c8">new</span> <span style="color:#111">AndSpecification</span><span style="color:#111">(</span><span style="color:#00a8c8">this</span><span style="color:#111">,</span> <span style="color:#111">other</span><span style="color:#111">);</span> 
-   <span style="color:#111">}</span> 
-   <span style="color:#00a8c8">public</span> <span style="color:#75af00">Specification</span> <span style="color:#111">or</span><span style="color:#111">(</span><span style="color:#111">Specification</span> <span style="color:#75af00">other</span><span style="color:#111">)</span> <span style="color:#111">{</span> 
-      <span style="color:#00a8c8">return</span> <span style="color:#00a8c8">new</span> <span style="color:#111">OrSpecification</span><span style="color:#111">(</span><span style="color:#00a8c8">this</span><span style="color:#111">,</span> <span style="color:#111">other</span><span style="color:#111">);</span> 
-   <span style="color:#111">}</span> 
-   <span style="color:#00a8c8">public</span> <span style="color:#75af00">Specification</span> <span style="color:#111">not</span><span style="color:#111">()</span> <span style="color:#111">{</span> 
-      <span style="color:#00a8c8">return</span> <span style="color:#00a8c8">new</span> <span style="color:#111">NotSpecification</span><span style="color:#111">(</span><span style="color:#00a8c8">this</span><span style="color:#111">);</span> 
-   <span style="color:#111">}</span> 
-<span style="color:#111">}</span> 
+  <div class="text-secondary"><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">abstract</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">AbstractSpecification</span> <span style="color:#00a8c8">implements</span> <span style="color:#111">Specification</span> <span style="color:#f92672">{</span> 
+   <span style="color:#00a8c8">public</span> <span style="color:#111">Specification</span> <span style="color:#75af00">and</span><span style="color:#f92672">(</span><span style="color:#111">Specification</span> <span style="color:#111">other</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span> 
+      <span style="color:#00a8c8">return</span> <span style="color:#00a8c8">new</span> <span style="color:#111">AndSpecification</span><span style="color:#f92672">(</span><span style="color:#00a8c8">this</span><span style="color:#f92672">,</span> <span style="color:#111">other</span><span style="color:#f92672">);</span> 
+   <span style="color:#f92672">}</span> 
+   <span style="color:#00a8c8">public</span> <span style="color:#111">Specification</span> <span style="color:#75af00">or</span><span style="color:#f92672">(</span><span style="color:#111">Specification</span> <span style="color:#111">other</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span> 
+      <span style="color:#00a8c8">return</span> <span style="color:#00a8c8">new</span> <span style="color:#111">OrSpecification</span><span style="color:#f92672">(</span><span style="color:#00a8c8">this</span><span style="color:#f92672">,</span> <span style="color:#111">other</span><span style="color:#f92672">);</span> 
+   <span style="color:#f92672">}</span> 
+   <span style="color:#00a8c8">public</span> <span style="color:#111">Specification</span> <span style="color:#75af00">not</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> 
+      <span style="color:#00a8c8">return</span> <span style="color:#00a8c8">new</span> <span style="color:#111">NotSpecification</span><span style="color:#f92672">(</span><span style="color:#00a8c8">this</span><span style="color:#f92672">);</span> 
+   <span style="color:#f92672">}</span> 
+<span style="color:#f92672">}</span> 
  
-<span style="color:#00a8c8">public</span> <span style="color:#75af00">class</span> <span style="color:#111">AndSpecification</span> <span style="color:#75af00">extends</span> <span style="color:#111">AbstractSpecification</span> <span style="color:#111">{</span> 
-   <span style="color:#111">Specification</span> <span style="color:#75af00">one</span><span style="color:#111">;</span> 
-   <span style="color:#111">Specification</span> <span style="color:#75af00">other</span><span style="color:#111">;</span> 
-   <span style="color:#00a8c8">public</span> <span style="color:#75af00">AndSpecification</span><span style="color:#111">(</span><span style="color:#111">Specification</span> <span style="color:#75af00">x</span><span style="color:#111">,</span> <span style="color:#111">Specification</span> <span style="color:#75af00">y</span><span style="color:#111">)</span> <span style="color:#111">{</span> 
-      <span style="color:#111">one</span><span style="color:#f92672">=</span><span style="color:#111">x</span><span style="color:#111">;</span> 
-      <span style="color:#111">other</span><span style="color:#f92672">=</span><span style="color:#111">y</span><span style="color:#111">;</span> 
-   <span style="color:#111">}</span> 
-   <span style="color:#00a8c8">public</span> <span style="color:#75af00">boolean</span> <span style="color:#111">isSatisfiedBy</span><span style="color:#111">(</span><span style="color:#111">Object</span> <span style="color:#75af00">candidate</span><span style="color:#111">)</span> <span style="color:#111">{</span> 
-      <span style="color:#00a8c8">return</span> <span style="color:#111">one</span><span style="color:#111">.</span><span style="color:#75af00">isSatisfiedBy</span><span style="color:#111">(</span><span style="color:#111">candidate</span><span style="color:#111">)</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">other</span><span style="color:#111">.</span><span style="color:#75af00">isSatisfiedBy</span><span style="color:#111">(</span><span style="color:#111">candidate</span><span style="color:#111">);</span> 
-   <span style="color:#111">}</span> 
-<span style="color:#111">}</span>
+<span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">AndSpecification</span> <span style="color:#00a8c8">extends</span> <span style="color:#111">AbstractSpecification</span> <span style="color:#f92672">{</span> 
+   <span style="color:#111">Specification</span> <span style="color:#111">one</span><span style="color:#f92672">;</span> 
+   <span style="color:#111">Specification</span> <span style="color:#111">other</span><span style="color:#f92672">;</span> 
+   <span style="color:#00a8c8">public</span> <span style="color:#75af00">AndSpecification</span><span style="color:#f92672">(</span><span style="color:#111">Specification</span> <span style="color:#111">x</span><span style="color:#f92672">,</span> <span style="color:#111">Specification</span> <span style="color:#111">y</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span> 
+      <span style="color:#111">one</span><span style="color:#f92672">=</span><span style="color:#111">x</span><span style="color:#f92672">;</span> 
+      <span style="color:#111">other</span><span style="color:#f92672">=</span><span style="color:#111">y</span><span style="color:#f92672">;</span> 
+   <span style="color:#f92672">}</span> 
+   <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">boolean</span> <span style="color:#75af00">isSatisfiedBy</span><span style="color:#f92672">(</span><span style="color:#111">Object</span> <span style="color:#111">candidate</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span> 
+      <span style="color:#00a8c8">return</span> <span style="color:#111">one</span><span style="color:#f92672">.</span><span style="color:#75af00">isSatisfiedBy</span><span style="color:#f92672">(</span><span style="color:#111">candidate</span><span style="color:#f92672">)</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">other</span><span style="color:#f92672">.</span><span style="color:#75af00">isSatisfiedBy</span><span style="color:#f92672">(</span><span style="color:#111">candidate</span><span style="color:#f92672">);</span> 
+   <span style="color:#f92672">}</span> 
+<span style="color:#f92672">}</span>
 
-<span style="color:#00a8c8">public</span> <span style="color:#75af00">class</span> <span style="color:#111">OrSpecification</span> <span style="color:#75af00">extends</span> <span style="color:#111">AbstractSpecification</span> <span style="color:#111">{</span> 
-   <span style="color:#111">Specification</span> <span style="color:#75af00">one</span><span style="color:#111">;</span> 
-   <span style="color:#111">Specification</span> <span style="color:#75af00">other</span><span style="color:#111">;</span> 
-   <span style="color:#00a8c8">public</span> <span style="color:#75af00">OrSpecification</span><span style="color:#111">(</span><span style="color:#111">Specification</span> <span style="color:#75af00">x</span><span style="color:#111">,</span> <span style="color:#111">Specification</span> <span style="color:#75af00">y</span><span style="color:#111">)</span> <span style="color:#111">{</span> 
-      <span style="color:#111">one</span><span style="color:#f92672">=</span><span style="color:#111">x</span><span style="color:#111">;</span> 
-      <span style="color:#111">other</span><span style="color:#f92672">=</span><span style="color:#111">y</span><span style="color:#111">;</span> 
-   <span style="color:#111">}</span> 
-   <span style="color:#00a8c8">public</span> <span style="color:#75af00">boolean</span> <span style="color:#111">isSatisfiedBy</span><span style="color:#111">(</span><span style="color:#111">Object</span> <span style="color:#75af00">candidate</span><span style="color:#111">)</span> <span style="color:#111">{</span> 
-      <span style="color:#00a8c8">return</span> <span style="color:#111">one</span><span style="color:#111">.</span><span style="color:#75af00">isSatisfiedBy</span><span style="color:#111">(</span><span style="color:#111">candidate</span><span style="color:#111">)</span> <span style="color:#f92672">||</span> <span style="color:#111">other</span><span style="color:#111">.</span><span style="color:#75af00">isSatisfiedBy</span><span style="color:#111">(</span><span style="color:#111">candidate</span><span style="color:#111">);</span> 
-   <span style="color:#111">}</span> 
-<span style="color:#111">}</span> 
+<span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">OrSpecification</span> <span style="color:#00a8c8">extends</span> <span style="color:#111">AbstractSpecification</span> <span style="color:#f92672">{</span> 
+   <span style="color:#111">Specification</span> <span style="color:#111">one</span><span style="color:#f92672">;</span> 
+   <span style="color:#111">Specification</span> <span style="color:#111">other</span><span style="color:#f92672">;</span> 
+   <span style="color:#00a8c8">public</span> <span style="color:#75af00">OrSpecification</span><span style="color:#f92672">(</span><span style="color:#111">Specification</span> <span style="color:#111">x</span><span style="color:#f92672">,</span> <span style="color:#111">Specification</span> <span style="color:#111">y</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span> 
+      <span style="color:#111">one</span><span style="color:#f92672">=</span><span style="color:#111">x</span><span style="color:#f92672">;</span> 
+      <span style="color:#111">other</span><span style="color:#f92672">=</span><span style="color:#111">y</span><span style="color:#f92672">;</span> 
+   <span style="color:#f92672">}</span> 
+   <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">boolean</span> <span style="color:#75af00">isSatisfiedBy</span><span style="color:#f92672">(</span><span style="color:#111">Object</span> <span style="color:#111">candidate</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span> 
+      <span style="color:#00a8c8">return</span> <span style="color:#111">one</span><span style="color:#f92672">.</span><span style="color:#75af00">isSatisfiedBy</span><span style="color:#f92672">(</span><span style="color:#111">candidate</span><span style="color:#f92672">)</span> <span style="color:#f92672">||</span> <span style="color:#111">other</span><span style="color:#f92672">.</span><span style="color:#75af00">isSatisfiedBy</span><span style="color:#f92672">(</span><span style="color:#111">candidate</span><span style="color:#f92672">);</span> 
+   <span style="color:#f92672">}</span> 
+<span style="color:#f92672">}</span> 
  
-<span style="color:#00a8c8">public</span> <span style="color:#75af00">class</span> <span style="color:#111">NotSpecification</span> <span style="color:#75af00">extends</span> <span style="color:#111">AbstractSpecification</span> <span style="color:#111">{</span> 
-   <span style="color:#111">Specification</span> <span style="color:#75af00">wrapped</span><span style="color:#111">;</span> 
+<span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">NotSpecification</span> <span style="color:#00a8c8">extends</span> <span style="color:#111">AbstractSpecification</span> <span style="color:#f92672">{</span> 
+   <span style="color:#111">Specification</span> <span style="color:#111">wrapped</span><span style="color:#f92672">;</span> 
  
-   <span style="color:#00a8c8">public</span> <span style="color:#75af00">NotSpecification</span><span style="color:#111">(</span><span style="color:#111">Specification</span> <span style="color:#75af00">x</span><span style="color:#111">)</span> <span style="color:#111">{</span> 
-      <span style="color:#111">wrapped</span><span style="color:#f92672">=</span><span style="color:#111">x</span><span style="color:#111">;</span> 
-   <span style="color:#111">}</span> 
-   <span style="color:#00a8c8">public</span> <span style="color:#75af00">boolean</span> <span style="color:#111">isSatisfiedBy</span><span style="color:#111">(</span><span style="color:#111">Object</span> <span style="color:#75af00">candidate</span><span style="color:#111">)</span> <span style="color:#111">{</span> 
-      <span style="color:#00a8c8">return</span> <span style="color:#f92672">!</span><span style="color:#111">wrapped</span><span style="color:#111">.</span><span style="color:#75af00">isSatisfiedBy</span><span style="color:#111">(</span><span style="color:#111">candidate</span><span style="color:#111">);</span> 
-   <span style="color:#111">}</span> 
-<span style="color:#111">}</span> </code></pre></div>
-<p>This code was written to be as simple as possible.  As I said, there may be situations in which this is
+   <span style="color:#00a8c8">public</span> <span style="color:#75af00">NotSpecification</span><span style="color:#f92672">(</span><span style="color:#111">Specification</span> <span style="color:#111">x</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span> 
+      <span style="color:#111">wrapped</span><span style="color:#f92672">=</span><span style="color:#111">x</span><span style="color:#f92672">;</span> 
+   <span style="color:#f92672">}</span> 
+   <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">boolean</span> <span style="color:#75af00">isSatisfiedBy</span><span style="color:#f92672">(</span><span style="color:#111">Object</span> <span style="color:#111">candidate</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span> 
+      <span style="color:#00a8c8">return</span> <span style="color:#f92672">!</span><span style="color:#111">wrapped</span><span style="color:#f92672">.</span><span style="color:#75af00">isSatisfiedBy</span><span style="color:#f92672">(</span><span style="color:#111">candidate</span><span style="color:#f92672">);</span> 
+   <span style="color:#f92672">}</span> 
+<span style="color:#f92672">}</span> 
+</code></pre></div><p>This code was written to be as simple as possible.  As I said, there may be situations in which this is
 inefficient. However, other implementation options are possible that would minimize object count or boost
 speed, or perhaps be compatible with idiosyncratic technologies present in some project. The important
 thing is a model that captures the key concepts of the domain, along with an implementation that is faithful
 to that model. That leaves a lot of room to solve performance problems.</p>
-
 <p>There are also cases where this full generality is not needed. In particular, &ldquo;and&rdquo; tends to be used a lot more
 than the others, and also tends to create less implementation complexity.  Don&rsquo;t be afraid to implement only
 &ldquo;and&rdquo;, if that is all you need.</p>
@@ -2643,7 +2595,6 @@ than the others, and also tends to create less implementation complexity.  Don&r
     </footer>
   
 </blockquote>
-
 
 
   
@@ -2716,7 +2667,6 @@ embedded in other code.</div>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -2794,7 +2744,6 @@ this section can help accomplish these goals: BOUNDED CONTEXTS, distillation, an
 </blockquote>
 
 
-
   
   
 
@@ -2856,15 +2805,13 @@ so distinct that very little in the domain is viewed in the same light.  It may 
 models implicit in these disparate parts.  By explicitly defining a BOUNDED CONTEXT within which a model
 applies, and then, when necessary, defining its relationship with other contexts, the modeler can avoid
 bastardizing the model.</p>
-
 <p>DISTILLATION reduces the clutter and focuses the attention appropriately.  Often a great deal of effort is
 spent on peripheral issues in the domain. The overall domain model needs to make prominent the most
 value-adding and special aspects of your system and be structured to give that part as much power as
 possible. While some supporting components are critical, they must be put into their proper perspective.
- This not only helps to direct efforts toward vital parts of the system, but it keeps the vision of the system
+This not only helps to direct efforts toward vital parts of the system, but it keeps the vision of the system
 from being lost. DISTILLATION can bring clarity to an overall model. And with a clearer view the design of
 the core can be made more useful.</p>
-
 <p>LARGE-SCALE STRUCTURE completes the picture. In a very complex model, you may not see the forest for
 the trees. Distillation helps, by focusing the attention on the core and presenting the other elements in their
 supporting roles, but the relationships can still be too confusing without some LARGE-SCALE STRUCTURE
@@ -2889,7 +2836,6 @@ integration.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -2951,7 +2897,6 @@ Sometimes people fight this. Most people see the price that multiple models exac
 and making communication cumbersome. On top of that, it somehow seems inelegant. This resistance to
 multiple models sometimes leads to very ambitious attempts to unify all the software in a large project
 under a single model. I know I’ve been guilty of this kind of overreaching. Consider the risks:</p>
-
 <ol>
 <li>Too many legacy replacements may be attempted at once.</li>
 <li>Large projects may bog down because the coordination overhead exceeds their abilities.</li>
@@ -2960,7 +2905,6 @@ forcing them to put behavior elsewhere.</li>
 <li>Conversely, attempting to satisfy everyone with a single model may lead to complex options that
 make the model difficult to use.</li>
 </ol>
-
 <p>What’s more, model divergences are as likely to come from political fragmentation and differing
 management priorities as from technical concerns. And the emergence of different models can be a result of
 team organization and development process. So even when no technical factor prevents full integration, the
@@ -2979,7 +2923,6 @@ project may still face multiple models.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -3041,13 +2984,10 @@ model invented in a brainstorming session, the context could be limited to that 
 context of a model used in an example in this book is that particular example section and any discussion of
 it. The model context is whatever set of conditions must apply in order to be able to say that the terms in a
 model have a specific meaning.</p>
-
 <p>To begin to solve the problems of multiple models, we need to explicitly define the scope of a particular
 model as a bounded part of a software system within which a single model will apply and will be kept as
 unified as possible. This has to be reconciled with the team organization.</p>
-
 <p>Therefore,</p>
-
 <p>Explicitly define the context within which a model applies. Explicitly set boundaries in terms of team
 organization, usage within specific parts of the application, and physical manifestations such as code
 bases and database schemas. Keep the model strictly consistent within these bounds, but don’t be
@@ -3066,7 +3006,6 @@ distracted or confused by issues outside.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -3131,7 +3070,6 @@ the other has to be reanalyzed and changed too. Except the reanalysis doesn’t 
 result is two versions of the same concept that follow different rules and even have different data. On top of
 that, the team members must learn not one but two ways of doing the same thing, along with all the ways
 they are being synchronized.</p>
-
 <p>False cognates may be slightly less common, but more insidiously harmful. This is the case when two
 people who are using the same term (or implemented object) think they are talking about the same thing,
 but really are not. The example in the introduction (two different business activities both called a “charge”)
@@ -3155,7 +3093,6 @@ English speakers learning Spanish often misuse the word “embarasada”. This w
     </footer>
   
 </blockquote>
-
 
 
   
@@ -3215,7 +3152,6 @@ English speakers learning Spanish often misuse the word “embarasada”. This w
   <div class="text-secondary"><p>People on other teams won’t be very aware of the context bounds, and unknowingly will make
 changes that blur the edges or complicate the interconnections. When connections must be made
 between different contexts, they tend to bleed into each other.</p>
-
 <p>Code reuse between BOUNDED CONTEXTS is a hazard to be avoided. Integration of functionality and data
 must go through a translation. You can reduce confusion by defining the relationship between the different
 contexts and creating a global view of all the model contexts on the project.</p>
@@ -3233,7 +3169,6 @@ contexts and creating a global view of all the model contexts on the project.</p
     </footer>
   
 </blockquote>
-
 
 
   
@@ -3293,7 +3228,6 @@ contexts and creating a global view of all the model contexts on the project.</p
   <div class="text-secondary"><p>Identify each model in play on the project and define its BOUNDED CONTEXT. This includes the
 implicit models of non-object-oriented subsystems. Name each BOUNDED CONTEXT, and make the
 names part of the UBIQUITOUS LANGUAGE.</p>
-
 <p>Describe the points of contact between the models, outlining explicit translation for any
 communication and highlighting any sharing.
 Map the existing terrain. Take up transformations later.</p>
@@ -3311,7 +3245,6 @@ Map the existing terrain. Take up transformations later.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -3387,7 +3320,6 @@ change the translator for the Booking context.”.</div>
 </blockquote>
 
 
-
   
   
 
@@ -3445,7 +3377,6 @@ change the translator for the Booking context.”.</div>
   <div class="text-secondary"><p>Establish a clear customer/supplier relationship between the two teams. In planning sessions, make
 the downstream team play the customer role to the upstream team. Negotiate and budget tasks for
 downstream requirements so that everyone understands the commitment and schedule.</p>
-
 <p>Jointly develop automated acceptance tests that will validate the interface they expect. Add these
 tests to the upstream team’s test suite to be run as part of their continuous integration. This will free
 the upstream team to make changes without fear of side effects downstream.</p>
@@ -3463,7 +3394,6 @@ the upstream team to make changes without fear of side effects downstream.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -3545,7 +3475,6 @@ the downstream is on its own.</div>
 </blockquote>
 
 
-
   
   
 
@@ -3617,7 +3546,6 @@ and make measured revisions to the model to make a smoother fit to the foreign o
     </footer>
   
 </blockquote>
-
 
 
   
@@ -3694,7 +3622,6 @@ of the propos ed software system would use it.</div>
 </blockquote>
 
 
-
   
   
 
@@ -3749,11 +3676,10 @@ of the propos ed software system would use it.</div>
 
 
 <blockquote class="wp-block-quote">
-  <div class="text-secondary">Translation overhead is too high. Duplication is too obvious. There are many motivations for merging
+  <div class="text-secondary"><p>Translation overhead is too high. Duplication is too obvious. There are many motivations for merging
 BOUNDED CONTEXTS. This is hard to do. It’s not too late, but it takes some patience.
 Even if your eventual goal is to merge completely to a single CONTEXT with CONTINUOUS INTEGRATION,
 start by moving to a SHARED KERNEL.</p>
-
 <ol>
 <li>Evaluate the initial situation. Be sure that the two CONTEXTS are indeed internally unified before
 beginning to unify them with each other.</li>
@@ -3764,7 +3690,8 @@ will be empty, so it should be easy to pass!)</li>
 <li>Choose some small subdomain to start with—something duplicated in both CONTEXTS, but not
 part of the CORE DOMAIN. This first merger is going to establish the process, so it is best to use
 something simple and relatively generic or non-critical.</li>
-</ol></div>
+</ol>
+</div>
   
     <footer class=blockquote-footer>
       <strong>Eric Evans</strong>
@@ -3778,7 +3705,6 @@ something simple and relatively generic or non-critical.</li>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -3853,7 +3779,6 @@ model has to be sleek and fully leveraged to create application functionality. B
 </blockquote>
 
 
-
   
   
 
@@ -3912,12 +3837,10 @@ model has to be sleek and fully leveraged to create application functionality. B
 the domain, which limits their usefulness and reinforces the tendency to put them onto supporting
 components, sustaining a vicious circle in which lack of knowledge keeps them away from the work that
 would build domain knowledge.</p>
-
 <p>It is essential to break this cycle by assembling a team matching up a set of strong developers who have a
 long-term commitment and an interest in becoming repositories of domain knowledge with one or more
 domain experts who know the business deeply. Domain design is interesting, technically challenging work
 when approached seriously, and developers can be found who see it this way.</p>
-
 <p>It is usually not practical to hire short-term outside design expertise to help in the nuts and bolts of creating
 the CORE DOMAIN because the team needs to accumulate domain knowledge, and a temporary member is a
 leak in the bucket. On the other hand, an expert in a teaching/mentoring role can be very valuable by
@@ -3937,7 +3860,6 @@ members probably have not mastered.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -3997,7 +3919,6 @@ members probably have not mastered.</p>
   <div class="text-secondary"><p>Identify cohesive subdomains that are not the motivation for your project. Factor them into general
 models of the GENERIC SUBDOMAINS that have no trace of your specialties, and place them in separate
 packages. Consider off-the-shelf solutions or published models for these subdomains.</p>
-
 <p>Once they have been separated, give their continuing development lower priority than the CORE
 DOMAIN, and avoid assigning your core developers to the tasks (since they will gain little domain
 knowledge.</p>
@@ -4015,7 +3936,6 @@ knowledge.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -4092,7 +4012,6 @@ the functioning of the system and the full expression of the model.</div>
 </blockquote>
 
 
-
   
   
 
@@ -4152,17 +4071,14 @@ development is already there.  In later stages of development there is a need fo
 value of the system that does not require an in-depth study of the model. Also, the critical aspects of
 the domain model may span multiple BOUNDED CONTEXTS, but, by definition, these distinct models
 can’t be structured to show their common focus.</p>
-
 <p>Many projects write “vision statements” for management.  The best of these documents lay out the specific
 value the application will bring to the organization.  Some of these describe the creation of the domain
 model as a strategic asset.  Usually the vision statement document is abandoned after the project gets
 funding, and is never used in the actual development process or even read by the technical staff.</p>
-
 <p>These documents, or closely related ones that emphasize the nature of the domain model, can be used
 directly by the management and technical staff during all phases of development to guide resource
 allocation, to guide modeling choices, and to educate team members. If the domain model serves many
 masters, you can use this document to show how their interests are balanced.</p>
-
 <p>Write a short (~1 page) description of the CORE DOMAIN and the value it will bring, the “value
 proposition”.  Ignore those aspects that do not distinguish this domain model from others. Show how
 the domain model serves and balances diverse interests. Keep it narrow.  Write this statement early
@@ -4181,7 +4097,6 @@ and revise it as you gain new insight.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -4240,7 +4155,6 @@ and revise it as you gain new insight.</p>
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><p>When you encounter a large system that is poorly factored, where do you start? In the XP community, the
 answer tends to be either one of these:</p>
-
 <ol>
 <li>Just start anywhere, since it all has to be refactored.</li>
 <li>Wherever it is hurting. I’ll refactor what I need to in order to get my specific task done.
@@ -4248,9 +4162,7 @@ I don’t hold with either of these. The first is impractical except in a few pr
 programmers. The second tends to pick around the edges, treating symptoms and ignoring root causes,
 shying away from the worst tangles. Eventually the code becomes harder and harder to refactor.</li>
 </ol>
-
 <p>So, if you can’t do it all, and you can’t be pain-driven, what do you do?</p>
-
 <ol>
 <li>In a pain-driven refactoring, you look to see if the root involves the CORE DOMAIN or the
 relationship of the CORE to a supporting element. If it is, you bite the bullet and fix that first.</li>
@@ -4258,7 +4170,6 @@ relationship of the CORE to a supporting element. If it is, you bite the bullet 
 DOMAIN, on improving the segregation of the CORE, and on purifying supporting subdomains to be
 GENERIC.</li>
 </ol>
-
 <p>This is how to get the most bang for your refactoring buck.</p>
 </div>
   
@@ -4276,7 +4187,6 @@ GENERIC.</li>
 </blockquote>
 
 
-
   
   
 
@@ -4331,10 +4241,9 @@ GENERIC.</li>
 
 
 <blockquote class="wp-block-quote">
-  <div class="text-secondary">In businesses based on exploiting large fixed capital assets, such as factories or cargo ships, logistical
+  <div class="text-secondary"><p>In businesses based on exploiting large fixed capital assets, such as factories or cargo ships, logistical
 software can often be organized into a “Potential” layer (another name for the “Capability” layer in the
 example) and an “Operations” layer.</p>
-
 <ul>
 <li>Potential: What can be done? Never mind what we are planning to do. What could we do?  The
 resources of  the organization, including its people, and the way those resources are organized are the
@@ -4348,7 +4257,8 @@ this should reflect the reality of the situation, rather than what we want it to
 trying to see our own efforts and activities: What we are selling, rather than what enables us to sell. It
 is very typical of Operational objects to reference or even be composed of Potential objects, while a
 potential object shouldn’t reference the operations layer.</li>
-</ul></div>
+</ul>
+</div>
   
     <footer class=blockquote-footer>
       <strong>Eric Evans</strong>
@@ -4362,7 +4272,6 @@ potential object shouldn’t reference the operations layer.</li>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -4419,15 +4328,18 @@ potential object shouldn’t reference the operations layer.</li>
 
 
 <blockquote class="wp-block-quote">
-  <div class="text-secondary">In many, perhaps most, existing systems, these two layers cover everything, although there could be some
+  <div class="text-secondary"><p>In many, perhaps most, existing systems, these two layers cover everything, although there could be some
 entirely different and more revealing breakdown. They track the current situation and active operational
 plans and issue reports or documents about it. But tracking is not always enough. When projects seek to
 guide or assist users, or to automate decision making, there is an additional set of responsibilities that can
-be organized into another layer, above Operations.
-* Decision Support: What action should be taken or what policy should be set? This layer is for analysis
+be organized into another layer, above Operations.</p>
+<ul>
+<li>Decision Support: What action should be taken or what policy should be set? This layer is for analysis
 and decision making.  It relies on some lower layers, such as Potential or Operations to base its
 analysis on. Decision Support software may actively seek opportunities for current and future
-operations using historical information.</div>
+operations using historical information.</li>
+</ul>
+</div>
   
     <footer class=blockquote-footer>
       <strong>Eric Evans</strong>
@@ -4441,7 +4353,6 @@ operations using historical information.</div>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -4498,10 +4409,8 @@ operations using historical information.</div>
 
 
 <blockquote class="wp-block-quote">
-  <div class="text-secondary">Conceptual Dependencies and Shearing Points in a Factory Automation System.
-<figure>
-    <img src="factory.png#center"/>
-</figure></div>
+  <div class="text-secondary">Conceptual Dependencies and Shearing Points in a Factory Automation System.</p>
+<!-- raw HTML omitted --></div>
   
     <footer class=blockquote-footer>
       <strong>Eric Evans</strong>
@@ -4515,7 +4424,6 @@ operations using historical information.</div>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -4592,7 +4500,6 @@ have the same data and behavior, but just have different assembly rules.</div>
 </blockquote>
 
 
-
   
   
 
@@ -4663,7 +4570,6 @@ reflecting rules and knowledge that a user or super-user is able to customize.</
     </footer>
   
 </blockquote>
-
 
 
   
@@ -4740,7 +4646,6 @@ domain concepts.</div>
 </blockquote>
 
 
-
   
   
 
@@ -4795,9 +4700,8 @@ domain concepts.</div>
 
 
 <blockquote class="wp-block-quote">
-  <div class="text-secondary">When you are tackling the strategic design for the first time on a project, where do you start? Strategically,
+  <div class="text-secondary"><p>When you are tackling the strategic design for the first time on a project, where do you start? Strategically,
 the most important thing is to start from a clear assessment of the current situation.</p>
-
 <ol>
 <li>Draw a CONTEXT MAP. Can you draw a consistent one or are there ambiguous situations?</li>
 <li>Attend to the use of language on the project. Is there a UBIQUITOUS LANGUAGE? Is it rich enough
@@ -4807,7 +4711,8 @@ STATEMENT? Can you write one?</li>
 <li>Does the technology of the project work for or against a MODEL-DRIVEN DESIGN?</li>
 <li>Do the developers on the team have the necessary technical skills?</li>
 <li>Are the developers knowledgeable about the domain? Are they interested in the domain.</li>
-</ol></div>
+</ol>
+</div>
   
     <footer class=blockquote-footer>
       <strong>Eric Evans</strong>
@@ -4831,6 +4736,10 @@ STATEMENT? Can you write one?</li>
 <script>
   feather.replace()
 </script>
+
+
+    
+
 
 
     

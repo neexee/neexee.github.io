@@ -6,7 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
   <meta name="author" content="Sergey Machulskis" />
-  <meta name="generator" content="Hugo 0.59.0-DEV" />
+  <meta name="generator" content="Hugo 0.86.0-DEV" />
+  
+  <meta name="description" content="Definition In short, it’s Security Orchestration, Automation And Response.
+SOAR refers to technologies that enable organizations to collect inputs monitored by the security operations team. For example, alerts from the SIEM system and other security technologies — where incident analysis and triage can be performed by leveraging a combination of human and machine power — help define, prioritize and drive standardized incident response activities. SOAR tools allow an organization to define incident analysis and response procedures in a digital workflow format.">
   <link rel="stylesheet" href="https://neexee.github.io/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://neexee.github.io/css/blockquote.css">
   <link rel="stylesheet" href="https://neexee.github.io/css/images.css">
@@ -81,6 +84,11 @@ video,
 audio {
   max-width: 100%;
 }
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
 </style>
 </head>
   <body class="d-flex flex-column h-100">
@@ -91,6 +99,7 @@ audio {
   
     
     
+      
       
       
       
@@ -107,6 +116,7 @@ audio {
       
       
       
+      
         
       
     
@@ -115,6 +125,7 @@ audio {
   
     
     
+      
       
       
       
@@ -131,6 +142,7 @@ audio {
       
       
       
+      
         
       
     
@@ -143,6 +155,7 @@ audio {
       
       
       
+      
         
       
     
@@ -151,6 +164,7 @@ audio {
   
   </nav>
 </div>
+
     <div class="container">
       <main id="main">
         
@@ -173,12 +187,8 @@ audio {
   </div>
 
 
-
-
 <h1 id="definition">Definition</h1>
-
 <p>In short, it&rsquo;s <strong>S</strong>ecurity <strong>O</strong>rchestration, <strong>A</strong>utomation And <strong>R</strong>esponse.</p>
-
 
 
   
@@ -253,21 +263,14 @@ audio {
     </footer>
   
 </blockquote>
-
 <h1 id="explanation">Explanation</h1>
-
 <p>On the surface, SOAR is yet another ticket tracking system. Imagine any ticket tracking system you were using in the past. It probably had ways to create, prioritize and filter tickets. It also could change assigned persons, keep attachments and so on.</p>
-
 <p>SOAR can do ticket management too.
-<figure>
-    <img src="task_list.png#center"/> 
+<figure><img src="task_list.png#center"/>
 </figure>
 </p>
-
 <p>What makes SOAR unique is the addition of several ideas.</p>
-
 <p>The first idea is to rely on <strong>automation</strong> as much as possible. For example, the system can:</p>
-
 <ul>
 <li>automatically prioritize the ticket when it&rsquo;s created and assign it to a proper person</li>
 <li>unzip and analyze a file when somebody attaches it in ticket&rsquo;s comments</li>
@@ -275,35 +278,23 @@ audio {
 <li>close a ticket automatically when it&rsquo;s clear there&rsquo;s nothing left to do</li>
 <li>call APIs of dozens of external systems when a ticket changes to a particular state. Also, notify interested people. This is called <strong>orchestration</strong>.</li>
 </ul>
-
 <p>This is typically implemented this using <em>rules</em> and <em>actions</em>. Rules use a special language.
-The language allows to describe a condition for any *event* happening in the system.
+The language allows to describe a condition for any <em>event</em> happening in the system.
 When the condition is satisfied, rule starts a pre-programmed set of actions.
 For example, the condition can be &ldquo;new ticket is created&rdquo;, actions can be &ldquo;prioritize the ticket&rdquo; + &ldquo;assign it to a person&rdquo;.
 Rules and actions form <em>playbooks</em>, which can be replayed for each new event.</p>
-
 <p>Actions can be expressed in programming languages of can have a BPMN-like notation, like in example below.</p>
-
-<figure>
-    <img src="workflow.png#center"/> 
+<figure><img src="workflow.png#center"/>
 </figure>
-
 
 <p>The second idea is to put the system in the <strong>security</strong> domain.</p>
-
 <p>That means tickets are actually <em>security incidents</em>. The system is aware of the existence of IPs, malware, threats, vulnerabilities, and other entities common in cybersecurity. The system can manipulate those entities to enrich information in the incident and correlate it with other incidents. For example, the system can check whois information for an IP mentioned in the incident and then mark this IP as untrusted.</p>
-
-<figure>
-    <img src="phishing_case.jpg#center"/> 
+<figure><img src="phishing_case.jpg#center"/>
 </figure>
 
-
 <p>Security incidents require a <strong>response</strong>. During response, the system can change firewall rules, remove malicious files, and so on. A response can be very simple (if the incident was false positive) or very complex (if the system needs to orchestrate dozens of systems and several departments of the company).</p>
-
 <p>All of this is done to simplify life of people in security operation centers. And also life of people who pay for company&rsquo;s security.</p>
-
-<figure>
-    <img src="dashboards.jpg#center"/> 
+<figure><img src="dashboards.jpg#center"/>
 </figure>
 
 
@@ -316,6 +307,10 @@ Rules and actions form <em>playbooks</em>, which can be replayed for each new 
 <script>
   feather.replace()
 </script>
+
+
+    
+
 
 
     

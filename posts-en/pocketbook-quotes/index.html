@@ -6,7 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
   <meta name="author" content="Sergey Machulskis" />
-  <meta name="generator" content="Hugo 0.59.0-DEV" />
+  <meta name="generator" content="Hugo 0.86.0-DEV" />
+  
+  <meta name="description" content="It’s painful to take out quotes from PocketBook using PocketBook itself. The interface is slow and the default reader app (the best one in my opinion) has no option for bulk imports of quotes.
+So I wrote a simple script to extract &amp; transform quotes from the internal PocketBook DB.
+The PocketBook database schema  The quote extractor You may want to change the default path of the DB, filter_quote, transform_quote and print_results.">
   <link rel="stylesheet" href="https://neexee.github.io/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://neexee.github.io/css/blockquote.css">
   <link rel="stylesheet" href="https://neexee.github.io/css/images.css">
@@ -81,6 +85,11 @@ video,
 audio {
   max-width: 100%;
 }
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
 </style>
 </head>
   <body class="d-flex flex-column h-100">
@@ -91,6 +100,7 @@ audio {
   
     
     
+      
       
       
       
@@ -107,6 +117,7 @@ audio {
       
       
       
+      
         
       
     
@@ -115,6 +126,7 @@ audio {
   
     
     
+      
       
       
       
@@ -131,6 +143,7 @@ audio {
       
       
       
+      
         
       
     
@@ -143,6 +156,7 @@ audio {
       
       
       
+      
         
       
     
@@ -151,6 +165,7 @@ audio {
   
   </nav>
 </div>
+
     <div class="container">
       <main id="main">
         
@@ -176,22 +191,14 @@ audio {
   </div>
 
 
-
-
 <p>It&rsquo;s painful to take out quotes from PocketBook using PocketBook itself.
 The interface is slow and the default reader app (the best one in my opinion) has no option for bulk imports of quotes.</p>
-
 <p>So I wrote a simple script to extract &amp; transform quotes from the internal PocketBook DB.</p>
-
 <h2 id="the-pocketbook-database-schema">The PocketBook database schema</h2>
-
-<figure>
-    <img src="schema.png"/> 
+<figure><img src="schema.png"/>
 </figure>
 
-
 <h2 id="the-quote-extractor">The quote extractor</h2>
-
 <p>You may want to change the default path of the DB, <code>filter_quote</code>, <code>transform_quote</code> and <code>print_results</code>.
 <script type="application/javascript" src="https://gist.github.com/neexee/4be38854188621cb5f12cad950ff8d9d.js"></script>
 </p>
@@ -205,6 +212,10 @@ The interface is slow and the default reader app (the best one in my opinion) ha
 <script>
   feather.replace()
 </script>
+
+
+    
+
 
 
     

@@ -6,7 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
   <meta name="author" content="Sergey Machulskis" />
-  <meta name="generator" content="Hugo 0.59.0-DEV" />
+  <meta name="generator" content="Hugo 0.86.0-DEV" />
+  
+  <meta name="description" content="It’s short and very well-written. It’s the most valuable read on SQL I’ve ever seen. The book is available online.
+The most important thing for backend developers is “Do NOT use OFFSET for pagination”.
+Powers of indexing:
+ The B-Tree traversal. It could be traversed in any direction as leaf nodes are organized in a double linked list. Clustering. Similar data is close, especially if it’s an index-only scan. Pipelined order by.">
   <link rel="stylesheet" href="https://neexee.github.io/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://neexee.github.io/css/blockquote.css">
   <link rel="stylesheet" href="https://neexee.github.io/css/images.css">
@@ -81,6 +86,11 @@ video,
 audio {
   max-width: 100%;
 }
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
 </style>
 </head>
   <body class="d-flex flex-column h-100">
@@ -91,6 +101,7 @@ audio {
   
     
     
+      
       
       
       
@@ -107,6 +118,7 @@ audio {
       
       
       
+      
         
       
     
@@ -115,6 +127,7 @@ audio {
   
     
     
+      
       
       
       
@@ -131,6 +144,7 @@ audio {
       
       
       
+      
         
       
     
@@ -143,6 +157,7 @@ audio {
       
       
       
+      
         
       
     
@@ -151,6 +166,7 @@ audio {
   
   </nav>
 </div>
+
     <div class="container">
       <main id="main">
         
@@ -173,36 +189,27 @@ audio {
   </div>
 
 
-<figure>
-    <img src="cover.png"/> 
+<figure><img src="cover.png"/>
 </figure>
 
-
 <p>It&rsquo;s short and very well-written. It&rsquo;s the most valuable read on SQL I&rsquo;ve ever seen. The book is available <a href="https://use-the-index-luke.com/sql/table-of-contents">online</a>.</p>
-
-<p>The most important thing for backend developers is <a href="https://use-the-index-luke.com/no-offset">&ldquo;Do NOT use OFFSET for pagination&rdquo;</a>.</p>
-
+<p>The most important thing for backend developers is <!-- raw HTML omitted -->&ldquo;Do NOT use OFFSET for pagination&rdquo;<!-- raw HTML omitted -->.</p>
 <p>Powers of indexing:</p>
-
 <ol>
 <li><strong>The B-Tree traversal</strong>. It could be traversed in any direction as leaf nodes are organized in a double linked list.</li>
 <li><strong>Clustering</strong>. Similar data is close, especially if it&rsquo;s an index-only scan.</li>
 <li><strong><a href="https://use-the-index-luke.com/sql/sorting-grouping/indexed-order-by">Pipelined order by</a></strong>. Database can omit sort operation as an index is already sorted.</li>
 </ol>
-
 <p>Rules:</p>
-
 <ol>
 <li><strong>Index for equality first—then for ranges</strong>. The actual performance difference depends on the data and search criteria. The difference can be negligible if the filter on the range is very selective on its own. The bigger the date range becomes, the bigger the performance difference will be.</li>
-<li><strong>Index could be useless for LIKE queries</strong>. Only the part before the first wild card serves as an access predicate. The remaining characters do not narrow the scanned index range—non-matching entries are just left out of the result. <br>
+<li><strong>Index could be useless for LIKE queries</strong>. Only the part before the first wild card serves as an access predicate. The remaining characters do not narrow the scanned index range—non-matching entries are just left out of the result. <!-- raw HTML omitted -->
 For the PostgreSQL database, the problem is different because PostgreSQL assumes there is a leading wild card when using bind parameters for a LIKE expression. PostgreSQL just does not use an index in that case. The only way to get an index access for a LIKE expression is to make the actual search term visible to the optimizer. If you do not use a bind parameter but put the search term directly into the SQL statement, you must take other precautions against SQL injection attacks!</li>
 <li><strong>Maintain your index-only scans.</strong> Add comments that remind you about an index-only scan and refer to that page so anyone can read about it.</li>
-<li><strong>Optimize access to tables with a singular index</strong>. Tables with one index only are best implemented as clustered indexes or index-organized tables. <br>
+<li><strong>Optimize access to tables with a singular index</strong>. Tables with one index only are best implemented as clustered indexes or index-organized tables. <!-- raw HTML omitted -->
 Tables with more indexes can often benefit from heap tables. You can still use index-only scans to avoid table access. This gives you the select performance of a clustered index without slowing down other indexes.</li>
 </ol>
-
 <p><a href="https://use-the-index-luke.com/sql/myth-directory">Myths</a>:</p>
-
 <ol>
 <li><strong>Indexes Can Degenerate</strong>. Rebuilding an index might reduce the number of leaf nodes by about 20% - 30%. The most you can possibly expect from this reduction is 20%-30% for very expensive operations like a FULL INDEX SCAN. The typical INDEX UNIQUE SCAN gain of an index rebuild is 0%-2% because the depth of the index is not reduced by the rebuild.</li>
 <li><strong>Most Selective First</strong>. There is the myth that you should always put the most selective column to the first position; that is just wrong. The most important consideration when defining a concatenated index is how to choose the column order so it can be used as often as possible.</li>
@@ -210,7 +217,6 @@ Tables with more indexes can often benefit from heap tables. You can still use i
 <li><strong>Dynamic SQL is Slow</strong>.</li>
 <li><strong>Select * is Bad</strong>.</li>
 </ol>
-
 <p>I wish there was a book about other index types (this one explains B-tree indexes in detail).</p>
 
 
@@ -222,6 +228,10 @@ Tables with more indexes can often benefit from heap tables. You can still use i
 <script>
   feather.replace()
 </script>
+
+
+    
+
 
 
     

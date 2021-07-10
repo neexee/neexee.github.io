@@ -6,7 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
   <meta name="author" content="Sergey Machulskis" />
-  <meta name="generator" content="Hugo 0.59.0-DEV" />
+  <meta name="generator" content="Hugo 0.86.0-DEV" />
+  
+  <meta name="description" content="Here’s an example of typed Python.
+import itertools from typing import Callable, Iterable, List, Tuple, TypeVar A = TypeVar(&#39;A&#39;) B = TypeVar(&#39;B&#39;) def groupby_eager(iterable: Iterable[A], key: Callable[[A], B]) -&gt; List[Tuple[B, List[A]]]: groups = itertools.groupby(sorted(iterable, key=key), key=key) return [ (group_name, list(group)) for group_name, group in groups ] ">
   <link rel="stylesheet" href="https://neexee.github.io/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://neexee.github.io/css/blockquote.css">
   <link rel="stylesheet" href="https://neexee.github.io/css/images.css">
@@ -81,6 +84,11 @@ video,
 audio {
   max-width: 100%;
 }
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
 </style>
 </head>
   <body class="d-flex flex-column h-100">
@@ -91,6 +99,7 @@ audio {
   
     
     
+      
       
       
       
@@ -107,6 +116,7 @@ audio {
       
       
       
+      
         
       
     
@@ -115,6 +125,7 @@ audio {
   
     
     
+      
       
       
       
@@ -131,6 +142,7 @@ audio {
       
       
       
+      
         
       
     
@@ -143,6 +155,7 @@ audio {
       
       
       
+      
         
       
     
@@ -151,6 +164,7 @@ audio {
   
   </nav>
 </div>
+
     <div class="container">
       <main id="main">
         
@@ -185,7 +199,8 @@ audio {
     <span style="color:#00a8c8">return</span> <span style="color:#111">[</span>
         <span style="color:#111">(</span><span style="color:#111">group_name</span><span style="color:#111">,</span> <span style="color:#111">list</span><span style="color:#111">(</span><span style="color:#111">group</span><span style="color:#111">))</span>
         <span style="color:#00a8c8">for</span> <span style="color:#111">group_name</span><span style="color:#111">,</span> <span style="color:#111">group</span> <span style="color:#f92672">in</span> <span style="color:#111">groups</span>
-    <span style="color:#111">]</span></code></pre></div>
+    <span style="color:#111">]</span>
+</code></pre></div>
 
 
       </main>
@@ -195,6 +210,10 @@ audio {
 <script>
   feather.replace()
 </script>
+
+
+    
+
 
 
     

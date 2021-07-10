@@ -6,7 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
   <meta name="author" content="Sergey Machulskis" />
-  <meta name="generator" content="Hugo 0.59.0-DEV" />
+  <meta name="generator" content="Hugo 0.86.0-DEV" />
+  
+  <meta name="description" content="Что это В 2018 году я вёл практикум «Многопоточное программирование» в НГУ. Это шпаргалка с темами для разговора со студентами. Список задач
+Лабораторные 1-4  Что такое поток, как он выглядит в памяти? Чем отличаются процесс и поток? Чем отличаются fork() и pthread_create()? Как ОС выделяет процессорное время для потоков и процессов? Планировщик по-разному относится к потокам и процессам? Можно ли сделать свой собственный планировщик потоков (в обход ОС)? Это где-нибудь применяется?">
   <link rel="stylesheet" href="https://neexee.github.io/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://neexee.github.io/css/blockquote.css">
   <link rel="stylesheet" href="https://neexee.github.io/css/images.css">
@@ -81,6 +84,11 @@ video,
 audio {
   max-width: 100%;
 }
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
 </style>
 </head>
   <body class="d-flex flex-column h-100">
@@ -91,6 +99,7 @@ audio {
   
     
     
+      
       
       
       
@@ -107,6 +116,7 @@ audio {
       
       
       
+      
         
       
     
@@ -115,6 +125,7 @@ audio {
   
     
     
+      
       
       
       
@@ -131,6 +142,7 @@ audio {
       
       
       
+      
         
       
     
@@ -143,6 +155,7 @@ audio {
       
       
       
+      
         
       
     
@@ -151,6 +164,7 @@ audio {
   
   </nav>
 </div>
+
     <div class="container">
       <main id="main">
         
@@ -173,14 +187,9 @@ audio {
   </div>
 
 
-
-
 <h2 id="что-это">Что это</h2>
-
 <p>В 2018 году я вёл практикум «Многопоточное программирование» в НГУ. Это шпаргалка с темами для разговора со студентами. <a href="http://swsoft.nsu.ru/WackoWiki/KursOperacionnyeSistemy/PraktikumPosixThreads/PthreadTasks">Список задач</a></p>
-
 <h2 id="лабораторные-1-4">Лабораторные 1-4</h2>
-
 <ul>
 <li>Что такое поток, как он выглядит в памяти?</li>
 <li>Чем отличаются процесс и поток? Чем отличаются fork() и pthread_create()?</li>
@@ -192,12 +201,10 @@ audio {
 <li>Из какого потока можно вызывать pthread_join()? Какие потоки нельзя заджойнить?</li>
 <li>В чем разница между waitpid() и pthread_join()?</li>
 <li>Как передать несколько параметров в тред?</li>
-<li>Может ли поток вместо void* принимать custom_type<em>? Что такое указатель на функцию и где в памяти хранится функция? Нужно ли кастовать NULL к void</em>? Если нужно, то когда?</li>
+<li>Может ли поток вместо void* принимать custom_type*? Что такое указатель на функцию и где в памяти хранится функция? Нужно ли кастовать NULL к void*? Если нужно, то когда?</li>
 <li>В мане pthread_create есть секция ATTRIBUTES. Что значит табличка в ней?</li>
 </ul>
-
 <h2 id="лабораторные-4-18">Лабораторные 4-18</h2>
-
 <ul>
 <li>pthread_cancel может отменять потоки синхронно и асинхронно. В чём разница? Когда можно использовать асинхронные отмены? Когда поток понимает, что его отменили?</li>
 <li>Что такое блокирующийся системный вызов? Как понять, что $syscallname блокирующийся?</li>
@@ -233,6 +240,10 @@ audio {
 <script>
   feather.replace()
 </script>
+
+
+    
+
 
 
     

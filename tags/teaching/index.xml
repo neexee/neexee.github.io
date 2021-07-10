@@ -6,11 +6,7 @@
     <description>Recent content in teaching on Picky speaker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 08 Feb 2019 10:48:58 +0700</lastBuildDate>
-    
-	<atom:link href="https://neexee.github.io/tags/teaching/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 08 Feb 2019 10:48:58 +0700</lastBuildDate><atom:link href="https://neexee.github.io/tags/teaching/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Системные вызовы UNIX</title>
       <link>https://neexee.github.io/posts-ru/operating-systems-nsu/</link>

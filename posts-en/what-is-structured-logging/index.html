@@ -6,7 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
   <meta name="author" content="Sergey Machulskis" />
-  <meta name="generator" content="Hugo 0.59.0-DEV" />
+  <meta name="generator" content="Hugo 0.86.0-DEV" />
+  
+  <meta name="description" content="Regular logs are hard to get right. Usually, people just want do debug issues using them. Debugging is messy so logs become a mess.
+Structured logging allows to clean up the mess a little bit. It even allows draw a graph of an event type from logs in Kibana and similar instruments with ease.
+Structured logging is even harder to get right than regular logs. But if you look at ways you can perceive a log, it becomes clear how a good log should look like.">
   <link rel="stylesheet" href="https://neexee.github.io/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://neexee.github.io/css/blockquote.css">
   <link rel="stylesheet" href="https://neexee.github.io/css/images.css">
@@ -81,6 +85,11 @@ video,
 audio {
   max-width: 100%;
 }
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
 </style>
 </head>
   <body class="d-flex flex-column h-100">
@@ -91,6 +100,7 @@ audio {
   
     
     
+      
       
       
       
@@ -107,6 +117,7 @@ audio {
       
       
       
+      
         
       
     
@@ -115,6 +126,7 @@ audio {
   
     
     
+      
       
       
       
@@ -131,6 +143,7 @@ audio {
       
       
       
+      
         
       
     
@@ -143,6 +156,7 @@ audio {
       
       
       
+      
         
       
     
@@ -151,6 +165,7 @@ audio {
   
   </nav>
 </div>
+
     <div class="container">
       <main id="main">
         
@@ -168,24 +183,17 @@ audio {
 
 
 <p>Regular logs are hard to get right. Usually, people just want do debug issues using them. Debugging is messy so logs become a mess.</p>
-
 <p>Structured logging allows to clean up the mess a little bit. It even allows draw a graph of an event type from logs in Kibana and similar instruments with ease.</p>
-
 <p>Structured logging is even harder to get right than regular logs. But if you look at ways you can perceive a log, it becomes clear how a good log should look like.</p>
-
 <ul>
 <li>A log is a WAL of a database. Statements of the log are INSERT queries to several different tables. For example, there could be a table with operation timings, a table with a status of related services, a table with the results of tasks.</li>
 <li>A log is a code. The principles of YAGNI and DRY apply to it.</li>
-<li>A log is a stream of events. This means that ideally there should be only two types of entries in the log:
-
-<ul>
+<li>A log is a stream of events. This means that ideally there should be only two types of entries in the log:</li>
 <li>The emergence of a new entity (preferably with an identifier).</li>
 <li>А departure of the entity from the scope (it was successfully saved, successfully returned to the client, not processed due to an error).</li>
-</ul></li>
 <li>A log is a history. Same story as the history of commits in Git. The commit message should say <em>what</em> happened and <em>why</em>. To see <em>how</em> it was done you need to look in a diff.   Application logs should also say <em>what</em> happened <em>and why</em>. Good commit message format <a href="https://chris.beams.io/posts/git-commit/#seven-rules">is described in detail</a> a long ago.</li>
 <li>A log is NOT a story. There should be no plot twists. Records should not have ambiguous interpretations. There should be no meaning embedded in punctuation.</li>
 </ul>
-
 <p>Check out <a href="/posts-en/how-to-structured-logging-in-go/">Guide to structured logging in Go</a> for practical application of those insights.</p>
 
 
@@ -197,6 +205,10 @@ audio {
 <script>
   feather.replace()
 </script>
+
+
+    
+
 
 
     

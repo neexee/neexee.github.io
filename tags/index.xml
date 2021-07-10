@@ -6,10 +6,33 @@
     <description>Recent content in Tags on Picky speaker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 08 Jul 2021 18:19:09 +0700</lastBuildDate>
+    <lastBuildDate>Sat, 10 Jul 2021 10:23:32 +0700</lastBuildDate><atom:link href="https://neexee.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>engineering</title>
+      <link>https://neexee.github.io/tags/engineering/</link>
+      <pubDate>Sat, 10 Jul 2021 10:23:32 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/tags/engineering/</guid>
+      <description></description>
+    </item>
     
-	<atom:link href="https://neexee.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>motivation</title>
+      <link>https://neexee.github.io/tags/motivation/</link>
+      <pubDate>Sat, 10 Jul 2021 10:23:32 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/tags/motivation/</guid>
+      <description></description>
+    </item>
     
+    <item>
+      <title>philosophy</title>
+      <link>https://neexee.github.io/tags/philosophy/</link>
+      <pubDate>Sat, 10 Jul 2021 10:23:32 +0700</pubDate>
+      
+      <guid>https://neexee.github.io/tags/philosophy/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>design</title>

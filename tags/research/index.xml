@@ -6,11 +6,7 @@
     <description>Recent content in research on Picky speaker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 05 Jul 2021 19:31:06 +0700</lastBuildDate>
-    
-	<atom:link href="https://neexee.github.io/tags/research/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 05 Jul 2021 19:31:06 +0700</lastBuildDate><atom:link href="https://neexee.github.io/tags/research/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Guideline: Error Handling</title>
       <link>https://neexee.github.io/posts-en/error-handling-manual/</link>
@@ -22,7 +18,7 @@
 v1: func Process() error { return ErrFoo }
 v2: func Process() error { return ErrBar }
 Did I break API compatibility? Do I need to bump the major version?
-&amp;mdash; ✕✕✕✕✕ (@peterbourgon) July 4, 2021  The responses split 50&amp;frasl;50, but I don&amp;rsquo;t think it should be like this if you are aware of one simple thing:</description>
+&amp;mdash; ✕✕✕✕✕ (@peterbourgon) July 4, 2021  The responses split 50/50, but I don&amp;rsquo;t think it should be like this if you are aware of one simple thing:</description>
     </item>
     
     <item>

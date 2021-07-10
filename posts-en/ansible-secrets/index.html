@@ -6,7 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
   <meta name="author" content="Sergey Machulskis" />
-  <meta name="generator" content="Hugo 0.59.0-DEV" />
+  <meta name="generator" content="Hugo 0.86.0-DEV" />
+  
+  <meta name="description" content="Secrets in your yaml-files should be encrypted. The default Ansible method encrypts an entire file, but it’s inconvenient in practice. It’s much better to encrypt specific variables. It makes Ansible code easier to analyze as you can see encrypted variable name. And it’s nice to run your playbook without vault key if the secret variable is unused during play.
+Ansible documentation mentions variable-level encryption but offers no oneliner solution.
+Visual Studio Code has a nice plugin, ansible-vault-inline.">
   <link rel="stylesheet" href="https://neexee.github.io/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://neexee.github.io/css/blockquote.css">
   <link rel="stylesheet" href="https://neexee.github.io/css/images.css">
@@ -81,6 +85,11 @@ video,
 audio {
   max-width: 100%;
 }
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
 </style>
 </head>
   <body class="d-flex flex-column h-100">
@@ -91,6 +100,7 @@ audio {
   
     
     
+      
       
       
       
@@ -107,6 +117,7 @@ audio {
       
       
       
+      
         
       
     
@@ -115,6 +126,7 @@ audio {
   
     
     
+      
       
       
       
@@ -131,6 +143,7 @@ audio {
       
       
       
+      
         
       
     
@@ -143,6 +156,7 @@ audio {
       
       
       
+      
         
       
     
@@ -151,6 +165,7 @@ audio {
   
   </nav>
 </div>
+
     <div class="container">
       <main id="main">
         
@@ -171,20 +186,15 @@ audio {
 
 
 <p>Secrets in your yaml-files should be encrypted. The <a href="https://docs.ansible.com/ansible/latest/user_guide/vault.html#what-can-be-encrypted-with-vault">default Ansible method</a> encrypts an entire file, but it&rsquo;s inconvenient in practice. It&rsquo;s much better to encrypt specific variables.  It makes Ansible code easier to analyze as you can see encrypted variable name. And it&rsquo;s nice to run your playbook without vault key if the secret variable is unused during play.</p>
-
 <p>Ansible documentation <a href="https://docs.ansible.com/ansible/latest/user_guide/vault.html#variable-level-encryption">mentions</a> variable-level encryption but offers no oneliner solution.</p>
-
 <p>Visual Studio Code has a nice plugin, <code>ansible-vault-inline</code>. It allows you to edit encrypted values in yaml files.</p>
-
 <p>If you want to use it in your shell:</p>
-
 <ul>
 <li>Put your vault key to <code>~/.vault_pass</code>.</li>
 <li>Install <code>yq</code>. <code>sudo snap install yq</code> on Ubuntu.</li>
 <li>Add those functions to your <code>.bash_profile</code></li>
 </ul>
-
-<p></p>
+<p>\</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">decrypt_secret <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
     <span style="color:#00a8c8">if</span> <span style="color:#f92672">[[</span> -z <span style="color:#d88200">&#34;</span><span style="color:#111">$3</span><span style="color:#d88200">&#34;</span> <span style="color:#f92672">]]</span><span style="color:#111">;</span> <span style="color:#00a8c8">then</span>
         <span style="color:#111">VAULT_PASS_FILE</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;~/.vault_pass&#34;</span>
@@ -199,10 +209,11 @@ encrypt_secret <span style="color:#f92672">()</span> <span style="color:#f92672"
     <span style="color:#00a8c8">else</span>
         <span style="color:#111">VAULT_PASS_FILE</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;</span><span style="color:#111">$2</span><span style="color:#d88200">&#34;</span>
     <span style="color:#00a8c8">fi</span>
-    <span style="color:#111">echo</span> -n <span style="color:#d88200">&#34;</span><span style="color:#111">$1</span><span style="color:#d88200">&#34;</span> <span style="color:#111">|</span> ansible-vault encrypt_string --vault-password-file <span style="color:#d88200">&#34;</span><span style="color:#111">$VAULT_PASS_FILE</span><span style="color:#d88200">&#34;</span> <span style="color:#111">;</span><span style="color:#f92672">}</span></code></pre></div>
-<p>Usage:</p>
+    <span style="color:#111">echo</span> -n <span style="color:#d88200">&#34;</span><span style="color:#111">$1</span><span style="color:#d88200">&#34;</span> <span style="color:#111">|</span> ansible-vault encrypt_string --vault-password-file <span style="color:#d88200">&#34;</span><span style="color:#111">$VAULT_PASS_FILE</span><span style="color:#d88200">&#34;</span> <span style="color:#111">;</span><span style="color:#f92672">}</span>
+</code></pre></div><p>Usage:</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">decrypt_secret &lt;var_file_name&gt; &lt;var_name&gt; &lt;vault_key_file_name&gt;
-encrypt_secret &lt;secret_string&gt; &lt;vault_key_file_name&gt;</code></pre></div>
+encrypt_secret &lt;secret_string&gt; &lt;vault_key_file_name&gt;
+</code></pre></div>
 
 
       </main>
@@ -212,6 +223,10 @@ encrypt_secret &lt;secret_string&gt; &lt;vault_key_file_name&gt;</code></pre></d
 <script>
   feather.replace()
 </script>
+
+
+    
+
 
 
     

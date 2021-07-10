@@ -6,11 +6,7 @@
     <description>Recent content in books on Picky speaker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 10 Apr 2021 11:24:59 +0700</lastBuildDate>
-    
-	<atom:link href="https://neexee.github.io/tags/books/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 10 Apr 2021 11:24:59 +0700</lastBuildDate><atom:link href="https://neexee.github.io/tags/books/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Beginning of Infinity: Explanations That Transform the World</title>
       <link>https://neexee.github.io/posts-en/beginning-of-infinity/</link>
@@ -85,7 +81,7 @@ Good bits:
       <description>It&amp;rsquo;s short and very well-written. It&amp;rsquo;s the most valuable read on SQL I&amp;rsquo;ve ever seen. The book is available online.
 The most important thing for backend developers is &amp;ldquo;Do NOT use OFFSET for pagination&amp;rdquo;.
 Powers of indexing:
- The B-Tree traversal. It could be traversed in any direction as leaf nodes are organized in a double linked list. Clustering. Similar data is close, especially if it&amp;rsquo;s an index-only scan.</description>
+ The B-Tree traversal. It could be traversed in any direction as leaf nodes are organized in a double linked list. Clustering. Similar data is close, especially if it&amp;rsquo;s an index-only scan. Pipelined order by.</description>
     </item>
     
     <item>
@@ -166,7 +162,7 @@ This book is an in-depth version of Don&amp;rsquo;t Call Yourself A Programmer a
       <guid>https://neexee.github.io/posts-en/pocketbook-quotes/</guid>
       <description>It&amp;rsquo;s painful to take out quotes from PocketBook using PocketBook itself. The interface is slow and the default reader app (the best one in my opinion) has no option for bulk imports of quotes.
 So I wrote a simple script to extract &amp;amp; transform quotes from the internal PocketBook DB.
-The PocketBook database schema   The quote extractor You may want to change the default path of the DB, filter_quote, transform_quote and print_results.</description>
+The PocketBook database schema  The quote extractor You may want to change the default path of the DB, filter_quote, transform_quote and print_results.</description>
     </item>
     
     <item>

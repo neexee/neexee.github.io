@@ -6,7 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
   <meta name="author" content="Sergey Machulskis" />
-  <meta name="generator" content="Hugo 0.59.0-DEV" />
+  <meta name="generator" content="Hugo 0.86.0-DEV" />
+  
+  <meta name="description" content="There’s a lot of structured logging libraries for Go but there’s no good guideline on how to use them. This article explains how to get the most of your logs using those libraries.
+If you’re interested in underlying assumptions for this guideline, check out the previous article What is Structured Logging.
+How to populate a context Every logging library has a notion of context. Context groups log entries about a single task.">
   <link rel="stylesheet" href="https://neexee.github.io/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://neexee.github.io/css/blockquote.css">
   <link rel="stylesheet" href="https://neexee.github.io/css/images.css">
@@ -81,6 +85,11 @@ video,
 audio {
   max-width: 100%;
 }
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
 </style>
 </head>
   <body class="d-flex flex-column h-100">
@@ -91,6 +100,7 @@ audio {
   
     
     
+      
       
       
       
@@ -107,6 +117,7 @@ audio {
       
       
       
+      
         
       
     
@@ -115,6 +126,7 @@ audio {
   
     
     
+      
       
       
       
@@ -131,6 +143,7 @@ audio {
       
       
       
+      
         
       
     
@@ -143,6 +156,7 @@ audio {
       
       
       
+      
         
       
     
@@ -151,6 +165,7 @@ audio {
   
   </nav>
 </div>
+
     <div class="container">
       <main id="main">
         
@@ -167,37 +182,26 @@ audio {
   </div>
 
 
-
-
 <p>There&rsquo;s <a href="https://github.com/avelino/awesome-go#logging">a lot</a> of structured logging libraries for Go but there&rsquo;s no good guideline on how to use them. This article explains how to get the most of your logs using those libraries.</p>
-
 <p>If you&rsquo;re interested in underlying assumptions for this guideline, check out the previous article <a href="/posts-en/what-is-structured-logging/">What is Structured Logging</a>.</p>
-
 <h2 id="how-to-populate-a-context">How to populate a context</h2>
-
 <p>Every logging library has a notion of context. Context groups log entries about a single task. The task may be an incoming HTTP request, a transaction in the database, or removal of a dozen files from disk.</p>
-
 <p>A context must be created before the first mention of the task in the logs. To create context you must give it an identifier (preferably unique), so all related log records could have it as an attribute. Often, a task identifier is suitable for a context identifier. If not, a context identifier can be generated (it’s best not to abuse it).</p>
-
 <p>You don&rsquo;t need to add anything else to the context. Just context identifier.</p>
-
 <p>The first mention of a task is usually logged with the <code>Info</code> level. For example, there you can write a log record with parameters of the task.</p>
-
 <p>Contexts are nested together. Processing a single “large” task can fall into several independent or concurrent operations with its contexts. Later you can restore the graph of program execution using logs.</p>
-
 <p>Fields must be in snake_case.</p>
-
 <p><strong>Example of a log with contexts</strong></p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">INFO  handle request             <span style="color:#f92672">[</span><span style="color:#111">req_id</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]</span>
-INFO  load file                  <span style="color:#f92672">[</span><span style="color:#111">req_id</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, <span style="color:#111">path</span><span style="color:#f92672">=</span>A<span style="color:#f92672">]</span>
-INFO  load file                  <span style="color:#f92672">[</span><span style="color:#111">req_id</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, <span style="color:#111">path</span><span style="color:#f92672">=</span>B<span style="color:#f92672">]</span>
-WARN  cannot load file, fallback <span style="color:#f92672">[</span><span style="color:#111">req_id</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, <span style="color:#111">path</span><span style="color:#f92672">=</span>A, <span style="color:#111">error</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;permission error&#39;</span><span style="color:#f92672">]</span>
-INFO  load file from FTP         <span style="color:#f92672">[</span><span style="color:#111">req_id</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, <span style="color:#111">path</span><span style="color:#f92672">=</span>A<span style="color:#f92672">]</span>
-DEBUG file loaded                <span style="color:#f92672">[</span><span style="color:#111">req_id</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, <span style="color:#111">path</span><span style="color:#f92672">=</span>B<span style="color:#f92672">]</span>
-DEBUG file loaded from FTP       <span style="color:#f92672">[</span><span style="color:#111">req_id</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, <span style="color:#111">path</span><span style="color:#f92672">=</span>A<span style="color:#f92672">]</span>
-DEBUG merge file content         <span style="color:#f92672">[</span><span style="color:#111">req_id</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, <span style="color:#111">left</span><span style="color:#f92672">=</span>A, <span style="color:#111">right</span><span style="color:#f92672">=</span>B<span style="color:#f92672">]</span>
-DEBUG request handled            <span style="color:#f92672">[</span><span style="color:#111">req_id</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">]</span></code></pre></div>
-<p><strong>Context creation</strong></p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">INFO  handle request             <span style="color:#f92672">[</span><span style="color:#111">req_id</span><span style="color:#f92672">=</span>1<span style="color:#f92672">]</span>
+INFO  load file                  <span style="color:#f92672">[</span><span style="color:#111">req_id</span><span style="color:#f92672">=</span>1, <span style="color:#111">path</span><span style="color:#f92672">=</span>A<span style="color:#f92672">]</span>
+INFO  load file                  <span style="color:#f92672">[</span><span style="color:#111">req_id</span><span style="color:#f92672">=</span>1, <span style="color:#111">path</span><span style="color:#f92672">=</span>B<span style="color:#f92672">]</span>
+WARN  cannot load file, fallback <span style="color:#f92672">[</span><span style="color:#111">req_id</span><span style="color:#f92672">=</span>1, <span style="color:#111">path</span><span style="color:#f92672">=</span>A, <span style="color:#111">error</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;permission error&#39;</span><span style="color:#f92672">]</span>
+INFO  load file from FTP         <span style="color:#f92672">[</span><span style="color:#111">req_id</span><span style="color:#f92672">=</span>1, <span style="color:#111">path</span><span style="color:#f92672">=</span>A<span style="color:#f92672">]</span>
+DEBUG file loaded                <span style="color:#f92672">[</span><span style="color:#111">req_id</span><span style="color:#f92672">=</span>1, <span style="color:#111">path</span><span style="color:#f92672">=</span>B<span style="color:#f92672">]</span>
+DEBUG file loaded from FTP       <span style="color:#f92672">[</span><span style="color:#111">req_id</span><span style="color:#f92672">=</span>1, <span style="color:#111">path</span><span style="color:#f92672">=</span>A<span style="color:#f92672">]</span>
+DEBUG merge file content         <span style="color:#f92672">[</span><span style="color:#111">req_id</span><span style="color:#f92672">=</span>1, <span style="color:#111">left</span><span style="color:#f92672">=</span>A, <span style="color:#111">right</span><span style="color:#f92672">=</span>B<span style="color:#f92672">]</span>
+DEBUG request handled            <span style="color:#f92672">[</span><span style="color:#111">req_id</span><span style="color:#f92672">=</span>1<span style="color:#f92672">]</span>
+</code></pre></div><p><strong>Context creation</strong></p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// Not good, too much junk in log records produced by subroutines
 </span><span style="color:#75715e"></span><span style="color:#75af00">l</span> <span style="color:#f92672">:=</span> <span style="color:#75af00">log</span><span style="color:#111">.</span><span style="color:#75af00">FromContext</span><span style="color:#111">(</span><span style="color:#75af00">ctx</span><span style="color:#111">).</span><span style="color:#75af00">WithFields</span><span style="color:#111">(</span><span style="color:#75af00">log</span><span style="color:#111">.</span><span style="color:#75af00">Fields</span><span style="color:#111">{</span>
         <span style="color:#d88200">&#34;task_type&#34;</span><span style="color:#111">:</span> <span style="color:#75af00">task</span><span style="color:#111">.</span><span style="color:#75af00">Type</span><span style="color:#111">,</span>
@@ -219,13 +223,10 @@ DEBUG request handled            <span style="color:#f92672">[</span><span style
 <span style="color:#111">}).</span><span style="color:#75af00">Info</span><span style="color:#111">(</span><span style="color:#d88200">&#34;process task&#34;</span><span style="color:#111">)</span>
  
 <span style="color:#75af00">ctx</span> <span style="color:#111">=</span> <span style="color:#75af00">log</span><span style="color:#111">.</span><span style="color:#75af00">AttachToContext</span><span style="color:#111">(</span><span style="color:#75af00">ctx</span><span style="color:#111">,</span> <span style="color:#75af00">l</span><span style="color:#111">)</span>
-<span style="color:#75af00">foo</span><span style="color:#111">(</span><span style="color:#75af00">ctx</span><span style="color:#111">)</span></code></pre></div>
-<h3 id="how-to-format-messages">How to format messages</h3>
-
+<span style="color:#75af00">foo</span><span style="color:#111">(</span><span style="color:#75af00">ctx</span><span style="color:#111">)</span>
+</code></pre></div><h3 id="how-to-format-messages">How to format messages</h3>
 <p>A common argument against structured logs is that these logs are for machines, not people. But if you write all messages in the same style in structured logs, people can parse them no worse than machines.</p>
-
 <p>Use present simple or past simple, without passive forms. Punctuation should be avoided (for example, &ldquo;&hellip;&rdquo;, &ldquo;.&rdquo; or &ldquo;!&rdquo; at the end of messages).</p>
-
 <p><strong>Entering and leaving the context</strong></p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// Good
 </span><span style="color:#75715e"></span><span style="color:#75af00">logger</span><span style="color:#111">.</span><span style="color:#75af00">Info</span><span style="color:#111">(</span><span style="color:#d88200">&#34;create task&#34;</span><span style="color:#111">)</span> <span style="color:#75715e">// Infinitive + noun.
@@ -248,9 +249,8 @@ DEBUG request handled            <span style="color:#f92672">[</span><span style
 <span style="color:#f92672">...</span>
 <span style="color:#f92672">...</span>
 <span style="color:#75715e">// Bad, too long
-</span><span style="color:#75715e"></span><span style="color:#75af00">logger</span><span style="color:#111">.</span><span style="color:#75af00">Debug</span><span style="color:#111">(</span><span style="color:#d88200">&#34;task has been created&#34;</span><span style="color:#111">)</span></code></pre></div>
-<h4 id="messages-with-dynamic-parts">Messages with dynamic parts</h4>
-
+</span><span style="color:#75715e"></span><span style="color:#75af00">logger</span><span style="color:#111">.</span><span style="color:#75af00">Debug</span><span style="color:#111">(</span><span style="color:#d88200">&#34;task has been created&#34;</span><span style="color:#111">)</span>
+</code></pre></div><h4 id="messages-with-dynamic-parts">Messages with dynamic parts</h4>
 <p>Messages should not be formatted dynamically. Don&rsquo;t use <code>Infof()</code> and other <code>*f()</code>. Don&rsquo;t concatenate messages via <code>+</code>.</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// Good. If there&#39;s only one field, use WithField().
 </span><span style="color:#75715e"></span><span style="color:#75af00">logger</span><span style="color:#111">.</span><span style="color:#75af00">WithFields</span><span style="color:#111">(</span><span style="color:#75af00">log</span><span style="color:#111">.</span><span style="color:#75af00">Fields</span><span style="color:#111">{</span>
@@ -261,30 +261,24 @@ DEBUG request handled            <span style="color:#f92672">[</span><span style
 <span style="color:#f92672">----------------------------------------------------------------------</span>
 
 <span style="color:#75715e">// Bad
-</span><span style="color:#75715e"></span><span style="color:#75af00">logger</span><span style="color:#111">.</span><span style="color:#75af00">Debugf</span><span style="color:#111">(</span><span style="color:#d88200">&#34;handled %d transactions in %d ms&#34;</span><span style="color:#111">,</span> <span style="color:#75af00">counter</span><span style="color:#111">,</span> <span style="color:#75af00">totalDuration</span><span style="color:#111">.</span><span style="color:#75af00">Milliseconds</span><span style="color:#111">())</span></code></pre></div>
-<h2 id="how-to-choose-a-log-level">How to choose a log level</h2>
-
+</span><span style="color:#75715e"></span><span style="color:#75af00">logger</span><span style="color:#111">.</span><span style="color:#75af00">Debugf</span><span style="color:#111">(</span><span style="color:#d88200">&#34;handled %d transactions in %d ms&#34;</span><span style="color:#111">,</span> <span style="color:#75af00">counter</span><span style="color:#111">,</span> <span style="color:#75af00">totalDuration</span><span style="color:#111">.</span><span style="color:#75af00">Milliseconds</span><span style="color:#111">())</span>
+</code></pre></div><h2 id="how-to-choose-a-log-level">How to choose a log level</h2>
 <p>Typical levels are <code>Error</code>, <code>Warn</code>, <code>Info</code> and <code>Debug</code>. Use <code>Error</code> and <code>Warn</code> for errors and <code>Info</code> and <code>Debug</code> for everything else.</p>
-
 <h3 id="errors">Errors</h3>
-
 <p>Errors are logged to <code>Error</code> and <code>Warn</code>.</p>
-
 <ul>
 <li><code>Error</code> - an error affects the result of the task. Or even the whole service. For example, it can no longer accept tasks.</li>
 <li><code>Warn</code> - an error does not affect the result of the task. It can be ignored because there&rsquo;s a fallback or simply suppressed. Although the error now does not affect the results or operation of the service, it signals a potential problem or error in the code.</li>
 </ul>
-
 <p>If the error cannot be suppressed anywhere before, it should be logged only at the highest level of context.</p>
-
 <p>Sometimes errors can have useful details that are impossible to recover higher on the stack. Then you need to log the details on <code>Warn</code>, the error is returned higher up the stack.</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75af00">err</span> <span style="color:#f92672">:=</span> <span style="color:#75af00">errors</span><span style="color:#111">.</span><span style="color:#75af00">New</span><span style="color:#111">(</span><span style="color:#d88200">&#34;source import task failed&#34;</span><span style="color:#111">)</span>
 <span style="color:#75af00">logger</span><span style="color:#111">.</span><span style="color:#75af00">WithFields</span><span style="color:#111">(</span><span style="color:#75af00">log</span><span style="color:#111">.</span><span style="color:#75af00">Fields</span><span style="color:#111">{</span>
     <span style="color:#d88200">&#34;state&#34;</span><span style="color:#111">:</span>  <span style="color:#75af00">task</span><span style="color:#111">.</span><span style="color:#75af00">State</span><span style="color:#111">,</span>
     <span style="color:#d88200">&#34;result&#34;</span><span style="color:#111">:</span> <span style="color:#75af00">task</span><span style="color:#111">.</span><span style="color:#75af00">EncodedResult</span><span style="color:#111">,</span>
 <span style="color:#111">}).</span><span style="color:#75af00">Warn</span><span style="color:#111">(</span><span style="color:#75af00">err</span><span style="color:#111">)</span>
-<span style="color:#00a8c8">return</span> <span style="color:#75af00">err</span></code></pre></div>
-<p>Sometimes errors do not form Go errors, they&rsquo;re suppressed in-place. Use <code>Warn</code> for them.</p>
+<span style="color:#00a8c8">return</span> <span style="color:#75af00">err</span>
+</code></pre></div><p>Sometimes errors do not form Go errors, they&rsquo;re suppressed in-place. Use <code>Warn</code> for them.</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// There&#39;s no recovery, we just warn about potential problem.
 </span><span style="color:#75715e">// The result could be safely used.
 </span><span style="color:#75715e"></span><span style="color:#00a8c8">if</span> <span style="color:#111">len</span><span style="color:#111">(</span><span style="color:#75af00">scanServiceTask</span><span style="color:#111">.</span><span style="color:#75af00">Result</span><span style="color:#111">.</span><span style="color:#75af00">Errors</span><span style="color:#111">)</span> <span style="color:#111">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#111">{</span>
@@ -292,30 +286,24 @@ DEBUG request handled            <span style="color:#f92672">[</span><span style
             <span style="color:#d88200">&#34;scan_id&#34;</span><span style="color:#111">:</span>            <span style="color:#75af00">scanServiceTask</span><span style="color:#111">.</span><span style="color:#75af00">ScanID</span><span style="color:#111">,</span>
             <span style="color:#d88200">&#34;scanner_error&#34;</span><span style="color:#111">:</span> <span style="color:#75af00">scanServiceTask</span><span style="color:#111">.</span><span style="color:#75af00">Result</span><span style="color:#111">.</span><span style="color:#75af00">Errors</span><span style="color:#111">.</span><span style="color:#75af00">ToSingleError</span><span style="color:#111">().</span><span style="color:#75af00">Error</span><span style="color:#111">(),</span>
         <span style="color:#111">}).</span><span style="color:#75af00">Warn</span><span style="color:#111">(</span><span style="color:#d88200">&#34;scan result contains errors&#34;</span><span style="color:#111">)</span>
-<span style="color:#111">}</span></code></pre></div>
-<p>If the error cannot be returned (in <code>defer</code>), it should be logged on <code>Warn</code>.</p>
+<span style="color:#111">}</span>
+</code></pre></div><p>If the error cannot be returned (in <code>defer</code>), it should be logged on <code>Warn</code>.</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#00a8c8">defer</span> <span style="color:#00a8c8">func</span><span style="color:#111">()</span> <span style="color:#111">{</span>
     <span style="color:#00a8c8">if</span> <span style="color:#75af00">err</span> <span style="color:#f92672">:=</span> <span style="color:#75af00">publish</span><span style="color:#111">();</span> <span style="color:#75af00">err</span> <span style="color:#f92672">!=</span> <span style="color:#00a8c8">nil</span> <span style="color:#111">{</span>
         <span style="color:#75af00">logger</span><span style="color:#111">.</span><span style="color:#75af00">WithError</span><span style="color:#111">(</span><span style="color:#75af00">err</span><span style="color:#111">).</span><span style="color:#75af00">Warn</span><span style="color:#111">(</span><span style="color:#d88200">&#34;cannot publish&#34;</span><span style="color:#111">)</span>
     <span style="color:#111">}</span>
-<span style="color:#111">}()</span></code></pre></div>
-<h3 id="info-debug-or-not-logging-at-all">Info, Debug or not logging at all?</h3>
-
+<span style="color:#111">}()</span>
+</code></pre></div><h3 id="info-debug-or-not-logging-at-all">Info, Debug or not logging at all?</h3>
 <p>Do not log any information that can be obtained from the database or raw data stored somewhere.</p>
-
 <p>By default, log records should be written on <code>Debug</code>. Exceptions (need <code>Info</code>):</p>
-
 <ul>
 <li>See &ldquo;Minimum for a service&rdquo;</li>
 <li>Before calling a function that interacts over the network. It could potentially take a long time, it&rsquo;s useful to log it on <code>Info</code>.</li>
 <li>The result of a network interaction if it creates a new entity in another system. You can log the id of this entity.</li>
 <li>The result of processing of a large block of data. Log how many entities were in it, for example.</li>
 </ul>
-
 <h3 id="minimum-for-a-service">Minimum for a service</h3>
-
 <p>Unix has <a href="http://www.linfo.org/rule_of_silence.html">Rule of silence</a>, but it’s not about logs. A service should use <code>log.Info(&quot;ready to process tasks&quot;)</code> on startup. For a task a service must write at least something on the <code>Info</code> level. Otherwise, it is not clear whether this process is processing tasks or someone else.</p>
-
 <p>At a minimum, you need to log the basic parameters of incoming tasks (at least id or request id). It is also necessary to write that the task has been processed, preferably with a status.</p>
 
 
@@ -327,6 +315,10 @@ DEBUG request handled            <span style="color:#f92672">[</span><span style
 <script>
   feather.replace()
 </script>
+
+
+    
+
 
 
     

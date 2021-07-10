@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
   <meta name="author" content="Sergey Machulskis" />
-  <meta name="generator" content="Hugo 0.59.0-DEV" />
+  <meta name="generator" content="Hugo 0.86.0-DEV" />
+  
+  <meta name="description" content="Awesome book, joy to read. It’s dense, but written in a cheerful tone. The author knows a lot about web security. It’s not bound to a narrow set of technologies, frameworks, OSes or browsers. It touches a little bit of everything. But it doesn’t make it shallow. I wasn’t aware about 90% of information presented in this book. It has no cumbersome and useless terms security charlatans like. It’s very practical and full of advice.">
   <link rel="stylesheet" href="https://neexee.github.io/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://neexee.github.io/css/blockquote.css">
   <link rel="stylesheet" href="https://neexee.github.io/css/images.css">
@@ -81,6 +83,11 @@ video,
 audio {
   max-width: 100%;
 }
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
 </style>
 </head>
   <body class="d-flex flex-column h-100">
@@ -91,6 +98,7 @@ audio {
   
     
     
+      
       
       
       
@@ -107,6 +115,7 @@ audio {
       
       
       
+      
         
       
     
@@ -115,6 +124,7 @@ audio {
   
     
     
+      
       
       
       
@@ -131,6 +141,7 @@ audio {
       
       
       
+      
         
       
     
@@ -143,6 +154,7 @@ audio {
       
       
       
+      
         
       
     
@@ -151,6 +163,7 @@ audio {
   
   </nav>
 </div>
+
     <div class="container">
       <main id="main">
         
@@ -177,9 +190,7 @@ audio {
 
 
 <p>Awesome book, joy to read. It&rsquo;s dense, but written in a cheerful tone. The author knows a lot about web security. It&rsquo;s not bound to a narrow set of technologies, frameworks, OSes or browsers. It touches a little bit of everything. But it doesn&rsquo;t make it shallow. I wasn&rsquo;t aware about 90% of information presented in this book. It has no cumbersome and useless terms security charlatans like. It&rsquo;s very practical and full of advice.</p>
-
 <p>I felt slightly uncomfortable because it was written around 2011. Some facts are clearly outdated (Flash is dead in 2019), some &ldquo;things to come&rdquo; became a bedrock of the modern web (CORS). At the same time I was glad it mentions those outdated facts. It provides historical perspective so you can see why the Web works as it works. For example, it has an explanation why &ldquo;Download/Open&rdquo; buttons have such a weird and annoying delay.</p>
-
 
 
   
@@ -250,7 +261,6 @@ audio {
     </footer>
   
 </blockquote>
-
 
 
   
@@ -326,7 +336,6 @@ confused deputy problem or of some other catchy label outlined in a trade journa
 </blockquote>
 
 
-
   
   
 
@@ -382,7 +391,6 @@ confused deputy problem or of some other catchy label outlined in a trade journa
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><p><em>A system is secure if it behaves precisely in the manner intended and does nothing more.</em></p>
-
 <p>This definition is neat and vaguely outlines an abstract goal, but it tells
 very little about how to achieve it. It’s computer science, but in terms of specificity, it bears a striking resemblance to a poem by Victor Hugo:
 Love is a portion of the soul itself, and it is of the same nature as  the celestial breathing of the atmosphere of paradise.</p>
@@ -400,7 +408,6 @@ Love is a portion of the soul itself, and it is of the same nature as  the celes
     </footer>
   
 </blockquote>
-
 
 
   
@@ -462,7 +469,6 @@ made seemingly arbitrary assumptions about the minimal level of computer
 proficiency required of their users. Most of these assumptions have been with-out serious consequences; the incorrect use of a text editor, for instance, would
 typically have little or no impact on system security. Incompetent users simply
 would not be able to get their work done, a wonderfully self-correcting issue.</p>
-
 <p>Web browsers do not work this way, however. Unlike certain complicated
 software, they can be successfully used by people with virtually no computer
 training, people who may not even know how to use a text editor. But at the
@@ -484,7 +490,6 @@ not met by most users of some of today’s most successful web applications.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -543,13 +548,12 @@ not met by most users of some of today’s most successful web applications.</p>
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><p>In the traditional model followed by virtually all personal computers
 over the last 15 years or so, there are very clear boundaries between high-level data objects (documents), user-level code (applications),
- and the operating system kernel that arbitrates all cross-application communications and
+and the operating system kernel that arbitrates all cross-application communications and
 hardware input/output (I/O) and enforces configurable security rules should
 an application go rogue. These boundaries are well studied and useful for
 building practical security schemes. A file opened in your text editor is unlikely
 to be able to steal your email, unless a really unfortunate conjunction of
 implementation flaws subverts all these layers of separation at once.</p>
-
 <p>In the browser world, this separation is virtually nonexistent: Documents
 and code live as parts of the same intermingled blobs of HTML, isolation
 between completely unrelated applications is partial at best (with all sites
@@ -569,7 +573,6 @@ implicitly permitted with few, if any, flexible, browser-level security arbitrat
     </footer>
   
 </blockquote>
-
 
 
   
@@ -629,7 +632,6 @@ implicitly permitted with few, if any, flexible, browser-level security arbitrat
   <div class="text-secondary"><p>The overall susceptibility of an ecosystem composed of several different software products could be expected to be equal to a simple sum of the flaws
 contributed by each of the applications. In some cases, the resulting exposure may be less (diversity improves resilience), but one would not expect it
 to be more.</p>
-
 <p>The Web is once again an exception to the rule. The security community
 has discovered a substantial number of issues that cannot be attributed to any
 particular piece of code but that emerge as a real threat when various browsers try to interact with each other.</p>
@@ -647,7 +649,6 @@ particular piece of code but that emerge as a real threat when various browsers 
     </footer>
   
 </blockquote>
-
 
 
   
@@ -707,13 +708,11 @@ particular piece of code but that emerge as a real threat when various browsers 
   <div class="text-secondary"><p>Several dozen additional mechanisms, with no relation to
 the same-origin model, control other key aspects of browser behavior (essentially implementing what each author considered to be the best approach to
 security controls that day).</p>
-
 <p>As it turns out, hundreds of small, clever hacks do not necessarily add up
 to a competent security opus. The unusual lack of integrity makes it very difficult even to decide where a single application ends and a different one
 begins. Given this reality, how does one assess attack surfaces, grant or take
 away permissions, or accomplish just about any other security-minded task?
 Too often, “by keeping your fingers crossed” is the best response we can give.</p>
-
 <p>Curiously, many well-intentioned attempts to improve security by
 defining new security controls only make the problem worse. Many of these
 schemes create new security boundaries that, for the sake of elegance, do not
@@ -736,7 +735,6 @@ Web depends on right now.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -793,18 +791,18 @@ Web depends on right now.</p>
 
 
 <blockquote class="wp-block-quote">
-  <div class="text-secondary">Although the RFC permits only canonical notations for IP addresses, standard C libraries used by most applications are much more relaxed, accepting
+  <div class="text-secondary"><p>Although the RFC permits only canonical notations for IP addresses, standard C libraries used by most applications are much more relaxed, accepting
 noncanonical IPv4 addresses that mix octal, decimal, and hexadecimal notation or concatenate some or all of the octets into a single integer. As a result,
 the following options are recognized as equivalent:</p>
-
 <ul>
-<li><a href="http://127.0.0.1/">http://127.0.0.1/</a> This is a canonical representation of an IPv4 address.</li>
-<li><a href="http://0x7f.1/">http://0x7f.1/</a> This is a representation of the same address that uses a
+<li>http://127.0.0.1/ This is a canonical representation of an IPv4 address.</li>
+<li>http://0x7f.1/ This is a representation of the same address that uses a
 hexadecimal number to represent the first octet and concatenates all the
 remaining octets into a single decimal value.</li>
-<li><a href="http://017700000001/">http://017700000001/</a> The same address is denoted using a 0-prefixed
+<li>http://017700000001/ The same address is denoted using a 0-prefixed
 octal value, with all octets concatenated into a single 32-bit integer.</li>
-</ul></div>
+</ul>
+</div>
   
     <footer class=blockquote-footer>
       <strong>Michal Zalewski</strong>
@@ -818,7 +816,6 @@ octal value, with all octets concatenated into a single 32-bit integer.</li>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -895,7 +892,6 @@ than the expected 7-bit ASCII value.</div>
 </blockquote>
 
 
-
   
   
 
@@ -953,7 +949,6 @@ than the expected 7-bit ASCII value.</div>
   <div class="text-secondary"><p>Most web developers are accustomed to a particular layout of the query
 string; this familiar format is generated by browsers when handling HTML-based forms and follows this syntax:
 <code>name1=value1&amp;name2=value2...</code></p>
-
 <p>Surprisingly, such layout is not mandated in the URL RFCs. Instead, the
 query string is treated as an opaque blob of data that may be interpreted by
 the final recipient as it sees fit, and unlike the path, it is not encumbered
@@ -972,7 +967,6 @@ with specific parsing rules.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -1050,7 +1044,6 @@ retrieved document or to provide other document-specific rendering cues.</div>
 </blockquote>
 
 
-
   
   
 
@@ -1113,7 +1106,6 @@ scrolled to that location for viewing; otherwise, nothing happens. Because
 the information is encoded in the URL, this particular view of a lengthy document could be easily shared with others or bookmarked. In this use, the
 meaning of a fragment ID is limited to scrolling an existing document, so
 there is no need to retrieve any new data from the server when only this portion of the URL is updated in response to user actions.</p>
-
 <p>This interesting property has led to another, more recent and completely
 ad hoc use of this value: to store miscellaneous state information needed by
 client-side scripts. For example, consider a map-browsing application that
@@ -1135,7 +1127,6 @@ trick a killer feature.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -1193,21 +1184,16 @@ trick a killer feature.</p>
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><p>How to parse an URL (yeah, it&rsquo;s not easy to do correctly):</p>
-
 <ul>
 <li>Extract the scheme name.</li>
 <li>Consume the hierarchical URL identifier.</li>
-<li>Grab the authority section.
-
-<ul>
+<li>Grab the authority section.</li>
 <li>Find the credentials, if any.</li>
 <li>Extract the destination address.</li>
-</ul></li>
 <li>Identify the path (if present).</li>
 <li>Extract the query string (if present).</li>
 <li>Extract the fragment identifier (if present).</li>
 </ul>
-
 <p>Here I cut explanations how to do each step properly. Every step has pitfalls.</p>
 </div>
   
@@ -1223,7 +1209,6 @@ trick a killer feature.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -1281,21 +1266,17 @@ trick a killer feature.</p>
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><p><strong>Internationalized Domain Names in Applications (IDNA) and Punycode</strong></p>
-
 <p>When IDNA was proposed and first implemented in browsers, nobody
 seriously considered the consequences of this issue. Browser vendors apparently assumed that DNS registrars would prevent people from registering
 look-alike names, and registrars figured it was the browser vendors’ problem
 to have unambiguous visuals in the address bar.</p>
-
 <p>In 2002 the significance of the problem was finally recognized by all
 parties involved. That year, Evgeniy Gabrilovich and Alex Gontmakher published “The Homograph Attack,”11 a paper exploring the vulnerability in
 great detail. They noted that any registrar-level work-arounds, even if implemented, would have a fatal flaw.
 An attacker could always purchase a whole-some top-level domain and then, on his own name server, set up a subdomain
 record that, with the IDNA transformation applied, would decode to a string
 visually identical to example.com/ (the last character being merely a nonfunctional look-alike of the actual ASCII slash). The result would be:</p>
-
 <p><a href="http://example.com/.wholesome-domain.com/">http://example.com/.wholesome-domain.com/</a> - slash after .com only looks like a real slash.</p>
-
 <p>There is nothing that a registrar can do to prevent this attack, and the
 ball is in the browser vendors’ court. But what options do they have, exactly?
 As it turns out, there aren’t many. We now realize that the poorly envisioned IDNA standard cannot be fixed in a simple and painless way. Browser
@@ -1307,7 +1288,6 @@ top-level domains (ruling out the use of international-ized domain names in .com
 certain “bad” characters that resemble slashes, periods, white spaces, and
 so forth (a fool’s errand, given the number of typefaces used around the
 world).</p>
-
 <p>These measures are drastic enough to severely hinder the adoption of
 internationalized domain names, probably to a point where the standard’s
 lingering presence causes more security problems than it brings real usability
@@ -1326,7 +1306,6 @@ benefits to non-English users.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -1384,10 +1363,8 @@ benefits to non-English users.</p>
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary">Combining all these incompatible encoding strategies can make for an amusing mix.
-Consider this example URL of a made-up Polish-language towel shop:
-<figure>
-    <img src="url.png"/>
-</figure></div>
+Consider this example URL of a made-up Polish-language towel shop:</p>
+<!-- raw HTML omitted --></div>
   
     <footer class=blockquote-footer>
       <strong>Michal Zalewski</strong>
@@ -1401,7 +1378,6 @@ Consider this example URL of a made-up Polish-language towel shop:
     </footer>
   
 </blockquote>
-
 
 
   
@@ -1459,9 +1435,7 @@ Consider this example URL of a made-up Polish-language towel shop:
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><h3 id="url-security-cheat-sheet">URL Security Cheat Sheet</h3>
-
 <p><strong>When Constructing Brand-New URLs Based on User Input</strong></p>
-
 <ul>
 <li>If you allow user-supplied data in path, query, or fragment ID: If one of the section
 delimiters manages to get through without proper escaping, the URL may have a different effect from what you intended (for example, linking one of the user-visible HTML
@@ -1470,9 +1444,7 @@ inserting an attacker-controlled field value, you can simply percent-escape ever
 but alphanumerics.</li>
 <li>If you allow user-supplied scheme name or authority section: This is a major code injection and phishing risk! Apply the relevant input-validation rules outlined below.</li>
 </ul>
-
 <p><strong>When Designing URL Input Filters</strong></p>
-
 <ul>
 <li>Relative URLs: Disallow or explicitly rewrite them to absolute references to avoid trouble.
 Anything else is very likely unsafe.</li>
@@ -1483,9 +1455,7 @@ be followed by “/”, “?”, “#”, or end-of-string. Allowing anything el
 need to examine the hostname, make sure to make a proper right-hand substring match.
 In rare cases, you might need to account for IDNA, IPv6 bracket notation, port numbers, or HTTP credentials in the URL. If so, you must fully parse the URL, validate all sections and reject anomalous values, and reserialize them into a nonambiguous, canonical, well-escaped representation.</li>
 </ul>
-
 <p><strong>When Decoding Parameters Received Through URLs</strong></p>
-
 <ul>
 <li>Do not assume that any particular character will be escaped just because the standard says
 so or because your browser does it. Before echoing back any URL-derived values or putting them inside database queries, new URLs, and so on, scrub them carefully for dangerous characters.</li>
@@ -1504,7 +1474,6 @@ so or because your browser does it. Before echoing back any URL-derived values o
     </footer>
   
 </blockquote>
-
 
 
   
@@ -1562,7 +1531,6 @@ so or because your browser does it. Before echoing back any URL-derived values o
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><p><strong>Encapsulating Pseudo-Protocols</strong></p>
-
 <p>The common property of many encapsulating protocols is that they allow
 the attacker to hide the actual URL that will be ultimately interpreted by the
 browser from naïve filters: view-source:javascript: (or even view-source:view-source:javascript:) followed by malicious code is a simple way to accomplish
@@ -1585,7 +1553,6 @@ to widespread misery.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -1643,7 +1610,6 @@ to widespread misery.</p>
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><p><strong>Closing Note on Scheme Detection</strong></p>
-
 <p>The sheer number of pseudo-protocols is the primary reason why web applications need to carefully screen user-supplied URLs.
 The wonky and browser-specific URL-parsing patterns, coupled with the open-ended nature of the
 list of supported schemes, means that it is unsafe to simply blacklist known
@@ -1664,7 +1630,6 @@ with another encapsulating scheme.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -1722,17 +1687,17 @@ with another encapsulating scheme.</p>
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><p>Not only LF but also CR characters must be stripped from any attacker-controlled values that appear anywhere in HTTP headers.
- To illustrate the problem, consider the following server response, where a user-supplied and insufficiently sanitized value appears in one of the headers:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">HTTP/1.1 200 OK[CR][LF]
+To illustrate the problem, consider the following server response, where a user-supplied and insufficiently sanitized value appears in one of the headers:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">HTTP/1.1 200 OK[CR][LF]
 Set-Cookie: last_search_term=[CR][CR]&lt;html&gt;&lt;body&gt;&lt;h1&gt;Hi![CR][LF]
 [CR][LF]
-Action completed.</pre></div>
-<p>To Internet Explorer, this response may appear as:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">HTTP/1.1 200 OK
+Action completed.
+</code></pre></div><p>To Internet Explorer, this response may appear as:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">HTTP/1.1 200 OK
 Set-Cookie: last_search_term=
 &lt;html&gt;&lt;body&gt;&lt;h1&gt;Hi!
-Action completed.</pre></div>
-<p>In fact, the class of vulnerabilities related to HTTP header newline
+Action completed.
+</code></pre></div><p>In fact, the class of vulnerabilities related to HTTP header newline
 smuggling—be it due to this inconsistency or just due to a failure to filter any
 type of a newline—is common enough to have its own name: header injection
 or response splitting.</p>
@@ -1750,7 +1715,6 @@ or response splitting.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -1830,7 +1794,6 @@ a sufficiently fault-tolerant way (for uses such as deciding cache content expir
 </blockquote>
 
 
-
   
   
 
@@ -1902,7 +1865,6 @@ Content-Disposition—can be found on a page maintained by Julian Reschke:
     </footer>
   
 </blockquote>
-
 
 
   
@@ -1982,7 +1944,6 @@ first <code>charset=</code> value, while Firefox and Chrome will rely on the las
 </blockquote>
 
 
-
   
   
 
@@ -2059,7 +2020,6 @@ after visiting Starbucks may be a very good idea.</div>
 </blockquote>
 
 
-
   
   
 
@@ -2118,10 +2078,11 @@ after visiting Starbucks may be a very good idea.</div>
 and HTTP/1.1 caching directives, because certain types of legacy commercial proxies do not understand Cache-Control correctly. In order to reliably
 prevent caching over HTTP, it may be necessary to use the following set of
 response headers:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Expires: [current date]
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Expires: [current date]
 Date: [current date]
 Pragma: no-cache
-Cache-Control: no-cache, no-store.</pre></div></div>
+Cache-Control: no-cache, no-store.
+</code></pre></div></div>
   
     <footer class=blockquote-footer>
       <strong>Michal Zalewski</strong>
@@ -2135,7 +2096,6 @@ Cache-Control: no-cache, no-store.</pre></div></div>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -2214,7 +2174,6 @@ attacker’s image-hosting server. Oops.</div>
 </blockquote>
 
 
-
   
   
 
@@ -2278,11 +2237,12 @@ browsers support both methods and do not distinguish between them in any
 clear way. As a result, attackers can simply replace the word digest with basic in
 the initial request to obtain a clean, plaintext password as soon as the user
 completes the authentication dialog. Surprisingly, section 4.8 of the RFC predicted this risk and offered some helpful yet ultimately ignored advice:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">User agents should consider measures such as presenting a visual indication
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">User agents should consider measures such as presenting a visual indication
 at the time of the credentials request of what authentication scheme is to be used,
 or remembering the strongest authentication scheme ever requested by a server
 and produce a warning  message before using a weaker one. It might also be a good idea 
-for the user agent to be configured to demand Digest authentication in general, or from specific sites.</pre></div></div>
+for the user agent to be configured to demand Digest authentication in general, or from specific sites.
+</code></pre></div></div>
   
     <footer class=blockquote-footer>
       <strong>Michal Zalewski</strong>
@@ -2296,7 +2256,6 @@ for the user agent to be configured to demand Digest authentication in general, 
     </footer>
   
 </blockquote>
-
 
 
   
@@ -2354,16 +2313,13 @@ for the user agent to be configured to demand Digest authentication in general, 
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><p><strong>Set-Cookie: Domain=</strong></p>
-
 <p>This parameter allows the cookie to be scoped to a domain
 broader than the hostname that returned the Set-Cookie header. The
 exact rules and security consequences of this scoping mechanism are
 explored in Chapter 9.</p>
-
 <p>Contrary to what is implied in RFC 2109, it is not possible to scope
 cookies to a specific hostname when using this parameter. For example,
-<code>domain=example.com</code> will always match www.example.com as well.</p>
-
+<code>domain=example.com</code> will always match <a href="http://www.example.com">www.example.com</a> as well.</p>
 <p>Omitting domain is the only way to create host-scoped cookies, but even
 this approach is not working as expected in Internet Explorer.</p>
 </div>
@@ -2380,7 +2336,6 @@ this approach is not working as expected in Internet Explorer.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -2438,20 +2393,18 @@ this approach is not working as expected in Internet Explorer.</p>
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><p>The low-level syntax of the language aside, HTML is also the subject of a fascinating
- conceptual struggle: a clash between the ideology and the reality of
+conceptual struggle: a clash between the ideology and the reality of
 the online world. Tim Berners-Lee always championed the vision of a semantic
 web, an interconnected system of documents in which every functional block,
 such as a citation, a snippet of code, a mailing address, or a heading, has its
 meaning explained by an appropriate machine-readable tag (say, <code>&lt;cite&gt;</code>, <code>&lt;code&gt;</code>,
 <code>&lt;address&gt;</code>, or <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>).</p>
-
 <p>This approach, he and other proponents argued, would make it easier
 for machines to crawl, analyze, and index the content in a meaningful way,
 and in the near future, it would enable computers to reason using the sum
 of human knowledge. According to this philosophy, the markup language
 should provide a way to stylize the appearance of a document, but only as
 an afterthought.</p>
-
 <p>Sir Berners-Lee has never given up on this dream, but in this one regard,
 the actual usage of HTML proved to be very different from what he wished for.
 Web developers were quick to pragmatically distill the essence of HTML 3.2
@@ -2477,7 +2430,6 @@ in a manner completely opaque to any automated content extraction tools.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -2535,9 +2487,7 @@ in a manner completely opaque to any automated content extraction tools.</p>
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><h3 id="http-security-cheat-sheet">HTTP Security Cheat Sheet</h3>
-
 <p><strong>When Handling User-Controlled Filenames in Content-Disposition Headers</strong></p>
-
 <ul>
 <li>If you do not need non-Latin characters: Strip or substitute any characters except for alpha-numerics, “.”, “-”, and “_”. To protect your users against potentially harmful or deceptive
 filenames, you may also want to confirm that at least the first character is alphanumeric
@@ -2548,35 +2498,27 @@ Keep in mind that allowing quotes, semicolons, backslashes, and control characte
 encoding in a browser-dependent manner. Make sure to filter out control characters
 (0x00–0x1F) and escape any semicolons, backslashes, and quotes.</li>
 </ul>
-
 <p><strong>When Putting User Data in HTTP Cookies</strong></p>
-
 <ul>
 <li>Percent-encode everything except for alphanumerics. Better yet, use base64. Stray quote
 characters, control characters (0x00–0x1F), high-bit characters (0x80–0xFF), commas,
 semicolons, and backslashes may allow new cookie values to be injected or the meaning
 and scope of existing cookies to be altered.</li>
 </ul>
-
 <p><strong>When Sending User-Controlled Location Headers</strong></p>
-
 <ul>
 <li>See above. Parse and normalize the URL, and confirm that the
 scheme is on a whitelist of permissible values and that you are comfortable redirecting
 to the specified host.
 Make sure that any control and high-bit characters are escaped properly. Use Puny-code for hostnames and percent-encoding for the remainder of the URL.</li>
 </ul>
-
 <p><strong>When Sending User-Controlled Redirect Headers</strong></p>
-
 <ul>
 <li>Follow the advice provided for Location. Note that semicolons are unsafe in this header
 and cannot be escaped reliably, but they also happen to have a special meaning in some
 URLs. Your choice is to reject such URLs altogether or to percent-encode the “;” character, thereby violating the RFC-mandated syntax rules.</li>
 </ul>
-
 <p><strong>When Constructing Other Types of User-Controlled Requests or Responses</strong></p>
-
 <ul>
 <li>Examine the syntax and potential side effects of the header in question. In general, be
 mindful of control and high-bit characters, commas, quotes, backslashes, and semicolons;
@@ -2601,7 +2543,6 @@ advice about fault tolerance and bail out if you encounter any syntax ambiguitie
     </footer>
   
 </blockquote>
-
 
 
   
@@ -2665,11 +2606,9 @@ Mario Heiderich, Eduardo Alberto Vela Nava, Gareth Heyes, and David
 Lindsay—and then weep about the fate of humanity. The bottom line is
 that building HTML filters that try to block known dangerous patterns,
 and allow the remaining markup as is, is simply not feasible.</p>
-
 <p>The only reasonable approach to tag sanitization is to employ a realistic
 parser to translate the input document into a hierarchical in-memory document tree, and then scrub this representation for all unrecognized tags and
 parameters, as well as any undesirable tag/parameter/value configurations.</p>
-
 <p>At that point, the tree can be carefully reserialized into a well-formed, well-escaped HTML that will not flex any of the error correction muscles in the
 browser itself. Many developers think that a simpler design should be possible, but eventually they discover the reality the hard way.</p>
 </div>
@@ -2686,7 +2625,6 @@ browser itself. Many developers think that a simpler design should be possible, 
     </footer>
   
 </blockquote>
-
 
 
   
@@ -2744,20 +2682,15 @@ browser itself. Many developers think that a simpler design should be possible, 
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><h3 id="html-security-cheat-sheet">HTML Security Cheat Sheet</h3>
-
 <p><strong>Good Engineering Hygiene for All HTML Documents</strong></p>
-
 <ul>
 <li>Always output consistent, valid, and browser-supported Content-Type and charset information to prevent the document from being interpreted contrary to your original intent.</li>
 </ul>
-
 <p><strong>When Generating HTML Documents with Attacker-Controlled Bits</strong></p>
-
 <p>This task is difficult to perform consistently across the entire web application, and it is one of
 the most significant sources of web application security flaws. Consider using context-sensitive
 auto-escaping frameworks, such as JSilver or CTemplate, to automate it. If that is not possible,
 read on.</p>
-
 <ul>
 <li>User-supplied content in text body: Always entity-encode “&lt;”, “&gt;”, and “&amp;”. Note that certain other patterns may be dangerous in certain non-ASCII-compatible output encodings.
 If applicable, consult Chapter 13.
@@ -2772,28 +2705,24 @@ Never attempt to blacklist known bad values in URLs or any other parameters; doi
 so will backfire and may lead to script execution flaws.</li>
 <li>Special parsing modes (e.g., <code>&lt;script&gt;</code> and <code>&lt;style&gt;</code> blocks): For values appearing inside
 quoted strings, replace quote characters, backslash, “&lt;”, “&gt;”, and all nonprintable characters with language-appropriate escape codes.
-For values appearing outside strings, exercise extreme caution and allow only carefully validated, known, alphanumeric values. <br>
+For values appearing outside strings, exercise extreme caution and allow only carefully validated, known, alphanumeric values. <!-- raw HTML omitted -->
 In XHTML mode, remember to wrap the entire script section in a CDATA block.
 Avoid cases that require multiple levels of encoding, such as building parameters to the
 JavaScript <code>eval(...)</code> function using attacker-supplied strings. Never place user-controlled
 data inside HTML comments, !-type or ?-type tags, and other nonessential or unusually
 parsed blocks.</li>
 </ul>
-
 <p><strong>When Converting HTML to Plaintext</strong></p>
-
 <ul>
 <li>A common mistake is to strip only well-formed tags. Remember that all left-angle brackets
 must be removed, even if no matching right-angle bracket is found. To minimize the risk
 of errors, always entity-escape angle brackets and ampersands in the generated output, too.</li>
 </ul>
-
 <p><strong>When Writing a Markup Filter for User Content</strong></p>
-
 <ul>
 <li>Use a reasonably robust HTML parser to build an in-memory
 document tree. Walk the tree, removing any unrecognized or unnecessary tags and
-parameters and scrubbing any undesirable tags/parameters/value combinations. <br>
+parameters and scrubbing any undesirable tags/parameters/value combinations. <!-- raw HTML omitted -->
 When done, reserialize the document, making sure to apply proper escaping rules to
 parameter values and text content. (See the first tip on this cheat sheet.) Be aware of the
 impact of special parsing modes.</li>
@@ -2817,7 +2746,6 @@ leads to security problems.</li>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -2875,9 +2803,7 @@ leads to security problems.</li>
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><h3 id="css-security-cheat-sheet">CSS Security Cheat Sheet</h3>
-
 <p><strong>When Loading Remote Stylesheets</strong></p>
-
 <ul>
 <li>You are linking the security of your site to the originating domain of the stylesheet. Even
 in browsers that do not support JavaScript expressions inside stylesheets, features such as
@@ -2885,9 +2811,7 @@ conditional selectors and url(&hellip;) references can be used to exfiltrate por
 <li>When in doubt, make a local copy of the data instead.</li>
 <li>On HTTPS sites, require stylesheets to be served over HTTPS as well.</li>
 </ul>
-
 <p><strong>When Putting Attacker-Controlled Values into CSS</strong></p>
-
 <ul>
 <li>Strings and URLs inside stand-alone blocks. Always use quotes. Backslash-escape all con-
 trol characters (0x00–0x1F), “\”, “&lt;”, “&gt;”, “{“, “}”, and quotes using numerical codes. It is
@@ -2899,9 +2823,7 @@ CSS escaping rules first and then apply HTML parameter encoding to the resulting
 <li>Nonstring attributes. Allow only whitelisted alphanumeric keywords and carefully validated
 numerical values. Do not attempt to reject known bad patterns instead.</li>
 </ul>
-
 <p><strong>When Filtering User-Supplied CSS</strong></p>
-
 <ul>
 <li>Remove all content outside of functional rulesets. Do not preserve or generate user-
 controlled comment blocks, @-directives, and so on.</li>
@@ -2919,9 +2841,7 @@ content outside the intended drawing area or redefine the appearance of any part
 UI of your application. The safest way to avoid this problem is to display the untrusted
 content inside a separate frame.</li>
 </ul>
-
 <p><strong>When Allowing User-Specified Class Values on HTML Markup</strong></p>
-
 <ul>
 <li>Ensure that user-supplied content can’t reuse class names that are used for any part of the
 application UI. If a separate frame is not being used, it’s advisable to maintain separate
@@ -2941,7 +2861,6 @@ namespace prefixes.</li>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -3017,7 +2936,6 @@ Electronic Frontier Foundation: <a href="https://panopticlick.eff.org">https://p
 </blockquote>
 
 
-
   
   
 
@@ -3073,21 +2991,15 @@ Electronic Frontier Foundation: <a href="https://panopticlick.eff.org">https://p
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><h3 id="browser-side-script-security-cheat-sheet">Browser-side Script Security Cheat Sheet</h3>
-
 <p><strong>When Loading Remote Scripts</strong></p>
-
 <p>As with CSS, you are linking the security of your site to the originating domain of the script.
 When in doubt, make a local copy of the data instead. On HTTPS sites, require all scripts to
 be served over HTTPS.</p>
-
 <p><strong>When Parsing JSON Received from the Server</strong></p>
-
 <p>Rely on <code>JSON.parse(...)</code> where supported. Do not use <code>eval(...)</code> or the eval-based implementation
 provided in RFC 4627. Both are unsafe, especially when processing data from third parties. A
 later implementation from the author of RFC 4627, json2.js, is probably okay.</p>
-
 <p><strong>When Putting User-Supplied Data Inside JavaScript Blocks</strong></p>
-
 <ul>
 <li>Stand-alone strings in <code>&lt;script&gt;</code> blocks: Backslash-escape all control characters (0x00–0x1F),
 “\”, “&lt;”, “&gt;”, and quotes using numerical codes. It is also preferable to escape high-bit
@@ -3097,7 +3009,7 @@ DOM features such as <code>innerText</code> or <code>createTextNode(...)</code> 
 strings to construct second-order scripts; avoid <code>eval(...)</code>, <code>setTimeout(...)</code>, and so on.
 Stand-alone strings in separately served scripts: Follow the same rules as for <code>&lt;script&gt;</code>
 blocks. If your scripts contain any sensitive, user-specific information, be sure to account
-for cross-site script inclusion risks; use reliable parser-busting prefixes, such as “)}]&rsquo;\n”,
+for cross-site script inclusion risks; use reliable parser-busting prefixes, such as “)}]'\n”,
 near the beginning of a file or, at the very minimum, use a proper JSON serialization with
 no padding or other tweaks. Additionally, consult Chapter 13 for tips on how to prevent
 cross-site scripting in non-HTML content.</li>
@@ -3109,9 +3021,7 @@ and such.</li>
 <li>Nonstring content: Allow only whitelisted alphanumeric keywords and carefully validated
 numerical values. Do not attempt to reject known bad patterns instead.</li>
 </ul>
-
 <p><strong>When Interacting with Browser Objects on the Client Side</strong></p>
-
 <ul>
 <li>Generating HTML content on the client side: Do not resort to <code>innerHTML</code>, <code>document.write(...)</code>,
 and similar tools because they are prone to introducing cross-site scripting flaws, often in
@@ -3121,11 +3031,9 @@ properties such as <code>innerText</code> or <code>textContent</code> to constru
 to any values read back from the browser and, in particular, to location properties and
 other external sources of URLs, which are inconsistent and vary from one implementation to another. Always do your own escaping.</li>
 </ul>
-
 <p><strong>If You Want to Allow User-Controlled Scripts on Your Pages</strong></p>
-
 <p>It is virtually impossible to do this safely. Experimental JavaScript rewriting frameworks,
-such as Caja (<a href="http://code.google.com/p/google-caja/">http://code.google.com/p/google-caja/</a>), are the only portable option. Also see
+such as Caja (<a href="http://code.google.com/p/google-caja/),">http://code.google.com/p/google-caja/),</a> are the only portable option. Also see
 Chapter 16 for information on sandboxed frames, an upcoming alternative for embedding
 untrusted gadgets on web pages.</p>
 </div>
@@ -3142,7 +3050,6 @@ untrusted gadgets on web pages.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -3218,7 +3125,6 @@ leaving <code>alert(...)</code> in the dust.</div>
 </blockquote>
 
 
-
   
   
 
@@ -3277,13 +3183,13 @@ leaving <code>alert(...)</code> in the dust.</div>
 defined only once and is attached to the top-level tag. In principle, however,
 any number of different xmlns directives may appear in a single file, giving
 different meanings to each section of the document. For example:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;html xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&lt;html xmlns=&#34;http://www.w3.org/1999/xhtml&#34;&gt;
   &lt;u&gt;Hello world!&lt;/u&gt;
   &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
     &lt;line x1=&#34;0&#34; y1=&#34;0&#34; x2=&#34;100&#34; y2=&#34;100&#34; style=&#34;stroke: red&#34; /&gt;
   &lt;/svg&gt;
-&lt;/html&gt;</pre></div>
-<p>Faced with such input, the general-purpose renderer will usually do
+&lt;/html&gt;
+</code></pre></div><p>Faced with such input, the general-purpose renderer will usually do
 its best to make sense of all the recognized namespaces and assemble the
 markup into a single, consistent document with a normal Document Object
 Model representation. And, if any one of the recognized namespaces happens to support scripting, any embedded scripts will execute, too.
@@ -3305,7 +3211,6 @@ a guarantee that no other data formats will be honored later on. Any attacker-co
     </footer>
   
 </blockquote>
-
 
 
   
@@ -3363,16 +3268,12 @@ a guarantee that no other data formats will be honored later on. Any attacker-co
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><h3 id="non-html-document-type-security-cheat-sheet">Non-HTML Document Type Security Cheat Sheet</h3>
-
 <p><strong>When Hosting XML-Based Document Formats</strong></p>
-
 <p>Assume that the payload may be interpreted as XHTML or some other script-enabled document type, regardless of the Content-Type and the top-level xmlns directive. Do not allow unconstrained attacker-controlled markup anywhere inside the file. Use the <code>Content-Disposition: attachment</code>
 if data is not meant to be viewed directly; <code>&lt;img&gt;</code> and feeds will still work.</p>
-
 <p><strong>On All Non-HTML Document Types</strong></p>
-
 <p>Use correct, browser-recognized <code>Content-Type</code> and <code>charset</code> values. Specify the <code>Content-Disposition: attachment</code>
- where possible. Verify and constrain output syntax. Consult the cheat sheet in
+where possible. Verify and constrain output syntax. Consult the cheat sheet in
 Chapter 13 to avoid security problems related to content-sniffing flaws.</p>
 </div>
   
@@ -3388,7 +3289,6 @@ Chapter 13 to avoid security problems related to content-sniffing flaws.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -3446,7 +3346,6 @@ Chapter 13 to avoid security problems related to content-sniffing flaws.</p>
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><p><strong>Same Origin Policy</strong></p>
-
 <p>This and most other browser security mechanisms are based on DNS labels, not on examining the underlying IP addresses. This has a curious consequence: If the IP of a particular host
 changes, the attacker may be able to talk to the new destination through the user’s browser, possibly engaging in abusive behaviors while hiding the true origin
 of the attack (unfortunate, not very interesting) or interacting with the victim&rsquo;s internal network, which normally would not be
@@ -3468,7 +3367,6 @@ these defenses are imperfect.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -3542,7 +3440,6 @@ suicide.</div>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -3620,7 +3517,6 @@ assume that data: windows can’t be accessed across domains.</div>
 </blockquote>
 
 
-
   
   
 
@@ -3676,16 +3572,12 @@ assume that data: windows can’t be accessed across domains.</div>
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><h3 id="content-isolation-logic-security-cheat-sheet">Content Isolation Logic Security Cheat Sheet</h3>
-
 <p><strong>Good Security Policy Hygiene for All Websites</strong></p>
-
 <p>To protect your users, include a top-level crossdomain.xml file with the <code>permitted-cross-domain-policies</code> parameter set to <code>master-only</code> or <code>by-content-type</code>,
 even if you do not use Flash anywhere on your site. Doing so will prevent unrelated attacker-controlled content from being mis-
 interpreted as a secondary crossdomain.xml file, effectively undermining the assurances of
 the same-origin policy in Flash-enabled browsers.</p>
-
 <p><strong>When Relying on HTTP Cookies for Authentication</strong></p>
-
 <ul>
 <li>Use the httponly flag; design the application so that there is no need for JavaScript to
 access authentication cookies directly. Sensitive cookies should be scoped as tightly as
@@ -3696,9 +3588,7 @@ secure cookies, even though they can’t read them.) Cryptographic cookie signin
 help protect against unconstrained modification, but it does not defend against replacing
 a victim’s cookies with another set of legitimately obtained credentials.</li>
 </ul>
-
 <p><strong>When Arranging Cross-Domain Communications in JavaScript</strong></p>
-
 <ul>
 <li>Do not use <code>document.domain</code>. Rely on <code>postMessage(...)</code> where possible and be sure to
 specify the destination origin correctly; then verify the sender’s origin when receiving
@@ -3721,7 +3611,6 @@ not tamper-proof and should not be used for exchanging sensitive data.</li>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -3796,7 +3685,6 @@ framing within a single origin (X-Frame-Options: same-origin.</div>
 </blockquote>
 
 
-
   
   
 
@@ -3851,17 +3739,13 @@ framing within a single origin (X-Frame-Options: same-origin.</div>
 
 
 <blockquote class="wp-block-quote">
-  <div class="text-secondary"><figure>
-    <img src="ui-splicing-attack.png"/> 
-</figure>
-
+  <div class="text-secondary"><!-- raw HTML omitted -->
 <p>A simplified example of a UI-splicing attack that
 uses CSS opacity to hide the document the user will actually
 interact with.</p>
-
 <p>Researchers have recognized the possibility of such trickery to some
 extent since the early 2000s, but a sufficiently convincing attack wasn’t dem-onstrated until 2008, when Robert Hansen and Jeremiah Grossman publi-cized the issue broadly.4
- Thus, the term clickjacking was born.</p>
+Thus, the term clickjacking was born.</p>
 </div>
   
     <footer class=blockquote-footer>
@@ -3876,7 +3760,6 @@ extent since the early 2000s, but a sufficiently convincing attack wasn’t dem-
     </footer>
   
 </blockquote>
-
 
 
   
@@ -3939,11 +3822,7 @@ the :visited-based styling applied to superimposed links; by
 typing that number back onto the page, the user would unwittingly tell the
 author of the site what exact styling had been applied and, therefore, what
 sites appeared in the victim’s browsing history.</p>
-
-<figure>
-    <img src="captcha.png"/> 
-</figure>
-
+<!-- raw HTML omitted -->
 <p>A fake seven-segment display can be used to read
 back link styling when the displayed number is entered into the
 browser in an attempt to solve a CAPTCHA. The user will see
@@ -3962,7 +3841,6 @@ browser in an attempt to solve a CAPTCHA. The user will see
     </footer>
   
 </blockquote>
-
 
 
   
@@ -4019,10 +3897,9 @@ browser in an attempt to solve a CAPTCHA. The user will see
 
 
 <blockquote class="wp-block-quote">
-  <div class="text-secondary">Another unfortunate and noteworthy consequence of the gaps in the same-origin policy is the ability to collect information about a user’s interaction
+  <div class="text-secondary"><p>Another unfortunate and noteworthy consequence of the gaps in the same-origin policy is the ability to collect information about a user’s interaction
 with unrelated sites. Some of the most rudimentary examples, most of them
 known for well over a decade, include the following:</p>
-
 <ul>
 <li>Using onload handlers to measure the time it takes to load certain documents, an indication of whether they have been previously visited and
 cached by the browser or not.</li>
@@ -4032,7 +3909,8 @@ the user is logged into that site or not. (Bonus: Sometimes, the error message d
 properties such as the number and names of subframes created on that
 page (available through the <code>&lt;handle&gt;.frames[]</code> array) or the set of global variables (sometimes leaked through the semantics of the delete operator) in order to detect the same. Naturally, the set of sites the user visits
 or is logged into can be fairly sensitive.</li>
-</ul></div>
+</ul>
+</div>
   
     <footer class=blockquote-footer>
       <strong>Michal Zalewski</strong>
@@ -4046,7 +3924,6 @@ or is logged into can be fairly sensitive.</li>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -4104,27 +3981,21 @@ or is logged into can be fairly sensitive.</li>
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><h3 id="security-boundaries-cheat-sheet">Security Boundaries Cheat Sheet</h3>
-
 <p><strong>When Building Web Applications on Internal Networks</strong></p>
-
 <ul>
 <li>Assume that determined attackers will be able to interact with those applications through
 a victim’s browser, regardless of any network-level security controls. Ensure that proper
 engineering standards are met and require HTTPS with secure cookies for all sensitive
 applications in order to minimize the risk of origin infiltration attacks.</li>
 </ul>
-
 <p><strong>When Launching Non-HTTP Services, Particularly on Nonstandard Ports</strong></p>
-
 <ul>
 <li>Evaluate the impact of browsers unintentionally issuing HTTP requests to the service
 and the impact of having the response interpreted as HTTP/0.9. For vulnerable protocols,
 consider dropping the connection immediately if the received data begins with
 “GET” or “POST” as one possible precaution.</li>
 </ul>
-
 <p><strong>When Using Third-Party Cookies for Gadgets or Sandboxed Content</strong></p>
-
 <ul>
 <li>If you need to support Internet Explorer, be prepared to use P3P policies (and evaluate
 their legal significance). If you need to support Safari, you may have to resort to an alternative
@@ -4144,7 +4015,6 @@ credential storage mechanism (such as HTML5 localStorage).</li>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -4218,7 +4088,6 @@ the resource.</div>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -4299,7 +4168,6 @@ this field is absent, the filename will be derived from the notoriously unreliab
 </blockquote>
 
 
-
   
   
 
@@ -4355,9 +4223,7 @@ this field is absent, the filename will be derived from the notoriously unreliab
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><h3 id="character-set-handling-security-cheat-sheet">Character Set Handling Security Cheat Sheet</h3>
-
 <p><strong>Good Security Practices for All Websites</strong></p>
-
 <ul>
 <li>Instruct the web server to append the <code>X-Content-Options: nosniff</code> header to all HTTP
 responses.</li>
@@ -4366,28 +4232,26 @@ responses.</li>
 that would otherwise not have one.</li>
 <li>If you are not using path-based parameter passing (such as PATH_INFO), consider disabling this feature.</li>
 </ul>
-
-<p><strong>When Generating Documents with Partly Attacker-Controlled Contents</strong>
-* Always return an explicit, valid, well-known Content-Type value. Do not use text/plain or
-application/octet-stream.
-* For any text-based documents, return a explicit, valid, well-known charset value in the
+<p><strong>When Generating Documents with Partly Attacker-Controlled Contents</strong></p>
+<ul>
+<li>Always return an explicit, valid, well-known Content-Type value. Do not use text/plain or
+application/octet-stream.</li>
+<li>For any text-based documents, return a explicit, valid, well-known charset value in the
 Content-Type header; UTF-8 is preferable to any other variable-width encodings. Do not
 assume that application/xml+svg, text/csv, and other non-HTML documents do not need a
 specified character set. For HTML, consider a redundant <code>&lt;meta&gt;</code> directive if it’s conceivable
-that the file may be downloaded by the user. Beware of typos—UTF8 is not a valid alias for UTF-8.
-* Use <code>Content-Disposition: attachment</code> and an appropriate, explicit <code>filename</code> value for responses
-that do not need to be viewed directly—including JSON data.
-* Do not allow the user to control the first few bytes of the file. Constrain the response as
+that the file may be downloaded by the user. Beware of typos—UTF8 is not a valid alias for UTF-8.</li>
+<li>Use <code>Content-Disposition: attachment</code> and an appropriate, explicit <code>filename</code> value for responses
+that do not need to be viewed directly—including JSON data.</li>
+<li>Do not allow the user to control the first few bytes of the file. Constrain the response as
 much as possible. Do not pass through NULs, control characters, or high-bit values unless
-absolutely necessary.
-* When performing server-side encoding conversions, be sure that your converters reject
-all unexpected or invalid inputs (e.g., overlong UTF-8).</p>
-
+absolutely necessary.</li>
+<li>When performing server-side encoding conversions, be sure that your converters reject
+all unexpected or invalid inputs (e.g., overlong UTF-8).</li>
+</ul>
 <p><strong>When Hosting User-Generated Files</strong></p>
-
 <p>Consider using a sandbox domain if possible. If you intend to host unconstrained or unknown
 file formats, a sandbox domain is a necessity. Otherwise, at the very minimum, do the following:</p>
-
 <ul>
 <li>Use <code>Content-Disposition: attachment</code> and an appropriate, explicit filename value that matches
 the Content-Type parameter.</li>
@@ -4412,7 +4276,6 @@ Do not permit user-specified Content-Type headers.</li>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -4473,7 +4336,6 @@ Do not permit user-specified Content-Type headers.</li>
 the best-known and most reviled aspects of the Web. For good reason, too:
 Especially with pop-unders, it would not be unusual to amass a dozen of
 them after two to three hours of casual browsing.</p>
-
 <p>Due to widespread complaints, browser vendors stepped in and implemented a simple restriction: Spurious attempts by non-whitelisted pages to
 create new windows would be silently ignored.
 Exceptions were made for attempts made immediately after a mouse click or a similar user action. For
@@ -4482,7 +4344,6 @@ granted to code executed in response to an onclick event and revoked shortly
 thereafter. (In Internet Explorer and WebKit, this permission expires the
 moment the event handler is exited. Other browsers may recognize a short
 grace period of one second or so.)</p>
-
 <p>The pop-up blocking feature initially curtailed pop-up advertising but, ultimately, proved to be fairly ineffective: Many websites would simply wait for the
 user to click anywhere on the page (in order to follow a link or even scroll the
 document) and spawn new windows in response. Others simply moved on to
@@ -4502,7 +4363,6 @@ you need to click through to get to the content you actually want to read.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -4562,7 +4422,6 @@ you need to click through to get to the content you actually want to read.</p>
   <div class="text-secondary"><p>To illustrate the issue, consider a page that attempts to start an unsolicited
 download of a dangerous file type. The download will typically initiate a browser-level dialog with three options: “open,” “save,” and “cancel.” Sane users will
 make that last choice—but not if the attacker robs them of a chance to do so.</p>
-
 <p>Let’s assume that just milliseconds after the dialog is opened, and perhaps before the user even registers its presence, a new window is created
 on top that hides it from view. In that window, the attacker plants a carefully
 positioned button or link that the user is likely to click, for example, a button
@@ -4585,7 +4444,6 @@ security prompt. There is simply nothing the user can do.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -4643,18 +4501,14 @@ security prompt. There is simply nothing the user can do.</p>
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><h3 id="rogue-scripts-security-cheat-sheet">Rogue Scripts Security Cheat Sheet</h3>
-
 <p><strong>When Permitting User-Created <code>&lt;iframe&gt;</code> Gadgets on Your Site</strong></p>
-
 <ul>
 <li>Don’t do so unless you are prepared to live with the consequences. You can’t reliably
 prevent a malicious gadget from launching DoS attacks on your users. Any such gadget
 will also be able to bring up various obscure dialogs that, as a rule, will not distinguish
 between your top-level page and the domain the gadget is hosted in.</li>
 </ul>
-
 <p><strong>When Building Security-Sensitive UIs</strong></p>
-
 <ul>
 <li>Because of the risk of UI race conditions, avoid situations where a vital setting can be
 changed with a single keypress or a single click. Require at least two operations (such
@@ -4676,7 +4530,6 @@ window 500 milliseconds ago.</li>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -4734,20 +4587,16 @@ window 500 milliseconds ago.</li>
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><h3 id="extrinsic-site-privileges-security-cheat-sheet">Extrinsic Site Privileges Security Cheat Sheet</h3>
-
 <p><strong>When Requesting Elevated Permissions from Within a Web Application</strong></p>
-
 <ul>
 <li>Keep in mind that requesting access to geolocation data, video or microphone feeds, and other
 privileged APIs comes with responsibility. If your site is prone to XSS vulnerabilities, you are
-gambling not only with the data stored in the application but with the privacy of your users. <br>
+gambling not only with the data stored in the application but with the privacy of your users. <!-- raw HTML omitted -->
 Plan accordingly and compartmentalize the privileged functionality well. Never ask your users
 to lower their Internet Explorer security settings to accommodate your application, and do
 not blindly follow this advice when given by others—no matter who they are.</li>
 </ul>
-
 <p><strong>When Writing Plug-ins or Extensions That Recognize Privileged Origins</strong></p>
-
 <ul>
 <li>You are putting your users at elevated risk due to inevitable web application security bugs.
 Design APIs robustly and try to use secondary security measures, such as cryptography, to further secure communications with your server.
@@ -4767,7 +4616,6 @@ Do not whitelist nonencrypted origins, as they are prone to spoofing on open wir
     </footer>
   
 </blockquote>
-
 
 
   
@@ -4843,7 +4691,6 @@ the behavior of noncryptographically secure PRNGs.</div>
 </blockquote>
 
 
-
   
   
 
@@ -4899,88 +4746,69 @@ the behavior of noncryptographically secure PRNGs.</div>
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><h3 id="vulnerabilities-specific-to-web-applications">Vulnerabilities Specific to Web Applications</h3>
-
 <p>The terms outlined in this section are unique to the technologies used on
 the Web and often have no immediate counterparts in the world of “traditional” application security.</p>
-
 <p><strong>Cross-site request forgery (XSRF, CSRF)</strong></p>
-
 <p>A vulnerability caused by the failure to verify that a particular state-changing HTTP request received by the server-side portion of the web
 application was initiated from the expected client-side origin. This flaw
 permits any third-party website loaded in the browser to perform actions
 on behalf of the victim.</p>
-
 <ul>
 <li>See Chapter 4 for a more detailed discussion of XSRF.</li>
 </ul>
-
 <p><strong>Cross-site script inclusion (XSSI)</strong></p>
-
 <p>A flaw caused by the failure to secure sensitive JSON-like responses
 against being loaded on third-party sites via <code>&lt;script src=...&gt;</code>. User-specific
 information in the response may be leaked to attackers.</p>
-
 <ul>
 <li>See Chapter 6 for an overview of the problem (and potential fixes).</li>
 </ul>
-
 <p><strong>Cross-site scripting (XSS)</strong></p>
-
 <p>Insufficient input validation or output escaping can allow an attacker to
 plant his own HTML markup or scripts on a vulnerable site. The injected
 scripts will have access to the entirety of the targeted web application
 and, in many cases, to HTTP cookies stored by the client.</p>
-
 <p>The qualifier reflected refers to cases where the injected string is
 simply a result of incorrectly echoing back a portion of the request,
 whereas stored or persistent refers to a situation where the payload takes a
 more complex route. DOM-based may be used to denote that the vulnerability is triggered by the behavior of the client-side portion of the web
 app (i.e., JavaScript).</p>
-
 <ul>
 <li>See Chapter 4 for common XSS vectors in HTML documents.</li>
 <li>See Chapter 6 for an overview of DOM-based XSS risks.</li>
 <li>See Chapter 13 for XSS vectors associated with content sniffing.</li>
 <li>See Chapter 9 for a discussion of the normal security model for JS code.</li>
 </ul>
-
 <p><strong>Header injection (response splitting)</strong></p>
-
 <p>Insufficient escaping of newlines (or equivalent characters) in HTTP
 responses generated by the server-side portion of a web application.
-This behavior will typically lead to XSS, browser, or proxy cache poison-ing and more.
-*  See Chapter 3 for a detailed discussion of the flaw.</p>
-
+This behavior will typically lead to XSS, browser, or proxy cache poison-ing and more.</p>
+<ul>
+<li>See Chapter 3 for a detailed discussion of the flaw.</li>
+</ul>
 <p><strong>Mixed content</strong></p>
-
 <p>A catch-all name for loading non-HTTPS subresources on HTTPS pages.
 In the case of scripts and applets, this behavior makes the application
 trivially vulnerable to active attackers, particularly on open wireless.
 networks (at cafés, airports, and so on), and undoes almost all benefits of
 HTTPS. The consequences of mixed content bugs with stylesheets, fonts,
 images, or frames are usually also fairly serious but more constrained.</p>
-
 <ul>
 <li>See Chapters 4 and 8 for content-specific precautions on HTTPS sites.</li>
 <li>See Chapter 11 for an overview of mixed-content handling rules.</li>
 </ul>
-
 <p><strong>Open redirection</strong>
 A term used to refer to applications that perform HTTP- or script-based
 requests to user-supplied URLs without constraining the possible destinations in any meaningful way. Open redirection is not advisable and
 may be exploitable in some scenarios, but it is typically not particularly
 dangerous by itself.</p>
-
 <ul>
 <li>See Chapter 10 for cases where unconstrained redirection may lead to XSS.</li>
 </ul>
-
 <p><strong>Referer leakage</strong></p>
-
 <p>Accidental disclosure of a sensitive URL by embedding an off-site sub-resource or providing an off-site link. Any security- or privacy-relevant
 data encoded in the URL of the parent document will be leaked in the
 Referer header, with the exception of the fragment identifier.</p>
-
 <ul>
 <li>See Chapter 3 for an overview of the Referer logic.</li>
 </ul>
@@ -4998,7 +4826,6 @@ Referer header, with the exception of the fragment identifier.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -5056,90 +4883,67 @@ Referer header, with the exception of the fragment identifier.</p>
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><h3 id="problems-to-keep-in-mind-in-web-application-design">Problems to Keep in Mind in Web Application Design</h3>
-
 <p>The problems outlined in this section are an unavoidable circumstance of
 doing business on the Internet and must be properly accounted for when
 designing or implementing new web apps.</p>
-
 <p><strong>Cache poisoning</strong>
 The possibility of long-term pollution of the browser cache (or any
 interim proxies) with a fabricated, malicious version of the targeted
 web application. Encrypted web applications may be targeted due to
 response-splitting vulnerabilities. For nonencrypted traffic, active network attackers may be able to modify the responses received by the
 requestor, too.</p>
-
 <ul>
 <li>See Chapter 3 for an overview of HTTP-caching behaviors.</li>
 </ul>
-
 <p><strong>Clickjacking</strong></p>
-
 <p>The possibility of framing or otherwise decorating or obscuring a portion of another web application so that the victim, when interacting with
 the attacker’s site, is not aware that individual clicks or keystrokes are
 delivered to the other site, resulting in undesirable actions being taken
 on behalf of the user.</p>
-
 <p><strong>Content and character set sniffing</strong></p>
-
 <p>Describes the possibility that the browser will ignore any authoritative
 content type or character set information provided by the server and
 interpret the returned document incorrectly.</p>
-
 <ul>
 <li>See Chapter 13 for a discussion of content-sniffing logic.</li>
 <li>See Chapters 4 and 8 for scenarios where Content-Type data is ignored.</li>
 </ul>
-
 <p><strong>Cookie forcing (or cookie injection)</strong></p>
-
 <p>The possibility of blindly injecting HTTP cookies into the context of an
 otherwise impenetrable web application due to issues in how the mechanism is designed and implemented in modern browsers.
- Cookie injection is of particular concern to HTTPS applications. (Cookie stuffing is a
+Cookie injection is of particular concern to HTTPS applications. (Cookie stuffing is a
 less common term referring specifically to maliciously deleting cookies
 belonging to another application by overflowing the cookie jar.)</p>
-
 <ul>
 <li>See Chapter 9 for more information on cookie scoping.</li>
 <li>See Chapter 3 for a general discussion of the operation of HTTP cookies.</li>
 </ul>
-
 <p><strong>Denial-of-service (DoS) attacks</strong></p>
-
 <p>A broad term denoting any opportunities for the attacker to bring down
 a browser or server or otherwise make the use of a particular targeted
 application significantly more difficult.</p>
-
 <ul>
 <li>See Chapter 14 for an overview of DoS considerations with JavaScript.</li>
 </ul>
-
 <p><strong>Framebusting</strong></p>
-
 <p>The possibility of a framed page navigating the top-level document to a
 new URL without having to satisfy same-origin checks. The behavior may
 be exploited for phishing attacks or simply for petty mischief.</p>
-
 <ul>
 <li>See Chapter 11 for this and other frame navigation quirks.</li>
 </ul>
-
 <p><strong>HTTP downgrade</strong></p>
-
 <p>The ability for active attackers to prevent the user from reaching an
 HTTPS version of a particular site or to downgrade an existing HTTPS
 session to HTTP.</p>
-
 <ul>
 <li>See Chapter 3 for an overview of HTTPS.</li>
 <li>See Chapter 16 for Strict Transport Security, a proposed solution to the problem.</li>
 </ul>
-
 <p><strong>Network fenceposts</strong></p>
-
 <p>The prospect of websites on the Internet leveraging the browser to interact with destinations not directly accessible to the attacker, for example,
 with the systems on a victim’s internal network. Such attacks can be performed blindly, or (with the help of attacks such as DNS rebinding) the
 attacker may be able to see responses to all requests.</p>
-
 <ul>
 <li>See Chapter 12 for an overview of non-SOP boundaries in a browser.</li>
 </ul>
@@ -5157,7 +4961,6 @@ attacker may be able to see responses to all requests.</p>
     </footer>
   
 </blockquote>
-
 
 
   
@@ -5215,52 +5018,44 @@ attacker may be able to see responses to all requests.</p>
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><h3 id="epilogue">Epilogue</h3>
-
 <p>As for what to make of it all: To me, the stark contrast between the amazing robustness of the modern Web and the inexplicable unsoundness of its
 foundations was difficult to reconcile at first. In retrospect, I think it offers
 an important insight into our own, unreasonable attitude about securing the
 online world.</p>
-
 <p>I am haunted by the uncomfortable observation that in real life,
 modern societies are built on remarkably shaky ground. Every day, each of
 us depends on the sanity, moral standards, and restraint of thousands of random strangers—from cab drivers, to food vendors, to elevator repair techs.
 The rules of the game are weakly enforced through a series of deterrence
 mechanisms, but if crime statistics are to be believed, their efficacy is remarkably low. The problem isn’t just that most petty criminals think they can get
 away with their misdeeds but that they are usually right.</p>
-
 <p>In this sense, our world is little more than an incredibly elaborate honor
 system that most of us voluntarily agree to participate in. And that’s probably
 okay: Compliance with self-imposed norms has proven to be a smart evolutionary move, and it is a part of who we are today. A degree of trust is simply
 essential to advancing our civilization at a reasonable pace. Too, paradoxically, despite short-term weaknesses, accelerated progress makes us all a lot
 stronger and more adaptable in the long run.</p>
-
 <p>It is difficult to understand, then, why we treat our online existence in
 such a dramatically different way. For example, why is it that we get upset at
 developers who use cryptography incorrectly, but we don’t mind that the
 locks on our doors can be opened with a safety pin? Why do we scorn web
 developers who can’t get input validation right, but we don’t test our break-fast for laxatives or LSD?</p>
-
 <p>The only explanation I can see is that humankind has had thousands of
 years to work out the rules of social engagement in the physical realm. During that time, entire societies have collapsed, new ones have emerged, and
 an increasingly complex system of behavioral norms, optimized for the preservation of communities, has emerged in the process. Unfortunately for us,
 we have difficulty transposing these rules into the online ecosystem, and this
 world is so young, it hasn’t had the chance to develop its own, separate code
 of conduct yet.</p>
-
 <p>The phenomenon is easy to see: While your neighbor will not try to sneak
 into your house, he may have no qualms about using your wireless network
 because doing so feels much less like a crime. He may oppose theft, but he
 may be ambivalent about unlawfully duplicating digital content. Or he may
 frown upon crude graffiti in the neighborhood but chuckle at the sight of a
 defaced website. The parallels are there but just aren’t good enough.</p>
-
 <p>What if our pursuit of perfection in the world of information security
 stems from nothing but a fundamental misunderstanding of how human communities can emerge and flourish? The experts of my kind preach a model of
 networked existence based on complete distrust, but perhaps wrongly so: As
 the complexity of our online interactions approaches that of real life, the odds
 of designing perfectly secure software are rapidly diminishing. Meanwhile, the
 extreme paranoia begins to take a heavy toll on how quickly we can progress.</p>
-
 <p>Perhaps we are peddling a recipe for a failure. What if our insistence on
 absolute security only takes us closer to the fate of so many other early civilizations, which collapsed under the weight of their flaws and ultimately vanished? I find this perverse thought difficult to dismiss. Fortunately, we know
 that from the rubble, new, more enlightened societies will certainly emerge
@@ -5289,6 +5084,10 @@ one day. Their ultimate nature is anyone’s guess.</p>
 <script>
   feather.replace()
 </script>
+
+
+    
+
 
 
     

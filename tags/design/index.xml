@@ -6,11 +6,7 @@
     <description>Recent content in design on Picky speaker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 08 Jul 2021 18:19:09 +0700</lastBuildDate>
-    
-	<atom:link href="https://neexee.github.io/tags/design/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 08 Jul 2021 18:19:09 +0700</lastBuildDate><atom:link href="https://neexee.github.io/tags/design/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Recommended Pagination for APIs</title>
       <link>https://neexee.github.io/posts-en/pagination-choices/</link>
@@ -33,7 +29,7 @@ Most of the time a client doesn&amp;rsquo;t need the entire list because:
 v1: func Process() error { return ErrFoo }
 v2: func Process() error { return ErrBar }
 Did I break API compatibility? Do I need to bump the major version?
-&amp;mdash; ✕✕✕✕✕ (@peterbourgon) July 4, 2021  The responses split 50&amp;frasl;50, but I don&amp;rsquo;t think it should be like this if you are aware of one simple thing:</description>
+&amp;mdash; ✕✕✕✕✕ (@peterbourgon) July 4, 2021  The responses split 50/50, but I don&amp;rsquo;t think it should be like this if you are aware of one simple thing:</description>
     </item>
     
     <item>

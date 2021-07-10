@@ -6,7 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
   <meta name="author" content="Sergey Machulskis" />
-  <meta name="generator" content="Hugo 0.59.0-DEV" />
+  <meta name="generator" content="Hugo 0.86.0-DEV" />
+  
+  <meta name="description" content="I decided to read it because at the time of reading I had to draw a lot statistical graphs at my work and I had no idea how to do it in a best possible way. I’ve read it and convinced myself even more about facts I already knew:
+ Piecharts are worthless and misleading. You need to note everything on your graph, especially axes. Your graphs shouldn’t be too smart.">
   <link rel="stylesheet" href="https://neexee.github.io/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://neexee.github.io/css/blockquote.css">
   <link rel="stylesheet" href="https://neexee.github.io/css/images.css">
@@ -81,6 +84,11 @@ video,
 audio {
   max-width: 100%;
 }
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
 </style>
 </head>
   <body class="d-flex flex-column h-100">
@@ -91,6 +99,7 @@ audio {
   
     
     
+      
       
       
       
@@ -107,6 +116,7 @@ audio {
       
       
       
+      
         
       
     
@@ -115,6 +125,7 @@ audio {
   
     
     
+      
       
       
       
@@ -131,6 +142,7 @@ audio {
       
       
       
+      
         
       
     
@@ -143,6 +155,7 @@ audio {
       
       
       
+      
         
       
     
@@ -151,6 +164,7 @@ audio {
   
   </nav>
 </div>
+
     <div class="container">
       <main id="main">
         
@@ -176,27 +190,18 @@ audio {
   </div>
 
 
-
-
 <p>I decided to read it because at the time of reading I had to draw a lot statistical graphs at my work and I had no idea how to do it in a best possible way.
 I&rsquo;ve read it and convinced myself even more about facts I already knew:</p>
-
 <ul>
 <li>Piecharts are worthless and misleading.</li>
 <li>You need to note everything on your graph, especially axes.</li>
 <li>Your graphs shouldn&rsquo;t be too smart.</li>
 </ul>
-
 <p>The book has two main ideas. It&rsquo;s graphical integrity and data-ink ratio. They could be described in 10 pages or so (including good and bad examples), but the author missed his own points in writing. The writing is verbose (i.e. data-ink ratio is low), most of the examples are of questionable use.</p>
-
 <p>I guess it&rsquo;s pretty long because Tufte wanted to cover a little bit of history of graphical representation of an information.</p>
-
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Minard.png" alt="https://upload.wikimedia.org/wikipedia/commons/2/29/Minard.png" /></p>
-
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Minard.png" alt="https://upload.wikimedia.org/wikipedia/commons/2/29/Minard.png"></p>
 <h3 id="graphical-integrity">Graphical integrity</h3>
-
 <p>Graphical integrity is more likely to result if these six principles are followed:</p>
-
 <ul>
 <li>The representation of numbers, as physically measured on the surface of the graphic itself, should be directly proportional to the numerical quantities represented.</li>
 <li>Clear, detailed, and thorough labeling should be used to defeat graphical distortion and ambiguity. Write out explanations of the data on the graphic itsel£ Label important events in the data.</li>
@@ -205,11 +210,8 @@ I&rsquo;ve read it and convinced myself even more about facts I already knew:</p
 <li>The number of information-carrying (variable) dimensions depicted should not exceed the number of dimensions in the data.</li>
 <li>Graphics must not quote data out of context.</li>
 </ul>
-
 <h3 id="data-ink">Data-ink</h3>
-
 <p>Five principles in the theory of data graphics produce substantial changes in graphical design. The principles apply to many graphics and yield a series of design options through cycles of graphical revision and editing.</p>
-
 <ul>
 <li>Above all else show the data.</li>
 <li>Maximize the data-ink ratio.</li>
@@ -217,21 +219,14 @@ I&rsquo;ve read it and convinced myself even more about facts I already knew:</p
 <li>Erase redundant data-ink.</li>
 <li>Revise and edit.</li>
 </ul>
-
 <h3 id="chartjunk">Chartjunk</h3>
-
 <p>Chartunk does not achieve the goals of its propagators. The overwhelming fact of data graphics is that they stand or fall on their content, gracefully displayed. Graphics do not become attractive and interesting through the addition of ornamental hatching and false perspective to a. few bars. Chartjunk can turn bores into disasters, but it can never rescue a thin data set. The best designs (for example, Minard on Napoleon in Russia, Marey&rsquo;s graphical train schedule, the cancer maps, the Times weather his­tory of New York City, the chronicle of the annual adventures of the Japanese beetle, the new view of the galaxies) are <em>intriguing</em> and <em>curiosity-provoking</em>, drawing the viewer into the wonder of the data, sometimes by narrative power, sometimes by immense detail, and sometimes by elegant presentation of simple but interesting data. But no information, no sense of discovery, no wonder, no substance is generated by charjunk.</p>
-
 <ul>
 <li>Forgo chartjunk, including moire vibration, the grid, and the duck.</li>
 </ul>
-
 <h3 id="data-density-and-small-multiples">Data density and small multiples</h3>
-
 <p>High density is usually achieved on maps. Kilobytes of information per square centimeter.</p>
-
 <p>Well-designed small multiples are</p>
-
 <ul>
 <li>inevitably comparative</li>
 <li>deftly multivariate</li>
@@ -241,16 +236,12 @@ I&rsquo;ve read it and convinced myself even more about facts I already knew:</p
 <li>efficient in interpretation</li>
 <li>often narrative in content, showing shifts in the relationship between variables as the index: variable changes (thereby revealing interaction or multiplicative effects).</li>
 </ul>
-
 <p>Small multiples reflect much of the theory of data graphics:</p>
-
 <ul>
 <li>For non-data-ink, less is more.</li>
 <li>For data-ink, less is a bore.</li>
 </ul>
-
 <h3 id="aesthetics-and-technique">Aesthetics and technique</h3>
-
 <ul>
 <li>Aesthetics is for the artist like ornithology is for the birds.</li>
 <li>Given their low data-density and failure to order numbers along a visual dimension, pie charts should never be used. Better use tables sorted by numbers.</li>
@@ -267,6 +258,10 @@ I&rsquo;ve read it and convinced myself even more about facts I already knew:</p
 <script>
   feather.replace()
 </script>
+
+
+    
+
 
 
     

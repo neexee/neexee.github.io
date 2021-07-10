@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
   <meta name="author" content="Sergey Machulskis" />
-  <meta name="generator" content="Hugo 0.59.0-DEV" />
+  <meta name="generator" content="Hugo 0.86.0-DEV" />
+  
+  <meta name="description" content="Nice little book. It could be an eye-opening read for a CS student as it has a lot of good advice on medium and low-level code structure. It’s not as useful for a professional programmer, but it could be used for reading for pleasure. It has a couple of concepts with catchy names like “define errors out of existence” and “modules should be deep” which I like because they’re quite practical and rich.">
   <link rel="stylesheet" href="https://neexee.github.io/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://neexee.github.io/css/blockquote.css">
   <link rel="stylesheet" href="https://neexee.github.io/css/images.css">
@@ -81,6 +83,11 @@ video,
 audio {
   max-width: 100%;
 }
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
 </style>
 </head>
   <body class="d-flex flex-column h-100">
@@ -91,6 +98,7 @@ audio {
   
     
     
+      
       
       
       
@@ -107,6 +115,7 @@ audio {
       
       
       
+      
         
       
     
@@ -115,6 +124,7 @@ audio {
   
     
     
+      
       
       
       
@@ -131,6 +141,7 @@ audio {
       
       
       
+      
         
       
     
@@ -143,6 +154,7 @@ audio {
       
       
       
+      
         
       
     
@@ -151,6 +163,7 @@ audio {
   
   </nav>
 </div>
+
     <div class="container">
       <main id="main">
         
@@ -177,7 +190,6 @@ audio {
 
 
 <p>Nice little book. It could be an eye-opening read for a CS student as it has a lot of good advice on medium and low-level code structure. It&rsquo;s not as useful for a professional programmer, but it could be used for reading for pleasure. It has a couple of concepts with catchy names like &ldquo;define errors out of existence&rdquo; and &ldquo;modules should be deep&rdquo; which I like because they&rsquo;re quite practical and rich. 90% of the value of this book is on the first half of it.</p>
-
 
 
   
@@ -250,7 +262,6 @@ audio {
 </blockquote>
 
 
-
   
   
 
@@ -321,7 +332,6 @@ audio {
 </blockquote>
 
 
-
   
   
 
@@ -377,7 +387,6 @@ audio {
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><p>The mechanism for file I/O provided by the Unix operating system and its descendants, such as Linux, is a beautiful example of a deep interface. There are only five basic system calls for I/O, with simple signatures: </p>
-
 <ul>
 <li>int open(const char* path, int flags, mode_t permissions);</li>
 <li> ssize_t read(int fd, void* buffer, size_t count); </li>
@@ -385,7 +394,6 @@ audio {
 <li>off_t lseek(int fd, off_t offset, int referencePosition);</li>
 <li>int close(int fd);</li>
 </ul>
-
 <p>A modern implementation of the Unix I/O interface requires hundreds of thousands of lines of code, which address complex issues such as:  How are files represented on disk in order to allow efficient access? How are directories stored, and how are hierarchical path names processed to find the files they refer to? How are permissions enforced, so that one user cannot modify or delete another user’s files? How are file accesses implemented? For example, how is functionality divided between interrupt handlers and background code, and how do these two elements communicate safely? What scheduling policies are used when there are concurrent accesses to multiple files? How can recently accessed file data be cached in memory in order to reduce the number of disk accesses? How can a variety of different secondary storage devices, such as disks and flash drives, be incorporated into a single file system? All of these issues, and many more, are handled by the Unix file system implementation; they are invisible to programmers who invoke the system calls. Implementations of the Unix I/O interface have evolved radically over the years, but the five basic kernel calls have not changed.</p>
 </div>
   
@@ -401,7 +409,6 @@ audio {
     </footer>
   
 </blockquote>
-
 
 
   
@@ -474,7 +481,6 @@ audio {
 </blockquote>
 
 
-
   
   
 
@@ -530,7 +536,6 @@ audio {
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><p><strong>Red Flag: Shallow Module</strong></p>
-
 <p>A shallow module is one whose interface is complicated relative to the functionality it provides. Shallow modules don’t help much in the battle against complexity, because the benefit they provide (not having to learn about how they work internally) is negated by the cost of learning and using their interfaces. Small modules tend to be shallow.</p>
 </div>
   
@@ -546,7 +551,6 @@ audio {
     </footer>
   
 </blockquote>
-
 
 
   
@@ -619,7 +623,6 @@ audio {
 </blockquote>
 
 
-
   
   
 
@@ -675,11 +678,10 @@ audio {
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><p>One of the most visible examples of classitis today is the Java class library. The Java language doesn’t require lots of small classes, but a culture of classitis seems to have taken root in the Java programming community. For example, to open a file in order to read serialized objects from it, you must create three different objects: </p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#111">FileInputStream</span> <span style="color:#75af00">fileStream</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">FileInputStream</span><span style="color:#111">(</span><span style="color:#111">fileName</span><span style="color:#111">);</span> 
-<span style="color:#111">BufferedInputStream</span> <span style="color:#75af00">bufferedStream</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">BufferedInputStream</span><span style="color:#111">(</span><span style="color:#111">fileStream</span><span style="color:#111">);</span> 
-<span style="color:#111">ObjectInputStream</span> <span style="color:#75af00">objectStream</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">ObjectInputStream</span><span style="color:#111">(</span><span style="color:#111">bufferedStream</span><span style="color:#111">);</span></code></pre></div>
-<p> A FileInputStream object provides only rudimentary I/O: it is not capable of performing buffered I/O, nor can it read or write serialized objects. The BufferedInputStream object adds buffering to a FileInputStream, and the ObjectInputStream adds the ability to read and write serialized objects. The first two objects in the code above, fileStream and bufferedStream, are never used once the file has been opened; all future operations use objectStream. It is particularly annoying (and error-prone) that buffering must be requested explicitly by creating a separate BufferedInputStream object; if a developer forgets to create this object, there will be no buffering and I/O will be slow. Perhaps the Java developers would argue that not everyone wants to use buffering for file I/O, so it shouldn’t be built into the base mechanism. They might argue that it’s better to keep buffering separate, so people can choose whether or not to use it. Providing choice is good, but interfaces should be designed to make the common case as simple as possible (see the formula on page 6). Almost every user of file I/O will want buffering, so it should be provided by default. For those few situations where buffering is not desirable, the library can provide a mechanism to disable it. Any mechanism for disabling buffering should be cleanly separated in the interface (for example, by providing a different constructor for FileInputStream, or through a method that disables or replaces the buffering mechanism), so that most developers do not even need to be aware of its existence. </p>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#111">FileInputStream</span> <span style="color:#111">fileStream</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">FileInputStream</span><span style="color:#f92672">(</span><span style="color:#111">fileName</span><span style="color:#f92672">);</span> 
+<span style="color:#111">BufferedInputStream</span> <span style="color:#111">bufferedStream</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">BufferedInputStream</span><span style="color:#f92672">(</span><span style="color:#111">fileStream</span><span style="color:#f92672">);</span> 
+<span style="color:#111">ObjectInputStream</span> <span style="color:#111">objectStream</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">ObjectInputStream</span><span style="color:#f92672">(</span><span style="color:#111">bufferedStream</span><span style="color:#f92672">);</span>
+</code></pre></div><p> A FileInputStream object provides only rudimentary I/O: it is not capable of performing buffered I/O, nor can it read or write serialized objects. The BufferedInputStream object adds buffering to a FileInputStream, and the ObjectInputStream adds the ability to read and write serialized objects. The first two objects in the code above, fileStream and bufferedStream, are never used once the file has been opened; all future operations use objectStream. It is particularly annoying (and error-prone) that buffering must be requested explicitly by creating a separate BufferedInputStream object; if a developer forgets to create this object, there will be no buffering and I/O will be slow. Perhaps the Java developers would argue that not everyone wants to use buffering for file I/O, so it shouldn’t be built into the base mechanism. They might argue that it’s better to keep buffering separate, so people can choose whether or not to use it. Providing choice is good, but interfaces should be designed to make the common case as simple as possible (see the formula on page 6). Almost every user of file I/O will want buffering, so it should be provided by default. For those few situations where buffering is not desirable, the library can provide a mechanism to disable it. Any mechanism for disabling buffering should be cleanly separated in the interface (for example, by providing a different constructor for FileInputStream, or through a method that disables or replaces the buffering mechanism), so that most developers do not even need to be aware of its existence. </p>
 <p>In contrast, the designers of the Unix system calls made the common case simple. For example, they recognized that sequential I/O is most common, so they made that the default behavior. Random access is still relatively easy to do, using the lseek system call, but a developer doing only sequential access need not be aware of that mechanism. If an interface has many features, but most developers only need to be aware of a few of them, the effective complexity of that interface is just the complexity of the commonly used features.</p>
 </div>
   
@@ -695,7 +697,6 @@ audio {
     </footer>
   
 </blockquote>
-
 
 
   
@@ -753,7 +754,6 @@ audio {
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><p><strong>Red Flag: Information Leakage</strong></p>
-
 <p>￼ Information leakage occurs when the same knowledge is used in multiple places, such as two different classes that both understand the format of a particular type of file.</p>
 </div>
   
@@ -769,7 +769,6 @@ audio {
     </footer>
   
 </blockquote>
-
 
 
   
@@ -827,7 +826,6 @@ audio {
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><p><strong>Red Flag: Temporal Decomposition</strong></p>
-
 <p>￼ In temporal decomposition, execution order is reflected in the code structure: operations that happen at different times are in different methods or classes. If the same knowledge is used at different points in execution, it gets encoded in multiple places, resulting in information leakage.</p>
 </div>
   
@@ -843,7 +841,6 @@ audio {
     </footer>
   
 </blockquote>
-
 
 
   
@@ -901,7 +898,6 @@ audio {
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><p><strong>Red Flag: Overexposure</strong></p>
-
 <p>￼ If the API for a commonly used feature forces users to learn about other features that are rarely used, this increases the cognitive load on users who don’t need the rarely used features.</p>
 </div>
   
@@ -917,7 +913,6 @@ audio {
     </footer>
   
 </blockquote>
-
 
 
   
@@ -990,7 +985,6 @@ audio {
 </blockquote>
 
 
-
   
   
 
@@ -1061,7 +1055,6 @@ audio {
 </blockquote>
 
 
-
   
   
 
@@ -1117,12 +1110,10 @@ audio {
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><p>Knowing this, some of the teams created one method in the text class to support each of these specific features:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"> <span style="color:#00a8c8">void</span> <span style="color:#75af00">backspace</span><span style="color:#111">(</span><span style="color:#111">Cursor</span> <span style="color:#75af00">cursor</span><span style="color:#111">);</span>
- <span style="color:#00a8c8">void</span> <span style="color:#75af00">delete</span><span style="color:#111">(</span><span style="color:#111">Cursor</span> <span style="color:#75af00">cursor</span><span style="color:#111">);</span> </code></pre></div>
-<p>Each of these methods takes the cursor position as its argument; a special type Cursor represents this position. The editor also had to support a selection that could be copied or deleted. The students handled this by defining a Selection class and passing an object of this class to the text class during deletions:  <code>void deleteSelection(Selection selection);</code></p>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"> <span style="color:#00a8c8">void</span> <span style="color:#75af00">backspace</span><span style="color:#f92672">(</span><span style="color:#111">Cursor</span> <span style="color:#111">cursor</span><span style="color:#f92672">);</span>
+ <span style="color:#00a8c8">void</span> <span style="color:#75af00">delete</span><span style="color:#f92672">(</span><span style="color:#111">Cursor</span> <span style="color:#111">cursor</span><span style="color:#f92672">);</span> 
+</code></pre></div><p>Each of these methods takes the cursor position as its argument; a special type Cursor represents this position. The editor also had to support a selection that could be copied or deleted. The students handled this by defining a Selection class and passing an object of this class to the text class during deletions:  <code>void deleteSelection(Selection selection);</code></p>
 <p>This approach created information leakage between the user interface and the text class. Abstractions related to the user interface, such as the selection or the backspace key, were reflected in the text class; this increased the cognitive load for developers working on the text class. Each new user interface operation required a new method to be defined in the text class, so a developer working on the user interface was likely to end up working on the text class as well.</p>
-
 <p>A better approach is to make the text class more generic. Its API should be defined only in terms of basic text features, without reflecting the higher-level operations that will be implemented with it. For example, only two methods are needed for modifying text: void insert(Position position, String newText); void delete(Position start, Position end);</p>
 </div>
   
@@ -1138,7 +1129,6 @@ audio {
     </footer>
   
 </blockquote>
-
 
 
   
@@ -1211,7 +1201,6 @@ audio {
 </blockquote>
 
 
-
   
   
 
@@ -1267,7 +1256,6 @@ audio {
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><p><strong>Red Flag: Pass-Through Method</strong></p>
-
 <p>￼ A pass-through method is one that does nothing except pass its arguments to another method, usually with the same API as the pass-through method. This typically indicates that there is not a clean division of responsibility between the classes.</p>
 </div>
   
@@ -1283,7 +1271,6 @@ audio {
     </footer>
   
 </blockquote>
-
 
 
   
@@ -1356,7 +1343,6 @@ audio {
 </blockquote>
 
 
-
   
   
 
@@ -1412,9 +1398,7 @@ audio {
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><p><strong>Red Flag: Special-General Mixture</strong></p>
-
 <p>￼ This red flag occurs when a general-purpose mechanism also contains code specialized for a particular use of that mechanism. This makes the mechanism more complicated and creates information leakage between the mechanism and the particular use case: future modifications to the use case are likely to require changes to the underlying mechanism as well.</p>
-
 <p>Each method should do one thing and do it completely.</p>
 </div>
   
@@ -1430,7 +1414,6 @@ audio {
     </footer>
   
 </blockquote>
-
 
 
   
@@ -1488,7 +1471,6 @@ audio {
 
 <blockquote class="wp-block-quote">
   <div class="text-secondary"><p><strong>Red Flag: Conjoined Methods</strong></p>
-
 <p>￼ It should be possible to understand each method independently. If you can’t understand the implementation of one method without also understanding the implementation of another, that’s a red flag. This red flag can occur in other contexts as well: if two pieces of code are physically separated, but each can only be understood by looking at the other, that is a red flag.</p>
 </div>
   
@@ -1504,7 +1486,6 @@ audio {
     </footer>
   
 </blockquote>
-
 
 
   
@@ -1577,7 +1558,6 @@ audio {
 </blockquote>
 
 
-
   
   
 
@@ -1646,7 +1626,6 @@ audio {
     </footer>
   
 </blockquote>
-
 
 
   
@@ -1719,7 +1698,6 @@ audio {
 </blockquote>
 
 
-
   
   
 
@@ -1788,7 +1766,6 @@ audio {
     </footer>
   
 </blockquote>
-
 
 
   
@@ -1861,7 +1838,6 @@ audio {
 </blockquote>
 
 
-
   
   
 
@@ -1930,7 +1906,6 @@ audio {
     </footer>
   
 </blockquote>
-
 
 
   
@@ -2003,7 +1978,6 @@ audio {
 </blockquote>
 
 
-
   
   
 
@@ -2072,7 +2046,6 @@ audio {
     </footer>
   
 </blockquote>
-
 
 
   
@@ -2145,7 +2118,6 @@ audio {
 </blockquote>
 
 
-
   
   
 
@@ -2216,7 +2188,6 @@ audio {
 </blockquote>
 
 
-
   
   
 
@@ -2285,7 +2256,6 @@ audio {
     </footer>
   
 </blockquote>
-
 
 
   
@@ -2366,6 +2336,10 @@ audio {
 <script>
   feather.replace()
 </script>
+
+
+    
+
 
 
     
