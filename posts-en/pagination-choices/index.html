@@ -167,9 +167,6 @@ audio {
       
       <a class="btn btn-sm btn-outline-dark tag-btn" href="https://neexee.github.io/tags/programming">programming</a>
     
-      
-      <a class="btn btn-sm btn-outline-dark tag-btn" href="https://neexee.github.io/tags/recommended">recommended</a>
-    
   </div>
 
 
@@ -376,6 +373,8 @@ backend needs to read them all from a database.</li>
 <span style="color:#00a8c8">LIMIT</span> <span style="color:#ae81ff">20</span></code></pre></div>
 <p>In real life, it is usually more complex.</p>
 
+<hr />
+
 <p>First, we still need to support sorting by different fields. For example, if we need to sort entities by name, it looks like this:</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#00a8c8">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">entities</span>
 <span style="color:#00a8c8">WHERE</span>
@@ -384,7 +383,39 @@ backend needs to read them all from a database.</li>
 <span style="color:#00a8c8">LIMIT</span> <span style="color:#ae81ff">20</span></code></pre></div>
 <p>The backend needs to carefully combine <code>cursor</code> parameter with filters and sorting.</p>
 
-<p>Second, sometimes it&rsquo;s not easy to choose which natural key to use. This is especially true for complex cross-table queries. Every situation is unique.</p>
+<hr />
+
+<p>Second, sometimes it&rsquo;s not easy to choose which natural key to use. This is especially true for complex cross-table queries. Every situation is unique, and you probably need to invent a composite cursor.</p>
+
+<hr />
+
+<p>Third, natural keys are not expected to be ordered. The simplest example is using UUIDs to identify entities. <code>GET /entities?limit=20&amp;cursor={uuid}&amp;sort_by=name</code> won&rsquo;t work as expected because query like this makes no sense for uuids:</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#00a8c8">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">entities</span>
+<span style="color:#00a8c8">WHERE</span>
+  <span style="color:#111">id</span> <span style="color:#f92672">&gt;</span> <span style="color:#d88200">&#39;d4f0a9e8-ae6e-43fa-ad78-740ed8f079c0&#39;</span>
+<span style="color:#00a8c8">ORDER</span> <span style="color:#00a8c8">BY</span> <span style="color:#111">name</span><span style="color:#111">,</span> <span style="color:#111">id</span>
+<span style="color:#00a8c8">LIMIT</span> <span style="color:#ae81ff">20</span></code></pre></div>
+<p>You&rsquo;ll need composite cursors then, and it will look like this: <code>(name, uuid)</code>.</p>
+
+<p>Then the query <code>GET /entities?limit=20&amp;cursor=entitityName,d4f0a9e8-ae6e-43fa-ad78-740ed8f079c0&amp;sort_by=name</code> translates to</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#00a8c8">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">(</span>
+  <span style="color:#00a8c8">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#00a8c8">FROM</span> <span style="color:#111">entities</span>
+  <span style="color:#00a8c8">WHERE</span>
+    <span style="color:#111">name</span> <span style="color:#f92672">&gt;</span> <span style="color:#d88200">&#39;entityName&#39;</span>
+  <span style="color:#00a8c8">ORDER</span> <span style="color:#00a8c8">BY</span> <span style="color:#111">name</span><span style="color:#111">,</span> <span style="color:#111">id</span>
+<span style="color:#111">)</span>
+<span style="color:#00a8c8">WHERE</span> 
+  <span style="color:#111">id</span> <span style="color:#f92672">&gt;</span> <span style="color:#d88200">&#39;d4f0a9e8-ae6e-43fa-ad78-740ed8f079c0&#39;</span>
+<span style="color:#00a8c8">LIMIT</span> <span style="color:#ae81ff">20</span></code></pre></div>
+<p>It looks pretty bad in URL and exposes implementation details to clients. But it&rsquo;s not a problem, it&rsquo;s an opportunity.</p>
+
+<p>Backend can encode cursor, so client won&rsquo;t even try to interpret and modify it.
+For example, use base64 + JSONs (JWT-like approach). The example above becomes
+<code>cursor = base64({&quot;n&quot;:&quot;entityName&quot;,&quot;id&quot;:&quot;d4f0a9e8-ae6e-43fa-ad78-740ed8f079c0&quot;})</code>. I.e. the cursor will look like <code>eyJuYW1lIjoiZW50aXR5TmFtZSIsImlkIjoiZDRmMGE5ZTgtYWU2ZS00M2ZhLWFkNzgtNzQwZWQ4ZjA3OWMwIn0=</code>.</p>
+
+<p>You can even start by base64-ing JSONs like <code>{&quot;offset&quot;: 10}</code>, implement API level, and then carefully refactor the database level later when you hit offset&rsquo;s problems.</p>
+
+<p>In other words, it can bring great flexibility in implementation in exchange of complexity.</p>
 
 <h3 id="pros-2">Pros</h3>
 
@@ -397,26 +428,24 @@ backend needs to read them all from a database.</li>
 <h3 id="cons-2">Cons</h3>
 
 <ul>
-<li>No out of the box support in tools. Here&rsquo;s examples for <a href="https://github.com/nitely/django-infinite-scroll-pagination">Django</a> and <a href="https://www.jooq.org/doc/3.9/manual/sql-building/sql-statements/select-statement/seek-clause/">jOOQ</a>.</li>
+<li>No &ldquo;out of the box&rdquo; support in tools. Here&rsquo;s examples for <a href="https://github.com/nitely/django-infinite-scroll-pagination">Django</a> and <a href="https://www.jooq.org/doc/3.9/manual/sql-building/sql-statements/select-statement/seek-clause/">jOOQ</a>, but not many other frameworks support it.</li>
 <li>More complex for backend to implement.</li>
 <li>Cursors can break if entities are deleted from the database.</li>
 </ul>
 
 <hr />
 
-<p>Of couse, it&rsquo;s not good to force client to figure out cursor value based on clues in entities. For this reason, it&rsquo; recommended to return responses like this:</p>
+<p>Of course, it&rsquo;s not good to force the client to figure out cursor value based on clues in entities. For this reason, it&rsquo;s recommended to return responses like this:</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#111">{</span>
     <span style="color:#f92672">&#34;items&#34;</span><span style="color:#111">:</span> <span style="color:#111">[],</span>
     <span style="color:#f92672">&#34;page&#34;</span><span style="color:#111">:</span> <span style="color:#111">{</span>
-        <span style="color:#f92672">&#34;next&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;encoded cursor value&#34;</span>
+        <span style="color:#f92672">&#34;next&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;encoded cursor value&#34;</span><span style="color:#111">,</span>
+        <span style="color:#f92672">&#34;prev&#34;</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;encoded cursor value&#34;</span>
     <span style="color:#111">}</span>
 <span style="color:#111">}</span></code></pre></div>
 <h2 id="conclusion">Conclusion</h2>
 
-<p>I would recommend to use some form of keyset pagination for all new APIs. This is good for performance and frees clients from temptation to do offset calculation logic.</p>
-
-<p>Designed carefully, it can also bring great flexibility in implementation. Backend can encode cursor, so cliend won&rsquo;t even try to interpret and modify it.
-For example, use base64 for single field cursors, or using base64 of JSONs with multifield cursors (JWT-like approach). You can even start by base64-ing JSONs like <code>{&quot;offset&quot;: 10}</code>, implement API level, and then carefully refactor the database level later, when you hit offset&rsquo;s problems.</p>
+<p>I would recommend to use some form of keyset pagination for all new APIs. This is consistent and flexible.</p>
 
 
 
